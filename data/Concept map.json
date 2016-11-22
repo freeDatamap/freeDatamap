@@ -1,0 +1,172 @@
+{
+    "$schema": "http://www.freedatamap.com/jsonSchema/schema#",
+    "$charset": "UTF-8",
+    "root": {
+        "name": "Concept map",
+        "children": [{
+            "name": "promotes meaningful information",
+            "children": [{
+                "name": "based on aggregated information",
+                "rawNode": {
+                    "connectedFrom": [{
+                        "nodePath": "Concept map|represents organised knowledge|through concepts|that are entities|aggregating sub entities"
+                    }],
+                    "connectedFrom.dm_props": {
+                        "name": "connectedFrom",
+                        "label": "connectedFrom",
+                        "type": "transverse link",
+                        "source": "user"
+                    }
+                },
+                "children": [{
+                    "name": "coming from analytics",
+                    "children": [{
+                        "name": "computed in backtrack"
+                    }, {
+                        "name": "computed in foretrack"
+                    }]
+                }]
+            }, {
+                "name": "based on associations",
+                "children": [{
+                    "name": "hierarchical relations",
+                    "rawNode": {
+                        "connectedTo": [{
+                            "nodePath": "Concept map|represents organised knowledge|through propositions|that are relationships between concepts|hierarchical"
+                        }],
+                        "connectedTo.dm_props": {
+                            "name": "connectedTo",
+                            "label": "connectedTo",
+                            "type": "transverse link",
+                            "source": "user"
+                        }
+                    }
+                }, {
+                    "name": "transversal relations",
+                    "rawNode": {
+                        "connectedTo": [{
+                            "nodePath": "Concept map|represents organised knowledge|through propositions|that are relationships between concepts|transversal"
+                        }],
+                        "connectedTo.dm_props": {
+                            "name": "connectedTo",
+                            "label": "connectedTo",
+                            "type": "transverse link",
+                            "source": "user"
+                        }
+                    }
+                }]
+            }, {
+                "name": "based on atomic information",
+                "rawNode": {
+                    "connectedFrom": [{
+                        "nodePath": "Concept map|represents organised knowledge|through concepts|that are entities|atomic"
+                    }],
+                    "connectedFrom.dm_props": {
+                        "name": "connectedFrom",
+                        "label": "connectedFrom",
+                        "type": "transverse link",
+                        "source": "user"
+                    }
+                },
+                "children": [{
+                    "name": "coming from automation",
+                    "children": [{
+                        "name": "JSON"
+                    }, {
+                        "name": "LDAP"
+                    }, {
+                        "name": "SQLite DB"
+                    }, {
+                        "name": "flat datasheets (CSV)"
+                    }, {
+                        "name": "geoJSON"
+                    }, {
+                        "name": "SPARQL"
+                    }, {
+                        "name": "Helium pedigrees"
+                    }]
+                }, {
+                    "name": "coming from user entry",
+                    "children": [{
+                        "name": "manual edit in the map"
+                    }]
+                }]
+            }]
+        }, {
+            "name": "represents organised knowledge",
+            "children": [{
+                "name": "through concepts",
+                "children": [{
+                    "name": "that are entities",
+                    "children": [{
+                        "name": "aggregating sub entities",
+                        "rawNode": {
+                            "connectedTo": [{
+                                "nodePath": "Concept map|promotes meaningful information|based on aggregated information"
+                            }],
+                            "connectedTo.dm_props": {
+                                "name": "connectedTo",
+                                "label": "connectedTo",
+                                "type": "transverse link",
+                                "source": "user"
+                            }
+                        }
+                    }, {
+                        "name": "atomic",
+                        "rawNode": {
+                            "connectedTo": [{
+                                "nodePath": "Concept map|promotes meaningful information|based on atomic information"
+                            }],
+                            "connectedTo.dm_props": {
+                                "name": "connectedTo",
+                                "label": "connectedTo",
+                                "type": "transverse link",
+                                "source": "user"
+                            }
+                        }
+                    }]
+                }]
+            }, {
+                "name": "through propositions",
+                "children": [{
+                    "name": "that are relationships between concepts",
+                    "children": [{
+                        "name": "hierarchical",
+                        "rawNode": {
+                            "connectedFrom": [{
+                                "nodePath": "Concept map|promotes meaningful information|based on associations|hierarchical relations"
+                            }],
+                            "connectedFrom.dm_props": {
+                                "name": "connectedFrom",
+                                "label": "connectedFrom",
+                                "type": "transverse link",
+                                "source": "user"
+                            }
+                        }
+                    }, {
+                        "name": "transversal",
+                        "rawNode": {
+                            "connectedFrom": [{
+                                "nodePath": "Concept map|promotes meaningful information|based on associations|transversal relations"
+                            }],
+                            "connectedFrom.dm_props": {
+                                "name": "connectedFrom",
+                                "label": "connectedFrom",
+                                "type": "transverse link",
+                                "source": "user"
+                            }
+                        }
+                    }]
+                }]
+            }]
+        }],
+        "dm_DatamapName": "Concept map.json",
+        "dm_lastAggregationStamp": 1469032999471,
+        "dm_config": {
+            "depth": 10,
+            "inheritDefaultConfig": true,
+            "moveRootYPercent": -18,
+            "txtFontSize": 16
+        }
+   }
+}

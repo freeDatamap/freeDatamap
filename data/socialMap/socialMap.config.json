@@ -1,0 +1,381 @@
+{
+    "$schema": "http://www.freedatamap.com/jsonConfigSchema/schema#",
+    "$charset": "UTF-8",
+    "config": {
+        "name": "socialMap",
+        "root": "socialMap",
+        "center": "socialMap",
+        "depth": 2,
+        "ask4server": true,
+        "sort": "items",
+        "sortDescendant": true,
+        "displayTransversalConnections": true,
+        "displayArrowsOfTransversalConnections": true,
+        "txtFontSize": 15,
+        "aggregate": [{
+            "name": "items",
+            "array index": 1,
+            "value": "var output = 1 ;
+if(node.children && (node.children.length > 0)) {
+    var i = node.children.length - 1 ;
+    output = 0 ;
+    for(; i>=0; i--) {
+        output += node.children[i].rawNode[propName] ;
+    }
+}
+return output ;",
+            "funcDropdown": "count leaves",
+            "execAfterChildrenVisit": true,
+            "onlyLeaves": true
+        }],
+        "displayProps": [{
+            "name": "root",
+            "visible": false,
+            "edit": false
+        }, {
+            "name": "level 1",
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "level 2",
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "level 3",
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "level 4",
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "level 5",
+            "visible": false,
+            "edit": false
+        }, {
+            "name": "level 6",
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "level 7",
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "level 8",
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "level 9",
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "level 10",
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "level 11",
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "level 12",
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "level 13",
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "level 14",
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "level 15",
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "level 16",
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "level 17",
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "level 18",
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "leaf",
+            "edit": true,
+            "visible": true
+        }],
+        "styles": [{
+            "name": "root",
+            "array index": 0,
+            "level": 0,
+            "arrow": true,
+            "arc": false,
+            "rNod": 10,
+            "link": 130,
+            "color": "#9467bd",
+            "attrPaneCol": "#c5b0d5",
+            "backgroundImage": "socialMap/social-network.jpg",
+            "backgroundImage.dm_props": {
+                "order": 11,
+                "label": "Background image",
+                "type": "image",
+                "visible": true,
+                "width": 540,
+                "height": 405,
+                "dontReplaceIfNotNull": true,
+                "opacity": 0.18,
+                "dontExport": true,
+                "dropzoneLabel": "Drag and drop your file here",
+                "displayValueLabel": false,
+                "dontEdit": ["removeButton", "name", "label", "edit", "type", "source", "x", "y", "width", "height", "scaleFactor", "imageName", "inlineSrc", "panelMaxHeight", "textX", "borderRadius"]
+            }
+        }, {
+            "name": "level 1",
+            "array index": 1,
+            "level": 1,
+            "arrow": true,
+            "arc": false,
+            "rNod": 10,
+            "link": 130,
+            "color": "#1f77b4",
+            "attrPaneCol": "#aec7e8",
+            "icon": "socialMap/myPicture.png",
+            "icon.dm_props": {
+                "order": 2,
+                "label": "Picture or logo",
+                "type": "image",
+                "visible": true,
+                "width": 128,
+                "height": 128,
+                "scaleFactor": 5.5,
+                "dontReplaceIfNotNull": true,
+                "panelMaxHeight": 180,
+                "dropzoneLabel": "Drag and drop your file here",
+                "displayValueLabel": false,
+                "dontEdit": ["removeButton", "name", "label", "edit", "type", "source", "x", "y", "width", "height", "scaleFactor", "imageName", "inlineSrc", "panelMaxHeight"]
+            }
+        }, {
+            "name": "level 2",
+            "array index": 2,
+            "level": 2,
+            "arrow": true,
+            "arc": false,
+            "rNod": 9,
+            "link": 130,
+            "color": "#1f77b4",
+            "attrPaneCol": "#aec7e8"
+        }, {
+            "name": "level 3",
+            "array index": 3,
+            "level": 3,
+            "arrow": true,
+            "arc": false,
+            "rNod": 9,
+            "link": 130,
+            "color": "#d62728",
+            "attrPaneCol": "#ff9896"
+        }, {
+            "name": "level 4",
+            "array index": 4,
+            "level": 4,
+            "arrow": true,
+            "arc": false,
+            "rNod": 8,
+            "link": 130,
+            "color": "#2ca02c",
+            "attrPaneCol": "#98df8a"
+        }, {
+            "name": "level 5",
+            "array index": 5,
+            "level": 5,
+            "arrow": true,
+            "arc": false,
+            "rNod": 8,
+            "link": 130,
+            "color": "#ff7f0e",
+            "attrPaneCol": "#ffbb78"
+        }, {
+            "name": "level 6",
+            "array index": 6,
+            "level": 6,
+            "arrow": true,
+            "arc": false,
+            "rNod": 7,
+            "link": 130,
+            "color": "#e377c2",
+            "attrPaneCol": "#f7b6d2"
+        }, {
+            "name": "level 7",
+            "array index": 7,
+            "level": 7,
+            "arrow": true,
+            "arc": false,
+            "rNod": 7,
+            "link": 130,
+            "color": "#bcbd22",
+            "attrPaneCol": "#dbdb8d"
+        }, {
+            "name": "level 8",
+            "array index": 8,
+            "level": 8,
+            "arrow": true,
+            "arc": false,
+            "rNod": 6,
+            "link": 130,
+            "color": "#17becf",
+            "attrPaneCol": "#9edae5"
+        }, {
+            "name": "level 9",
+            "array index": 9,
+            "level": 9,
+            "arrow": true,
+            "arc": false,
+            "rNod": 6,
+            "link": 130,
+            "color": "#6b6ecf",
+            "attrPaneCol": "#9c9ede"
+        }, {
+            "name": "level 10",
+            "array index": 10,
+            "level": 10,
+            "arrow": true,
+            "arc": false,
+            "rNod": 5,
+            "link": 130,
+            "color": "#1f77b4",
+            "attrPaneCol": "#aec7e8"
+        }, {
+            "name": "level 11",
+            "array index": 11,
+            "level": 11,
+            "arrow": true,
+            "arc": false,
+            "rNod": 5,
+            "link": 130,
+            "color": "#ff7f0e",
+            "attrPaneCol": "#ffbb78"
+        }, {
+            "name": "level 12",
+            "array index": 12,
+            "level": 12,
+            "arrow": true,
+            "arc": false,
+            "rNod": 5,
+            "link": 130,
+            "color": "#2ca02c",
+            "attrPaneCol": "#98df8a"
+        }, {
+            "name": "level 13",
+            "array index": 13,
+            "level": 13,
+            "arrow": true,
+            "arc": false,
+            "rNod": 5,
+            "link": 130,
+            "color": "#d62728",
+            "attrPaneCol": "#ff9896"
+        }, {
+            "name": "level 14",
+            "array index": 14,
+            "level": 14,
+            "arrow": true,
+            "arc": false,
+            "rNod": 5,
+            "link": 130,
+            "color": "#9467bd",
+            "attrPaneCol": "#c5b0d5"
+        }, {
+            "name": "level 15",
+            "array index": 15,
+            "level": 15,
+            "arrow": true,
+            "arc": false,
+            "rNod": 4,
+            "link": 130,
+            "color": "#e377c2",
+            "attrPaneCol": "#f7b6d2"
+        }, {
+            "name": "level 16",
+            "array index": 16,
+            "level": 16,
+            "arrow": true,
+            "arc": false,
+            "rNod": 4,
+            "link": 130,
+            "color": "#bcbd22",
+            "attrPaneCol": "#dbdb8d"
+        }, {
+            "name": "level 17",
+            "array index": 17,
+            "level": 17,
+            "arrow": true,
+            "arc": false,
+            "rNod": 4,
+            "link": 130,
+            "color": "#17becf",
+            "attrPaneCol": "#9edae5"
+        }, {
+            "name": "level 18",
+            "array index": 18,
+            "level": 18,
+            "arrow": true,
+            "arc": false,
+            "rNod": 4,
+            "link": 130,
+            "color": "#6b6ecf",
+            "attrPaneCol": "#9c9ede"
+        }, {
+            "name": "leaf",
+            "array index": 19,
+            "level": 19,
+            "arrow": false,
+            "arc": true,
+            "rNod": 4,
+            "link": 95,
+            "color": "#c7c7c7",
+            "attrPaneCol": "#c7c7c7",
+            "txtCol": "#7f7f7f"
+        }],
+        "columnNames": 0,
+        "maxDepthForExport": 0,
+        "specifics": [
+        /* ----------------------------------------------------------------------------------------------------------------------------------------
+                     "name": "$dm_root",
+           ----------------------------------------------------------------------------------------------------------------------------------------*/
+        {
+            "name": "$dm_root",
+            "rawNode": {
+                "dm_newAttribute": null,
+                "dm_newAttribute.dm_props": {
+                    "order": 1,
+                    "visible": false,
+                    "hideFromEdit": true
+                }
+            }
+        },
+        /* ----------------------------------------------------------------------------------------------------------------------------------------
+                     "name": "$dm_root|*",
+           ----------------------------------------------------------------------------------------------------------------------------------------*/
+        {
+            "name": "$dm_root|*",
+            "rawNode": {
+                "dm_goto": "socialMap/somebody.json",
+                "dm_goto.dm_props": {
+                    "showWorkInProgress": false,
+                    "dontReplaceIfNotNull": true,
+                    "hideFromEdit": true
+                },
+                "dm_goto_config": "socialMap/somebody.config.json",
+                "dm_goto_config.dm_props": {
+                    "hideFromEdit": true
+                }
+            }
+        }
+        ]
+    }
+}

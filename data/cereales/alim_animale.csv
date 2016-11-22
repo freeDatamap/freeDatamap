@@ -1,0 +1,111 @@
+Famille;Catégorie;sous-catégorie;matière première;Nb établ.;k tonnes;%
+;;;;;;
+Céréales;;;;257;10 559,90;48,4
+Céréales;;;Blé tendre;247;4 931,50;22,6
+Céréales;;;Maïs;246;3 586,30;16,4
+Céréales;;;Orge;236;1 254,50;5,8
+Céréales;;;Triticale;153;624,9;2,9
+Céréales;;;Sorgho;34;48,4;0,2
+Céréales;;;Avoine;141;53,4;0,2
+Céréales;;;Seigle;20;7;0
+Céréales;;;Autres;42;54;0,2
+;;;;;;
+;;;Racines et tubercules secs;12;0,9;0
+;;;;;;
+Coproduits de transformation;;;;260;2 655,90;12,2
+Coproduits de transformation;;;Sons fins et gros de blé tendre;209;754,8;3,5
+Coproduits de transformation;;;Remoulages et Protéines basses de blé tendre;88;223,5;1
+Coproduits de transformation;;;Sons et issues d'autres céréales;117;264,7;1,2
+Coproduits de transformation;;;Wheatfeed ;143;577,6;2,6
+Coproduits de transformation;;;Cornglutenfeed, drèches et solubles de maïs;138;313,4;1,4
+Coproduits de transformation;;;Glutens de maïs;139;34,8;0,2
+Coproduits de transformation;;;Glycerol;36;;
+Coproduits de transformation;;;Mélasse;192;138,8;0,6
+Coproduits de transformation;;;Vinasses;83;83,4;0,4
+Coproduits de transformation;;;Radicelles d'orge séchées;42;57;0,3
+Coproduits de transformation;;;Drèches et solubles d'orge;6;;
+Coproduits de transformation;;;Coques diverses et gousses;92;97,9;0,4
+Coproduits de transformation;;;Autres;86;91,6;0,4
+;;;;;;
+Matières grasses;;;;230;173;0,8
+Matières grasses;Matières grasses d'origine végétale;;;228;160;0,7
+Matières grasses;Matières grasses d'origine végétale;       Huile végétale fluide;;188;77,5;0,4
+Matières grasses;Matières grasses d'origine végétale;       Huile végétale fluide;            huile végétale fluide de soja;91;43,5;0,2
+Matières grasses;Matières grasses d'origine végétale;       Huile végétale fluide;            huile végétale fluide de colza;115;34;0,2
+Matières grasses;Matières grasses d'origine végétale;;      Autres huiles végétales fluides;23;5,9;0
+Matières grasses;Matières grasses d'origine végétale;;      Huile de palme;80;52,3;0,2
+Matières grasses;Matières grasses d'origine végétale;;      Huiles acides;24;17,8;0,1
+Matières grasses;Matières grasses d'origine végétale;;       Autres mat. grasses végétales;87;6,5;0
+Matières grasses;Matières grasses d'origine animale;;;16;13;0,1
+Matières grasses;Matières grasses d'origine animale;;        Huile de poisson;12;10,7;0
+Matières grasses;Matières grasses d'origine animale;;        Suifs et Saindoux;0;0;0
+Matières grasses;Matières grasses d'origine animale;;        Graisses de volaille;7;1,8;0
+Matières grasses;Matières grasses d'origine animale;;        Autres mat. grasses animales;7;0,5;0
+;;;;;;
+Produits déshydratés;;;;228;649,1;3
+Produits déshydratés;;;Luzerne déshydratée;201;230,1;1,1
+Produits déshydratés;;;Pulpe de betterave déshydratée;203;363,3;1,7
+Produits déshydratés;;;Pulpe d'agrumes déshydratée;30;12,4;0,1
+Produits déshydratés;;;Autres ;78;43,3;0,2
+;;;;;;
+Graines protéagineuses et oléoprotéagineuses;;;;210;293,8;1,3
+Graines protéagineuses et oléoprotéagineuses;;;Pois;85;81,3;0,4
+Graines protéagineuses et oléoprotéagineuses;;;Graines de soja;113;100,1;0,5
+Graines protéagineuses et oléoprotéagineuses;;;Graines de colza;55;37,4;0,2
+Graines protéagineuses et oléoprotéagineuses;;;Fèves et féveroles;38;19,5;0,1
+Graines protéagineuses et oléoprotéagineuses;;;Graines de lin;79;23,8;0,1
+Graines protéagineuses et oléoprotéagineuses;;;SSP - Agreste - octobre 2014;82;31,7;0,1
+;;;;;;
+Tourteaux;;;;258;6 372,60;29,2
+Tourteaux;;Soja tannés;Soja;42;111,6;0,5
+Tourteaux;;Soja non tannés;Soja;234;2 790,50;12,8
+Tourteaux;;;Colza;233;1 980,00;9,1
+Tourteaux;;Tournesol  non décortiqué;Tournesol (lopro);178;453,1;2,1
+Tourteaux;;Tournesol décortiqué;Tournesol (hipro-midpro);181;787,7;3,6
+Tourteaux;;;Arachide;42;43,9;0,2
+Tourteaux;;;Germes de maïs;35;42,6;0,2
+Tourteaux;;;Lin;98;60,3;0,3
+Tourteaux;;;Palme ;50;79,2;0,4
+Tourteaux;;;Autres ;42;23,8;0,1
+;;;;;;
+Protéines d'origine animale;;;;14;33,4;0,2
+Protéines d'origine animale;;;Protéines et solubles de poisson;13;33,1;0,2
+;;;;;;
+Produits laitiers;;;;75;23,2;0,1
+Produits laitiers;;;Poudre de lactosérum;62;14,3;0,1
+;;;;;;
+Produits azones divers;;;;244;176,8;0,8
+Produits azones divers;;Acides aminés ;;211;76,3;0,3
+Produits azones divers;;Acides aminés ;             dont lysine;208;49,3;0,2
+Produits azones divers;;Acides aminés ;            dont methionine;201;16,5;0,1
+Produits azones divers;;;Produits protéiques à partir micro-org.;53;45,6;0,2
+Produits azones divers;;;Urée et sels d'ammonium (hors chlorure);168;45,6;0,2
+Produits azones divers;;;Levures (tuées ou désactivées et produits dérivés);105;2,8;0
+Produits azones divers;;;Autres ;13;6,4;0
+;;;;;;
+Additifs technologiques et prémélanges;;;;241;196,5;0,9
+Additifs technologiques et prémélanges;;;Total additifs utilisés en l'état;216;71,8;0,3
+Additifs technologiques et prémélanges;;;Liants-Antimottants, argiles utilisés en l'état (sépiolite, bentotite, talc…);179;40,5;0,2
+Additifs technologiques et prémélanges;;Autres additifs technologiques utilisés en l'état;;133;15,3;0,1
+Additifs technologiques et prémélanges;;Autres additifs technologiques utilisés en l'état;       dont conservateurs (acides organiques et leurs sels…);121;9,5;0
+Additifs technologiques et prémélanges;;Autres additifs technologiques utilisés en l'état;      dont autres additifs technologiques (antioxygène, épaississants, stabilisants…);39;3,2;0
+Additifs technologiques et prémélanges;;;Additifs sensoriels utilisés en l'état (colorants, substances aromatiques);147;5,4;0
+Additifs technologiques et prémélanges;;Additifs nutrionnels utilisés en l'état;;88;10,7;0
+Additifs technologiques et prémélanges;;Additifs nutrionnels utilisés en l'état;       vitamines;78;7,5;0
+Additifs technologiques et prémélanges;;Additifs nutrionnels utilisés en l'état;       oligo-éléments;30;3,2;0
+Additifs technologiques et prémélanges;;;Total prémélanges;231;121,9;0,6
+Additifs technologiques et prémélanges;;;Prémélanges d'additifs (vitamines et/ou oligo-élements et/ou acides aminés et/ou additifs zootechniques et/ou coccidiostatiques…);217;110,4;0,5
+Additifs technologiques et prémélanges;;;Prémélanges médicamenteux;169;11,5;0,1
+Additifs technologiques et prémélanges;;;Autres;39;2,7;0
+;;;;;;
+Minéraux et sels minéraux;;;;254;562,5;2,6
+Minéraux et sels minéraux;;;Phosphates;234;81,4;0,4
+Minéraux et sels minéraux;;;Carbonates de calcium;240;388,8;1,8
+Minéraux et sels minéraux;;;Sel;233;62,8;0,3
+Minéraux et sels minéraux;;;Magnésie, sels de magnésie;105;3;0
+Minéraux et sels minéraux;;;Bicarbonate de sodium;193;15;0,1
+Minéraux et sels minéraux;;;Autres;61;11,4;0,1
+;;;;;;
+Produits divers;;;;110;110,4;0,5
+Produits divers;;;Foins et pailles;62;35,3;0,2
+Produits divers;;;Autres;67;75,1;0,3

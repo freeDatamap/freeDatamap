@@ -1,0 +1,686 @@
+{
+    "$schema": "http://www.freedatamap.com/jsonSchema/schema#",
+    "$charset": "UTF-8",
+    "root": {
+        "name": "Telecom Valley",
+        "level": 0,
+        "rawNode": {
+            "icon": "TV/25 ans TV.png",
+            "icon.dm_props": {
+                "type": "image",
+                "scaleFactor": 8,
+                "width": 200,
+                "height": 200,
+                "rRotatingTarget": 53,
+                "noTint": true
+            },
+            "image": "TV/TV_25_ans_logo.png",
+            "image.dm_props": {
+                "type": "image",
+                "visible": true
+            },
+            "image2": "TV/engagements/devise.png",
+            "image2.dm_props": {
+                "type": "image",
+                "visible": true
+            },
+            "Description": "
+<div class=\"dm_normal\">
+<div class=\"dm_border dm_success dm_center\">4 valeurs fondatrices : <b>Animation, Partage, Open Innovation et Business.</b></div>
+
+<div class=\"dm_emphasis dm_txtShadow dm_center\"><b>Depuis 25 ans, Telecom Valley oeuvre pour la fédération et l'animation de l'écosystème numérique de la côte d'azur. L'association met en place les actions utiles pour soutenir les entreprises locales du secteur, poursuivant 5 objectifs principaux :</b></div>
+
+<div class=\"dm_emphasis dm_info dm_txtShadow\"><b>Partager le savoir et les compétences</b></div>
+Les communautés thématiques sont le <u>coeur battant de la Telecom Valley</u>. Elles sont à la fois le cadre de <b>rencontres</b> et de <b>partage d'information</b>, de <b>savoir</b> et de <b>compétences entre acteurs de l'écosystème</b>.<br />
+<br/>
+A travers elles et leurs projets (ateliers et conférences), grâce aux bénévoles qui les animent, Telecom Valley participe à <b>diffuser du savoir</b>, des <b>compétences</b>, des <b>bonnes pratiques</b> et des <b>réflexions</b> sur des thématiques d'actualité liées aux <b>préoccupations de l'écosystème numérique local</b>.<br />
+<br />
+
+<div class=\"dm_emphasis dm_info dm_txtShadow\"><b>Soutenir les entreprises du numérique au quotidien</b></div>
+Via des actions propices à leur développement comme l'<b>offre de services complémentaires</b> pour les petites structures, l'<b>organisation de sessions ciblées</b>, de <b>rencontres et de présentations techniques</b>, la <b>diffusion de l'actualité et du succès de ses membres</b>.<br />
+<br/>
+Elle aide ses membres de toute taille et de tout type d'activité à se mettre en contact afin de réaliser de l'<b>open-innovation</b> : <u>PME/grand groupe</u>, <u>PME/académique</u>, etc. Elle tente également, accompagnée de partenaires, de bousculer les conventions en traitant de sujets parfois complexes comme l'échec ou rebond entreprenarial, afin de démystifier et d'apporter des réponses aux entrepreneurs actuels et futurs.<br />
+<br />
+
+<div class=\"dm_emphasis dm_info dm_txtShadow\"><b>Favoriser l'entreprenariat étudiant</b></div>
+Telecom Valley met en oeuvre des actions d'<b>évangélisation, de promotion de la filière et de l'esprit d'entreprise, de formation ou de rencontres étudiants/entrepreneurs du numérique</b>, notamment via le Challenge Jeunes Pousses et SoFAB (FabLab de Sophia Antipolis).<br />
+<br />
+
+<div class=\"dm_emphasis dm_info dm_txtShadow\"><b>Favoriser le business par la rencontre et l'échange</b></div>
+A travers \"<b>les business lunches</b>\" réguliers, les <b>workshops business, l'accompagnement de ses membres sur des salons métier stratégiques</b> et les moments conviviaux ponctuant chacune de ces manifestations, Telecom Valley offre <b></u>le cadre propice aux rencontres Business</u></b> qui permettent aux acteurs de se découvrir, de <b><u>comprendre l'activité de l'autre</u></b>, et de <b><u>favoriser l'émergence de synergies et de collaborations business</u></b>.<br />
+<br />
+
+<div class=\"dm_emphasis dm_info dm_txtShadow\"><b>Faire émerger des projets collaboratifs</b></div>
+Les commissions de la Telecom Valley sont un creuset où les idées émergent, se rencontrent, se développent <b>jusqu'à devenir des projets qui contribuent à faire avancer notre écosystème</b> (le Talent Recruitment ToolKit, les livres blancs, le Challenge Jeunes Pousses, le FabLab de Sophia Antipolis, les conférences, etc).<br />
+<br/>
+Certains projets collaboratifs peuvent ensuite être accompagnés par les pôles de compétitivité, pour être labellisés, comme la plateforme d'expérimentation réseaus Télécom, née au sein de la Telecom Valley.<br/>
+
+</div>
+",
+            "Description.dm_props": {
+                "type": "rich text",
+                "visible": true
+            }
+        },
+        "dm_DatamapName": "Telecom Valley.json",
+        "children": [{
+            "name": "Histoire",
+            "level": 1,
+            "rawNode": {
+                "icon": "TV/icones/histoire.png",
+                "icon.dm_props": {
+	                "type": "image",
+	                "visible": true,
+	                "scaleFactor": 6,
+	                "width": 200,
+	                "height": 200,
+                    "textX": 3
+                },
+                "histoireCloud":"
+var output = [] ;
+var children = dm_Tools.getNonReducedChildren(node, 2, 'onlyGivenLevel', 'absoluteLvl') ;
+var name ;
+while(children.length > 0) {
+	name = children.pop().name ;
+	if(output.indexOf(name) < 0) {
+		output.push(name) ;
+	}
+}
+output ;
+",
+				"histoireCloud.dm_props": {
+	                "order": 30,
+	                "type": "cloud",
+	                "visible": true,
+	                "sizeFactor": 40,
+	                /*"heightPercent": "50%",*/
+	                "angleFactor": 8,
+	                "colorPalette": "dm_Tools.modifiedCategory20b() ;",
+	                "hideFromEdit": true,
+	                "dontExport": true,
+	                "displayEvenIfNull": true
+				}
+            },
+            "children": [{
+	            "name": "Présidents",
+	            "level": 2,
+	            "rawNode": {
+	                "icon": "TV/icones/president.png",
+	                "icon.dm_props": {
+		                "type": "image",
+		                "visible": true,
+		                "scaleFactor": 6,
+		                "width": 200,
+		                "height": 200,
+	                    "textX": 3
+	                }
+	            },
+                "dm_goto": "TV/presidents.csv"
+            }, {
+	            "name": "Chiffres",
+	            "level": 2,
+	            "rawNode": {
+	                "icon": "TV/icones/analytics.png",
+	                "icon.dm_props": {
+		                "type": "image",
+		                "visible": true,
+		                "scaleFactor": 6,
+		                "width": 200,
+		                "height": 200,
+	                    "textX": 3,
+	                    "order": 0
+	                },
+	                /*
+	                "inheritFromChildren": "
+var copieFromChild = function(childName, propName) {
+	var child = dm_Tools.getChild(node, childName) ;
+	node.rawNode[propName] = child.rawNode[propName] ;
+	node.rawNode[propName + '.dm_props'] = child.rawNode[propName + '.dm_props'] ;
+}
+copieFromChild('Participation aux actions', 'participants1') ;
+copieFromChild('Evolution', 'evolution') ;
+copieFromChild('Bénévoles', 'benevolat1') ;
+'#dm_STOP_AND_REDRAW_ATTRIBUTES_PANEL#10' ;
+",
+	                "inheritFromChildren.dm_props": {
+	                    "order": 10,
+	                    "visible": true,
+	                    "type": "execute"
+	                }
+	                */
+	                "participants1": 0,
+	                "participants1.dm_props": {
+                        "type": "graph",
+                        "3D": false,
+                        "label": "Nombre de participants par activité",
+                        "doTransition": true,
+                        "input": "return [
+{'name': 'Challenge JP', 'value': 453, 'unit': 'personnes'},
+{'name': 'Business Lunch / Communication', 'value': 167, 'unit': 'personnes'},
+{'name': 'Sécurité & Cloud', 'value': 126, 'unit': 'personnes'},
+{'name': 'Emploi-Formation', 'value': 263, 'unit': 'personnes'},
+{'name': 'Gouvernance', 'value': 247, 'unit': 'personnes'},
+{'name': 'Innovation', 'value': 228, 'unit': 'personnes'},
+{'name': 'm-Tourisme', 'value': 274, 'unit': 'personnes'},
+{'name': 'Open Source', 'value': 1034, 'unit': 'personnes'},
+{'name': 'Agilité-Qualité', 'value': 404, 'unit': 'personnes'},
+{'name': 'SoFAB', 'value': 614, 'unit': 'personnes'}
+] ;",
+                        "visible": true
+	                },
+	                "evolution": 0,
+	                "evolution.dm_props": {
+                        "type": "graph",
+                        "3D": false,
+                        "graphModel": "multiBarChart",
+                        "label": "Nombre de membres par année",
+                        "stacked": true,
+                        "doTransition": true,
+                        "displayLegend": false,
+                        "height": 430,
+                        "input": "return [
+{'key': 'Grands Groupes', 'values': [{'x': '2008', 'y': 31}, {'x': '2009', 'y': 19}, {'x': '2010', 'y': 20}, {'x': '2011', 'y': 18}, {'x': '2012', 'y': 19}, {'x': '2013', 'y': 15}, {'x': '2014', 'y': 16}, {'x': '2015', 'y': 13}, {'x': '2016', 'y': 14}]},
+{'key': 'Membres associés', 'values': [{'x': '2008', 'y': 7}, {'x': '2009', 'y': 4}, {'x': '2010', 'y': 3}, {'x': '2011', 'y': 3}, {'x': '2012', 'y': 4}, {'x': '2013', 'y': 3}, {'x': '2014', 'y': 3}, {'x': '2015', 'y': 3}, {'x': '2016', 'y': 4}]},
+{'key': 'Organismes', 'values': [{'x': '2008', 'y': 7}, {'x': '2009', 'y': 9}, {'x': '2010', 'y': 12}, {'x': '2011', 'y': 11}, {'x': '2012', 'y': 9}, {'x': '2013', 'y': 8}, {'x': '2014', 'y': 6}, {'x': '2015', 'y': 9}, {'x': '2016', 'y': 11}]},
+{'key': 'Partenaires/associations', 'values': [{'x': '2008', 'y': 15}, {'x': '2009', 'y': 24}, {'x': '2010', 'y': 24}, {'x': '2011', 'y': 25}, {'x': '2012', 'y': 28}, {'x': '2013', 'y': 33}, {'x': '2014', 'y': 30}, {'x': '2015', 'y': 28}, {'x': '2016', 'y': 28}]},
+{'key': 'PME', 'values': [{'x': '2008', 'y': 35}, {'x': '2009', 'y': 23}, {'x': '2010', 'y': 17}, {'x': '2011', 'y': 18}, {'x': '2012', 'y': 14}, {'x': '2013', 'y': 12}, {'x': '2014', 'y': 13}, {'x': '2015', 'y': 13}, {'x': '2016', 'y': 13}]},
+{'key': 'Startups TPE', 'values': [{'x': '2008', 'y': 9}, {'x': '2009', 'y': 35}, {'x': '2010', 'y': 48}, {'x': '2011', 'y': 54}, {'x': '2012', 'y': 48}, {'x': '2013', 'y': 45}, {'x': '2014', 'y': 53}, {'x': '2015', 'y': 76}, {'x': '2016', 'y': 80}]}
+] ;",
+                        "visible": true
+	                },
+	                "benevolat1": 0,
+	                "benevolat1.dm_props": {
+                        "type": "graph",
+                        "3D": true,
+                        "label": "Heures de bénévolat (hors gouv)",
+                        "doTransition": true,
+                        "input": "return [
+{'name': 'Julien HOLTZER', 'value': 101, 'unit': 'heures'},
+{'name': 'Jean-François CARRASCO', 'value': 93, 'unit': 'heures'},
+{'name': 'Elisabeth GEOFFROY', 'value': 90, 'unit': 'heures'},
+{'name': 'Pascal FLAMAND', 'value': 90, 'unit': 'heures'},
+{'name': 'Jean-Bernard TITZ', 'value': 72, 'unit': 'heures'},
+{'name': 'Fabrice LEBAS', 'value': 49, 'unit': 'heures'},
+{'name': 'Ivan TANCOVICH', 'value': 47, 'unit': 'heures'},
+{'name': 'Lionel FAURE', 'value': 45, 'unit': 'heures'},
+{'name': 'François LOCHET', 'value': 44, 'unit': 'heures'},
+{'name': 'Cédric ULMER', 'value': 37, 'unit': 'heures'}
+] ;",
+                        "visible": true
+	                }
+	            },
+	            "children": [{
+		            "name": "Evolution",
+		            "level": 3,
+		            "rawNode": {
+		                "evolution": 0,
+		                "evolution.dm_props": {
+	                        "type": "graph",
+	                        "3D": false,
+	                        "graphModel": "multiBarChart",
+	                        "label": "Nombre de membres par année",
+	                        "stacked": true,
+	                        "doTransition": true,
+	                        "displayLegend": false,
+	                        "height": 430,
+	                        "input": "return [
+{'key': 'Grands Groupes', 'values': [{'x': '2008', 'y': 31}, {'x': '2009', 'y': 19}, {'x': '2010', 'y': 20}, {'x': '2011', 'y': 18}, {'x': '2012', 'y': 19}, {'x': '2013', 'y': 15}, {'x': '2014', 'y': 16}, {'x': '2015', 'y': 13}, {'x': '2016', 'y': 14}]},
+{'key': 'Membres associés', 'values': [{'x': '2008', 'y': 7}, {'x': '2009', 'y': 4}, {'x': '2010', 'y': 3}, {'x': '2011', 'y': 3}, {'x': '2012', 'y': 4}, {'x': '2013', 'y': 3}, {'x': '2014', 'y': 3}, {'x': '2015', 'y': 3}, {'x': '2016', 'y': 4}]},
+{'key': 'Organismes', 'values': [{'x': '2008', 'y': 7}, {'x': '2009', 'y': 9}, {'x': '2010', 'y': 12}, {'x': '2011', 'y': 11}, {'x': '2012', 'y': 9}, {'x': '2013', 'y': 8}, {'x': '2014', 'y': 6}, {'x': '2015', 'y': 9}, {'x': '2016', 'y': 11}]},
+{'key': 'Partenaires/associations', 'values': [{'x': '2008', 'y': 15}, {'x': '2009', 'y': 24}, {'x': '2010', 'y': 24}, {'x': '2011', 'y': 25}, {'x': '2012', 'y': 28}, {'x': '2013', 'y': 33}, {'x': '2014', 'y': 30}, {'x': '2015', 'y': 28}, {'x': '2016', 'y': 28}]},
+{'key': 'PME', 'values': [{'x': '2008', 'y': 35}, {'x': '2009', 'y': 23}, {'x': '2010', 'y': 17}, {'x': '2011', 'y': 18}, {'x': '2012', 'y': 14}, {'x': '2013', 'y': 12}, {'x': '2014', 'y': 13}, {'x': '2015', 'y': 13}, {'x': '2016', 'y': 13}]},
+{'key': 'Startups TPE', 'values': [{'x': '2008', 'y': 9}, {'x': '2009', 'y': 35}, {'x': '2010', 'y': 48}, {'x': '2011', 'y': 54}, {'x': '2012', 'y': 48}, {'x': '2013', 'y': 45}, {'x': '2014', 'y': 53}, {'x': '2015', 'y': 76}, {'x': '2016', 'y': 80}]}
+] ;",
+	                        "visible": true
+		                }
+		            }
+	            }, {
+		            "name": "Répartition des adhérents",
+		            "level": 3,
+		            "rawNode": {
+		                "territoires": 0,
+		                "territoires.dm_props": {
+	                        "type": "graph",
+	                        "3D": false,
+	                        "label": "Pourcentages par territoires",
+	                        "doTransition": true,
+	                        "input": "return [
+{'name': 'Ile de France Bretagne', 'value': 1, 'unit': '%'}, 
+{'name': 'Bouches du Rhône', 'value': 8, 'unit': '%'},
+{'name': 'Var', 'value': 2, 'unit': '%'},
+{'name': 'Cannes', 'value': 5, 'unit': '%'},
+{'name': 'Grasse', 'value': 3, 'unit': '%'},
+{'name': 'Monaco', 'value': 2, 'unit': '%'},
+{'name': 'Sophia Antipolis', 'value': 55, 'unit': '%'},
+{'name': 'Nice Côte d Azur', 'value': 24, 'unit': '%'}
+] ;",
+	                        "visible": true
+		                },
+		                "metiers": 0,
+		                "metiers.dm_props": {
+	                        "type": "graph",
+	                        "3D": false,
+	                        "label": "Pourcentages par métiers",
+	                        "doTransition": true,
+	                        "input": "return [
+{'name': 'Logiciels', 'value': 21, 'unit': '%'}, 
+{'name': 'Associatif Institutionnel', 'value': 23, 'unit': '%'},
+{'name': 'Conseil Management Innovation Qualité', 'value': 15, 'unit': '%'},
+{'name': 'Recherche Enseignement', 'value': 5, 'unit': '%'},
+{'name': 'Opérateurs Réseaux Télécom', 'value': 3, 'unit': '%'},
+{'name': 'Mobile Communication digitale', 'value': 10, 'unit': '%'},
+{'name': 'Services numériques', 'value': 23, 'unit': '%'}
+] ;",
+	                        "visible": true
+		                }
+		            }
+	            }, {
+		            "name": "Participation aux actions",
+		            "level": 3,
+		            "rawNode": {
+		                "participants1": 0,
+		                "participants1.dm_props": {
+	                        "type": "graph",
+	                        "3D": false,
+	                        "label": "Nombre de participants par activité",
+	                        "doTransition": true,
+	                        "input": "return [
+{'name': 'Challenge JP', 'value': 453, 'unit': 'personnes'},
+{'name': 'Business Lunch / Communication', 'value': 167, 'unit': 'personnes'},
+{'name': 'Sécurité & Cloud', 'value': 126, 'unit': 'personnes'},
+{'name': 'Emploi-Formation', 'value': 263, 'unit': 'personnes'},
+{'name': 'Gouvernance', 'value': 247, 'unit': 'personnes'},
+{'name': 'Innovation', 'value': 228, 'unit': 'personnes'},
+{'name': 'm-Tourisme', 'value': 274, 'unit': 'personnes'},
+{'name': 'Open Source', 'value': 1034, 'unit': 'personnes'},
+{'name': 'Agilité-Qualité', 'value': 404, 'unit': 'personnes'},
+{'name': 'SoFAB', 'value': 614, 'unit': 'personnes'}
+] ;",
+	                        "visible": true
+		                },
+		                "participants2": 0,
+		                "participants2.dm_props": {
+	                        "type": "graph",
+	                        "graphModel": "discreteBarChart",
+	                        "3D": false,
+	                        "label": "Nombre de participants par activités",
+	                        "doTransition": true,
+	                        "input": "return [
+{'name': 'Challenge JP', 'value': 453, 'unit': 'personnes'},
+{'name': 'Business Lunch / Communication', 'value': 167, 'unit': 'personnes'},
+{'name': 'Sécurité & Cloud', 'value': 126, 'unit': 'personnes'},
+{'name': 'Emploi-Formation', 'value': 263, 'unit': 'personnes'},
+{'name': 'Gouvernance', 'value': 247, 'unit': 'personnes'},
+{'name': 'Innovation', 'value': 228, 'unit': 'personnes'},
+{'name': 'm-Tourisme', 'value': 274, 'unit': 'personnes'},
+{'name': 'Open Source', 'value': 1034, 'unit': 'personnes'},
+{'name': 'Agilité-Qualité', 'value': 404, 'unit': 'personnes'},
+{'name': 'SoFAB', 'value': 614, 'unit': 'personnes'}
+] ;",
+							"rotateLegend": true,
+							"roundValues": true,
+	                        "visible": true
+		                }
+		            }
+	            }, {
+		            "name": "Bénévoles",
+		            "level": 3,
+		            "rawNode": {
+		                "benevolat1": 0,
+		                "benevolat1.dm_props": {
+	                        "type": "graph",
+	                        "3D": true,
+	                        "label": "Heures de bénévolat (hors gouv)",
+	                        "doTransition": true,
+	                        "input": "return [
+{'name': 'Julien HOLTZER', 'value': 101, 'unit': 'heures'},
+{'name': 'Jean-François CARRASCO', 'value': 93, 'unit': 'heures'},
+{'name': 'Elisabeth GEOFFROY', 'value': 90, 'unit': 'heures'},
+{'name': 'Pascal FLAMAND', 'value': 90, 'unit': 'heures'},
+{'name': 'Jean-Bernard TITZ', 'value': 72, 'unit': 'heures'},
+{'name': 'Fabrice LEBAS', 'value': 49, 'unit': 'heures'},
+{'name': 'Ivan TANCOVICH', 'value': 47, 'unit': 'heures'},
+{'name': 'Lionel FAURE', 'value': 45, 'unit': 'heures'},
+{'name': 'François LOCHET', 'value': 44, 'unit': 'heures'},
+{'name': 'Cédric ULMER', 'value': 37, 'unit': 'heures'}
+] ;",
+	                        "visible": true
+		                },
+		                "benevolat2": 0,
+		                "benevolat2.dm_props": {
+	                        "type": "graph",
+	                        "3D": false,
+	                        "label": "Heures de bénévolat (hors gouv)",
+	                        "doTransition": true,
+	                        "input": "return [
+{'name': 'SOPRA', 'value': 101, 'unit': 'heures'},
+{'name': 'GM CONSULTANT', 'value': 93, 'unit': 'heures'},
+{'name': 'SKEMA', 'value': 90, 'unit': 'heures'},
+{'name': 'JANUA', 'value': 90, 'unit': 'heures'},
+{'name': 'DEV HELP', 'value': 72, 'unit': 'heures'},
+{'name': 'POLYTECH NICE SOPHIA', 'value': 49, 'unit': 'heures'},
+{'name': 'TANCO & CO', 'value': 47, 'unit': 'heures'},
+{'name': 'TAS France', 'value': 45, 'unit': 'heures'},
+{'name': 'CATALYZE', 'value': 44, 'unit': 'heures'},
+{'name': 'FRANCE LABS', 'value': 37, 'unit': 'heures'}
+] ;",
+							"rotateLegend": true,
+							"roundValues": true,
+	                        "visible": true
+		                }
+		            }
+	            }]
+            }, {
+	            "name": "Vidéos",
+	            "level": 2,
+	            "rawNode": {
+	                "icon": "TV/icones/videos.png",
+	                "icon.dm_props": {
+		                "type": "image",
+		                "visible": true,
+		                "scaleFactor": 6,
+		                "width": 200,
+		                "height": 200,
+	                    "textX": 3
+	                }
+	            },
+                "dm_goto": "TV/videos.csv"
+            }, {
+	            "name": "Présentations",
+	            "level": 2,
+	            "rawNode": {
+	                "icon": "TV/icones/presentations.png",
+	                "icon.dm_props": {
+		                "type": "image",
+		                "visible": true,
+		                "scaleFactor": 6,
+		                "width": 200,
+		                "height": 200,
+	                    "textX": 3
+	                }
+	            },
+                "dm_goto": "TV/presentations.csv"
+            }]
+        }, {
+            "name": "Adhérents",
+            "level": 1,
+            "rawNode": {
+                "icon": "TV/icones/adherents.png",
+                "icon.dm_props": {
+	                "type": "image",
+	                "visible": true,
+	                "width": 200,
+	                "height": 200,
+                    "textX": 3
+                },
+                "dm_goto": "TV/adherents.csv"
+            }
+        }, {
+            "name": "Commissions",
+            "level": 1,
+            "rawNode": {
+                "icon": "TV/icones/commissions.png",
+                "icon.dm_props": {
+	                "type": "image",
+	                "visible": true,
+	                "width": 200,
+	                "height": 200,
+                    "textX": 3
+                },
+                "dm_goto": "TV/commissions.csv"
+            }
+        }, {
+            "name": "Financeurs",
+            "level": 1,
+            "rawNode": {
+                "icon": "TV/icones/money.png",
+                "icon.dm_props": {
+	                "type": "image",
+	                "visible": true,
+	                "width": 180,
+	                "height": 180,
+                    "textX": 3
+                },
+                "dm_goto": "TV/financeurs.csv"
+            }
+        }, {
+            "name": "Photos",
+            "level": 1,
+            "rawNode": {
+                "icon": "TV/icones/photos.png",
+                "icon.dm_props": {
+	                "type": "image",
+	                "visible": true,
+	                "width": 180,
+	                "height": 180,
+                    "textX": 3
+                },
+                "dm_goto": "TV/photos.csv"
+            }
+        }],
+        "dm_config": {
+		    "txtFontSize": 16,
+	        "loadAllAtStart": true,
+		    "depth": 2,
+            "styles": [{
+                "name": "root",
+                "array index": 0,
+                "level": 0,
+                "link": 180,
+                "color": "#842B5B",
+		        "arrow": true,
+                "backgroundImage": "TV/images/Sophia.jpg",
+                "backgroundImage.dm_props": {
+                    "opacity": 0.25
+                }
+            }, {
+                "name": "level 1",
+                "array index": 1,
+                "level": 1,
+		        "arrow": true,
+                "link": 180,
+                "color": "#00668E"
+            }, {
+                "name": "level 2",
+                "array index": 2,
+                "level": 2,
+		        "arrow": true,
+	            "txtFontSize": 13,
+                "link": 180,
+                "color": "#3A8F8A"
+            }, {
+                "name": "level 3",
+                "array index": 3,
+                "level": 3,
+		        "arrow": true,
+	            "txtFontSize": 12,
+                "link": 180,
+                "color": "#842B5B"
+            }],
+            "anims": [{
+                "funct": "dm_Physics.finish"
+            }, {
+                "funct": "dm_Physics.stopAndRestoreSavedCanvas",
+                "args": {
+                    "sleepBefore": 200,
+                    "stateLabel": "sun"
+                }
+            }, {
+                "funct": "dm_Physics.fade",
+                "args": {
+                    "stateLabel": "fade",
+                    "sens": "out",
+                    "sleepBefore": 200,
+                    "killAfter": true
+                }
+            }, {
+                "funct": "dm_Physics.translate",
+                "args": {
+                    "duration": 7,
+                    "stateLabel": "TV2",
+                    "xPercent": 400,
+                    "delayPerSlice": 25,
+                    "smooth": true,
+                    "accelFactor": 4.5,
+                    "reverse": true,
+                    "killAfter": true
+                }
+            }, {
+                "funct": "dm_Physics.cutImage",
+                "args": {
+                    "stateLabel": "TV25ansOut",
+                    "image": "data/images/TV/images/TVcelebre25ans.jpg",
+                    "scaleW": 0.8,
+                    "scaleH": 0.8,
+                    "fork": true,
+                    "splitX": true,
+                    "cutNb": 40,
+                    "delayPerSlice": 25,
+                    "sens": "out",
+                    "reverse": true,
+                    "fromPercent": [0, 10],
+                    "toPercent": [400, 10],
+                    "killAfter": true
+                }
+            }, {
+                "funct": "dm_Physics.cutImage",
+                "args": {
+                    "stateLabel": "TV25ansIn",
+                    "image": "data/images/TV/images/TVcelebre25ans.jpg",
+                    "scaleW": 0.8,
+                    "scaleH": 0.8,
+                    "splitY": true,
+                    "cutNb": 40,
+                    "delayPerSlice": 25,
+                    "duration": 7,
+                    "sleepAfter": 3000,
+                    "toPercent": [0, 10],
+                    "killAfter": true
+                }
+            }, {
+                "funct": "dm_Physics.randomTxtBlur",
+                "args": {
+                    "stateLabel": "TV2"
+                }
+            }, {
+                "funct": "dm_Physics.translate",
+                "args": {
+                    "stateLabel": "TV2",
+                    "yPercent": 15
+                }
+            }, {
+                "funct": "dm_Physics.textEntrance1",
+                "args": {
+                    "stateLabel": "TV2",
+                    "txt2display": "Telecom Valley",
+                    "drag": 0.15,
+                    "fontName": "Verdana",
+                    "charColors": ["#576299", "#576299", "#576299", "#576299", "#576299", "#576299", "#576299", "#576299", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000"],
+                    "fontSize": 50,
+                    "duration": 2
+                }
+            }, {
+                "funct": "dm_Physics.translate",
+                "args": {
+                    "duration": 7,
+                    "stateLabel": "TV1",
+                    "xPercent": -400,
+                    "delayPerSlice": 50,
+                    "smooth": true,
+                    "accelFactor": 4.5,
+                    "killAfter": true
+                }
+            }, {
+                "funct": "dm_Physics.cutImage",
+                "args": {
+                    "stateLabel": "TVD3out",
+                    "image": "data/images/TV/images/TV_3D_3.jpg",
+                    "scaleW": 0.7,
+                    "scaleH": 0.7,
+                    "fork": true,
+                    "splitX": true,
+                    "cutNb": 20,
+                    "delayPerSlice": 50,
+                    "sens": "out",
+                    "fromPercent": [0, -10],
+                    "toPercent": [-400, -10],
+                    "killAfter": true
+                }
+            }, {
+                "funct": "dm_Physics.displayImage",
+                "args": {
+                    "stateLabel": "TV3D",
+                    "image": "data/images/TV/images/TV_3D_3.jpg",
+                    "scaleW": 0.7,
+                    "scaleH": 0.7,
+                    "duration": 3,
+                    "toPercent": [0, -10],
+                    "killAfter": true
+                }
+            }, {
+                "funct": "dm_Physics.displayImage",
+                "args": {
+                    "stateLabel": "TV3D",
+                    "image": "data/images/TV/images/TV_3D_2.jpg",
+                    "scaleW": 0.7,
+                    "scaleH": 0.7,
+                    "duration": 2.5,
+                    "toPercent": [0, -10]
+                }
+            }, {
+                "funct": "dm_Physics.displayImage",
+                "args": {
+                    "stateLabel": "TV3D",
+                    "image": "data/images/TV/images/TV_3D_1.jpg",
+                    "scaleW": 0.7,
+                    "scaleH": 0.7,
+                    "duration": 2.5,
+                    "toPercent": [0, -10]
+                }
+            }, {
+                "funct": "dm_Physics.cutImage",
+                "args": {
+                    "stateLabel": "TV3D",
+                    "image": "data/images/TV/images/TV_3D_0.jpg",
+                    "scaleW": 0.7,
+                    "scaleH": 0.7,
+                    "splitY": true,
+                    "cutNb": 20,
+                    "delayPerSlice": 70,
+                    "duration": 4.5,
+                    "toPercent": [0, -10]
+                }
+            },
+            {
+                "funct": "dm_Physics.randomTxtBlur",
+                "args": {
+                    "stateLabel": "TV1"
+                }
+            }, {
+                "funct": "dm_Physics.translate",
+                "args": {
+                    "stateLabel": "TV1",
+                    "yPercent": 85
+                }
+            }, {
+                "funct": "dm_Physics.textEntrance1",
+                "args": {
+                    "stateLabel": "TV1",
+                    "txt2display": "Telecom Valley",
+                    "drag": 0.15,
+                    "fontName": "Verdana",
+                    "charColors": ["#576299", "#576299", "#576299", "#576299", "#576299", "#576299", "#576299", "#576299", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000"],
+                    "duration": 2,
+                    "fontSize": 50
+                }
+            }, {
+                "funct": "dm_Physics.fade",
+                "args": {
+                    "stateLabel": "fade",
+                    "sens": "in",
+                    "opacity": 0.6
+                }
+            }]
+        }
+    }
+}

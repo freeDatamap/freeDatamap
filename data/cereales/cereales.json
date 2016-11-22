@@ -1,0 +1,145 @@
+{
+    "$schema": "http://www.freedatamap.com/jsonSchema/schema#",
+    "$charset": "UTF-8",
+    "root": {
+        "name": "Smart farming",
+        "level": 0,
+        "rawNode": {
+            "icon": "cereales/cereales.png",
+            "icon.dm_props": {
+                "name": "icon",
+                "label": "icon",
+                "visible": true,
+                "type": "image",
+                "source": "user",
+                "width": 180,
+                "height": 180,
+                "scaleFactor": 5.5,
+                "imageName": "cereales/cereales.png",
+                "inlineSrc": "data/images/cereales/cereales.png",
+                "panelMaxHeight": 180
+            },
+            "summary": "<div class='dm_normal'><div class='dm_center dm_emphasis dm_info dm_txtShadow'><h2>Agriculture as a Service</h2></div>",
+            "summary.dm_props": {
+                "order": 10,
+                "visible": true,
+                "edit": false,
+                "type": "rich text"
+            },
+            "image": "cereales/smart farming freedatamap.png",
+            "image.dm_props": {
+                "order": 15,
+                "name": "image",
+                "label": "image",
+                "visible": true,
+                "type": "image",
+                "source": "user",
+                "imageName": "cereales/smart farming freedatamap.png",
+                "borderRadius": "10",
+                "width": 600,
+                "height": 195
+            },
+            "backgroundImage": "cereales/champs_de_ble_V2.jpg",
+            "backgroundImage.dm_props": {
+                "name": "backgroundImage",
+                "edit": false,
+                "visible": true,
+                "type": "image",
+                "imageName": "cereales/champs_de_ble_V2.jpg",
+                "opacity": 0.15,
+                "width": 800,
+                "height": 674
+            }
+        },
+        "dm_config": {
+            "loadAllAtStart": true,
+            "inheritDefaultConfig": true
+        },
+        "dm_DatamapName": "smart farming",
+        "children": [{
+            "name": "Alimentation animale",
+            "rawNode": {
+                "array index": 0,
+                "icon": "cereales/alim_animale.png",
+                "icon.dm_props": {
+                    "name": "icon",
+                    "label": "icon",
+                    "visible": true,
+                    "type": "image",
+                    "borderRadius": 0,
+                    "width": 180,
+                    "height": 180,
+                    "scaleFactor": 5.5,
+                    "imageName": "cereales/alim_animale.png",
+                    "panelMaxHeight": 180
+                },
+                "dm_goto": "cereales/alim_animale.csv",
+                "dm_goto.dm_props": {
+                    "name": "dm_goto",
+                    "label": "",
+                    "edit": false,
+                    "visible": false,
+                    "type": "text",
+                    "source": "user"
+                }
+            }
+        }, {
+            "name": "Parcelles",
+            "level": 1,
+            "rawNode": {
+                "array index": 1,
+                "icon": "cereales/tracteur.png",
+                "icon.dm_props": {
+                    "name": "icon",
+                    "label": "icon",
+                    "visible": true,
+                    "type": "image",
+                    "borderRadius": 0,
+                    "width": 180,
+                    "height": 180,
+                    "scaleFactor": 5.5,
+                    "imageName": "cereales/tracteur.png",
+                    "panelMaxHeight": 180
+                },
+                "dm_goto": "cereales/Vallee_Rhone.geojson",
+                "dm_goto.dm_props": {
+                    "name": "dm_goto",
+                    "label": "",
+                    "edit": false,
+                    "visible": false,
+                    "type": "text",
+                    "source": "user"
+                }
+            }
+        }, {
+            "name": "Contrôle modèle",
+            "level": 1,
+            "rawNode": {
+                "array index": 2,
+                "icon": "cereales/control_model.png",
+                "icon.dm_props": {
+                    "order": 2,
+                    "name": "icon",
+                    "label": "icon",
+                    "visible": true,
+                    "type": "image",
+                    "borderRadius": 0,
+                    "width": 180,
+                    "height": 202,
+                    "scaleFactor": 5.5,
+                    "imageName": "cereales/control_model.png",
+                    "panelMaxHeight": 180
+                },
+                "dm_goto": "cereales/control_model.json",
+                "dm_goto.dm_props": {
+                    "name": "dm_goto",
+                    "label": "",
+                    "edit": false,
+                    "visible": false,
+                    "type": "text",
+                    "source": "user"
+                }
+            }
+        }]
+    }
+}

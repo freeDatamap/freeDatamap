@@ -1,0 +1,714 @@
+{
+    "$schema": "http://www.freedatamap.com/jsonConfigSchema/schema#",
+    "$charset": "UTF-8",
+    "config": {
+        "name": "dataScience",
+        "root": null,
+        "txtFontSize": 13,
+        "center": null,
+        "depth": 2,
+        "sort": null,
+        "sortDescendant": true,
+        "displayArrowsOfTransversalConnections": true,
+        "multicolorBrothers": true,
+        "maxDepthForExport": 18,
+        "dm_DatamapName": "examples/dataScience.json",
+        "dm_sourceFile": "examples/dataScience.json",
+        "$schema": "http://www.freedatamap.com/jsonConfigSchema/schema#",
+        "icon": "../../config/images/config/config_root.png",
+        "possibleProperties": null,
+        "maxNbOfColumns2tree": 10,
+        "csvSepIsSemicolon": true,
+        "displayTransversalConnections": true,
+        "dontReduceNumberOfChildren": true,
+        "forceCharge": -500,
+        "moveRootXPercent": 0,
+        "moveRootYPercent": 0,
+        "moveRootMapXPercent": 0,
+        "moveRootMapYPercent": 0,
+        "aggregate": [{
+            "name": "items",
+            "array index": 0,
+            "value": "var output = 1, child ;
+if(node.children && (node.children.length > 0)) {
+    var i = node.children.length - 1 ;
+    output = 0 ;
+    for(; i>=0; i--) {
+        child = node.children[i] ;
+        if(!child.rawNode[propName]) {
+            console.log('----- WARNING ! during items aggregation ITEMS VALUE ERROR ----------->' + dm_Tools.getNodePath(child), ' items = ' + child.rawNode[propName]) ;
+        }
+        output += node.children[i].rawNode[propName] ;
+    }
+} else {
+    if(!node.rawNode) node.rawNode = {} ;
+    if(!node.rawNode[propName + '.dm_props']) node.rawNode[propName + '.dm_props'] = {} ;
+    node.rawNode[propName + '.dm_props'].visible = false ;
+    node.rawNode[propName + '.dm_props'].edit = false ;
+}
+if(!output) {
+    console.log('----- WARNING ! during items aggregation ITEMS VALUE ERROR ----------->' + dm_Tools.getNodePath(node), ' items = ' + output) ;
+}
+return output ;
+",
+            "funcDropdown": "count leaves",
+            "execAfterChildrenVisit": true,
+            "onlyLeaves": true
+        }, {
+            "name": "connectNodes",
+            "array index": 1,
+            "value": "
+if(!node.parent) {
+    dm_Tools.sortTree(node, node.dm_config);
+    dm_Tools.scanNodes(node, function(n) {
+        var output = n.rawNode.connectedTo ;
+        var next = dm_Tools.getNextNode(n) ;
+        var nodePath ;
+        if(next) {
+            nodePath = dm_Tools.getNodePath(next) ;
+        }
+        if(nodePath) {
+            if(!output) {
+                output = [] ;
+                n.rawNode.connectedTo = output ;
+            }
+            output.push({'nodePath': nodePath}) ;
+        }
+    }) ;
+}
+",
+            "execAfterChildrenVisit": true
+        }],
+        "privateFunctions": {
+            "itemsPie": "var output, elt;
+var levelMin = dm_Tools.getDepth(node) ;
+var doIt = function(node) {
+    if (!output) {
+        output = [] ;
+    }
+    elt = {} ;
+    output.push(elt) ;
+    elt.value = node.rawNode['items'] ;
+    elt.name = dm_Tools.getNodePath(node, '', true, null, levelMin+1) ;
+    elt.unit = 'item(s)' ;
+};
+var parentLevel = dm_Tools.getDepth(node) ;
+var depth = 1 ;
+var dive = function(node) {
+    if (node) {
+        if (dm_Tools.getDepth(node) == parentLevel + depth) {
+            doIt(node);
+        } else if ((dm_Tools.getDepth(node) < parentLevel + depth) && (node.children)) {
+            node.children.forEach(function(child) {
+                dive(child);
+            });
+        }
+    }
+} ;
+dive(node);
+output ;"
+        },
+        "styles": [{
+            "name": "root",
+            "level": 0,
+            "arrow": true,
+            "arc": false,
+            "rNod": 10,
+            "link": 150,
+            "color": "#9467bd",
+            "attrPaneCol": "#c5b0d5",
+            "txtFontSize": 14,
+            "icon.dm_props": {
+                "type": "image",
+                "visible": true,
+                "scaleFactor": 6,
+                "width": 200,
+                "height": 200,
+                "textX": 3
+            },
+            "backgroundImage": "examples/data_science/dataScience.jpg",
+            "backgroundImage.dm_props": {
+                "name": "backgroundImage",
+                "visible": true,
+                "label": "backgroundImage",
+                "type": "image",
+                "dontExport": true,
+                "edit": false,
+                "imageName": "examples/data_science/dataScience.jpg"
+            },
+            "depth": 1
+        }, {
+            "name": "level 1",
+            "level": 1,
+            "arrow": true,
+            "arc": false,
+            "rNod": 10,
+            "link": 180,
+            "color": "#97675D",
+            "attrPaneCol": "#CAA69E",
+            "icon.dm_props": {
+                "type": "image",
+                "visible": true,
+                "scaleFactor": 6,
+                "width": 200,
+                "height": 200,
+                "textX": 3
+            },
+            "depth": 2
+        }, {
+            "name": "level 2",
+            "level": 2,
+            "arrow": true,
+            "arc": false,
+            "rNod": 8,
+            "link": 200,
+            "color": "#d62728",
+            "attrPaneCol": "#ff9896",
+            "depth": 2
+        }, {
+            "name": "level 3",
+            "level": 3,
+            "arrow": true,
+            "arc": false,
+            "rNod": 8,
+            "link": 160,
+            "color": "#1f77b4",
+            "attrPaneCol": "#aec7e8",
+            "depth": 2
+        }, {
+            "name": "level 4",
+            "level": 4,
+            "arrow": true,
+            "arc": false,
+            "rNod": 7,
+            "link": 140,
+            "color": "#ff7f0e",
+            "attrPaneCol": "#ffbb78",
+            "depth": 2
+        }, {
+            "name": "level 5",
+            "level": 5,
+            "arrow": true,
+            "arc": false,
+            "rNod": 7,
+            "link": 130,
+            "color": "#9467bd",
+            "attrPaneCol": "#c5b0d5"
+        }, {
+            "name": "level 6",
+            "level": 6,
+            "arrow": true,
+            "arc": false,
+            "rNod": 6,
+            "link": 130,
+            "color": "#e377c2",
+            "attrPaneCol": "#f7b6d2"
+        }, {
+            "name": "level 7",
+            "level": 7,
+            "arrow": true,
+            "arc": false,
+            "rNod": 6,
+            "link": 130,
+            "color": "#bcbd22",
+            "attrPaneCol": "#dbdb8d"
+        }, {
+            "name": "level 8",
+            "level": 8,
+            "arrow": true,
+            "arc": false,
+            "rNod": 5,
+            "link": 130,
+            "color": "#17becf",
+            "attrPaneCol": "#9edae5"
+        }, {
+            "name": "level 9",
+            "level": 9,
+            "arrow": true,
+            "arc": false,
+            "rNod": 5,
+            "link": 130,
+            "color": "#6b6ecf",
+            "attrPaneCol": "#9c9ede"
+        }, {
+            "name": "level 10",
+            "level": 10,
+            "arrow": true,
+            "arc": false,
+            "rNod": 5,
+            "link": 130,
+            "color": "#1f77b4",
+            "attrPaneCol": "#aec7e8"
+        }, {
+            "name": "level 11",
+            "level": 11,
+            "arrow": true,
+            "arc": false,
+            "rNod": 5,
+            "link": 130,
+            "color": "#ff7f0e",
+            "attrPaneCol": "#ffbb78"
+        }, {
+            "name": "level 12",
+            "level": 12,
+            "arrow": true,
+            "arc": false,
+            "rNod": 5,
+            "link": 130,
+            "color": "#2ca02c",
+            "attrPaneCol": "#98df8a"
+        }, {
+            "name": "level 13",
+            "level": 13,
+            "arrow": true,
+            "arc": false,
+            "rNod": 5,
+            "link": 130,
+            "color": "#d62728",
+            "attrPaneCol": "#ff9896"
+        }, {
+            "name": "level 14",
+            "level": 14,
+            "arrow": true,
+            "arc": false,
+            "rNod": 5,
+            "link": 130,
+            "color": "#9467bd",
+            "attrPaneCol": "#c5b0d5"
+        }, {
+            "name": "level 15",
+            "level": 15,
+            "arrow": true,
+            "arc": false,
+            "rNod": 4,
+            "link": 130,
+            "color": "#e377c2",
+            "attrPaneCol": "#f7b6d2"
+        }, {
+            "name": "level 16",
+            "level": 16,
+            "arrow": true,
+            "arc": false,
+            "rNod": 4,
+            "link": 130,
+            "color": "#bcbd22",
+            "attrPaneCol": "#dbdb8d"
+        }, {
+            "name": "level 17",
+            "level": 17,
+            "arrow": true,
+            "arc": false,
+            "rNod": 4,
+            "link": 130,
+            "color": "#17becf",
+            "attrPaneCol": "#9edae5"
+        }, {
+            "name": "level 18",
+            "level": 18,
+            "arrow": true,
+            "arc": false,
+            "rNod": 4,
+            "link": 130,
+           "color": "#6b6ecf",
+            "attrPaneCol": "#9c9ede"
+        }, {
+            "name": "leaf",
+            "level": 19,
+            "arrow": true,
+            "arc": true,
+            "rNod": 4,
+            "link": 130,
+            "txtFontSize": 13,
+            "color": "#9467bd",
+            "attrPaneCol": "#c5b0d5"
+        }],
+        "specifics": [{
+            /* ----------------------------------------------------------------------------------------------------------------------------------------
+                         SPECIFICS   "name": "$dm_all"
+               ----------------------------------------------------------------------------------------------------------------------------------------*/
+            "name": "$dm_all",
+            "rawNode": {
+                "execBeforeAll": "
+if(!node.children) {
+    node.rawNode['items.dm_props'].visible = false ;
+    node.rawNode['items.dm_props'].dontExport = true ;
+    node.rawNode['level1cloud.dm_props'].visible = false ;
+    node.rawNode['wikipediaDescription.dm_props'].delayDisplay = 0 ;
+} else if(dm_Tools.getChildrenAtLevel(node).length <= 5) {
+    node.rawNode['level1cloud.dm_props'].visible = false ;
+}
+if(node.rawNode.url) {
+    if(((''+node.rawNode.url).indexOf('http:/') == 0) || ((''+node.rawNode.url).indexOf('https:/') == 0)) {
+        if((''+node.rawNode.url).indexOf('wikipedia') > 0) {
+            var urlElts = (''+node.rawNode.url).split('/') ;
+            var wikipediaKey = urlElts[urlElts.length-1] ;
+            wikipediaKey = wikipediaKey.replace(/_/g, '+') ;
+            node.rawNode.wikipediaDescription = '<embed src=\"http://en.wikipedia.org/w/index.php?title=' + wikipediaKey + '&amp;printable=yes\" style=\"width:100%; min-height:450px; height:95%;\"></embed>' ;
+        } else {
+            node.rawNode.wikipediaDescription = '<embed src=\"' + node.rawNode.url + '\" style=\"width:100%; min-height:450px; height:95%;\"></embed>' ;
+        }
+    } else if((''+node.rawNode.url).indexOf('.pdf') == (''+node.rawNode.url).length - '.pdf'.length) {
+        if((''+node.rawNode.url).indexOf('http://www.datascienceontology.com/') != 0) {
+            node.rawNode.url = 'http://www.datascienceontology.com/' + node.rawNode.url ;
+            //node.rawNode['url.dm_props']['content.url'] = node.rawNode.url ;
+        }
+        node.rawNode.wikipediaDescription = '<embed src=\"' + node.rawNode.url + '?q=get%20wiki%20data\" style=\"width:100%; min-height:450px; height:95%;\"></embed>' ;
+    }
+}
+'#dm_STOP_AND_REDRAW_ATTRIBUTES_PANEL#1' ;
+",
+                "execBeforeAll.dm_props": {
+                    "order": 0,
+                    "visible": true,
+                    "type": "execute",
+                    "dontExport": true,
+                    "hideFromEdit": true
+                },
+                "gotoNext": "Go to next",
+                "gotoNext.dm_props": {
+                    "order": 9,
+                    "name": "gotoNext",
+                    "label": "Go to next",
+                    "visible": true,
+                    "type": "action",
+                    "image": "../../images/rocket.png",
+                    "imageName": "../../images/rocket.png",
+                    "class": "btn-success",
+                    "content.exec": "dm_Datamap.focusNode(node.rawNode.connectedTo[0].nodePath || node.rawNode.connectedTo[0].nodeUniqueId) ;
+dm_Tools.validateNodeWithStickerAndGauge(node, nodes) ;"
+                },
+                "itemsPie": "",
+                "itemsPie.dm_props": {
+                    "order": 11,
+                    "label": "Items",
+                    "type": "graph",
+                    "edit": false,
+                    "visible": true,
+                    "graph": "pie",
+                    "doTransition": true,
+                    "predefinedGraphDropdown": "pie based on property",
+                    "graphProperty1": "items",
+                    "graphUnit1": "item(s)",
+                    "graphDepth": 1,
+                    "textInPie": false,
+                    "input": "var config = dm_Tools.getConfig(node) ;
+var code = config.privateFunctions.itemsPie ;
+return eval(code) ;
+",
+                    "dontDeleteWhenCleanUpConfig": true,
+                    "name": "itemsPie"
+                },
+                "level1cloud": "
+var output = [] ;
+var children2, child ;
+var children = dm_Tools.getNonReducedChildren(node) ;
+while(children.length > 0) {
+    child = children.pop() ;
+    var children2 = dm_Tools.getNonReducedChildren(child) ;
+    output.push(child.name) ;
+    while(children2.length > 0) output.push(children2.pop().name) ;
+}
+output ;
+",
+                "level1cloud.dm_props":  {
+                    "order": 20,
+                    "type": "cloud",
+                    "visible": true,
+                    "colorPalette": "dm_Tools.modifiedCategory20b() ;",
+                    "dontExport": true,
+                    "removeAtSave": true,
+                    "doTransition": true,
+                    "delayDisplay": 0,
+                    "hideFromEdit": true
+                },
+                "wikipediaDescription": "
+var searchTags = node.name.replace(' ', '+') ;
+var output = '<embed src=\"http://en.wikipedia.org/w/index.php?title=' + searchTags + '&amp;printable=yes\" style=\"width:100%; height:450px;\"></embed>' ;
+output ;",
+                "items.dm_props": {
+                    "order": 30,
+                    "label": "Items",
+                    "type": "text",
+                    "visible": true,
+                    "edit": false,
+                    "removeAtSave": true,
+                    "dontDeleteWhenCleanUpConfig": true,
+                    "name": "items"
+                },
+                "wikipediaDescription.dm_props": {
+                    "order": 100,
+                    "type": "rich text",
+                    "dontExport": true,
+                    "delayDisplay": 2600,
+                    "visible": true
+                },
+                "url.dm_props": {
+                    "type": "action",
+                    "content.type": "window url",
+                    "image": "../../images/url_out.png",
+                    "edit": false,
+                    "visible": true,
+                    "removeDmPropsAtSave": true
+                },
+                "array index.dm_props": {
+                    "removeAtSave": true,
+                    "hideFromEdit": true
+                },
+                "connectedFrom.dm_props": {
+                    "name": "connectedFrom",
+                    "label": "connectedFrom",
+                    "type": "transverse link",
+                    "source": "user"
+                },
+                "connectedTo.dm_props": {
+                    "name": "connectedTo",
+                    "label": "connectedTo",
+                    "type": "transverse link",
+                    "source": "user"
+                }
+            }
+        }, {
+            /* ----------------------------------------------------------------------------------------------------------------------------------------
+                         SPECIFICS   "name": "$dm_root"
+               ----------------------------------------------------------------------------------------------------------------------------------------*/
+            "name": "$dm_root",
+            "rawNode": {
+                "icon": "examples/data_science/data_science.png",
+                "icon.dm_props": {
+                    "order": 1,
+                    "visible": true,
+                    "type": "image",
+                    "scaleFactor": 5.5
+                },
+                "Title": "<div class=\"dm_normal dm_center\"><div class=\"dm_emphasis dm_txtShadow\"><b><h1>Data Science Ontology</h1></b></div></div>",
+                "Title.dm_props": {
+                    "order": 5,
+                    "type": "rich text",
+                    "visible": true
+                },
+                "gotoNext.dm_props": {
+                    "content.exec": "
+var nextNodes = node.rawNode.connectedTo ;
+var nextNode = nextNodes[nextNodes.length-1] ;
+dm_Datamap.focusNode(nextNode.nodePath || nextNode.nodeUniqueId) ;
+dm_Tools.validateNodeWithStickerAndGauge(node, nodes) ;",
+                    "order": 6
+                },
+                "author": "https://www.linkedin.com/in/thoughtworks",
+                "author.dm_props": {
+                    "order": 7,
+                    "type": "action",
+                    "label": "Sean McClure (Data Scientist)",
+                    "image": "examples/data_science/linkedin.png",
+                    "content.type": "window url",
+                    "content.url": "https://www.linkedin.com/in/thoughtworks",
+                    "class": "",
+                    "visible": true
+                },
+                "freeDatamap": "http://www.freedatamap.com",
+                "freeDatamap.dm_props": {
+                    "order": 8,
+                    "type": "action",
+                    "label": "Powered by: freeDatamap.com",
+                    "image": "../../images/logo_freeDatamap.png",
+                    "content.type": "window url",
+                    "content.url": "http://www.freedatamap.com",
+                    "class": "btn-warning",
+                    "visible": true
+                },
+                "level1cloud.dm_props":  {
+                    "order": 10,
+                    "delayDisplay": 0
+                },
+                "br": "<br/>",
+                "br.dm_props": {
+                    "order": 15,
+                    "visible": true,
+                    "type": "rich text"
+                },
+                "itemsPie.dm_props":  {
+                    "order": 20
+                },
+                "dataScienceUrl": "http://www.datascienceontology.com/",
+                "dataScienceUrl.dm_props": {
+                    "order": 50,
+                    "type": "action",
+                    "label": "Go to: dataScienceOntology.com",
+                    "image": "../../images/link.png",
+                    "content.type": "window url",
+                    "content.url": "http://www.datascienceontology.com/",
+                    "class": "btn-info",
+                    "visible": true
+                }
+            }
+        }, {
+            /* ----------------------------------------------------------------------------------------------------------------------------------------
+                         SPECIFICS   "name": "$dm_root|Languages"
+               ----------------------------------------------------------------------------------------------------------------------------------------*/
+            "name": "$dm_root|Languages",
+            "rawNode": {
+                "icon": "examples/data_science/dev_language.png",
+                "icon.dm_props": {
+                    "order": 1,
+                    "visible": true,
+                    "type": "image",
+                    "scaleFactor": 5.5
+                }
+            }
+        }, {
+            /* ----------------------------------------------------------------------------------------------------------------------------------------
+                         SPECIFICS   "name": "$dm_root|Model Performance"
+               ----------------------------------------------------------------------------------------------------------------------------------------*/
+            "name": "$dm_root|Model Performance",
+            "rawNode": {
+                "icon": "examples/data_science/performance.png",
+                "icon.dm_props": {
+                    "order": 1,
+                    "visible": true,
+                    "type": "image",
+                    "scaleFactor": 5.5
+                }
+            }
+        }, {
+            /* ----------------------------------------------------------------------------------------------------------------------------------------
+                         SPECIFICS   "name": "$dm_root|Data Preparation"
+               ----------------------------------------------------------------------------------------------------------------------------------------*/
+            "name": "$dm_root|Data Preparation",
+            "rawNode": {
+                "icon": "examples/data_science/data_preparation.png",
+                "icon.dm_props": {
+                    "order": 1,
+                    "visible": true,
+                    "type": "image",
+                    "scaleFactor": 5.5
+                }
+            }
+        }, {
+            /* ----------------------------------------------------------------------------------------------------------------------------------------
+                         SPECIFICS   "name": "$dm_root|Data Cleaning"
+               ----------------------------------------------------------------------------------------------------------------------------------------*/
+            "name": "$dm_root|Data Cleaning",
+            "rawNode": {
+                "icon": "examples/data_science/data_cleaning.png",
+                "icon.dm_props": {
+                    "order": 1,
+                    "visible": true,
+                    "type": "image",
+                    "scaleFactor": 5.5
+                }
+            }
+        }, {
+            /* ----------------------------------------------------------------------------------------------------------------------------------------
+                         SPECIFICS   "name": "$dm_root|Data Visualization"
+               ----------------------------------------------------------------------------------------------------------------------------------------*/
+            "name": "$dm_root|Data Visualization",
+            "rawNode": {
+                "icon": "examples/data_science/data_visualization.png",
+                "icon.dm_props": {
+                    "order": 1,
+                    "visible": true,
+                    "type": "image",
+                    "scaleFactor": 5.5
+                }
+            }
+        }, {
+            /* ----------------------------------------------------------------------------------------------------------------------------------------
+                         SPECIFICS   "name": "$dm_root|Statistics"
+               ----------------------------------------------------------------------------------------------------------------------------------------*/
+            "name": "$dm_root|Statistics",
+            "rawNode": {
+                "icon": "examples/data_science/statistics.png",
+                "icon.dm_props": {
+                    "order": 1,
+                    "visible": true,
+                    "type": "image",
+                    "scaleFactor": 5.5
+                }
+            }
+        }, {
+            /* ----------------------------------------------------------------------------------------------------------------------------------------
+                         SPECIFICS   "name": "$dm_root|Model Validation"
+               ----------------------------------------------------------------------------------------------------------------------------------------*/
+            "name": "$dm_root|Model Validation",
+            "rawNode": {
+                "icon": "examples/data_science/model_validation.png",
+                "icon.dm_props": {
+                    "order": 1,
+                    "visible": true,
+                    "type": "image",
+                    "scaleFactor": 5.5
+                }
+            }
+        }, {
+            /* ----------------------------------------------------------------------------------------------------------------------------------------
+                         SPECIFICS   "name": "$dm_root|Production"
+               ----------------------------------------------------------------------------------------------------------------------------------------*/
+            "name": "$dm_root|Production",
+            "rawNode": {
+                "icon": "examples/data_science/production.png",
+                "icon.dm_props": {
+                    "order": 1,
+                    "visible": true,
+                    "type": "image",
+                    "scaleFactor": 5.5
+                }
+            }
+        }, {
+            /* ----------------------------------------------------------------------------------------------------------------------------------------
+                         SPECIFICS   "name": "$dm_root|Applications"
+               ----------------------------------------------------------------------------------------------------------------------------------------*/
+            "name": "$dm_root|Applications",
+            "rawNode": {
+                "icon": "examples/data_science/applications.png",
+                "icon.dm_props": {
+                    "order": 1,
+                    "visible": true,
+                    "type": "image",
+                    "scaleFactor": 5.5
+                }
+            }
+        }, {
+            /* ----------------------------------------------------------------------------------------------------------------------------------------
+                         SPECIFICS   "name": "$dm_root|Development"
+               ----------------------------------------------------------------------------------------------------------------------------------------*/
+            "name": "$dm_root|Development",
+            "rawNode": {
+                "icon": "examples/data_science/development.png",
+                "icon.dm_props": {
+                    "order": 1,
+                    "visible": true,
+                    "type": "image",
+                    "scaleFactor": 5.5
+                }
+            }
+        }, {
+            /* ----------------------------------------------------------------------------------------------------------------------------------------
+                         SPECIFICS   "name": "$dm_root|Databases"
+               ----------------------------------------------------------------------------------------------------------------------------------------*/
+            "name": "$dm_root|Databases",
+            "rawNode": {
+                "icon": "examples/data_science/databases.png",
+                "icon.dm_props": {
+                    "order": 1,
+                    "visible": true,
+                    "type": "image",
+                    "scaleFactor": 5.5
+                }
+            }
+        }, {
+            /* ----------------------------------------------------------------------------------------------------------------------------------------
+                         SPECIFICS   "name": "$dm_root|Learning Algorithms"
+               ----------------------------------------------------------------------------------------------------------------------------------------*/
+            "name": "$dm_root|Learning Algorithms",
+            "rawNode": {
+                "icon": "examples/data_science/learning_algorithms.png",
+                "icon.dm_props": {
+                    "order": 1,
+                    "visible": true,
+                    "type": "image",
+                    "scaleFactor": 5.5
+                }
+            }
+        }]
+    }
+}

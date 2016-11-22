@@ -1,0 +1,1093 @@
+{
+	"$schema": "http://www.freedatamap.com/jsonConfigSchema/schema#",
+    "$charset": "UTF-8",
+	"config": {
+		"root": "Assets",
+		"center": "Assets",
+		"csvSepIsSemicolon": true,
+		"columns": [2, 3, 4, 5, 6, 7, 8, [0, 9]],
+		"txtFontSize": 13,
+		"styles": [{
+			"name": "racine",
+			"level": 0,
+			"arrow": true,
+			"arc": false,
+			"rNod": 10,
+			"link": 150,
+			"color": "#9467bd",
+			"attrPaneCol": "#c5b0d5",
+			"backgroundImage": "freeDatamap-www/route.jpg"
+		}, {
+			"name": "Entité",
+			"level": 1,
+			"arrow": true,
+			"arc": false,
+			"rNod": 10,
+			"link": 120,
+			"color": "#9467bd",
+			"attrPaneCol": "#c5b0d5",
+			"backgroundImage": "freeDatamap-www/route.jpg"
+		}, {
+			"name": "DG",
+			"level": 2,
+			"arrow": true,
+			"arc": false,
+			"rNod": 10,
+			"link": 120,
+			"color": "#ff7f0e",
+			"attrPaneCol": "#ffbb78",
+			"backgroundImage": "freeDatamap-www/route.jpg"
+		}, {
+			"name": "DGA",
+			"level": 3,
+			"arrow": true,
+			"arc": false,
+			"rNod": 10,
+			"link": 120,
+			"color": "#ff7f0e",
+			"attrPaneCol": "#ffbb78",
+			"backgroundImage": "freeDatamap-www/route.jpg"
+		}, {
+			"name": "Direction",
+			"level": 4,
+			"arrow": true,
+			"arc": false,
+			"rNod": 8,
+			"link": 120,
+			"color": "#d62728",
+			"attrPaneCol": "#ff9896",
+			"backgroundImage": "freeDatamap-www/route.jpg"
+		}, {
+			"name": "Service",
+			"level": 5,
+			"arrow": true,
+			"arc": false,
+			"rNod": 6,
+			"link": 120,
+			"color": "#2ca02c",
+			"attrPaneCol": "#98df8a",
+			"backgroundImage": "freeDatamap-www/route.jpg"
+		}, {
+			"name": "Unité",
+			"level": 6,
+			"arrow": true,
+			"arc": false,
+			"rNod": 5,
+			"link": 120,
+			"color": "#1f77b4",
+			"attrPaneCol": "#aec7e8",
+			"backgroundImage": "freeDatamap-www/route.jpg"
+		}, {
+			"name": "Equipe",
+			"level": 7,
+			"arrow": true,
+			"arc": false,
+			"rNod": 4,
+			"link": 120,
+			"color": "#9467bd",
+			"attrPaneCol": "#c5b0d5",
+			"backgroundImage": "freeDatamap-www/route.jpg"
+		}, {
+			"name": "Véhicule",
+			"level": 8,
+			"arrow": false,
+			"arc": true,
+			"rNod": 3,
+			"link": 60,
+			"color": "#c7c7c7",
+			"attrPaneCol": "#c7c7c7",
+			"txtCol": "#7f7f7f",
+			"backgroundImage": "freeDatamap-www/route.jpg"
+		}],
+		"depth": 2,
+		"setColumns2node": [
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[], null
+		],
+		"aggregate": [{
+			"name": "nbVehicules",
+			"execAfterChildrenVisit": true,
+			"value": "var doit = function () {\r\n\t\t\tvar output = 1 ;\r\n\t\t\tif(node) {\r\n\t\t\t\tnode.rawNode.nbVehicules_nodeList = [] ;\r\n\t\t\t\tif(node.children) {\r\n\t\t\t\t\toutput = 0 ;\r\n\t\t\t\t\tnode.children.forEach(function(child) {\r\n\t\t\t\t\t\toutput += child.rawNode.nbVehicules ;\r\n\t\t\t\t\t\tdm_Tools.concat(node.rawNode.nbVehicules_nodeList, child.rawNode.nbVehicules_nodeList) ;\r\n\t\t\t\t\t} ) ;\r\n\t\t\t\t} else {\r\n\t\t\t\t\tnode.rawNode.nbVehicules_nodeList.push(node.dm_uniqueId) ;\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output ;\r\n\t\t} ; return doit() ;"
+		}, {
+			"name": "nbCartesEssence",
+			"execAfterChildrenVisit": true,
+			"value": "var output = 0, carteEssenceColName = 'Carte essence' ;\r\nif(node) {\r\n    var carteEssenceValue = node.rawNode[carteEssenceColName] ;\r\n    if(carteEssenceValue && (carteEssenceValue.toLowerCase() == 'oui')) {\r\n        output = 1 ;\r\n    }\r\n    if(node.children) {\r\n        node.children.forEach(function(child) {\r\n            output += child.rawNode.nbCartesEssence ;\r\n        }) ;\r\n    }\r\n}\r\nreturn output ;"
+		}, {
+			"name": "nbRemisages",
+			"execAfterChildrenVisit": true,
+			"value": "var output = 0, remisageColName = 'Autorisation de remisage' ;\r\nif(node) {\r\n    var remisageValue = node.rawNode[remisageColName] ; \r\n    if(remisageValue && (remisageValue.toLowerCase() == 'oui')) {\r\n        output = 1 ; \r\n    }\r\n    if(node.children) {\r\n        node.children.forEach(function(child) {\r\n            output += child.rawNode.nbRemisages ;\r\n        }) ;\r\n    }\r\n}\r\nreturn output ;"
+		}, {
+			"name": "nbVehicParAnnee",
+			"execAfterChildrenVisit": true,
+			"value": "var doit = function () {\r\n\t\t\tvar anneeColName = \"Année\" ;\r\n\t\t\tvar output ;\r\n\t\t\tif(node) {\r\n\t\t\t\tif (node.children) {\r\n\t\t\t\t\tnode.children.forEach(function (child) {\r\n\t\t\t\t\t\tvar childYears = child.rawNode[\"nbVehicParAnnee\"] ;\r\n\t\t\t\t\t\tif(childYears) {\r\n\t\t\t\t\t\t\tif(!output) output = {} ;\r\n\t\t\t\t\t\t\tfor(var year in childYears) {\r\n\t\t\t\t\t\t\t\tif(year) {\r\n\t\t\t\t\t\t\t\t\tif(!output[year]) output[year] = 0 ;\r\n\t\t\t\t\t\t\t\t\toutput[year] += childYears[year] ;\r\n\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t});\r\n\t\t\t\t} else {\r\n\t\t\t\t\toutput = {} ;\r\n\t\t\t\t\toutput[node.rawNode[anneeColName]] = 1 ;\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output;\r\n    \t} ; return doit() ;"
+		}, {
+			"name": "nb2roues",
+			"execAfterChildrenVisit": true,
+			"value": "var doit = function (type, prop) {\r\n\t\t\tvar typeColName = \"Type\" ;\r\n\t\t\tvar output = dm_Tools.compare(node.rawNode[typeColName], type) ? 1 : 0;\r\n\t\t\tif (node && node.children) {\r\n\t\t\t\toutput = 0;\r\n\t\t\t\tnode.children.forEach(function (child) {\r\n\t\t\t\t\toutput += child.rawNode[prop];\r\n\t\t\t\t});\r\n\t\t\t}\r\n\t\t\treturn output;\r\n    \t} ; return doit('Deux roues', 'nb2roues') ;"
+		}, {
+			"name": "nbVL",
+			"execAfterChildrenVisit": true,
+			"value": "var doit = function (type, prop) {\r\n\t\t\tvar typeColName = \"Type\" ;\r\n\t\t\tvar output = dm_Tools.compare(node.rawNode[typeColName], type) ? 1 : 0;\r\n\t\t\tif (node && node.children) {\r\n\t\t\t\toutput = 0;\r\n\t\t\t\tnode.children.forEach(function (child) {\r\n\t\t\t\t\toutput += child.rawNode[prop];\r\n\t\t\t\t});\r\n\t\t\t}\r\n\t\t\treturn output;\r\n    \t} ; return doit('Véhicule léger', 'nbVL') ;"
+		}, {
+			"name": "nbVUL",
+			"execAfterChildrenVisit": true,
+			"value": "var doit = function (type, prop) {\r\n\t\t\tvar typeColName = \"Type\" ;\r\n\t\t\tvar output = dm_Tools.compare(node.rawNode[typeColName], type) ? 1 : 0;\r\n\t\t\tif (node && node.children) {\r\n\t\t\t\toutput = 0;\r\n\t\t\t\tnode.children.forEach(function (child) {\r\n\t\t\t\t\toutput += child.rawNode[prop];\r\n\t\t\t\t});\r\n\t\t\t}\r\n\t\t\treturn output;\r\n    \t} ; return doit('Utilitaire léger', 'nbVUL') ;"
+		}, {
+			"name": "nbUtilitaires",
+			"execAfterChildrenVisit": true,
+			"value": "var doit = function (type, prop) {\r\n\t\t\tvar typeColName = \"Type\" ;\r\n\t\t\tvar output = dm_Tools.compare(node.rawNode[typeColName], type) ? 1 : 0;\r\n\t\t\tif (node && node.children) {\r\n\t\t\t\toutput = 0;\r\n\t\t\t\tnode.children.forEach(function (child) {\r\n\t\t\t\t\toutput += child.rawNode[prop];\r\n\t\t\t\t});\r\n\t\t\t}\r\n\t\t\treturn output;\r\n    \t} ; return doit('Utilitaire', 'nbUtilitaires') ;"
+		}, {
+			"name": "nbSpecifiques",
+			"execAfterChildrenVisit": true,
+			"value": "var doit = function () {\r\n\t\t\tvar typeColName = \"Type\" ;\r\n\t\t\tvar output = (dm_Tools.compare(node.rawNode[typeColName], 'Spécifique') || dm_Tools.compare(node.rawNode[typeColName], 'POIDS LOURD') || dm_Tools.compare(node.rawNode[typeColName], 'Transport commun')) ? 1 : 0;\r\n\t\t\tif (node && node.children) {\r\n\t\t\t\toutput = 0;\r\n\t\t\t\tnode.children.forEach(function (child) {\r\n\t\t\t\t\toutput += child.rawNode.nbSpecifiques;\r\n\t\t\t\t});\r\n\t\t\t}\r\n\t\t\treturn output;\r\n\t\t} ; return doit() ;"
+		}, {
+			"name": "nbVehicParModele",
+			"execAfterChildrenVisit": true,
+			"value": "var doit = function () {\r\n\t\t\tvar output, tmp;\r\n\t\t\tvar typeColName = \"Type\", modeleColName = \"Modèle\" ;\r\n\t\t\tif (node && !node.children && node.rawNode[modeleColName]) {\r\n\t\t\t\toutput = {};\r\n\t\t\t\ttmp = {};\r\n\t\t\t\ttmp.count = 1;\r\n\t\t\t\ttmp.type = (dm_Tools.compare(node.rawNode[typeColName], 'Spécifique') || dm_Tools.compare(node.rawNode[typeColName], 'POIDS LOURD') || dm_Tools.compare(node.rawNode[typeColName], 'Transport commun')) ? 'Spécifique' : (''+node.rawNode[typeColName]).trim();\r\n\t\t\t\toutput[(''+node.rawNode[modeleColName]).trim()] = tmp;\r\n\t\t\t} else if (node && node.children) {\r\n\t\t\t\toutput = {};\r\n\t\t\t\tnode.children.forEach(function (child) {\r\n\t\t\t\t\tfor (var modele in child.rawNode.nbVehicParModele) {\r\n\t\t\t\t\t\tif(child.rawNode.nbVehicParModele[modele]) {\r\n\t\t\t\t\t\t\tif (output[modele]) {\r\n\t\t\t\t\t\t\t\toutput[modele].count += child.rawNode.nbVehicParModele[modele].count;\r\n\t\t\t\t\t\t\t} else {\r\n\t\t\t\t\t\t\t\ttmp = {};\r\n\t\t\t\t\t\t\t\ttmp.type = child.rawNode.nbVehicParModele[modele].type;\r\n\t\t\t\t\t\t\t\ttmp.count = child.rawNode.nbVehicParModele[modele].count;\r\n\t\t\t\t\t\t\t\toutput[modele] = tmp;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}\r\n\t\t\t\t});\r\n\t\t\t}\r\n\t\t\treturn output;\r\n\t\t} ; return doit() ;"
+		}, {
+			"name": "updateNodeName",
+			"execAfterChildrenVisit": true,
+			"value": "var doit = function (obfuscateIt) {\r\n\t\t\tif(node.children) {\r\n\t\t\t\tvar total = node.rawNode[\"nbVehicules\"] ;\r\n\t\t\t\tvar newName = node.name + ((total)?\" (\" + total + (obfuscateIt?\"\":\r\n\t\t\t\t\t\t\t\t\t\t\t((node.rawNode[\"nbVL\"]?\", \"+node.rawNode[\"nbVL\"]+\" VL\":\"\") + \r\n\t\t\t\t\t\t\t\t\t\t\t (node.rawNode[\"nb2roues\"]?\", \"+node.rawNode[\"nb2roues\"]+\" 2r\":\"\"))) + \r\n\t\t\t\t\t\t\t\t\t\t\t\")\":\"\") ;\r\n\t\t\t\tnode.rawNode['displayName'] = newName ;\r\n\t\t\t}\r\n\t\t}; return doit(true) ;"
+		}],
+		"sort": "nbVehicules",
+		"sortDescendant": true,
+		"displayProps": [{
+			"name": "racine",
+			"children": [{
+				"name": "nbVehicules",
+				"label": "Number of vehicules",
+				"edit": false
+			}, {
+				"name": "nbVehicParEntite",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (level, us, cumul4sameName) {\r\n\t\t\tvar output, elt;\r\n\t\t\tif (node) {\r\n\t\t\t\tvar listOfChildrenWithRightLevel = dm_Tools.getChildrenAtLevel(node, level) ;\r\n\t\t\t\tif(listOfChildrenWithRightLevel) {\r\n\t\t\t\t\tvar map ;\r\n\t\t\t\t\tlistOfChildrenWithRightLevel.forEach(function (nodeI) {\r\n\t\t\t\t\t\tif(!cumul4sameName) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt) ;\r\n\t\t\t\t\t\t\telt.value = nodeI.rawNode.nbVehicules ;\r\n\t\t\t\t\t\t\telt.name = nodeI.name ;\r\n\t\t\t\t\t\t\telt.unit = (us)?'vehicule(s)':'véhicule(s)' ;\r\n\t\t\t\t\t\t\t//elt.nodeList = nodeI.rawNode.nbVehicules_nodeList ;\r\n\t\t\t\t\t\t} else {\r\n\t\t\t\t\t\t\tif(!map) map = {} ;\r\n\t\t\t\t\t\t\tif(!map[nodeI.name]) map[nodeI.name] = {'value': 0, 'unit': (us)?'vehicule(s)':'véhicule(s)'} ;\r\n\t\t\t\t\t\t\tmap[nodeI.name].value += nodeI.rawNode.nbVehicules ;\r\n\t\t\t\t\t\t\t//if(!map[nodeI.name].nodeList) map[nodeI.name].nodeList = [] ;\r\n\t\t\t\t\t\t\t//dm_Tools.concat(map[nodeI.name].nodeList, nodeI.rawNode.nbVehicules_nodeList) ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}) ;\r\n\t\t\t\t\tif(map) {\r\n\t\t\t\t\t\tfor(var prop in map) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt) ;\r\n\t\t\t\t\t\t\telt.value = map[prop].value ;\r\n\t\t\t\t\t\t\telt.name = prop ;\r\n\t\t\t\t\t\t\telt.unit = map[prop].unit ;\r\n\t\t\t\t\t\t\t//elt.nodeList = map[prop].nodeList ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output;\r\n    \t} ; return doit(1, true) ;",
+				"label": "Vehicule per entity"
+			}, {
+				"name": "nbVehicParDGA",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (level, us, cumul4sameName) {\r\n\t\t\tvar output, elt;\r\n\t\t\tif (node) {\r\n\t\t\t\tvar listOfChildrenWithRightLevel = dm_Tools.getChildrenAtLevel(node, level) ;\r\n\t\t\t\tif(listOfChildrenWithRightLevel) {\r\n\t\t\t\t\tvar map ;\r\n\t\t\t\t\tlistOfChildrenWithRightLevel.forEach(function (nodeI) {\r\n\t\t\t\t\t\tif(!cumul4sameName) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt) ;\r\n\t\t\t\t\t\t\telt.value = nodeI.rawNode.nbVehicules ;\r\n\t\t\t\t\t\t\telt.name = nodeI.name ;\r\n\t\t\t\t\t\t\telt.unit = (us)?'vehicule(s)':'véhicule(s)' ;\r\n\t\t\t\t\t\t\t//elt.nodeList = nodeI.rawNode.nbVehicules_nodeList ;\r\n\t\t\t\t\t\t} else {\r\n\t\t\t\t\t\t\tif(!map) map = {} ;\r\n\t\t\t\t\t\t\tif(!map[nodeI.name]) map[nodeI.name] = {'value': 0, 'unit': (us)?'vehicule(s)':'véhicule(s)'} ;\r\n\t\t\t\t\t\t\tmap[nodeI.name].value += nodeI.rawNode.nbVehicules ;\r\n\t\t\t\t\t\t\t//if(!map[nodeI.name].nodeList) map[nodeI.name].nodeList = [] ;\r\n\t\t\t\t\t\t\t//dm_Tools.concat(map[nodeI.name].nodeList, nodeI.rawNode.nbVehicules_nodeList) ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}) ;\r\n\t\t\t\t\tif(map) {\r\n\t\t\t\t\t\tfor(var prop in map) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt) ;\r\n\t\t\t\t\t\t\telt.value = map[prop].value ;\r\n\t\t\t\t\t\t\telt.name = prop ;\r\n\t\t\t\t\t\t\telt.unit = map[prop].unit ;\r\n\t\t\t\t\t\t\t//elt.nodeList = map[prop].nodeList ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output;\r\n    \t} ; return doit(3, true) ;",
+				"label": "Vehicule per department"
+			}, {
+				"name": "nbVehicParDir",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (level, us, cumul4sameName) {\r\n\t\t\tvar output, elt;\r\n\t\t\tif (node) {\r\n\t\t\t\tvar listOfChildrenWithRightLevel = dm_Tools.getChildrenAtLevel(node, level) ;\r\n\t\t\t\tif(listOfChildrenWithRightLevel) {\r\n\t\t\t\t\tvar map ;\r\n\t\t\t\t\tlistOfChildrenWithRightLevel.forEach(function (nodeI) {\r\n\t\t\t\t\t\tif(!cumul4sameName) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt) ;\r\n\t\t\t\t\t\t\telt.value = nodeI.rawNode.nbVehicules ;\r\n\t\t\t\t\t\t\telt.name = nodeI.name ;\r\n\t\t\t\t\t\t\telt.unit = (us)?'vehicule(s)':'véhicule(s)' ;\r\n\t\t\t\t\t\t\t//elt.nodeList = nodeI.rawNode.nbVehicules_nodeList ;\r\n\t\t\t\t\t\t} else {\r\n\t\t\t\t\t\t\tif(!map) map = {} ;\r\n\t\t\t\t\t\t\tif(!map[nodeI.name]) map[nodeI.name] = {'value': 0, 'unit': (us)?'vehicule(s)':'véhicule(s)'} ;\r\n\t\t\t\t\t\t\tmap[nodeI.name].value += nodeI.rawNode.nbVehicules ;\r\n\t\t\t\t\t\t\t//if(!map[nodeI.name].nodeList) map[nodeI.name].nodeList = [] ;\r\n\t\t\t\t\t\t\t//dm_Tools.concat(map[nodeI.name].nodeList, nodeI.rawNode.nbVehicules_nodeList) ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}) ;\r\n\t\t\t\t\tif(map) {\r\n\t\t\t\t\t\tfor(var prop in map) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt) ;\r\n\t\t\t\t\t\t\telt.value = map[prop].value ;\r\n\t\t\t\t\t\t\telt.name = prop ;\r\n\t\t\t\t\t\t\telt.unit = map[prop].unit ;\r\n\t\t\t\t\t\t\t//elt.nodeList = map[prop].nodeList ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output;\r\n    \t} ; return doit(4, true) ;",
+				"label": "Vehicule per business unit"
+			}, {
+				"name": "nbVehicParType",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (us) {\r\n\t\t\tvar output;\r\n\t\t\tif (node && node.children) {\r\n\t\t\t\toutput = [{\r\n\t\t\t\t\t\tvalue : node.rawNode.nb2roues,\r\n\t\t\t\t\t\tunit : (us)?'Scooter(s)':'2roues'\r\n\t\t\t\t\t}, {\r\n\t\t\t\t\t\tvalue : node.rawNode.nbVL,\r\n\t\t\t\t\t\tunit : (us)?'Car(s)':'Véhicule(s) léger(s)'\r\n\t\t\t\t\t}, {\r\n\t\t\t\t\t\tvalue : node.rawNode.nbVUL,\r\n\t\t\t\t\t\tunit : (us)?'Commercial vehicule(s)':'Utilitaire(s) léger(s)'\r\n\t\t\t\t\t}, {\r\n\t\t\t\t\t\tvalue : node.rawNode.nbUtilitaires,\r\n\t\t\t\t\t\tunit : (us)?'Truck(s)':'Utilitaire(s)'\r\n\t\t\t\t\t}, {\r\n\t\t\t\t\t\tvalue : node.rawNode.nbSpecifiques,\r\n\t\t\t\t\t\tunit : (us)?'Specific vehicule(s)':'Véhicule(s) spécifique(s)'\r\n\t\t\t\t\t}\r\n\t\t\t\t];\r\n\t\t\t}\r\n\t\t\treturn output;\r\n\t\t} ; return doit(true) ;",
+				"label": "Vehicule per type"
+			}, {
+				"name": "nbVehicParAnneePie",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (us) {\r\n\t\t\tvar output, elt;\r\n\t\t\tif (node && node.children) {\r\n\t\t\t\tvar nodeYears = node.rawNode[\"nbVehicParAnnee\"] ;\r\n\t\t\t\tif(nodeYears) {\r\n\t\t\t\t\tif(!output) output = [] ;\r\n\t\t\t\t\tfor(var year in nodeYears) {\r\n\t\t\t\t\t\telt = {};\r\n\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t\telt.value = nodeYears[year] ;\r\n\t\t\t\t\t\telt.name = year ;\r\n\t\t\t\t\t\telt.unit = (us)?'vehicule(s)':'véhicule(s)' ;\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output;\r\n    \t} ; return doit(true) ;",
+				"label": "Vehicule per year"
+			}, {
+				"name": "nbRemisages",
+				"label": "Storage at home",
+				"edit": false
+			}, {
+				"name": "nbRemisageParDG",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (level, us) {\r\n\t\t\tvar output, elt ;\r\n\t\t\tif (node) {\r\n\t\t\t\tvar listOfChildrenWithRightLevel = dm_Tools.getChildrenAtLevel(node, level) ;\r\n\t\t\t\tif(listOfChildrenWithRightLevel) {\r\n\t\t\t\t\tlistOfChildrenWithRightLevel.forEach(function (nodeI) {\r\n\t\t\t\t\t\tif(nodeI.rawNode.nbRemisages > 0) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t\t\telt.value = nodeI.rawNode.nbRemisages ;\r\n\t\t\t\t\t\t\telt.name = nodeI.name ;\r\n\t\t\t\t\t\t\telt.unit = (us)?'Home storage(s)':'remisage(s) à domicile' ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t});\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output;\r\n    \t} ; return doit(2, true) ;",
+				"label": "Home storage per entity"
+			}, {
+				"name": "nbRemisageParDGA",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (level, us) {\r\n\t\t\tvar output, elt ;\r\n\t\t\tif (node) {\r\n\t\t\t\tvar listOfChildrenWithRightLevel = dm_Tools.getChildrenAtLevel(node, level) ;\r\n\t\t\t\tif(listOfChildrenWithRightLevel) {\r\n\t\t\t\t\tlistOfChildrenWithRightLevel.forEach(function (nodeI) {\r\n\t\t\t\t\t\tif(nodeI.rawNode.nbRemisages > 0) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t\t\telt.value = nodeI.rawNode.nbRemisages ;\r\n\t\t\t\t\t\t\telt.name = nodeI.name ;\r\n\t\t\t\t\t\t\telt.unit = (us)?'Home storage(s)':'remisage(s) à domicile' ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t});\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output;\r\n    \t} ; return doit(3, true) ;",
+				"label": "Home storage per department"
+			}, {
+				"name": "nbRemisageParDir",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (level, us) {\r\n\t\t\tvar output, elt ;\r\n\t\t\tif (node) {\r\n\t\t\t\tvar listOfChildrenWithRightLevel = dm_Tools.getChildrenAtLevel(node, level) ;\r\n\t\t\t\tif(listOfChildrenWithRightLevel) {\r\n\t\t\t\t\tlistOfChildrenWithRightLevel.forEach(function (nodeI) {\r\n\t\t\t\t\t\tif(nodeI.rawNode.nbRemisages > 0) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t\t\telt.value = nodeI.rawNode.nbRemisages ;\r\n\t\t\t\t\t\t\telt.name = nodeI.name ;\r\n\t\t\t\t\t\t\telt.unit = (us)?'Home storage(s)':'remisage(s) à domicile' ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t});\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output;\r\n    \t} ; return doit(4, true) ;",
+				"label": "Home storage per business unit"
+			}, {
+				"name": "nbKm",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var totalKmColName = 'Number of km (or hours)', doit = function (colonne, ranges, isRemisage, us) {\r\n\t\t\tvar output, elt, vehicParKmRange = [] ;\r\n\t\t\tvar remisageColName = 'Autorisation de remisage' ;\r\n\t\t\tvar uniteKmColName = 'Unité km ou heures' ;\r\n\t\t\tfor(var i=0; i<ranges.length+1; i++) {\r\n\t\t\t\tvehicParKmRange.push(0) ;\r\n\t\t\t}\r\n\t\t\tfunction getRangeIdx(value) {\r\n\t\t\t\tvar output, rangeMax ;\r\n\t\t\t\tvar i ;\r\n\t\t\t\tfor(i=0; i<ranges.length; i++) {\r\n\t\t\t\t\trangeMax = ranges[i] ;\r\n\t\t\t\t\tif(!output && (value <= rangeMax)) {\r\n\t\t\t\t\t\toutput = i ;\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t\tif(value > rangeMax) output = i ;\r\n\t\t\t\t//console.log(value+' km       > '+ranges[output-1]+' et < '+ranges[output]);\r\n\t\t\t\treturn output ;\r\n\t\t\t}\r\n\t\t\tif(node) {\r\n\t\t\t\tvar leaves = dm_Tools.getChildrenAtLevel(node) ;\r\n\t\t\t\tif(leaves) {\r\n\t\t\t\t\tleaves.forEach(function(leaf) {\r\n\t\t\t\t\t\tvar unite = leaf.rawNode[uniteKmColName] ;\r\n\t\t\t\t\t\tvar km = leaf.rawNode[colonne] ;\r\n\t\t\t\t\t\tvar rangeIdx ;\r\n\t\t\t\t\t\tvar remisageValue = leaf.rawNode[remisageColName] ;\r\n\t\t\t\t\t\tvar takeit = true ;\r\n\t\t\t\t\t\tif(isRemisage) {\r\n\t\t\t\t\t\t\ttakeit = remisageValue && (remisageValue.toLowerCase() == 'oui') ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t\tif(unite && (unite.toLowerCase() == \"km\") && !isNaN(km) && takeit) {\r\n\t\t\t\t\t\t\trangeIdx = getRangeIdx(km) ;\r\n\t\t\t\t\t\t\tvehicParKmRange[rangeIdx]++ ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}) ;\r\n\t\t\t\t\tfor(var i=0; i<vehicParKmRange.length; i++) {\r\n\t\t\t\t\t\tnbVehic = vehicParKmRange[i] ;\r\n\t\t\t\t\t\tif(nbVehic > 0) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t\t\telt.value = nbVehic ;\r\n\t\t\t\t\t\t\telt.unit = (us)?'vehicules ':'véhicules ' ;\r\n\t\t\t\t\t\t\tif(i == 0) {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'with less than ':'à moins de ') + ranges[i] + ' km' ;\r\n\t\t\t\t\t\t\t} else if(i == ranges.length) {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'with more than ':'avec plus de ') + ranges[i-1] + ' km' ;\r\n\t\t\t\t\t\t\t} else {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'between ':'entre ') + ranges[i-1] + ((us)?' and ':' et ') + ranges[i] + ' km' ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t} ;\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output ;\t\t\t\r\n\t\t} ; return doit(totalKmColName, [0, 10000, 20000, 40000, 60000, 80000, 100000, 150000, 200000], false, true) ;",
+				"label": "Total kilomètres parcourus"
+			}, {
+				"name": "nbKmRemisageParAn",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var totalKmRemisageColName = 'Number of km for home storage', doit = function (colonne, ranges, isRemisage, us) {\r\n\t\t\tvar output, elt, vehicParKmRange = [] ;\r\n\t\t\tvar remisageColName = 'Autorisation de remisage' ;\r\n\t\t\tvar uniteKmColName = 'Unité km ou heures' ;\r\n\t\t\tfor(var i=0; i<ranges.length+1; i++) {\r\n\t\t\t\tvehicParKmRange.push(0) ;\r\n\t\t\t}\r\n\t\t\tfunction getRangeIdx(value) {\r\n\t\t\t\tvar output, rangeMax ;\r\n\t\t\t\tvar i ;\r\n\t\t\t\tfor(i=0; i<ranges.length; i++) {\r\n\t\t\t\t\trangeMax = ranges[i] ;\r\n\t\t\t\t\tif(!output && (value <= rangeMax)) {\r\n\t\t\t\t\t\toutput = i ;\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t\tif(value > rangeMax) output = i ;\r\n\t\t\t\t//console.log(value+' km       > '+ranges[output-1]+' et < '+ranges[output]);\r\n\t\t\t\treturn output ;\r\n\t\t\t}\r\n\t\t\tif(node) {\r\n\t\t\t\tvar leaves = dm_Tools.getChildrenAtLevel(node) ;\r\n\t\t\t\tif(leaves) {\r\n\t\t\t\t\tleaves.forEach(function(leaf) {\r\n\t\t\t\t\t\tvar unite = leaf.rawNode[uniteKmColName] ;\r\n\t\t\t\t\t\tvar km = leaf.rawNode[colonne] ;\r\n\t\t\t\t\t\tvar rangeIdx ;\r\n\t\t\t\t\t\tvar remisageValue = leaf.rawNode[remisageColName] ;\r\n\t\t\t\t\t\tvar takeit = true ;\r\n\t\t\t\t\t\tif(isRemisage) {\r\n\t\t\t\t\t\t\ttakeit = remisageValue && (remisageValue.toLowerCase() == 'oui') ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t\tif(unite && (unite.toLowerCase() == \"km\") && !isNaN(km) && takeit) {\r\n\t\t\t\t\t\t\trangeIdx = getRangeIdx(km) ;\r\n\t\t\t\t\t\t\tvehicParKmRange[rangeIdx]++ ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}) ;\r\n\t\t\t\t\tfor(var i=0; i<vehicParKmRange.length; i++) {\r\n\t\t\t\t\t\tnbVehic = vehicParKmRange[i] ;\r\n\t\t\t\t\t\tif(nbVehic > 0) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t\t\telt.value = nbVehic ;\r\n\t\t\t\t\t\t\telt.unit = (us)?'vehicules ':'véhicules ' ;\r\n\t\t\t\t\t\t\tif(i == 0) {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'with less than ':'à moins de ') + ranges[i] + ' km' ;\r\n\t\t\t\t\t\t\t} else if(i == ranges.length) {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'with more than ':'avec plus de ') + ranges[i-1] + ' km' ;\r\n\t\t\t\t\t\t\t} else {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'between ':'entre ') + ranges[i-1] + ((us)?' and ':' et ') + ranges[i] + ' km' ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t} ;\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output ;\t\t\t\r\n\t\t} ; return doit(totalKmRemisageColName, [0, 2000, 4000, 6000, 8000, 10000, 12000], true, true) ;",
+				"label": "Total kilomètres pour remisage par an"
+			}, {
+				"name": "nbKmServiceParAn",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var totalKmHorsRemisageColName = 'Number of km for the service', doit = function (colonne, ranges, isRemisage, us) {\r\n\t\t\tvar output, elt, vehicParKmRange = [] ;\r\n\t\t\tvar remisageColName = 'Autorisation de remisage' ;\r\n\t\t\tvar uniteKmColName = 'Unité km ou heures' ;\r\n\t\t\tfor(var i=0; i<ranges.length+1; i++) {\r\n\t\t\t\tvehicParKmRange.push(0) ;\r\n\t\t\t}\r\n\t\t\tfunction getRangeIdx(value) {\r\n\t\t\t\tvar output, rangeMax ;\r\n\t\t\t\tvar i ;\r\n\t\t\t\tfor(i=0; i<ranges.length; i++) {\r\n\t\t\t\t\trangeMax = ranges[i] ;\r\n\t\t\t\t\tif(!output && (value <= rangeMax)) {\r\n\t\t\t\t\t\toutput = i ;\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t\tif(value > rangeMax) output = i ;\r\n\t\t\t\t//console.log(value+' km       > '+ranges[output-1]+' et < '+ranges[output]);\r\n\t\t\t\treturn output ;\r\n\t\t\t}\r\n\t\t\tif(node) {\r\n\t\t\t\tvar leaves = dm_Tools.getChildrenAtLevel(node) ;\r\n\t\t\t\tif(leaves) {\r\n\t\t\t\t\tleaves.forEach(function(leaf) {\r\n\t\t\t\t\t\tvar unite = leaf.rawNode[uniteKmColName] ;\r\n\t\t\t\t\t\tvar km = leaf.rawNode[colonne] ;\r\n\t\t\t\t\t\tvar rangeIdx ;\r\n\t\t\t\t\t\tvar remisageValue = leaf.rawNode[remisageColName] ;\r\n\t\t\t\t\t\tvar takeit = true ;\r\n\t\t\t\t\t\tif(isRemisage) {\r\n\t\t\t\t\t\t\ttakeit = remisageValue && (remisageValue.toLowerCase() == 'oui') ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t\tif(unite && (unite.toLowerCase() == \"km\") && !isNaN(km) && takeit) {\r\n\t\t\t\t\t\t\trangeIdx = getRangeIdx(km) ;\r\n\t\t\t\t\t\t\tvehicParKmRange[rangeIdx]++ ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}) ;\r\n\t\t\t\t\tfor(var i=0; i<vehicParKmRange.length; i++) {\r\n\t\t\t\t\t\tnbVehic = vehicParKmRange[i] ;\r\n\t\t\t\t\t\tif(nbVehic > 0) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t\t\telt.value = nbVehic ;\r\n\t\t\t\t\t\t\telt.unit = (us)?'vehicules ':'véhicules ' ;\r\n\t\t\t\t\t\t\tif(i == 0) {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'with less than ':'à moins de ') + ranges[i] + ' km' ;\r\n\t\t\t\t\t\t\t} else if(i == ranges.length) {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'with more than ':'avec plus de ') + ranges[i-1] + ' km' ;\r\n\t\t\t\t\t\t\t} else {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'between ':'entre ') + ranges[i-1] + ((us)?' and ':' et ') + ranges[i] + ' km' ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t} ;\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output ;\t\t\t\r\n\t\t} ; return doit(totalKmHorsRemisageColName, [0, 2000, 4000, 6000, 8000, 10000, 12000], false, true) ;",
+				"label": "Total kilomètres pour le service par an"
+			}, {
+				"name": "nbCartesEssence",
+				"label": "Number of gas cards",
+				"edit": false
+			}, {
+				"name": "nbCartesEssenceParDG",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (level, us, cumul4sameName) {\r\n\t\t\tvar output, elt ;\r\n\t\t\tif (node) {\r\n\t\t\t\tvar listOfChildrenWithRightLevel = dm_Tools.getChildrenAtLevel(node, level) ;\r\n\t\t\t\tif(listOfChildrenWithRightLevel) {\r\n\t\t\t\t\tvar map ;\r\n\t\t\t\t\tlistOfChildrenWithRightLevel.forEach(function (nodeI) {\r\n\t\t\t\t\t\tif(nodeI.rawNode.nbCartesEssence > 0) {\r\n\t\t\t\t\t\t\tif(!cumul4sameName) {\r\n\t\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t\t\t\telt.value = nodeI.rawNode.nbCartesEssence ;\r\n\t\t\t\t\t\t\t\telt.name = nodeI.name ;\r\n\t\t\t\t\t\t\t\telt.unit = (us)?'Gas card(s)':'carte(s) essence' ;\r\n\t\t\t\t\t\t\t} else {\r\n\t\t\t\t\t\t\t\tif(!map) map = {} ;\r\n\t\t\t\t\t\t\t\tif(!map[nodeI.name]) map[nodeI.name] = {'value': 0, 'unit': (us)?'Gas card(s)':'carte(s) essence'} ;\r\n\t\t\t\t\t\t\t\tmap[nodeI.name].value += nodeI.rawNode.nbCartesEssence ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t});\r\n\t\t\t\t\tif(map) {\r\n\t\t\t\t\t\tfor(var prop in map) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt) ;\r\n\t\t\t\t\t\t\telt.value = map[prop].value ;\r\n\t\t\t\t\t\t\telt.name = prop ;\r\n\t\t\t\t\t\t\telt.unit = map[prop].unit ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output;\r\n    \t} ; return doit(2, true) ;",
+				"label": "Gas cards per entity"
+			}, {
+				"name": "nbCartesEssenceParDGA",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (level, us, cumul4sameName) {\r\n\t\t\tvar output, elt ;\r\n\t\t\tif (node) {\r\n\t\t\t\tvar listOfChildrenWithRightLevel = dm_Tools.getChildrenAtLevel(node, level) ;\r\n\t\t\t\tif(listOfChildrenWithRightLevel) {\r\n\t\t\t\t\tvar map ;\r\n\t\t\t\t\tlistOfChildrenWithRightLevel.forEach(function (nodeI) {\r\n\t\t\t\t\t\tif(nodeI.rawNode.nbCartesEssence > 0) {\r\n\t\t\t\t\t\t\tif(!cumul4sameName) {\r\n\t\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t\t\t\telt.value = nodeI.rawNode.nbCartesEssence ;\r\n\t\t\t\t\t\t\t\telt.name = nodeI.name ;\r\n\t\t\t\t\t\t\t\telt.unit = (us)?'Gas card(s)':'carte(s) essence' ;\r\n\t\t\t\t\t\t\t} else {\r\n\t\t\t\t\t\t\t\tif(!map) map = {} ;\r\n\t\t\t\t\t\t\t\tif(!map[nodeI.name]) map[nodeI.name] = {'value': 0, 'unit': (us)?'Gas card(s)':'carte(s) essence'} ;\r\n\t\t\t\t\t\t\t\tmap[nodeI.name].value += nodeI.rawNode.nbCartesEssence ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t});\r\n\t\t\t\t\tif(map) {\r\n\t\t\t\t\t\tfor(var prop in map) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt) ;\r\n\t\t\t\t\t\t\telt.value = map[prop].value ;\r\n\t\t\t\t\t\t\telt.name = prop ;\r\n\t\t\t\t\t\t\telt.unit = map[prop].unit ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output;\r\n    \t} ; return doit(3, true) ;",
+				"label": "Gas cards per department"
+			}, {
+				"name": "nbCartesEssenceParDir",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (level, us, cumul4sameName) {\r\n\t\t\tvar output, elt ;\r\n\t\t\tif (node) {\r\n\t\t\t\tvar listOfChildrenWithRightLevel = dm_Tools.getChildrenAtLevel(node, level) ;\r\n\t\t\t\tif(listOfChildrenWithRightLevel) {\r\n\t\t\t\t\tvar map ;\r\n\t\t\t\t\tlistOfChildrenWithRightLevel.forEach(function (nodeI) {\r\n\t\t\t\t\t\tif(nodeI.rawNode.nbCartesEssence > 0) {\r\n\t\t\t\t\t\t\tif(!cumul4sameName) {\r\n\t\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t\t\t\telt.value = nodeI.rawNode.nbCartesEssence ;\r\n\t\t\t\t\t\t\t\telt.name = nodeI.name ;\r\n\t\t\t\t\t\t\t\telt.unit = (us)?'Gas card(s)':'carte(s) essence' ;\r\n\t\t\t\t\t\t\t} else {\r\n\t\t\t\t\t\t\t\tif(!map) map = {} ;\r\n\t\t\t\t\t\t\t\tif(!map[nodeI.name]) map[nodeI.name] = {'value': 0, 'unit': (us)?'Gas card(s)':'carte(s) essence'} ;\r\n\t\t\t\t\t\t\t\tmap[nodeI.name].value += nodeI.rawNode.nbCartesEssence ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t});\r\n\t\t\t\t\tif(map) {\r\n\t\t\t\t\t\tfor(var prop in map) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt) ;\r\n\t\t\t\t\t\t\telt.value = map[prop].value ;\r\n\t\t\t\t\t\t\telt.name = prop ;\r\n\t\t\t\t\t\t\telt.unit = map[prop].unit ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output;\r\n    \t} ; return doit(4, true) ;",
+				"label": "Gas cards per business unit"
+			}, {
+				"name": "nb2rouesParModele",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (type) {\r\n\t\t\tvar output ;\r\n\t\t\tif (node && node.children) {\r\n\t\t\t\tfor (var modele in node.rawNode.nbVehicParModele) {\r\n\t\t\t\t\tif (type && node.rawNode.nbVehicParModele[modele] &&\r\n\t\t\t\t\t\tdm_Tools.compare(node.rawNode.nbVehicParModele[modele]['type'], type)) {\r\n\t\t\t\t\t\tif (!output)\r\n\t\t\t\t\t\t\toutput = [];\r\n\t\t\t\t\t\tvar elt = {};\r\n\t\t\t\t\t\telt.name = modele;\r\n\t\t\t\t\t\telt.value = node.rawNode.nbVehicParModele[modele].count;\r\n\t\t\t\t\t\t/*elt.unit=node.rawNode.nbVehicParModele[modele]['type'] ;*/\r\n\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output ;\r\n    \t} ; return doit('Deux roues') ;",
+				"label": "Scooter models"
+			}, {
+				"name": "nbVLParModele",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (type) {\r\n\t\t\tvar output ;\r\n\t\t\tif (node && node.children) {\r\n\t\t\t\tfor (var modele in node.rawNode.nbVehicParModele) {\r\n\t\t\t\t\tif (type && node.rawNode.nbVehicParModele[modele] &&\r\n\t\t\t\t\t\tdm_Tools.compare(node.rawNode.nbVehicParModele[modele]['type'], type)) {\r\n\t\t\t\t\t\tif (!output)\r\n\t\t\t\t\t\t\toutput = [];\r\n\t\t\t\t\t\tvar elt = {};\r\n\t\t\t\t\t\telt.name = modele;\r\n\t\t\t\t\t\telt.value = node.rawNode.nbVehicParModele[modele].count;\r\n\t\t\t\t\t\t/*elt.unit=node.rawNode.nbVehicParModele[modele]['type'] ;*/\r\n\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output ;\r\n    \t} ; return doit('Véhicule léger') ;",
+				"label": "Car models"
+			}, {
+				"name": "nbVULParModele",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (type) {\r\n\t\t\tvar output ;\r\n\t\t\tif (node && node.children) {\r\n\t\t\t\tfor (var modele in node.rawNode.nbVehicParModele) {\r\n\t\t\t\t\tif (type && node.rawNode.nbVehicParModele[modele] &&\r\n\t\t\t\t\t\tdm_Tools.compare(node.rawNode.nbVehicParModele[modele]['type'], type)) {\r\n\t\t\t\t\t\tif (!output)\r\n\t\t\t\t\t\t\toutput = [];\r\n\t\t\t\t\t\tvar elt = {};\r\n\t\t\t\t\t\telt.name = modele;\r\n\t\t\t\t\t\telt.value = node.rawNode.nbVehicParModele[modele].count;\r\n\t\t\t\t\t\t/*elt.unit=node.rawNode.nbVehicParModele[modele]['type'] ;*/\r\n\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output ;\r\n    \t} ; return doit('Utilitaire léger') ;",
+				"label": "Commercial vehicules"
+			}, {
+				"name": "nbUtilitairesParModele",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (type) {\r\n\t\t\tvar output ;\r\n\t\t\tif (node && node.children) {\r\n\t\t\t\tfor (var modele in node.rawNode.nbVehicParModele) {\r\n\t\t\t\t\tif (type && node.rawNode.nbVehicParModele[modele] &&\r\n\t\t\t\t\t\tdm_Tools.compare(node.rawNode.nbVehicParModele[modele]['type'], type)) {\r\n\t\t\t\t\t\tif (!output)\r\n\t\t\t\t\t\t\toutput = [];\r\n\t\t\t\t\t\tvar elt = {};\r\n\t\t\t\t\t\telt.name = modele;\r\n\t\t\t\t\t\telt.value = node.rawNode.nbVehicParModele[modele].count;\r\n\t\t\t\t\t\t/*elt.unit=node.rawNode.nbVehicParModele[modele]['type'] ;*/\r\n\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output ;\r\n    \t} ; return doit('Utilitaire') ;",
+				"label": "Trucks"
+			}, {
+				"name": "nbSpecifiquesParModele",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (type) {\r\n\t\t\tvar output ;\r\n\t\t\tif (node && node.children) {\r\n\t\t\t\tfor (var modele in node.rawNode.nbVehicParModele) {\r\n\t\t\t\t\tif (type && node.rawNode.nbVehicParModele[modele] &&\r\n\t\t\t\t\t\tdm_Tools.compare(node.rawNode.nbVehicParModele[modele]['type'], type)) {\r\n\t\t\t\t\t\tif (!output)\r\n\t\t\t\t\t\t\toutput = [];\r\n\t\t\t\t\t\tvar elt = {};\r\n\t\t\t\t\t\telt.name = modele;\r\n\t\t\t\t\t\telt.value = node.rawNode.nbVehicParModele[modele].count;\r\n\t\t\t\t\t\t/*elt.unit=node.rawNode.nbVehicParModele[modele]['type'] ;*/\r\n\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output ;\r\n    \t} ; return doit('Spécifique') ;",
+				"label": "Specific vehicules"
+			}]
+		}, {
+			"name": "Entité",
+			"children": [{
+				"name": "nbVehicules",
+				"label": "Number of vehicules",
+				"edit": false
+			}, {
+				"name": "nbVehicParDGA",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (level, us, cumul4sameName) {\r\n\t\t\tvar output, elt;\r\n\t\t\tif (node) {\r\n\t\t\t\tvar listOfChildrenWithRightLevel = dm_Tools.getChildrenAtLevel(node, level) ;\r\n\t\t\t\tif(listOfChildrenWithRightLevel) {\r\n\t\t\t\t\tvar map ;\r\n\t\t\t\t\tlistOfChildrenWithRightLevel.forEach(function (nodeI) {\r\n\t\t\t\t\t\tif(!cumul4sameName) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt) ;\r\n\t\t\t\t\t\t\telt.value = nodeI.rawNode.nbVehicules ;\r\n\t\t\t\t\t\t\telt.name = nodeI.name ;\r\n\t\t\t\t\t\t\telt.unit = (us)?'vehicule(s)':'véhicule(s)' ;\r\n\t\t\t\t\t\t\t//elt.nodeList = nodeI.rawNode.nbVehicules_nodeList ;\r\n\t\t\t\t\t\t} else {\r\n\t\t\t\t\t\t\tif(!map) map = {} ;\r\n\t\t\t\t\t\t\tif(!map[nodeI.name]) map[nodeI.name] = {'value': 0, 'unit': (us)?'vehicule(s)':'véhicule(s)'} ;\r\n\t\t\t\t\t\t\tmap[nodeI.name].value += nodeI.rawNode.nbVehicules ;\r\n\t\t\t\t\t\t\t//if(!map[nodeI.name].nodeList) map[nodeI.name].nodeList = [] ;\r\n\t\t\t\t\t\t\t//dm_Tools.concat(map[nodeI.name].nodeList, nodeI.rawNode.nbVehicules_nodeList) ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}) ;\r\n\t\t\t\t\tif(map) {\r\n\t\t\t\t\t\tfor(var prop in map) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt) ;\r\n\t\t\t\t\t\t\telt.value = map[prop].value ;\r\n\t\t\t\t\t\t\telt.name = prop ;\r\n\t\t\t\t\t\t\telt.unit = map[prop].unit ;\r\n\t\t\t\t\t\t\t//elt.nodeList = map[prop].nodeList ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output;\r\n    \t} ; return doit(3, true) ;",
+				"label": "Vehicule per department"
+			}, {
+				"name": "nbVehicParDir",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (level, us, cumul4sameName) {\r\n\t\t\tvar output, elt;\r\n\t\t\tif (node) {\r\n\t\t\t\tvar listOfChildrenWithRightLevel = dm_Tools.getChildrenAtLevel(node, level) ;\r\n\t\t\t\tif(listOfChildrenWithRightLevel) {\r\n\t\t\t\t\tvar map ;\r\n\t\t\t\t\tlistOfChildrenWithRightLevel.forEach(function (nodeI) {\r\n\t\t\t\t\t\tif(!cumul4sameName) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt) ;\r\n\t\t\t\t\t\t\telt.value = nodeI.rawNode.nbVehicules ;\r\n\t\t\t\t\t\t\telt.name = nodeI.name ;\r\n\t\t\t\t\t\t\telt.unit = (us)?'vehicule(s)':'véhicule(s)' ;\r\n\t\t\t\t\t\t\t//elt.nodeList = nodeI.rawNode.nbVehicules_nodeList ;\r\n\t\t\t\t\t\t} else {\r\n\t\t\t\t\t\t\tif(!map) map = {} ;\r\n\t\t\t\t\t\t\tif(!map[nodeI.name]) map[nodeI.name] = {'value': 0, 'unit': (us)?'vehicule(s)':'véhicule(s)'} ;\r\n\t\t\t\t\t\t\tmap[nodeI.name].value += nodeI.rawNode.nbVehicules ;\r\n\t\t\t\t\t\t\t//if(!map[nodeI.name].nodeList) map[nodeI.name].nodeList = [] ;\r\n\t\t\t\t\t\t\t//dm_Tools.concat(map[nodeI.name].nodeList, nodeI.rawNode.nbVehicules_nodeList) ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}) ;\r\n\t\t\t\t\tif(map) {\r\n\t\t\t\t\t\tfor(var prop in map) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt) ;\r\n\t\t\t\t\t\t\telt.value = map[prop].value ;\r\n\t\t\t\t\t\t\telt.name = prop ;\r\n\t\t\t\t\t\t\telt.unit = map[prop].unit ;\r\n\t\t\t\t\t\t\t//elt.nodeList = map[prop].nodeList ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output;\r\n    \t} ; return doit(4, true) ;",
+				"label": "Vehicule per business unit"
+			}, {
+				"name": "nbVehicParType",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (us) {\r\n\t\t\tvar output;\r\n\t\t\tif (node && node.children) {\r\n\t\t\t\toutput = [{\r\n\t\t\t\t\t\tvalue : node.rawNode.nb2roues,\r\n\t\t\t\t\t\tunit : (us)?'Scooter(s)':'2roues'\r\n\t\t\t\t\t}, {\r\n\t\t\t\t\t\tvalue : node.rawNode.nbVL,\r\n\t\t\t\t\t\tunit : (us)?'Car(s)':'Véhicule(s) léger(s)'\r\n\t\t\t\t\t}, {\r\n\t\t\t\t\t\tvalue : node.rawNode.nbVUL,\r\n\t\t\t\t\t\tunit : (us)?'Commercial vehicule(s)':'Utilitaire(s) léger(s)'\r\n\t\t\t\t\t}, {\r\n\t\t\t\t\t\tvalue : node.rawNode.nbUtilitaires,\r\n\t\t\t\t\t\tunit : (us)?'Truck(s)':'Utilitaire(s)'\r\n\t\t\t\t\t}, {\r\n\t\t\t\t\t\tvalue : node.rawNode.nbSpecifiques,\r\n\t\t\t\t\t\tunit : (us)?'Specific vehicule(s)':'Véhicule(s) spécifique(s)'\r\n\t\t\t\t\t}\r\n\t\t\t\t];\r\n\t\t\t}\r\n\t\t\treturn output;\r\n\t\t} ; return doit(true) ;",
+				"label": "Vehicule per type"
+			}, {
+				"name": "nbVehicParAnneePie",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (us) {\r\n\t\t\tvar output, elt;\r\n\t\t\tif (node && node.children) {\r\n\t\t\t\tvar nodeYears = node.rawNode[\"nbVehicParAnnee\"] ;\r\n\t\t\t\tif(nodeYears) {\r\n\t\t\t\t\tif(!output) output = [] ;\r\n\t\t\t\t\tfor(var year in nodeYears) {\r\n\t\t\t\t\t\telt = {};\r\n\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t\telt.value = nodeYears[year] ;\r\n\t\t\t\t\t\telt.name = year ;\r\n\t\t\t\t\t\telt.unit = (us)?'vehicule(s)':'véhicule(s)' ;\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output;\r\n    \t} ; return doit(true) ;",
+				"label": "Vehicule per year"
+			}, {
+				"name": "nbRemisages",
+				"label": "Storage at home",
+				"edit": false
+			}, {
+				"name": "nbRemisageParDG",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (level, us) {\r\n\t\t\tvar output, elt ;\r\n\t\t\tif (node) {\r\n\t\t\t\tvar listOfChildrenWithRightLevel = dm_Tools.getChildrenAtLevel(node, level) ;\r\n\t\t\t\tif(listOfChildrenWithRightLevel) {\r\n\t\t\t\t\tlistOfChildrenWithRightLevel.forEach(function (nodeI) {\r\n\t\t\t\t\t\tif(nodeI.rawNode.nbRemisages > 0) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t\t\telt.value = nodeI.rawNode.nbRemisages ;\r\n\t\t\t\t\t\t\telt.name = nodeI.name ;\r\n\t\t\t\t\t\t\telt.unit = (us)?'Home storage(s)':'remisage(s) à domicile' ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t});\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output;\r\n    \t} ; return doit(2, true) ;",
+				"label": "Home storage per entity"
+			}, {
+				"name": "nbRemisageParDGA",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (level, us) {\r\n\t\t\tvar output, elt ;\r\n\t\t\tif (node) {\r\n\t\t\t\tvar listOfChildrenWithRightLevel = dm_Tools.getChildrenAtLevel(node, level) ;\r\n\t\t\t\tif(listOfChildrenWithRightLevel) {\r\n\t\t\t\t\tlistOfChildrenWithRightLevel.forEach(function (nodeI) {\r\n\t\t\t\t\t\tif(nodeI.rawNode.nbRemisages > 0) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t\t\telt.value = nodeI.rawNode.nbRemisages ;\r\n\t\t\t\t\t\t\telt.name = nodeI.name ;\r\n\t\t\t\t\t\t\telt.unit = (us)?'Home storage(s)':'remisage(s) à domicile' ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t});\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output;\r\n    \t} ; return doit(3, true) ;",
+				"label": "Home storage per department"
+			}, {
+				"name": "nbRemisageParDir",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (level, us) {\r\n\t\t\tvar output, elt ;\r\n\t\t\tif (node) {\r\n\t\t\t\tvar listOfChildrenWithRightLevel = dm_Tools.getChildrenAtLevel(node, level) ;\r\n\t\t\t\tif(listOfChildrenWithRightLevel) {\r\n\t\t\t\t\tlistOfChildrenWithRightLevel.forEach(function (nodeI) {\r\n\t\t\t\t\t\tif(nodeI.rawNode.nbRemisages > 0) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t\t\telt.value = nodeI.rawNode.nbRemisages ;\r\n\t\t\t\t\t\t\telt.name = nodeI.name ;\r\n\t\t\t\t\t\t\telt.unit = (us)?'Home storage(s)':'remisage(s) à domicile' ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t});\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output;\r\n    \t} ; return doit(4, true) ;",
+				"label": "Home storage per business unit"
+			}, {
+				"name": "nbKm",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var totalKmColName = 'Number of km (or hours)', doit = function (colonne, ranges, isRemisage, us) {\r\n\t\t\tvar output, elt, vehicParKmRange = [] ;\r\n\t\t\tvar remisageColName = 'Autorisation de remisage' ;\r\n\t\t\tvar uniteKmColName = 'Unité km ou heures' ;\r\n\t\t\tfor(var i=0; i<ranges.length+1; i++) {\r\n\t\t\t\tvehicParKmRange.push(0) ;\r\n\t\t\t}\r\n\t\t\tfunction getRangeIdx(value) {\r\n\t\t\t\tvar output, rangeMax ;\r\n\t\t\t\tvar i ;\r\n\t\t\t\tfor(i=0; i<ranges.length; i++) {\r\n\t\t\t\t\trangeMax = ranges[i] ;\r\n\t\t\t\t\tif(!output && (value <= rangeMax)) {\r\n\t\t\t\t\t\toutput = i ;\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t\tif(value > rangeMax) output = i ;\r\n\t\t\t\t//console.log(value+' km       > '+ranges[output-1]+' et < '+ranges[output]);\r\n\t\t\t\treturn output ;\r\n\t\t\t}\r\n\t\t\tif(node) {\r\n\t\t\t\tvar leaves = dm_Tools.getChildrenAtLevel(node) ;\r\n\t\t\t\tif(leaves) {\r\n\t\t\t\t\tleaves.forEach(function(leaf) {\r\n\t\t\t\t\t\tvar unite = leaf.rawNode[uniteKmColName] ;\r\n\t\t\t\t\t\tvar km = leaf.rawNode[colonne] ;\r\n\t\t\t\t\t\tvar rangeIdx ;\r\n\t\t\t\t\t\tvar remisageValue = leaf.rawNode[remisageColName] ;\r\n\t\t\t\t\t\tvar takeit = true ;\r\n\t\t\t\t\t\tif(isRemisage) {\r\n\t\t\t\t\t\t\ttakeit = remisageValue && (remisageValue.toLowerCase() == 'oui') ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t\tif(unite && (unite.toLowerCase() == \"km\") && !isNaN(km) && takeit) {\r\n\t\t\t\t\t\t\trangeIdx = getRangeIdx(km) ;\r\n\t\t\t\t\t\t\tvehicParKmRange[rangeIdx]++ ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}) ;\r\n\t\t\t\t\tfor(var i=0; i<vehicParKmRange.length; i++) {\r\n\t\t\t\t\t\tnbVehic = vehicParKmRange[i] ;\r\n\t\t\t\t\t\tif(nbVehic > 0) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t\t\telt.value = nbVehic ;\r\n\t\t\t\t\t\t\telt.unit = (us)?'vehicules ':'véhicules ' ;\r\n\t\t\t\t\t\t\tif(i == 0) {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'with less than ':'à moins de ') + ranges[i] + ' km' ;\r\n\t\t\t\t\t\t\t} else if(i == ranges.length) {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'with more than ':'avec plus de ') + ranges[i-1] + ' km' ;\r\n\t\t\t\t\t\t\t} else {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'between ':'entre ') + ranges[i-1] + ((us)?' and ':' et ') + ranges[i] + ' km' ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t} ;\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output ;\t\t\t\r\n\t\t} ; return doit(totalKmColName, [0, 10000, 20000, 40000, 60000, 80000, 100000, 150000, 200000], false, true) ;",
+				"label": "Total kilomètres parcourus"
+			}, {
+				"name": "nbKmRemisageParAn",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var totalKmRemisageColName = 'Number of km for home storage', doit = function (colonne, ranges, isRemisage, us) {\r\n\t\t\tvar output, elt, vehicParKmRange = [] ;\r\n\t\t\tvar remisageColName = 'Autorisation de remisage' ;\r\n\t\t\tvar uniteKmColName = 'Unité km ou heures' ;\r\n\t\t\tfor(var i=0; i<ranges.length+1; i++) {\r\n\t\t\t\tvehicParKmRange.push(0) ;\r\n\t\t\t}\r\n\t\t\tfunction getRangeIdx(value) {\r\n\t\t\t\tvar output, rangeMax ;\r\n\t\t\t\tvar i ;\r\n\t\t\t\tfor(i=0; i<ranges.length; i++) {\r\n\t\t\t\t\trangeMax = ranges[i] ;\r\n\t\t\t\t\tif(!output && (value <= rangeMax)) {\r\n\t\t\t\t\t\toutput = i ;\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t\tif(value > rangeMax) output = i ;\r\n\t\t\t\t//console.log(value+' km       > '+ranges[output-1]+' et < '+ranges[output]);\r\n\t\t\t\treturn output ;\r\n\t\t\t}\r\n\t\t\tif(node) {\r\n\t\t\t\tvar leaves = dm_Tools.getChildrenAtLevel(node) ;\r\n\t\t\t\tif(leaves) {\r\n\t\t\t\t\tleaves.forEach(function(leaf) {\r\n\t\t\t\t\t\tvar unite = leaf.rawNode[uniteKmColName] ;\r\n\t\t\t\t\t\tvar km = leaf.rawNode[colonne] ;\r\n\t\t\t\t\t\tvar rangeIdx ;\r\n\t\t\t\t\t\tvar remisageValue = leaf.rawNode[remisageColName] ;\r\n\t\t\t\t\t\tvar takeit = true ;\r\n\t\t\t\t\t\tif(isRemisage) {\r\n\t\t\t\t\t\t\ttakeit = remisageValue && (remisageValue.toLowerCase() == 'oui') ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t\tif(unite && (unite.toLowerCase() == \"km\") && !isNaN(km) && takeit) {\r\n\t\t\t\t\t\t\trangeIdx = getRangeIdx(km) ;\r\n\t\t\t\t\t\t\tvehicParKmRange[rangeIdx]++ ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}) ;\r\n\t\t\t\t\tfor(var i=0; i<vehicParKmRange.length; i++) {\r\n\t\t\t\t\t\tnbVehic = vehicParKmRange[i] ;\r\n\t\t\t\t\t\tif(nbVehic > 0) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t\t\telt.value = nbVehic ;\r\n\t\t\t\t\t\t\telt.unit = (us)?'vehicules ':'véhicules ' ;\r\n\t\t\t\t\t\t\tif(i == 0) {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'with less than ':'à moins de ') + ranges[i] + ' km' ;\r\n\t\t\t\t\t\t\t} else if(i == ranges.length) {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'with more than ':'avec plus de ') + ranges[i-1] + ' km' ;\r\n\t\t\t\t\t\t\t} else {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'between ':'entre ') + ranges[i-1] + ((us)?' and ':' et ') + ranges[i] + ' km' ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t} ;\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output ;\t\t\t\r\n\t\t} ; return doit(totalKmRemisageColName, [0, 2000, 4000, 6000, 8000, 10000, 12000], true, true) ;",
+				"label": "Total kilomètres pour remisage par an"
+			}, {
+				"name": "nbKmServiceParAn",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var totalKmHorsRemisageColName = 'Number of km for the service', doit = function (colonne, ranges, isRemisage, us) {\r\n\t\t\tvar output, elt, vehicParKmRange = [] ;\r\n\t\t\tvar remisageColName = 'Autorisation de remisage' ;\r\n\t\t\tvar uniteKmColName = 'Unité km ou heures' ;\r\n\t\t\tfor(var i=0; i<ranges.length+1; i++) {\r\n\t\t\t\tvehicParKmRange.push(0) ;\r\n\t\t\t}\r\n\t\t\tfunction getRangeIdx(value) {\r\n\t\t\t\tvar output, rangeMax ;\r\n\t\t\t\tvar i ;\r\n\t\t\t\tfor(i=0; i<ranges.length; i++) {\r\n\t\t\t\t\trangeMax = ranges[i] ;\r\n\t\t\t\t\tif(!output && (value <= rangeMax)) {\r\n\t\t\t\t\t\toutput = i ;\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t\tif(value > rangeMax) output = i ;\r\n\t\t\t\t//console.log(value+' km       > '+ranges[output-1]+' et < '+ranges[output]);\r\n\t\t\t\treturn output ;\r\n\t\t\t}\r\n\t\t\tif(node) {\r\n\t\t\t\tvar leaves = dm_Tools.getChildrenAtLevel(node) ;\r\n\t\t\t\tif(leaves) {\r\n\t\t\t\t\tleaves.forEach(function(leaf) {\r\n\t\t\t\t\t\tvar unite = leaf.rawNode[uniteKmColName] ;\r\n\t\t\t\t\t\tvar km = leaf.rawNode[colonne] ;\r\n\t\t\t\t\t\tvar rangeIdx ;\r\n\t\t\t\t\t\tvar remisageValue = leaf.rawNode[remisageColName] ;\r\n\t\t\t\t\t\tvar takeit = true ;\r\n\t\t\t\t\t\tif(isRemisage) {\r\n\t\t\t\t\t\t\ttakeit = remisageValue && (remisageValue.toLowerCase() == 'oui') ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t\tif(unite && (unite.toLowerCase() == \"km\") && !isNaN(km) && takeit) {\r\n\t\t\t\t\t\t\trangeIdx = getRangeIdx(km) ;\r\n\t\t\t\t\t\t\tvehicParKmRange[rangeIdx]++ ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}) ;\r\n\t\t\t\t\tfor(var i=0; i<vehicParKmRange.length; i++) {\r\n\t\t\t\t\t\tnbVehic = vehicParKmRange[i] ;\r\n\t\t\t\t\t\tif(nbVehic > 0) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t\t\telt.value = nbVehic ;\r\n\t\t\t\t\t\t\telt.unit = (us)?'vehicules ':'véhicules ' ;\r\n\t\t\t\t\t\t\tif(i == 0) {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'with less than ':'à moins de ') + ranges[i] + ' km' ;\r\n\t\t\t\t\t\t\t} else if(i == ranges.length) {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'with more than ':'avec plus de ') + ranges[i-1] + ' km' ;\r\n\t\t\t\t\t\t\t} else {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'between ':'entre ') + ranges[i-1] + ((us)?' and ':' et ') + ranges[i] + ' km' ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t} ;\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output ;\t\t\t\r\n\t\t} ; return doit(totalKmHorsRemisageColName, [0, 2000, 4000, 6000, 8000, 10000, 12000], false, true) ;",
+				"label": "Total kilomètres pour le service par an"
+			}, {
+				"name": "nbCartesEssence",
+				"label": "Number of gas cards",
+				"edit": false
+			}, {
+				"name": "nbCartesEssenceParDG",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (level, us, cumul4sameName) {\r\n\t\t\tvar output, elt ;\r\n\t\t\tif (node) {\r\n\t\t\t\tvar listOfChildrenWithRightLevel = dm_Tools.getChildrenAtLevel(node, level) ;\r\n\t\t\t\tif(listOfChildrenWithRightLevel) {\r\n\t\t\t\t\tvar map ;\r\n\t\t\t\t\tlistOfChildrenWithRightLevel.forEach(function (nodeI) {\r\n\t\t\t\t\t\tif(nodeI.rawNode.nbCartesEssence > 0) {\r\n\t\t\t\t\t\t\tif(!cumul4sameName) {\r\n\t\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t\t\t\telt.value = nodeI.rawNode.nbCartesEssence ;\r\n\t\t\t\t\t\t\t\telt.name = nodeI.name ;\r\n\t\t\t\t\t\t\t\telt.unit = (us)?'Gas card(s)':'carte(s) essence' ;\r\n\t\t\t\t\t\t\t} else {\r\n\t\t\t\t\t\t\t\tif(!map) map = {} ;\r\n\t\t\t\t\t\t\t\tif(!map[nodeI.name]) map[nodeI.name] = {'value': 0, 'unit': (us)?'Gas card(s)':'carte(s) essence'} ;\r\n\t\t\t\t\t\t\t\tmap[nodeI.name].value += nodeI.rawNode.nbCartesEssence ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t});\r\n\t\t\t\t\tif(map) {\r\n\t\t\t\t\t\tfor(var prop in map) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt) ;\r\n\t\t\t\t\t\t\telt.value = map[prop].value ;\r\n\t\t\t\t\t\t\telt.name = prop ;\r\n\t\t\t\t\t\t\telt.unit = map[prop].unit ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output;\r\n    \t} ; return doit(2, true) ;",
+				"label": "Gas cards per entity"
+			}, {
+				"name": "nbCartesEssenceParDGA",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (level, us, cumul4sameName) {\r\n\t\t\tvar output, elt ;\r\n\t\t\tif (node) {\r\n\t\t\t\tvar listOfChildrenWithRightLevel = dm_Tools.getChildrenAtLevel(node, level) ;\r\n\t\t\t\tif(listOfChildrenWithRightLevel) {\r\n\t\t\t\t\tvar map ;\r\n\t\t\t\t\tlistOfChildrenWithRightLevel.forEach(function (nodeI) {\r\n\t\t\t\t\t\tif(nodeI.rawNode.nbCartesEssence > 0) {\r\n\t\t\t\t\t\t\tif(!cumul4sameName) {\r\n\t\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t\t\t\telt.value = nodeI.rawNode.nbCartesEssence ;\r\n\t\t\t\t\t\t\t\telt.name = nodeI.name ;\r\n\t\t\t\t\t\t\t\telt.unit = (us)?'Gas card(s)':'carte(s) essence' ;\r\n\t\t\t\t\t\t\t} else {\r\n\t\t\t\t\t\t\t\tif(!map) map = {} ;\r\n\t\t\t\t\t\t\t\tif(!map[nodeI.name]) map[nodeI.name] = {'value': 0, 'unit': (us)?'Gas card(s)':'carte(s) essence'} ;\r\n\t\t\t\t\t\t\t\tmap[nodeI.name].value += nodeI.rawNode.nbCartesEssence ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t});\r\n\t\t\t\t\tif(map) {\r\n\t\t\t\t\t\tfor(var prop in map) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt) ;\r\n\t\t\t\t\t\t\telt.value = map[prop].value ;\r\n\t\t\t\t\t\t\telt.name = prop ;\r\n\t\t\t\t\t\t\telt.unit = map[prop].unit ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output;\r\n    \t} ; return doit(3, true) ;",
+				"label": "Gas cards per department"
+			}, {
+				"name": "nbCartesEssenceParDir",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (level, us, cumul4sameName) {\r\n\t\t\tvar output, elt ;\r\n\t\t\tif (node) {\r\n\t\t\t\tvar listOfChildrenWithRightLevel = dm_Tools.getChildrenAtLevel(node, level) ;\r\n\t\t\t\tif(listOfChildrenWithRightLevel) {\r\n\t\t\t\t\tvar map ;\r\n\t\t\t\t\tlistOfChildrenWithRightLevel.forEach(function (nodeI) {\r\n\t\t\t\t\t\tif(nodeI.rawNode.nbCartesEssence > 0) {\r\n\t\t\t\t\t\t\tif(!cumul4sameName) {\r\n\t\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t\t\t\telt.value = nodeI.rawNode.nbCartesEssence ;\r\n\t\t\t\t\t\t\t\telt.name = nodeI.name ;\r\n\t\t\t\t\t\t\t\telt.unit = (us)?'Gas card(s)':'carte(s) essence' ;\r\n\t\t\t\t\t\t\t} else {\r\n\t\t\t\t\t\t\t\tif(!map) map = {} ;\r\n\t\t\t\t\t\t\t\tif(!map[nodeI.name]) map[nodeI.name] = {'value': 0, 'unit': (us)?'Gas card(s)':'carte(s) essence'} ;\r\n\t\t\t\t\t\t\t\tmap[nodeI.name].value += nodeI.rawNode.nbCartesEssence ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t});\r\n\t\t\t\t\tif(map) {\r\n\t\t\t\t\t\tfor(var prop in map) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt) ;\r\n\t\t\t\t\t\t\telt.value = map[prop].value ;\r\n\t\t\t\t\t\t\telt.name = prop ;\r\n\t\t\t\t\t\t\telt.unit = map[prop].unit ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output;\r\n    \t} ; return doit(4, true) ;",
+				"label": "Gas cards per business unit"
+			}, {
+				"name": "nb2rouesParModele",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (type) {\r\n\t\t\tvar output ;\r\n\t\t\tif (node && node.children) {\r\n\t\t\t\tfor (var modele in node.rawNode.nbVehicParModele) {\r\n\t\t\t\t\tif (type && node.rawNode.nbVehicParModele[modele] &&\r\n\t\t\t\t\t\tdm_Tools.compare(node.rawNode.nbVehicParModele[modele]['type'], type)) {\r\n\t\t\t\t\t\tif (!output)\r\n\t\t\t\t\t\t\toutput = [];\r\n\t\t\t\t\t\tvar elt = {};\r\n\t\t\t\t\t\telt.name = modele;\r\n\t\t\t\t\t\telt.value = node.rawNode.nbVehicParModele[modele].count;\r\n\t\t\t\t\t\t/*elt.unit=node.rawNode.nbVehicParModele[modele]['type'] ;*/\r\n\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output ;\r\n    \t} ; return doit('Deux roues') ;",
+				"label": "Scooter models"
+			}, {
+				"name": "nbVLParModele",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (type) {\r\n\t\t\tvar output ;\r\n\t\t\tif (node && node.children) {\r\n\t\t\t\tfor (var modele in node.rawNode.nbVehicParModele) {\r\n\t\t\t\t\tif (type && node.rawNode.nbVehicParModele[modele] &&\r\n\t\t\t\t\t\tdm_Tools.compare(node.rawNode.nbVehicParModele[modele]['type'], type)) {\r\n\t\t\t\t\t\tif (!output)\r\n\t\t\t\t\t\t\toutput = [];\r\n\t\t\t\t\t\tvar elt = {};\r\n\t\t\t\t\t\telt.name = modele;\r\n\t\t\t\t\t\telt.value = node.rawNode.nbVehicParModele[modele].count;\r\n\t\t\t\t\t\t/*elt.unit=node.rawNode.nbVehicParModele[modele]['type'] ;*/\r\n\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output ;\r\n    \t} ; return doit('Véhicule léger') ;",
+				"label": "Car models"
+			}, {
+				"name": "nbVULParModele",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (type) {\r\n\t\t\tvar output ;\r\n\t\t\tif (node && node.children) {\r\n\t\t\t\tfor (var modele in node.rawNode.nbVehicParModele) {\r\n\t\t\t\t\tif (type && node.rawNode.nbVehicParModele[modele] &&\r\n\t\t\t\t\t\tdm_Tools.compare(node.rawNode.nbVehicParModele[modele]['type'], type)) {\r\n\t\t\t\t\t\tif (!output)\r\n\t\t\t\t\t\t\toutput = [];\r\n\t\t\t\t\t\tvar elt = {};\r\n\t\t\t\t\t\telt.name = modele;\r\n\t\t\t\t\t\telt.value = node.rawNode.nbVehicParModele[modele].count;\r\n\t\t\t\t\t\t/*elt.unit=node.rawNode.nbVehicParModele[modele]['type'] ;*/\r\n\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output ;\r\n    \t} ; return doit('Utilitaire léger') ;",
+				"label": "Commercial vehicules"
+			}, {
+				"name": "nbUtilitairesParModele",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (type) {\r\n\t\t\tvar output ;\r\n\t\t\tif (node && node.children) {\r\n\t\t\t\tfor (var modele in node.rawNode.nbVehicParModele) {\r\n\t\t\t\t\tif (type && node.rawNode.nbVehicParModele[modele] &&\r\n\t\t\t\t\t\tdm_Tools.compare(node.rawNode.nbVehicParModele[modele]['type'], type)) {\r\n\t\t\t\t\t\tif (!output)\r\n\t\t\t\t\t\t\toutput = [];\r\n\t\t\t\t\t\tvar elt = {};\r\n\t\t\t\t\t\telt.name = modele;\r\n\t\t\t\t\t\telt.value = node.rawNode.nbVehicParModele[modele].count;\r\n\t\t\t\t\t\t/*elt.unit=node.rawNode.nbVehicParModele[modele]['type'] ;*/\r\n\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output ;\r\n    \t} ; return doit('Utilitaire') ;",
+				"label": "Trucks"
+			}, {
+				"name": "nbSpecifiquesParModele",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (type) {\r\n\t\t\tvar output ;\r\n\t\t\tif (node && node.children) {\r\n\t\t\t\tfor (var modele in node.rawNode.nbVehicParModele) {\r\n\t\t\t\t\tif (type && node.rawNode.nbVehicParModele[modele] &&\r\n\t\t\t\t\t\tdm_Tools.compare(node.rawNode.nbVehicParModele[modele]['type'], type)) {\r\n\t\t\t\t\t\tif (!output)\r\n\t\t\t\t\t\t\toutput = [];\r\n\t\t\t\t\t\tvar elt = {};\r\n\t\t\t\t\t\telt.name = modele;\r\n\t\t\t\t\t\telt.value = node.rawNode.nbVehicParModele[modele].count;\r\n\t\t\t\t\t\t/*elt.unit=node.rawNode.nbVehicParModele[modele]['type'] ;*/\r\n\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output ;\r\n    \t} ; return doit('Spécifique') ;",
+				"label": "Specific vehicules"
+			}]
+		}, {
+			"name": "DG",
+			"children": [{
+				"name": "nbVehicules",
+				"label": "Number of vehicules",
+				"edit": false
+			}, {
+				"name": "nbVehicParDGA",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (level, us, cumul4sameName) {\r\n\t\t\tvar output, elt;\r\n\t\t\tif (node) {\r\n\t\t\t\tvar listOfChildrenWithRightLevel = dm_Tools.getChildrenAtLevel(node, level) ;\r\n\t\t\t\tif(listOfChildrenWithRightLevel) {\r\n\t\t\t\t\tvar map ;\r\n\t\t\t\t\tlistOfChildrenWithRightLevel.forEach(function (nodeI) {\r\n\t\t\t\t\t\tif(!cumul4sameName) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt) ;\r\n\t\t\t\t\t\t\telt.value = nodeI.rawNode.nbVehicules ;\r\n\t\t\t\t\t\t\telt.name = nodeI.name ;\r\n\t\t\t\t\t\t\telt.unit = (us)?'vehicule(s)':'véhicule(s)' ;\r\n\t\t\t\t\t\t\t//elt.nodeList = nodeI.rawNode.nbVehicules_nodeList ;\r\n\t\t\t\t\t\t} else {\r\n\t\t\t\t\t\t\tif(!map) map = {} ;\r\n\t\t\t\t\t\t\tif(!map[nodeI.name]) map[nodeI.name] = {'value': 0, 'unit': (us)?'vehicule(s)':'véhicule(s)'} ;\r\n\t\t\t\t\t\t\tmap[nodeI.name].value += nodeI.rawNode.nbVehicules ;\r\n\t\t\t\t\t\t\t//if(!map[nodeI.name].nodeList) map[nodeI.name].nodeList = [] ;\r\n\t\t\t\t\t\t\t//dm_Tools.concat(map[nodeI.name].nodeList, nodeI.rawNode.nbVehicules_nodeList) ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}) ;\r\n\t\t\t\t\tif(map) {\r\n\t\t\t\t\t\tfor(var prop in map) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt) ;\r\n\t\t\t\t\t\t\telt.value = map[prop].value ;\r\n\t\t\t\t\t\t\telt.name = prop ;\r\n\t\t\t\t\t\t\telt.unit = map[prop].unit ;\r\n\t\t\t\t\t\t\t//elt.nodeList = map[prop].nodeList ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output;\r\n    \t} ; return doit(3, true) ;",
+				"label": "Vehicule per department"
+			}, {
+				"name": "nbVehicParDir",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (level, us, cumul4sameName) {\r\n\t\t\tvar output, elt;\r\n\t\t\tif (node) {\r\n\t\t\t\tvar listOfChildrenWithRightLevel = dm_Tools.getChildrenAtLevel(node, level) ;\r\n\t\t\t\tif(listOfChildrenWithRightLevel) {\r\n\t\t\t\t\tvar map ;\r\n\t\t\t\t\tlistOfChildrenWithRightLevel.forEach(function (nodeI) {\r\n\t\t\t\t\t\tif(!cumul4sameName) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt) ;\r\n\t\t\t\t\t\t\telt.value = nodeI.rawNode.nbVehicules ;\r\n\t\t\t\t\t\t\telt.name = nodeI.name ;\r\n\t\t\t\t\t\t\telt.unit = (us)?'vehicule(s)':'véhicule(s)' ;\r\n\t\t\t\t\t\t\t//elt.nodeList = nodeI.rawNode.nbVehicules_nodeList ;\r\n\t\t\t\t\t\t} else {\r\n\t\t\t\t\t\t\tif(!map) map = {} ;\r\n\t\t\t\t\t\t\tif(!map[nodeI.name]) map[nodeI.name] = {'value': 0, 'unit': (us)?'vehicule(s)':'véhicule(s)'} ;\r\n\t\t\t\t\t\t\tmap[nodeI.name].value += nodeI.rawNode.nbVehicules ;\r\n\t\t\t\t\t\t\t//if(!map[nodeI.name].nodeList) map[nodeI.name].nodeList = [] ;\r\n\t\t\t\t\t\t\t//dm_Tools.concat(map[nodeI.name].nodeList, nodeI.rawNode.nbVehicules_nodeList) ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}) ;\r\n\t\t\t\t\tif(map) {\r\n\t\t\t\t\t\tfor(var prop in map) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt) ;\r\n\t\t\t\t\t\t\telt.value = map[prop].value ;\r\n\t\t\t\t\t\t\telt.name = prop ;\r\n\t\t\t\t\t\t\telt.unit = map[prop].unit ;\r\n\t\t\t\t\t\t\t//elt.nodeList = map[prop].nodeList ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output;\r\n    \t} ; return doit(4, true) ;",
+				"label": "Vehicule per business unit"
+			}, {
+				"name": "nbVehicParType",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (us) {\r\n\t\t\tvar output;\r\n\t\t\tif (node && node.children) {\r\n\t\t\t\toutput = [{\r\n\t\t\t\t\t\tvalue : node.rawNode.nb2roues,\r\n\t\t\t\t\t\tunit : (us)?'Scooter(s)':'2roues'\r\n\t\t\t\t\t}, {\r\n\t\t\t\t\t\tvalue : node.rawNode.nbVL,\r\n\t\t\t\t\t\tunit : (us)?'Car(s)':'Véhicule(s) léger(s)'\r\n\t\t\t\t\t}, {\r\n\t\t\t\t\t\tvalue : node.rawNode.nbVUL,\r\n\t\t\t\t\t\tunit : (us)?'Commercial vehicule(s)':'Utilitaire(s) léger(s)'\r\n\t\t\t\t\t}, {\r\n\t\t\t\t\t\tvalue : node.rawNode.nbUtilitaires,\r\n\t\t\t\t\t\tunit : (us)?'Truck(s)':'Utilitaire(s)'\r\n\t\t\t\t\t}, {\r\n\t\t\t\t\t\tvalue : node.rawNode.nbSpecifiques,\r\n\t\t\t\t\t\tunit : (us)?'Specific vehicule(s)':'Véhicule(s) spécifique(s)'\r\n\t\t\t\t\t}\r\n\t\t\t\t];\r\n\t\t\t}\r\n\t\t\treturn output;\r\n\t\t} ; return doit(true) ;",
+				"label": "Vehicule per type"
+			}, {
+				"name": "nbVehicParAnneePie",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (us) {\r\n\t\t\tvar output, elt;\r\n\t\t\tif (node && node.children) {\r\n\t\t\t\tvar nodeYears = node.rawNode[\"nbVehicParAnnee\"] ;\r\n\t\t\t\tif(nodeYears) {\r\n\t\t\t\t\tif(!output) output = [] ;\r\n\t\t\t\t\tfor(var year in nodeYears) {\r\n\t\t\t\t\t\telt = {};\r\n\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t\telt.value = nodeYears[year] ;\r\n\t\t\t\t\t\telt.name = year ;\r\n\t\t\t\t\t\telt.unit = (us)?'vehicule(s)':'véhicule(s)' ;\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output;\r\n    \t} ; return doit(true) ;",
+				"label": "Vehicule per year"
+			}, {
+				"name": "nbRemisages",
+				"label": "Storage at home",
+				"edit": false
+			}, {
+				"name": "nbRemisageParDGA",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (level, us) {\r\n\t\t\tvar output, elt ;\r\n\t\t\tif (node) {\r\n\t\t\t\tvar listOfChildrenWithRightLevel = dm_Tools.getChildrenAtLevel(node, level) ;\r\n\t\t\t\tif(listOfChildrenWithRightLevel) {\r\n\t\t\t\t\tlistOfChildrenWithRightLevel.forEach(function (nodeI) {\r\n\t\t\t\t\t\tif(nodeI.rawNode.nbRemisages > 0) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t\t\telt.value = nodeI.rawNode.nbRemisages ;\r\n\t\t\t\t\t\t\telt.name = nodeI.name ;\r\n\t\t\t\t\t\t\telt.unit = (us)?'Home storage(s)':'remisage(s) à domicile' ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t});\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output;\r\n    \t} ; return doit(3, true) ;",
+				"label": "Home storage per department"
+			}, {
+				"name": "nbRemisageParDir",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (level, us) {\r\n\t\t\tvar output, elt ;\r\n\t\t\tif (node) {\r\n\t\t\t\tvar listOfChildrenWithRightLevel = dm_Tools.getChildrenAtLevel(node, level) ;\r\n\t\t\t\tif(listOfChildrenWithRightLevel) {\r\n\t\t\t\t\tlistOfChildrenWithRightLevel.forEach(function (nodeI) {\r\n\t\t\t\t\t\tif(nodeI.rawNode.nbRemisages > 0) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t\t\telt.value = nodeI.rawNode.nbRemisages ;\r\n\t\t\t\t\t\t\telt.name = nodeI.name ;\r\n\t\t\t\t\t\t\telt.unit = (us)?'Home storage(s)':'remisage(s) à domicile' ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t});\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output;\r\n    \t} ; return doit(4, true) ;",
+				"label": "Home storage per business unit"
+			}, {
+				"name": "nbKm",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var totalKmColName = 'Number of km (or hours)', doit = function (colonne, ranges, isRemisage, us) {\r\n\t\t\tvar output, elt, vehicParKmRange = [] ;\r\n\t\t\tvar remisageColName = 'Autorisation de remisage' ;\r\n\t\t\tvar uniteKmColName = 'Unité km ou heures' ;\r\n\t\t\tfor(var i=0; i<ranges.length+1; i++) {\r\n\t\t\t\tvehicParKmRange.push(0) ;\r\n\t\t\t}\r\n\t\t\tfunction getRangeIdx(value) {\r\n\t\t\t\tvar output, rangeMax ;\r\n\t\t\t\tvar i ;\r\n\t\t\t\tfor(i=0; i<ranges.length; i++) {\r\n\t\t\t\t\trangeMax = ranges[i] ;\r\n\t\t\t\t\tif(!output && (value <= rangeMax)) {\r\n\t\t\t\t\t\toutput = i ;\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t\tif(value > rangeMax) output = i ;\r\n\t\t\t\t//console.log(value+' km       > '+ranges[output-1]+' et < '+ranges[output]);\r\n\t\t\t\treturn output ;\r\n\t\t\t}\r\n\t\t\tif(node) {\r\n\t\t\t\tvar leaves = dm_Tools.getChildrenAtLevel(node) ;\r\n\t\t\t\tif(leaves) {\r\n\t\t\t\t\tleaves.forEach(function(leaf) {\r\n\t\t\t\t\t\tvar unite = leaf.rawNode[uniteKmColName] ;\r\n\t\t\t\t\t\tvar km = leaf.rawNode[colonne] ;\r\n\t\t\t\t\t\tvar rangeIdx ;\r\n\t\t\t\t\t\tvar remisageValue = leaf.rawNode[remisageColName] ;\r\n\t\t\t\t\t\tvar takeit = true ;\r\n\t\t\t\t\t\tif(isRemisage) {\r\n\t\t\t\t\t\t\ttakeit = remisageValue && (remisageValue.toLowerCase() == 'oui') ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t\tif(unite && (unite.toLowerCase() == \"km\") && !isNaN(km) && takeit) {\r\n\t\t\t\t\t\t\trangeIdx = getRangeIdx(km) ;\r\n\t\t\t\t\t\t\tvehicParKmRange[rangeIdx]++ ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}) ;\r\n\t\t\t\t\tfor(var i=0; i<vehicParKmRange.length; i++) {\r\n\t\t\t\t\t\tnbVehic = vehicParKmRange[i] ;\r\n\t\t\t\t\t\tif(nbVehic > 0) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t\t\telt.value = nbVehic ;\r\n\t\t\t\t\t\t\telt.unit = (us)?'vehicules ':'véhicules ' ;\r\n\t\t\t\t\t\t\tif(i == 0) {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'with less than ':'à moins de ') + ranges[i] + ' km' ;\r\n\t\t\t\t\t\t\t} else if(i == ranges.length) {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'with more than ':'avec plus de ') + ranges[i-1] + ' km' ;\r\n\t\t\t\t\t\t\t} else {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'between ':'entre ') + ranges[i-1] + ((us)?' and ':' et ') + ranges[i] + ' km' ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t} ;\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output ;\t\t\t\r\n\t\t} ; return doit(totalKmColName, [0, 10000, 20000, 40000, 60000, 80000, 100000, 150000, 200000], false, true) ;",
+				"label": "Total kilomètres parcourus"
+			}, {
+				"name": "nbKmRemisageParAn",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var totalKmRemisageColName = 'Number of km for home storage', doit = function (colonne, ranges, isRemisage, us) {\r\n\t\t\tvar output, elt, vehicParKmRange = [] ;\r\n\t\t\tvar remisageColName = 'Autorisation de remisage' ;\r\n\t\t\tvar uniteKmColName = 'Unité km ou heures' ;\r\n\t\t\tfor(var i=0; i<ranges.length+1; i++) {\r\n\t\t\t\tvehicParKmRange.push(0) ;\r\n\t\t\t}\r\n\t\t\tfunction getRangeIdx(value) {\r\n\t\t\t\tvar output, rangeMax ;\r\n\t\t\t\tvar i ;\r\n\t\t\t\tfor(i=0; i<ranges.length; i++) {\r\n\t\t\t\t\trangeMax = ranges[i] ;\r\n\t\t\t\t\tif(!output && (value <= rangeMax)) {\r\n\t\t\t\t\t\toutput = i ;\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t\tif(value > rangeMax) output = i ;\r\n\t\t\t\t//console.log(value+' km       > '+ranges[output-1]+' et < '+ranges[output]);\r\n\t\t\t\treturn output ;\r\n\t\t\t}\r\n\t\t\tif(node) {\r\n\t\t\t\tvar leaves = dm_Tools.getChildrenAtLevel(node) ;\r\n\t\t\t\tif(leaves) {\r\n\t\t\t\t\tleaves.forEach(function(leaf) {\r\n\t\t\t\t\t\tvar unite = leaf.rawNode[uniteKmColName] ;\r\n\t\t\t\t\t\tvar km = leaf.rawNode[colonne] ;\r\n\t\t\t\t\t\tvar rangeIdx ;\r\n\t\t\t\t\t\tvar remisageValue = leaf.rawNode[remisageColName] ;\r\n\t\t\t\t\t\tvar takeit = true ;\r\n\t\t\t\t\t\tif(isRemisage) {\r\n\t\t\t\t\t\t\ttakeit = remisageValue && (remisageValue.toLowerCase() == 'oui') ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t\tif(unite && (unite.toLowerCase() == \"km\") && !isNaN(km) && takeit) {\r\n\t\t\t\t\t\t\trangeIdx = getRangeIdx(km) ;\r\n\t\t\t\t\t\t\tvehicParKmRange[rangeIdx]++ ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}) ;\r\n\t\t\t\t\tfor(var i=0; i<vehicParKmRange.length; i++) {\r\n\t\t\t\t\t\tnbVehic = vehicParKmRange[i] ;\r\n\t\t\t\t\t\tif(nbVehic > 0) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t\t\telt.value = nbVehic ;\r\n\t\t\t\t\t\t\telt.unit = (us)?'vehicules ':'véhicules ' ;\r\n\t\t\t\t\t\t\tif(i == 0) {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'with less than ':'à moins de ') + ranges[i] + ' km' ;\r\n\t\t\t\t\t\t\t} else if(i == ranges.length) {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'with more than ':'avec plus de ') + ranges[i-1] + ' km' ;\r\n\t\t\t\t\t\t\t} else {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'between ':'entre ') + ranges[i-1] + ((us)?' and ':' et ') + ranges[i] + ' km' ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t} ;\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output ;\t\t\t\r\n\t\t} ; return doit(totalKmRemisageColName, [0, 2000, 4000, 6000, 8000, 10000, 12000], true, true) ;",
+				"label": "Total kilomètres pour remisage par an"
+			}, {
+				"name": "nbKmServiceParAn",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var totalKmHorsRemisageColName = 'Number of km for the service', doit = function (colonne, ranges, isRemisage, us) {\r\n\t\t\tvar output, elt, vehicParKmRange = [] ;\r\n\t\t\tvar remisageColName = 'Autorisation de remisage' ;\r\n\t\t\tvar uniteKmColName = 'Unité km ou heures' ;\r\n\t\t\tfor(var i=0; i<ranges.length+1; i++) {\r\n\t\t\t\tvehicParKmRange.push(0) ;\r\n\t\t\t}\r\n\t\t\tfunction getRangeIdx(value) {\r\n\t\t\t\tvar output, rangeMax ;\r\n\t\t\t\tvar i ;\r\n\t\t\t\tfor(i=0; i<ranges.length; i++) {\r\n\t\t\t\t\trangeMax = ranges[i] ;\r\n\t\t\t\t\tif(!output && (value <= rangeMax)) {\r\n\t\t\t\t\t\toutput = i ;\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t\tif(value > rangeMax) output = i ;\r\n\t\t\t\t//console.log(value+' km       > '+ranges[output-1]+' et < '+ranges[output]);\r\n\t\t\t\treturn output ;\r\n\t\t\t}\r\n\t\t\tif(node) {\r\n\t\t\t\tvar leaves = dm_Tools.getChildrenAtLevel(node) ;\r\n\t\t\t\tif(leaves) {\r\n\t\t\t\t\tleaves.forEach(function(leaf) {\r\n\t\t\t\t\t\tvar unite = leaf.rawNode[uniteKmColName] ;\r\n\t\t\t\t\t\tvar km = leaf.rawNode[colonne] ;\r\n\t\t\t\t\t\tvar rangeIdx ;\r\n\t\t\t\t\t\tvar remisageValue = leaf.rawNode[remisageColName] ;\r\n\t\t\t\t\t\tvar takeit = true ;\r\n\t\t\t\t\t\tif(isRemisage) {\r\n\t\t\t\t\t\t\ttakeit = remisageValue && (remisageValue.toLowerCase() == 'oui') ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t\tif(unite && (unite.toLowerCase() == \"km\") && !isNaN(km) && takeit) {\r\n\t\t\t\t\t\t\trangeIdx = getRangeIdx(km) ;\r\n\t\t\t\t\t\t\tvehicParKmRange[rangeIdx]++ ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}) ;\r\n\t\t\t\t\tfor(var i=0; i<vehicParKmRange.length; i++) {\r\n\t\t\t\t\t\tnbVehic = vehicParKmRange[i] ;\r\n\t\t\t\t\t\tif(nbVehic > 0) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t\t\telt.value = nbVehic ;\r\n\t\t\t\t\t\t\telt.unit = (us)?'vehicules ':'véhicules ' ;\r\n\t\t\t\t\t\t\tif(i == 0) {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'with less than ':'à moins de ') + ranges[i] + ' km' ;\r\n\t\t\t\t\t\t\t} else if(i == ranges.length) {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'with more than ':'avec plus de ') + ranges[i-1] + ' km' ;\r\n\t\t\t\t\t\t\t} else {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'between ':'entre ') + ranges[i-1] + ((us)?' and ':' et ') + ranges[i] + ' km' ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t} ;\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output ;\t\t\t\r\n\t\t} ; return doit(totalKmHorsRemisageColName, [0, 2000, 4000, 6000, 8000, 10000, 12000], false, true) ;",
+				"label": "Total kilomètres pour le service par an"
+			}, {
+				"name": "nbCartesEssence",
+				"label": "Number of gas cards",
+				"edit": false
+			}, {
+				"name": "nbCartesEssenceParDGA",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (level, us, cumul4sameName) {\r\n\t\t\tvar output, elt ;\r\n\t\t\tif (node) {\r\n\t\t\t\tvar listOfChildrenWithRightLevel = dm_Tools.getChildrenAtLevel(node, level) ;\r\n\t\t\t\tif(listOfChildrenWithRightLevel) {\r\n\t\t\t\t\tvar map ;\r\n\t\t\t\t\tlistOfChildrenWithRightLevel.forEach(function (nodeI) {\r\n\t\t\t\t\t\tif(nodeI.rawNode.nbCartesEssence > 0) {\r\n\t\t\t\t\t\t\tif(!cumul4sameName) {\r\n\t\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t\t\t\telt.value = nodeI.rawNode.nbCartesEssence ;\r\n\t\t\t\t\t\t\t\telt.name = nodeI.name ;\r\n\t\t\t\t\t\t\t\telt.unit = (us)?'Gas card(s)':'carte(s) essence' ;\r\n\t\t\t\t\t\t\t} else {\r\n\t\t\t\t\t\t\t\tif(!map) map = {} ;\r\n\t\t\t\t\t\t\t\tif(!map[nodeI.name]) map[nodeI.name] = {'value': 0, 'unit': (us)?'Gas card(s)':'carte(s) essence'} ;\r\n\t\t\t\t\t\t\t\tmap[nodeI.name].value += nodeI.rawNode.nbCartesEssence ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t});\r\n\t\t\t\t\tif(map) {\r\n\t\t\t\t\t\tfor(var prop in map) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt) ;\r\n\t\t\t\t\t\t\telt.value = map[prop].value ;\r\n\t\t\t\t\t\t\telt.name = prop ;\r\n\t\t\t\t\t\t\telt.unit = map[prop].unit ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output;\r\n    \t} ; return doit(3, true) ;",
+				"label": "Gas cards per department"
+			}, {
+				"name": "nbCartesEssenceParDir",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (level, us, cumul4sameName) {\r\n\t\t\tvar output, elt ;\r\n\t\t\tif (node) {\r\n\t\t\t\tvar listOfChildrenWithRightLevel = dm_Tools.getChildrenAtLevel(node, level) ;\r\n\t\t\t\tif(listOfChildrenWithRightLevel) {\r\n\t\t\t\t\tvar map ;\r\n\t\t\t\t\tlistOfChildrenWithRightLevel.forEach(function (nodeI) {\r\n\t\t\t\t\t\tif(nodeI.rawNode.nbCartesEssence > 0) {\r\n\t\t\t\t\t\t\tif(!cumul4sameName) {\r\n\t\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t\t\t\telt.value = nodeI.rawNode.nbCartesEssence ;\r\n\t\t\t\t\t\t\t\telt.name = nodeI.name ;\r\n\t\t\t\t\t\t\t\telt.unit = (us)?'Gas card(s)':'carte(s) essence' ;\r\n\t\t\t\t\t\t\t} else {\r\n\t\t\t\t\t\t\t\tif(!map) map = {} ;\r\n\t\t\t\t\t\t\t\tif(!map[nodeI.name]) map[nodeI.name] = {'value': 0, 'unit': (us)?'Gas card(s)':'carte(s) essence'} ;\r\n\t\t\t\t\t\t\t\tmap[nodeI.name].value += nodeI.rawNode.nbCartesEssence ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t});\r\n\t\t\t\t\tif(map) {\r\n\t\t\t\t\t\tfor(var prop in map) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt) ;\r\n\t\t\t\t\t\t\telt.value = map[prop].value ;\r\n\t\t\t\t\t\t\telt.name = prop ;\r\n\t\t\t\t\t\t\telt.unit = map[prop].unit ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output;\r\n    \t} ; return doit(4, true) ;",
+				"label": "Gas cards per business unit"
+			}, {
+				"name": "nb2rouesParModele",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (type) {\r\n\t\t\tvar output ;\r\n\t\t\tif (node && node.children) {\r\n\t\t\t\tfor (var modele in node.rawNode.nbVehicParModele) {\r\n\t\t\t\t\tif (type && node.rawNode.nbVehicParModele[modele] &&\r\n\t\t\t\t\t\tdm_Tools.compare(node.rawNode.nbVehicParModele[modele]['type'], type)) {\r\n\t\t\t\t\t\tif (!output)\r\n\t\t\t\t\t\t\toutput = [];\r\n\t\t\t\t\t\tvar elt = {};\r\n\t\t\t\t\t\telt.name = modele;\r\n\t\t\t\t\t\telt.value = node.rawNode.nbVehicParModele[modele].count;\r\n\t\t\t\t\t\t/*elt.unit=node.rawNode.nbVehicParModele[modele]['type'] ;*/\r\n\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output ;\r\n    \t} ; return doit('Deux roues') ;",
+				"label": "Scooter models"
+			}, {
+				"name": "nbVLParModele",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (type) {\r\n\t\t\tvar output ;\r\n\t\t\tif (node && node.children) {\r\n\t\t\t\tfor (var modele in node.rawNode.nbVehicParModele) {\r\n\t\t\t\t\tif (type && node.rawNode.nbVehicParModele[modele] &&\r\n\t\t\t\t\t\tdm_Tools.compare(node.rawNode.nbVehicParModele[modele]['type'], type)) {\r\n\t\t\t\t\t\tif (!output)\r\n\t\t\t\t\t\t\toutput = [];\r\n\t\t\t\t\t\tvar elt = {};\r\n\t\t\t\t\t\telt.name = modele;\r\n\t\t\t\t\t\telt.value = node.rawNode.nbVehicParModele[modele].count;\r\n\t\t\t\t\t\t/*elt.unit=node.rawNode.nbVehicParModele[modele]['type'] ;*/\r\n\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output ;\r\n    \t} ; return doit('Véhicule léger') ;",
+				"label": "Car models"
+			}, {
+				"name": "nbVULParModele",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (type) {\r\n\t\t\tvar output ;\r\n\t\t\tif (node && node.children) {\r\n\t\t\t\tfor (var modele in node.rawNode.nbVehicParModele) {\r\n\t\t\t\t\tif (type && node.rawNode.nbVehicParModele[modele] &&\r\n\t\t\t\t\t\tdm_Tools.compare(node.rawNode.nbVehicParModele[modele]['type'], type)) {\r\n\t\t\t\t\t\tif (!output)\r\n\t\t\t\t\t\t\toutput = [];\r\n\t\t\t\t\t\tvar elt = {};\r\n\t\t\t\t\t\telt.name = modele;\r\n\t\t\t\t\t\telt.value = node.rawNode.nbVehicParModele[modele].count;\r\n\t\t\t\t\t\t/*elt.unit=node.rawNode.nbVehicParModele[modele]['type'] ;*/\r\n\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output ;\r\n    \t} ; return doit('Utilitaire léger') ;",
+				"label": "Commercial vehicules"
+			}, {
+				"name": "nbUtilitairesParModele",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (type) {\r\n\t\t\tvar output ;\r\n\t\t\tif (node && node.children) {\r\n\t\t\t\tfor (var modele in node.rawNode.nbVehicParModele) {\r\n\t\t\t\t\tif (type && node.rawNode.nbVehicParModele[modele] &&\r\n\t\t\t\t\t\tdm_Tools.compare(node.rawNode.nbVehicParModele[modele]['type'], type)) {\r\n\t\t\t\t\t\tif (!output)\r\n\t\t\t\t\t\t\toutput = [];\r\n\t\t\t\t\t\tvar elt = {};\r\n\t\t\t\t\t\telt.name = modele;\r\n\t\t\t\t\t\telt.value = node.rawNode.nbVehicParModele[modele].count;\r\n\t\t\t\t\t\t/*elt.unit=node.rawNode.nbVehicParModele[modele]['type'] ;*/\r\n\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output ;\r\n    \t} ; return doit('Utilitaire') ;",
+				"label": "Trucks"
+			}, {
+				"name": "nbSpecifiquesParModele",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (type) {\r\n\t\t\tvar output ;\r\n\t\t\tif (node && node.children) {\r\n\t\t\t\tfor (var modele in node.rawNode.nbVehicParModele) {\r\n\t\t\t\t\tif (type && node.rawNode.nbVehicParModele[modele] &&\r\n\t\t\t\t\t\tdm_Tools.compare(node.rawNode.nbVehicParModele[modele]['type'], type)) {\r\n\t\t\t\t\t\tif (!output)\r\n\t\t\t\t\t\t\toutput = [];\r\n\t\t\t\t\t\tvar elt = {};\r\n\t\t\t\t\t\telt.name = modele;\r\n\t\t\t\t\t\telt.value = node.rawNode.nbVehicParModele[modele].count;\r\n\t\t\t\t\t\t/*elt.unit=node.rawNode.nbVehicParModele[modele]['type'] ;*/\r\n\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output ;\r\n    \t} ; return doit('Spécifique') ;",
+				"label": "Specific vehicules"
+			}]
+		}, {
+			"name": "DGA",
+			"children": [{
+				"name": "nbVehicules",
+				"label": "Number of vehicules",
+				"edit": false
+			}, {
+				"name": "nbVehicParDir",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (level, us, cumul4sameName) {\r\n\t\t\tvar output, elt;\r\n\t\t\tif (node) {\r\n\t\t\t\tvar listOfChildrenWithRightLevel = dm_Tools.getChildrenAtLevel(node, level) ;\r\n\t\t\t\tif(listOfChildrenWithRightLevel) {\r\n\t\t\t\t\tvar map ;\r\n\t\t\t\t\tlistOfChildrenWithRightLevel.forEach(function (nodeI) {\r\n\t\t\t\t\t\tif(!cumul4sameName) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt) ;\r\n\t\t\t\t\t\t\telt.value = nodeI.rawNode.nbVehicules ;\r\n\t\t\t\t\t\t\telt.name = nodeI.name ;\r\n\t\t\t\t\t\t\telt.unit = (us)?'vehicule(s)':'véhicule(s)' ;\r\n\t\t\t\t\t\t\t//elt.nodeList = nodeI.rawNode.nbVehicules_nodeList ;\r\n\t\t\t\t\t\t} else {\r\n\t\t\t\t\t\t\tif(!map) map = {} ;\r\n\t\t\t\t\t\t\tif(!map[nodeI.name]) map[nodeI.name] = {'value': 0, 'unit': (us)?'vehicule(s)':'véhicule(s)'} ;\r\n\t\t\t\t\t\t\tmap[nodeI.name].value += nodeI.rawNode.nbVehicules ;\r\n\t\t\t\t\t\t\t//if(!map[nodeI.name].nodeList) map[nodeI.name].nodeList = [] ;\r\n\t\t\t\t\t\t\t//dm_Tools.concat(map[nodeI.name].nodeList, nodeI.rawNode.nbVehicules_nodeList) ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}) ;\r\n\t\t\t\t\tif(map) {\r\n\t\t\t\t\t\tfor(var prop in map) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt) ;\r\n\t\t\t\t\t\t\telt.value = map[prop].value ;\r\n\t\t\t\t\t\t\telt.name = prop ;\r\n\t\t\t\t\t\t\telt.unit = map[prop].unit ;\r\n\t\t\t\t\t\t\t//elt.nodeList = map[prop].nodeList ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output;\r\n    \t} ; return doit(4, true) ;",
+				"label": "Vehicule per business unit"
+			}, {
+				"name": "nbVehicParServ",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (level, us, cumul4sameName) {\r\n\t\t\tvar output, elt;\r\n\t\t\tif (node) {\r\n\t\t\t\tvar listOfChildrenWithRightLevel = dm_Tools.getChildrenAtLevel(node, level) ;\r\n\t\t\t\tif(listOfChildrenWithRightLevel) {\r\n\t\t\t\t\tvar map ;\r\n\t\t\t\t\tlistOfChildrenWithRightLevel.forEach(function (nodeI) {\r\n\t\t\t\t\t\tif(!cumul4sameName) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt) ;\r\n\t\t\t\t\t\t\telt.value = nodeI.rawNode.nbVehicules ;\r\n\t\t\t\t\t\t\telt.name = nodeI.name ;\r\n\t\t\t\t\t\t\telt.unit = (us)?'vehicule(s)':'véhicule(s)' ;\r\n\t\t\t\t\t\t\t//elt.nodeList = nodeI.rawNode.nbVehicules_nodeList ;\r\n\t\t\t\t\t\t} else {\r\n\t\t\t\t\t\t\tif(!map) map = {} ;\r\n\t\t\t\t\t\t\tif(!map[nodeI.name]) map[nodeI.name] = {'value': 0, 'unit': (us)?'vehicule(s)':'véhicule(s)'} ;\r\n\t\t\t\t\t\t\tmap[nodeI.name].value += nodeI.rawNode.nbVehicules ;\r\n\t\t\t\t\t\t\t//if(!map[nodeI.name].nodeList) map[nodeI.name].nodeList = [] ;\r\n\t\t\t\t\t\t\t//dm_Tools.concat(map[nodeI.name].nodeList, nodeI.rawNode.nbVehicules_nodeList) ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}) ;\r\n\t\t\t\t\tif(map) {\r\n\t\t\t\t\t\tfor(var prop in map) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt) ;\r\n\t\t\t\t\t\t\telt.value = map[prop].value ;\r\n\t\t\t\t\t\t\telt.name = prop ;\r\n\t\t\t\t\t\t\telt.unit = map[prop].unit ;\r\n\t\t\t\t\t\t\t//elt.nodeList = map[prop].nodeList ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output;\r\n    \t} ; return doit(5, true) ;",
+				"label": "Vehicule per service"
+			}, {
+				"name": "nbVehicParType",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (us) {\r\n\t\t\tvar output;\r\n\t\t\tif (node && node.children) {\r\n\t\t\t\toutput = [{\r\n\t\t\t\t\t\tvalue : node.rawNode.nb2roues,\r\n\t\t\t\t\t\tunit : (us)?'Scooter(s)':'2roues'\r\n\t\t\t\t\t}, {\r\n\t\t\t\t\t\tvalue : node.rawNode.nbVL,\r\n\t\t\t\t\t\tunit : (us)?'Car(s)':'Véhicule(s) léger(s)'\r\n\t\t\t\t\t}, {\r\n\t\t\t\t\t\tvalue : node.rawNode.nbVUL,\r\n\t\t\t\t\t\tunit : (us)?'Commercial vehicule(s)':'Utilitaire(s) léger(s)'\r\n\t\t\t\t\t}, {\r\n\t\t\t\t\t\tvalue : node.rawNode.nbUtilitaires,\r\n\t\t\t\t\t\tunit : (us)?'Truck(s)':'Utilitaire(s)'\r\n\t\t\t\t\t}, {\r\n\t\t\t\t\t\tvalue : node.rawNode.nbSpecifiques,\r\n\t\t\t\t\t\tunit : (us)?'Specific vehicule(s)':'Véhicule(s) spécifique(s)'\r\n\t\t\t\t\t}\r\n\t\t\t\t];\r\n\t\t\t}\r\n\t\t\treturn output;\r\n\t\t} ; return doit(true) ;",
+				"label": "Vehicule per type"
+			}, {
+				"name": "nbVehicParAnneePie",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (us) {\r\n\t\t\tvar output, elt;\r\n\t\t\tif (node && node.children) {\r\n\t\t\t\tvar nodeYears = node.rawNode[\"nbVehicParAnnee\"] ;\r\n\t\t\t\tif(nodeYears) {\r\n\t\t\t\t\tif(!output) output = [] ;\r\n\t\t\t\t\tfor(var year in nodeYears) {\r\n\t\t\t\t\t\telt = {};\r\n\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t\telt.value = nodeYears[year] ;\r\n\t\t\t\t\t\telt.name = year ;\r\n\t\t\t\t\t\telt.unit = (us)?'vehicule(s)':'véhicule(s)' ;\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output;\r\n    \t} ; return doit(true) ;",
+				"label": "Vehicule per year"
+			}, {
+				"name": "nbRemisages",
+				"label": "Storage at home",
+				"edit": false
+			}, {
+				"name": "nbRemisageParDir",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (level, us) {\r\n\t\t\tvar output, elt ;\r\n\t\t\tif (node) {\r\n\t\t\t\tvar listOfChildrenWithRightLevel = dm_Tools.getChildrenAtLevel(node, level) ;\r\n\t\t\t\tif(listOfChildrenWithRightLevel) {\r\n\t\t\t\t\tlistOfChildrenWithRightLevel.forEach(function (nodeI) {\r\n\t\t\t\t\t\tif(nodeI.rawNode.nbRemisages > 0) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t\t\telt.value = nodeI.rawNode.nbRemisages ;\r\n\t\t\t\t\t\t\telt.name = nodeI.name ;\r\n\t\t\t\t\t\t\telt.unit = (us)?'Home storage(s)':'remisage(s) à domicile' ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t});\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output;\r\n    \t} ; return doit(4, true) ;",
+				"label": "Home storage per business unit"
+			}, {
+				"name": "nbRemisageParServ",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (level, us) {\r\n\t\t\tvar output, elt ;\r\n\t\t\tif (node) {\r\n\t\t\t\tvar listOfChildrenWithRightLevel = dm_Tools.getChildrenAtLevel(node, level) ;\r\n\t\t\t\tif(listOfChildrenWithRightLevel) {\r\n\t\t\t\t\tlistOfChildrenWithRightLevel.forEach(function (nodeI) {\r\n\t\t\t\t\t\tif(nodeI.rawNode.nbRemisages > 0) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t\t\telt.value = nodeI.rawNode.nbRemisages ;\r\n\t\t\t\t\t\t\telt.name = nodeI.name ;\r\n\t\t\t\t\t\t\telt.unit = (us)?'Home storage(s)':'remisage(s) à domicile' ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t});\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output;\r\n    \t} ; return doit(5, true) ;",
+				"label": "Home storage per service"
+			}, {
+				"name": "nbKm",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var totalKmColName = 'Number of km (or hours)', doit = function (colonne, ranges, isRemisage, us) {\r\n\t\t\tvar output, elt, vehicParKmRange = [] ;\r\n\t\t\tvar remisageColName = 'Autorisation de remisage' ;\r\n\t\t\tvar uniteKmColName = 'Unité km ou heures' ;\r\n\t\t\tfor(var i=0; i<ranges.length+1; i++) {\r\n\t\t\t\tvehicParKmRange.push(0) ;\r\n\t\t\t}\r\n\t\t\tfunction getRangeIdx(value) {\r\n\t\t\t\tvar output, rangeMax ;\r\n\t\t\t\tvar i ;\r\n\t\t\t\tfor(i=0; i<ranges.length; i++) {\r\n\t\t\t\t\trangeMax = ranges[i] ;\r\n\t\t\t\t\tif(!output && (value <= rangeMax)) {\r\n\t\t\t\t\t\toutput = i ;\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t\tif(value > rangeMax) output = i ;\r\n\t\t\t\t//console.log(value+' km       > '+ranges[output-1]+' et < '+ranges[output]);\r\n\t\t\t\treturn output ;\r\n\t\t\t}\r\n\t\t\tif(node) {\r\n\t\t\t\tvar leaves = dm_Tools.getChildrenAtLevel(node) ;\r\n\t\t\t\tif(leaves) {\r\n\t\t\t\t\tleaves.forEach(function(leaf) {\r\n\t\t\t\t\t\tvar unite = leaf.rawNode[uniteKmColName] ;\r\n\t\t\t\t\t\tvar km = leaf.rawNode[colonne] ;\r\n\t\t\t\t\t\tvar rangeIdx ;\r\n\t\t\t\t\t\tvar remisageValue = leaf.rawNode[remisageColName] ;\r\n\t\t\t\t\t\tvar takeit = true ;\r\n\t\t\t\t\t\tif(isRemisage) {\r\n\t\t\t\t\t\t\ttakeit = remisageValue && (remisageValue.toLowerCase() == 'oui') ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t\tif(unite && (unite.toLowerCase() == \"km\") && !isNaN(km) && takeit) {\r\n\t\t\t\t\t\t\trangeIdx = getRangeIdx(km) ;\r\n\t\t\t\t\t\t\tvehicParKmRange[rangeIdx]++ ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}) ;\r\n\t\t\t\t\tfor(var i=0; i<vehicParKmRange.length; i++) {\r\n\t\t\t\t\t\tnbVehic = vehicParKmRange[i] ;\r\n\t\t\t\t\t\tif(nbVehic > 0) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t\t\telt.value = nbVehic ;\r\n\t\t\t\t\t\t\telt.unit = (us)?'vehicules ':'véhicules ' ;\r\n\t\t\t\t\t\t\tif(i == 0) {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'with less than ':'à moins de ') + ranges[i] + ' km' ;\r\n\t\t\t\t\t\t\t} else if(i == ranges.length) {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'with more than ':'avec plus de ') + ranges[i-1] + ' km' ;\r\n\t\t\t\t\t\t\t} else {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'between ':'entre ') + ranges[i-1] + ((us)?' and ':' et ') + ranges[i] + ' km' ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t} ;\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output ;\t\t\t\r\n\t\t} ; return doit(totalKmColName, [0, 10000, 20000, 40000, 60000, 80000, 100000, 150000, 200000], false, true) ;",
+				"label": "Total kilomètres parcourus"
+			}, {
+				"name": "nbKmRemisageParAn",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var totalKmRemisageColName = 'Number of km for home storage', doit = function (colonne, ranges, isRemisage, us) {\r\n\t\t\tvar output, elt, vehicParKmRange = [] ;\r\n\t\t\tvar remisageColName = 'Autorisation de remisage' ;\r\n\t\t\tvar uniteKmColName = 'Unité km ou heures' ;\r\n\t\t\tfor(var i=0; i<ranges.length+1; i++) {\r\n\t\t\t\tvehicParKmRange.push(0) ;\r\n\t\t\t}\r\n\t\t\tfunction getRangeIdx(value) {\r\n\t\t\t\tvar output, rangeMax ;\r\n\t\t\t\tvar i ;\r\n\t\t\t\tfor(i=0; i<ranges.length; i++) {\r\n\t\t\t\t\trangeMax = ranges[i] ;\r\n\t\t\t\t\tif(!output && (value <= rangeMax)) {\r\n\t\t\t\t\t\toutput = i ;\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t\tif(value > rangeMax) output = i ;\r\n\t\t\t\t//console.log(value+' km       > '+ranges[output-1]+' et < '+ranges[output]);\r\n\t\t\t\treturn output ;\r\n\t\t\t}\r\n\t\t\tif(node) {\r\n\t\t\t\tvar leaves = dm_Tools.getChildrenAtLevel(node) ;\r\n\t\t\t\tif(leaves) {\r\n\t\t\t\t\tleaves.forEach(function(leaf) {\r\n\t\t\t\t\t\tvar unite = leaf.rawNode[uniteKmColName] ;\r\n\t\t\t\t\t\tvar km = leaf.rawNode[colonne] ;\r\n\t\t\t\t\t\tvar rangeIdx ;\r\n\t\t\t\t\t\tvar remisageValue = leaf.rawNode[remisageColName] ;\r\n\t\t\t\t\t\tvar takeit = true ;\r\n\t\t\t\t\t\tif(isRemisage) {\r\n\t\t\t\t\t\t\ttakeit = remisageValue && (remisageValue.toLowerCase() == 'oui') ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t\tif(unite && (unite.toLowerCase() == \"km\") && !isNaN(km) && takeit) {\r\n\t\t\t\t\t\t\trangeIdx = getRangeIdx(km) ;\r\n\t\t\t\t\t\t\tvehicParKmRange[rangeIdx]++ ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}) ;\r\n\t\t\t\t\tfor(var i=0; i<vehicParKmRange.length; i++) {\r\n\t\t\t\t\t\tnbVehic = vehicParKmRange[i] ;\r\n\t\t\t\t\t\tif(nbVehic > 0) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t\t\telt.value = nbVehic ;\r\n\t\t\t\t\t\t\telt.unit = (us)?'vehicules ':'véhicules ' ;\r\n\t\t\t\t\t\t\tif(i == 0) {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'with less than ':'à moins de ') + ranges[i] + ' km' ;\r\n\t\t\t\t\t\t\t} else if(i == ranges.length) {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'with more than ':'avec plus de ') + ranges[i-1] + ' km' ;\r\n\t\t\t\t\t\t\t} else {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'between ':'entre ') + ranges[i-1] + ((us)?' and ':' et ') + ranges[i] + ' km' ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t} ;\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output ;\t\t\t\r\n\t\t} ; return doit(totalKmRemisageColName, [0, 2000, 4000, 6000, 8000, 10000, 12000], true, true) ;",
+				"label": "Total kilomètres pour remisage par an"
+			}, {
+				"name": "nbKmServiceParAn",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var totalKmHorsRemisageColName = 'Number of km for the service', doit = function (colonne, ranges, isRemisage, us) {\r\n\t\t\tvar output, elt, vehicParKmRange = [] ;\r\n\t\t\tvar remisageColName = 'Autorisation de remisage' ;\r\n\t\t\tvar uniteKmColName = 'Unité km ou heures' ;\r\n\t\t\tfor(var i=0; i<ranges.length+1; i++) {\r\n\t\t\t\tvehicParKmRange.push(0) ;\r\n\t\t\t}\r\n\t\t\tfunction getRangeIdx(value) {\r\n\t\t\t\tvar output, rangeMax ;\r\n\t\t\t\tvar i ;\r\n\t\t\t\tfor(i=0; i<ranges.length; i++) {\r\n\t\t\t\t\trangeMax = ranges[i] ;\r\n\t\t\t\t\tif(!output && (value <= rangeMax)) {\r\n\t\t\t\t\t\toutput = i ;\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t\tif(value > rangeMax) output = i ;\r\n\t\t\t\t//console.log(value+' km       > '+ranges[output-1]+' et < '+ranges[output]);\r\n\t\t\t\treturn output ;\r\n\t\t\t}\r\n\t\t\tif(node) {\r\n\t\t\t\tvar leaves = dm_Tools.getChildrenAtLevel(node) ;\r\n\t\t\t\tif(leaves) {\r\n\t\t\t\t\tleaves.forEach(function(leaf) {\r\n\t\t\t\t\t\tvar unite = leaf.rawNode[uniteKmColName] ;\r\n\t\t\t\t\t\tvar km = leaf.rawNode[colonne] ;\r\n\t\t\t\t\t\tvar rangeIdx ;\r\n\t\t\t\t\t\tvar remisageValue = leaf.rawNode[remisageColName] ;\r\n\t\t\t\t\t\tvar takeit = true ;\r\n\t\t\t\t\t\tif(isRemisage) {\r\n\t\t\t\t\t\t\ttakeit = remisageValue && (remisageValue.toLowerCase() == 'oui') ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t\tif(unite && (unite.toLowerCase() == \"km\") && !isNaN(km) && takeit) {\r\n\t\t\t\t\t\t\trangeIdx = getRangeIdx(km) ;\r\n\t\t\t\t\t\t\tvehicParKmRange[rangeIdx]++ ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}) ;\r\n\t\t\t\t\tfor(var i=0; i<vehicParKmRange.length; i++) {\r\n\t\t\t\t\t\tnbVehic = vehicParKmRange[i] ;\r\n\t\t\t\t\t\tif(nbVehic > 0) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t\t\telt.value = nbVehic ;\r\n\t\t\t\t\t\t\telt.unit = (us)?'vehicules ':'véhicules ' ;\r\n\t\t\t\t\t\t\tif(i == 0) {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'with less than ':'à moins de ') + ranges[i] + ' km' ;\r\n\t\t\t\t\t\t\t} else if(i == ranges.length) {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'with more than ':'avec plus de ') + ranges[i-1] + ' km' ;\r\n\t\t\t\t\t\t\t} else {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'between ':'entre ') + ranges[i-1] + ((us)?' and ':' et ') + ranges[i] + ' km' ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t} ;\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output ;\t\t\t\r\n\t\t} ; return doit(totalKmHorsRemisageColName, [0, 2000, 4000, 6000, 8000, 10000, 12000], false, true) ;",
+				"label": "Total kilomètres pour le service par an"
+			}, {
+				"name": "nbCartesEssence",
+				"label": "Number of gas cards",
+				"edit": false
+			}, {
+				"name": "nbCartesEssenceParDir",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (level, us, cumul4sameName) {\r\n\t\t\tvar output, elt ;\r\n\t\t\tif (node) {\r\n\t\t\t\tvar listOfChildrenWithRightLevel = dm_Tools.getChildrenAtLevel(node, level) ;\r\n\t\t\t\tif(listOfChildrenWithRightLevel) {\r\n\t\t\t\t\tvar map ;\r\n\t\t\t\t\tlistOfChildrenWithRightLevel.forEach(function (nodeI) {\r\n\t\t\t\t\t\tif(nodeI.rawNode.nbCartesEssence > 0) {\r\n\t\t\t\t\t\t\tif(!cumul4sameName) {\r\n\t\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t\t\t\telt.value = nodeI.rawNode.nbCartesEssence ;\r\n\t\t\t\t\t\t\t\telt.name = nodeI.name ;\r\n\t\t\t\t\t\t\t\telt.unit = (us)?'Gas card(s)':'carte(s) essence' ;\r\n\t\t\t\t\t\t\t} else {\r\n\t\t\t\t\t\t\t\tif(!map) map = {} ;\r\n\t\t\t\t\t\t\t\tif(!map[nodeI.name]) map[nodeI.name] = {'value': 0, 'unit': (us)?'Gas card(s)':'carte(s) essence'} ;\r\n\t\t\t\t\t\t\t\tmap[nodeI.name].value += nodeI.rawNode.nbCartesEssence ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t});\r\n\t\t\t\t\tif(map) {\r\n\t\t\t\t\t\tfor(var prop in map) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt) ;\r\n\t\t\t\t\t\t\telt.value = map[prop].value ;\r\n\t\t\t\t\t\t\telt.name = prop ;\r\n\t\t\t\t\t\t\telt.unit = map[prop].unit ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output;\r\n    \t} ; return doit(4, true) ;",
+				"label": "Gas cards per business unit"
+			}, {
+				"name": "nbCartesEssenceParServ",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (level, us, cumul4sameName) {\r\n\t\t\tvar output, elt ;\r\n\t\t\tif (node) {\r\n\t\t\t\tvar listOfChildrenWithRightLevel = dm_Tools.getChildrenAtLevel(node, level) ;\r\n\t\t\t\tif(listOfChildrenWithRightLevel) {\r\n\t\t\t\t\tvar map ;\r\n\t\t\t\t\tlistOfChildrenWithRightLevel.forEach(function (nodeI) {\r\n\t\t\t\t\t\tif(nodeI.rawNode.nbCartesEssence > 0) {\r\n\t\t\t\t\t\t\tif(!cumul4sameName) {\r\n\t\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t\t\t\telt.value = nodeI.rawNode.nbCartesEssence ;\r\n\t\t\t\t\t\t\t\telt.name = nodeI.name ;\r\n\t\t\t\t\t\t\t\telt.unit = (us)?'Gas card(s)':'carte(s) essence' ;\r\n\t\t\t\t\t\t\t} else {\r\n\t\t\t\t\t\t\t\tif(!map) map = {} ;\r\n\t\t\t\t\t\t\t\tif(!map[nodeI.name]) map[nodeI.name] = {'value': 0, 'unit': (us)?'Gas card(s)':'carte(s) essence'} ;\r\n\t\t\t\t\t\t\t\tmap[nodeI.name].value += nodeI.rawNode.nbCartesEssence ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t});\r\n\t\t\t\t\tif(map) {\r\n\t\t\t\t\t\tfor(var prop in map) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt) ;\r\n\t\t\t\t\t\t\telt.value = map[prop].value ;\r\n\t\t\t\t\t\t\telt.name = prop ;\r\n\t\t\t\t\t\t\telt.unit = map[prop].unit ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output;\r\n    \t} ; return doit(5, true) ;",
+				"label": "Gas cards per service"
+			}, {
+				"name": "nb2rouesParModele",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (type) {\r\n\t\t\tvar output ;\r\n\t\t\tif (node && node.children) {\r\n\t\t\t\tfor (var modele in node.rawNode.nbVehicParModele) {\r\n\t\t\t\t\tif (type && node.rawNode.nbVehicParModele[modele] &&\r\n\t\t\t\t\t\tdm_Tools.compare(node.rawNode.nbVehicParModele[modele]['type'], type)) {\r\n\t\t\t\t\t\tif (!output)\r\n\t\t\t\t\t\t\toutput = [];\r\n\t\t\t\t\t\tvar elt = {};\r\n\t\t\t\t\t\telt.name = modele;\r\n\t\t\t\t\t\telt.value = node.rawNode.nbVehicParModele[modele].count;\r\n\t\t\t\t\t\t/*elt.unit=node.rawNode.nbVehicParModele[modele]['type'] ;*/\r\n\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output ;\r\n    \t} ; return doit('Deux roues') ;",
+				"label": "Scooter models"
+			}, {
+				"name": "nbVLParModele",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (type) {\r\n\t\t\tvar output ;\r\n\t\t\tif (node && node.children) {\r\n\t\t\t\tfor (var modele in node.rawNode.nbVehicParModele) {\r\n\t\t\t\t\tif (type && node.rawNode.nbVehicParModele[modele] &&\r\n\t\t\t\t\t\tdm_Tools.compare(node.rawNode.nbVehicParModele[modele]['type'], type)) {\r\n\t\t\t\t\t\tif (!output)\r\n\t\t\t\t\t\t\toutput = [];\r\n\t\t\t\t\t\tvar elt = {};\r\n\t\t\t\t\t\telt.name = modele;\r\n\t\t\t\t\t\telt.value = node.rawNode.nbVehicParModele[modele].count;\r\n\t\t\t\t\t\t/*elt.unit=node.rawNode.nbVehicParModele[modele]['type'] ;*/\r\n\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output ;\r\n    \t} ; return doit('Véhicule léger') ;",
+				"label": "Car models"
+			}, {
+				"name": "nbVULParModele",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (type) {\r\n\t\t\tvar output ;\r\n\t\t\tif (node && node.children) {\r\n\t\t\t\tfor (var modele in node.rawNode.nbVehicParModele) {\r\n\t\t\t\t\tif (type && node.rawNode.nbVehicParModele[modele] &&\r\n\t\t\t\t\t\tdm_Tools.compare(node.rawNode.nbVehicParModele[modele]['type'], type)) {\r\n\t\t\t\t\t\tif (!output)\r\n\t\t\t\t\t\t\toutput = [];\r\n\t\t\t\t\t\tvar elt = {};\r\n\t\t\t\t\t\telt.name = modele;\r\n\t\t\t\t\t\telt.value = node.rawNode.nbVehicParModele[modele].count;\r\n\t\t\t\t\t\t/*elt.unit=node.rawNode.nbVehicParModele[modele]['type'] ;*/\r\n\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output ;\r\n    \t} ; return doit('Utilitaire léger') ;",
+				"label": "Commercial vehicules"
+			}, {
+				"name": "nbUtilitairesParModele",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (type) {\r\n\t\t\tvar output ;\r\n\t\t\tif (node && node.children) {\r\n\t\t\t\tfor (var modele in node.rawNode.nbVehicParModele) {\r\n\t\t\t\t\tif (type && node.rawNode.nbVehicParModele[modele] &&\r\n\t\t\t\t\t\tdm_Tools.compare(node.rawNode.nbVehicParModele[modele]['type'], type)) {\r\n\t\t\t\t\t\tif (!output)\r\n\t\t\t\t\t\t\toutput = [];\r\n\t\t\t\t\t\tvar elt = {};\r\n\t\t\t\t\t\telt.name = modele;\r\n\t\t\t\t\t\telt.value = node.rawNode.nbVehicParModele[modele].count;\r\n\t\t\t\t\t\t/*elt.unit=node.rawNode.nbVehicParModele[modele]['type'] ;*/\r\n\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output ;\r\n    \t} ; return doit('Utilitaire') ;",
+				"label": "Trucks"
+			}, {
+				"name": "nbSpecifiquesParModele",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (type) {\r\n\t\t\tvar output ;\r\n\t\t\tif (node && node.children) {\r\n\t\t\t\tfor (var modele in node.rawNode.nbVehicParModele) {\r\n\t\t\t\t\tif (type && node.rawNode.nbVehicParModele[modele] &&\r\n\t\t\t\t\t\tdm_Tools.compare(node.rawNode.nbVehicParModele[modele]['type'], type)) {\r\n\t\t\t\t\t\tif (!output)\r\n\t\t\t\t\t\t\toutput = [];\r\n\t\t\t\t\t\tvar elt = {};\r\n\t\t\t\t\t\telt.name = modele;\r\n\t\t\t\t\t\telt.value = node.rawNode.nbVehicParModele[modele].count;\r\n\t\t\t\t\t\t/*elt.unit=node.rawNode.nbVehicParModele[modele]['type'] ;*/\r\n\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output ;\r\n    \t} ; return doit('Spécifique') ;",
+				"label": "Specific vehicules"
+			}]
+		}, {
+			"name": "Direction",
+			"children": [{
+				"name": "nbVehicules",
+				"label": "Number of vehicules",
+				"edit": false
+			}, {
+				"name": "nbVehicParServ",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (level, us, cumul4sameName) {\r\n\t\t\tvar output, elt;\r\n\t\t\tif (node) {\r\n\t\t\t\tvar listOfChildrenWithRightLevel = dm_Tools.getChildrenAtLevel(node, level) ;\r\n\t\t\t\tif(listOfChildrenWithRightLevel) {\r\n\t\t\t\t\tvar map ;\r\n\t\t\t\t\tlistOfChildrenWithRightLevel.forEach(function (nodeI) {\r\n\t\t\t\t\t\tif(!cumul4sameName) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt) ;\r\n\t\t\t\t\t\t\telt.value = nodeI.rawNode.nbVehicules ;\r\n\t\t\t\t\t\t\telt.name = nodeI.name ;\r\n\t\t\t\t\t\t\telt.unit = (us)?'vehicule(s)':'véhicule(s)' ;\r\n\t\t\t\t\t\t\t//elt.nodeList = nodeI.rawNode.nbVehicules_nodeList ;\r\n\t\t\t\t\t\t} else {\r\n\t\t\t\t\t\t\tif(!map) map = {} ;\r\n\t\t\t\t\t\t\tif(!map[nodeI.name]) map[nodeI.name] = {'value': 0, 'unit': (us)?'vehicule(s)':'véhicule(s)'} ;\r\n\t\t\t\t\t\t\tmap[nodeI.name].value += nodeI.rawNode.nbVehicules ;\r\n\t\t\t\t\t\t\t//if(!map[nodeI.name].nodeList) map[nodeI.name].nodeList = [] ;\r\n\t\t\t\t\t\t\t//dm_Tools.concat(map[nodeI.name].nodeList, nodeI.rawNode.nbVehicules_nodeList) ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}) ;\r\n\t\t\t\t\tif(map) {\r\n\t\t\t\t\t\tfor(var prop in map) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt) ;\r\n\t\t\t\t\t\t\telt.value = map[prop].value ;\r\n\t\t\t\t\t\t\telt.name = prop ;\r\n\t\t\t\t\t\t\telt.unit = map[prop].unit ;\r\n\t\t\t\t\t\t\t//elt.nodeList = map[prop].nodeList ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output;\r\n    \t} ; return doit(5, true) ;",
+				"label": "Vehicule per service"
+			}, {
+				"name": "nbVehicParUnite",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (level, us, cumul4sameName) {\r\n\t\t\tvar output, elt;\r\n\t\t\tif (node) {\r\n\t\t\t\tvar listOfChildrenWithRightLevel = dm_Tools.getChildrenAtLevel(node, level) ;\r\n\t\t\t\tif(listOfChildrenWithRightLevel) {\r\n\t\t\t\t\tvar map ;\r\n\t\t\t\t\tlistOfChildrenWithRightLevel.forEach(function (nodeI) {\r\n\t\t\t\t\t\tif(!cumul4sameName) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt) ;\r\n\t\t\t\t\t\t\telt.value = nodeI.rawNode.nbVehicules ;\r\n\t\t\t\t\t\t\telt.name = nodeI.name ;\r\n\t\t\t\t\t\t\telt.unit = (us)?'vehicule(s)':'véhicule(s)' ;\r\n\t\t\t\t\t\t\t//elt.nodeList = nodeI.rawNode.nbVehicules_nodeList ;\r\n\t\t\t\t\t\t} else {\r\n\t\t\t\t\t\t\tif(!map) map = {} ;\r\n\t\t\t\t\t\t\tif(!map[nodeI.name]) map[nodeI.name] = {'value': 0, 'unit': (us)?'vehicule(s)':'véhicule(s)'} ;\r\n\t\t\t\t\t\t\tmap[nodeI.name].value += nodeI.rawNode.nbVehicules ;\r\n\t\t\t\t\t\t\t//if(!map[nodeI.name].nodeList) map[nodeI.name].nodeList = [] ;\r\n\t\t\t\t\t\t\t//dm_Tools.concat(map[nodeI.name].nodeList, nodeI.rawNode.nbVehicules_nodeList) ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}) ;\r\n\t\t\t\t\tif(map) {\r\n\t\t\t\t\t\tfor(var prop in map) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt) ;\r\n\t\t\t\t\t\t\telt.value = map[prop].value ;\r\n\t\t\t\t\t\t\telt.name = prop ;\r\n\t\t\t\t\t\t\telt.unit = map[prop].unit ;\r\n\t\t\t\t\t\t\t//elt.nodeList = map[prop].nodeList ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output;\r\n    \t} ; return doit(6, true) ;",
+				"label": "Vehicule per project"
+			}, {
+				"name": "nbVehicParType",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (us) {\r\n\t\t\tvar output;\r\n\t\t\tif (node && node.children) {\r\n\t\t\t\toutput = [{\r\n\t\t\t\t\t\tvalue : node.rawNode.nb2roues,\r\n\t\t\t\t\t\tunit : (us)?'Scooter(s)':'2roues'\r\n\t\t\t\t\t}, {\r\n\t\t\t\t\t\tvalue : node.rawNode.nbVL,\r\n\t\t\t\t\t\tunit : (us)?'Car(s)':'Véhicule(s) léger(s)'\r\n\t\t\t\t\t}, {\r\n\t\t\t\t\t\tvalue : node.rawNode.nbVUL,\r\n\t\t\t\t\t\tunit : (us)?'Commercial vehicule(s)':'Utilitaire(s) léger(s)'\r\n\t\t\t\t\t}, {\r\n\t\t\t\t\t\tvalue : node.rawNode.nbUtilitaires,\r\n\t\t\t\t\t\tunit : (us)?'Truck(s)':'Utilitaire(s)'\r\n\t\t\t\t\t}, {\r\n\t\t\t\t\t\tvalue : node.rawNode.nbSpecifiques,\r\n\t\t\t\t\t\tunit : (us)?'Specific vehicule(s)':'Véhicule(s) spécifique(s)'\r\n\t\t\t\t\t}\r\n\t\t\t\t];\r\n\t\t\t}\r\n\t\t\treturn output;\r\n\t\t} ; return doit(true) ;",
+				"label": "Vehicule per type"
+			}, {
+				"name": "nbVehicParAnneePie",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (us) {\r\n\t\t\tvar output, elt;\r\n\t\t\tif (node && node.children) {\r\n\t\t\t\tvar nodeYears = node.rawNode[\"nbVehicParAnnee\"] ;\r\n\t\t\t\tif(nodeYears) {\r\n\t\t\t\t\tif(!output) output = [] ;\r\n\t\t\t\t\tfor(var year in nodeYears) {\r\n\t\t\t\t\t\telt = {};\r\n\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t\telt.value = nodeYears[year] ;\r\n\t\t\t\t\t\telt.name = year ;\r\n\t\t\t\t\t\telt.unit = (us)?'vehicule(s)':'véhicule(s)' ;\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output;\r\n    \t} ; return doit(true) ;",
+				"label": "Vehicule per year"
+			}, {
+				"name": "nbRemisages",
+				"label": "Storage at home",
+				"edit": false
+			}, {
+				"name": "nbRemisageParServ",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (level, us) {\r\n\t\t\tvar output, elt ;\r\n\t\t\tif (node) {\r\n\t\t\t\tvar listOfChildrenWithRightLevel = dm_Tools.getChildrenAtLevel(node, level) ;\r\n\t\t\t\tif(listOfChildrenWithRightLevel) {\r\n\t\t\t\t\tlistOfChildrenWithRightLevel.forEach(function (nodeI) {\r\n\t\t\t\t\t\tif(nodeI.rawNode.nbRemisages > 0) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t\t\telt.value = nodeI.rawNode.nbRemisages ;\r\n\t\t\t\t\t\t\telt.name = nodeI.name ;\r\n\t\t\t\t\t\t\telt.unit = (us)?'Home storage(s)':'remisage(s) à domicile' ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t});\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output;\r\n    \t} ; return doit(5, true) ;",
+				"label": "Home storage per service"
+			}, {
+				"name": "nbRemisageParUnite",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (level, us) {\r\n\t\t\tvar output, elt ;\r\n\t\t\tif (node) {\r\n\t\t\t\tvar listOfChildrenWithRightLevel = dm_Tools.getChildrenAtLevel(node, level) ;\r\n\t\t\t\tif(listOfChildrenWithRightLevel) {\r\n\t\t\t\t\tlistOfChildrenWithRightLevel.forEach(function (nodeI) {\r\n\t\t\t\t\t\tif(nodeI.rawNode.nbRemisages > 0) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t\t\telt.value = nodeI.rawNode.nbRemisages ;\r\n\t\t\t\t\t\t\telt.name = nodeI.name ;\r\n\t\t\t\t\t\t\telt.unit = (us)?'Home storage(s)':'remisage(s) à domicile' ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t});\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output;\r\n    \t} ; return doit(6, true) ;",
+				"label": "Home storage per project"
+			}, {
+				"name": "nbKm",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var totalKmColName = 'Number of km (or hours)', doit = function (colonne, ranges, isRemisage, us) {\r\n\t\t\tvar output, elt, vehicParKmRange = [] ;\r\n\t\t\tvar remisageColName = 'Autorisation de remisage' ;\r\n\t\t\tvar uniteKmColName = 'Unité km ou heures' ;\r\n\t\t\tfor(var i=0; i<ranges.length+1; i++) {\r\n\t\t\t\tvehicParKmRange.push(0) ;\r\n\t\t\t}\r\n\t\t\tfunction getRangeIdx(value) {\r\n\t\t\t\tvar output, rangeMax ;\r\n\t\t\t\tvar i ;\r\n\t\t\t\tfor(i=0; i<ranges.length; i++) {\r\n\t\t\t\t\trangeMax = ranges[i] ;\r\n\t\t\t\t\tif(!output && (value <= rangeMax)) {\r\n\t\t\t\t\t\toutput = i ;\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t\tif(value > rangeMax) output = i ;\r\n\t\t\t\t//console.log(value+' km       > '+ranges[output-1]+' et < '+ranges[output]);\r\n\t\t\t\treturn output ;\r\n\t\t\t}\r\n\t\t\tif(node) {\r\n\t\t\t\tvar leaves = dm_Tools.getChildrenAtLevel(node) ;\r\n\t\t\t\tif(leaves) {\r\n\t\t\t\t\tleaves.forEach(function(leaf) {\r\n\t\t\t\t\t\tvar unite = leaf.rawNode[uniteKmColName] ;\r\n\t\t\t\t\t\tvar km = leaf.rawNode[colonne] ;\r\n\t\t\t\t\t\tvar rangeIdx ;\r\n\t\t\t\t\t\tvar remisageValue = leaf.rawNode[remisageColName] ;\r\n\t\t\t\t\t\tvar takeit = true ;\r\n\t\t\t\t\t\tif(isRemisage) {\r\n\t\t\t\t\t\t\ttakeit = remisageValue && (remisageValue.toLowerCase() == 'oui') ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t\tif(unite && (unite.toLowerCase() == \"km\") && !isNaN(km) && takeit) {\r\n\t\t\t\t\t\t\trangeIdx = getRangeIdx(km) ;\r\n\t\t\t\t\t\t\tvehicParKmRange[rangeIdx]++ ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}) ;\r\n\t\t\t\t\tfor(var i=0; i<vehicParKmRange.length; i++) {\r\n\t\t\t\t\t\tnbVehic = vehicParKmRange[i] ;\r\n\t\t\t\t\t\tif(nbVehic > 0) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t\t\telt.value = nbVehic ;\r\n\t\t\t\t\t\t\telt.unit = (us)?'vehicules ':'véhicules ' ;\r\n\t\t\t\t\t\t\tif(i == 0) {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'with less than ':'à moins de ') + ranges[i] + ' km' ;\r\n\t\t\t\t\t\t\t} else if(i == ranges.length) {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'with more than ':'avec plus de ') + ranges[i-1] + ' km' ;\r\n\t\t\t\t\t\t\t} else {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'between ':'entre ') + ranges[i-1] + ((us)?' and ':' et ') + ranges[i] + ' km' ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t} ;\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output ;\t\t\t\r\n\t\t} ; return doit(totalKmColName, [0, 10000, 20000, 40000, 60000, 80000, 100000, 150000, 200000], false, true) ;",
+				"label": "Total kilomètres parcourus"
+			}, {
+				"name": "nbKmRemisageParAn",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var totalKmRemisageColName = 'Number of km for home storage', doit = function (colonne, ranges, isRemisage, us) {\r\n\t\t\tvar output, elt, vehicParKmRange = [] ;\r\n\t\t\tvar remisageColName = 'Autorisation de remisage' ;\r\n\t\t\tvar uniteKmColName = 'Unité km ou heures' ;\r\n\t\t\tfor(var i=0; i<ranges.length+1; i++) {\r\n\t\t\t\tvehicParKmRange.push(0) ;\r\n\t\t\t}\r\n\t\t\tfunction getRangeIdx(value) {\r\n\t\t\t\tvar output, rangeMax ;\r\n\t\t\t\tvar i ;\r\n\t\t\t\tfor(i=0; i<ranges.length; i++) {\r\n\t\t\t\t\trangeMax = ranges[i] ;\r\n\t\t\t\t\tif(!output && (value <= rangeMax)) {\r\n\t\t\t\t\t\toutput = i ;\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t\tif(value > rangeMax) output = i ;\r\n\t\t\t\t//console.log(value+' km       > '+ranges[output-1]+' et < '+ranges[output]);\r\n\t\t\t\treturn output ;\r\n\t\t\t}\r\n\t\t\tif(node) {\r\n\t\t\t\tvar leaves = dm_Tools.getChildrenAtLevel(node) ;\r\n\t\t\t\tif(leaves) {\r\n\t\t\t\t\tleaves.forEach(function(leaf) {\r\n\t\t\t\t\t\tvar unite = leaf.rawNode[uniteKmColName] ;\r\n\t\t\t\t\t\tvar km = leaf.rawNode[colonne] ;\r\n\t\t\t\t\t\tvar rangeIdx ;\r\n\t\t\t\t\t\tvar remisageValue = leaf.rawNode[remisageColName] ;\r\n\t\t\t\t\t\tvar takeit = true ;\r\n\t\t\t\t\t\tif(isRemisage) {\r\n\t\t\t\t\t\t\ttakeit = remisageValue && (remisageValue.toLowerCase() == 'oui') ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t\tif(unite && (unite.toLowerCase() == \"km\") && !isNaN(km) && takeit) {\r\n\t\t\t\t\t\t\trangeIdx = getRangeIdx(km) ;\r\n\t\t\t\t\t\t\tvehicParKmRange[rangeIdx]++ ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}) ;\r\n\t\t\t\t\tfor(var i=0; i<vehicParKmRange.length; i++) {\r\n\t\t\t\t\t\tnbVehic = vehicParKmRange[i] ;\r\n\t\t\t\t\t\tif(nbVehic > 0) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t\t\telt.value = nbVehic ;\r\n\t\t\t\t\t\t\telt.unit = (us)?'vehicules ':'véhicules ' ;\r\n\t\t\t\t\t\t\tif(i == 0) {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'with less than ':'à moins de ') + ranges[i] + ' km' ;\r\n\t\t\t\t\t\t\t} else if(i == ranges.length) {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'with more than ':'avec plus de ') + ranges[i-1] + ' km' ;\r\n\t\t\t\t\t\t\t} else {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'between ':'entre ') + ranges[i-1] + ((us)?' and ':' et ') + ranges[i] + ' km' ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t} ;\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output ;\t\t\t\r\n\t\t} ; return doit(totalKmRemisageColName, [0, 2000, 4000, 6000, 8000, 10000, 12000], true, true) ;",
+				"label": "Total kilomètres pour remisage par an"
+			}, {
+				"name": "nbKmServiceParAn",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var totalKmHorsRemisageColName = 'Number of km for the service', doit = function (colonne, ranges, isRemisage, us) {\r\n\t\t\tvar output, elt, vehicParKmRange = [] ;\r\n\t\t\tvar remisageColName = 'Autorisation de remisage' ;\r\n\t\t\tvar uniteKmColName = 'Unité km ou heures' ;\r\n\t\t\tfor(var i=0; i<ranges.length+1; i++) {\r\n\t\t\t\tvehicParKmRange.push(0) ;\r\n\t\t\t}\r\n\t\t\tfunction getRangeIdx(value) {\r\n\t\t\t\tvar output, rangeMax ;\r\n\t\t\t\tvar i ;\r\n\t\t\t\tfor(i=0; i<ranges.length; i++) {\r\n\t\t\t\t\trangeMax = ranges[i] ;\r\n\t\t\t\t\tif(!output && (value <= rangeMax)) {\r\n\t\t\t\t\t\toutput = i ;\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t\tif(value > rangeMax) output = i ;\r\n\t\t\t\t//console.log(value+' km       > '+ranges[output-1]+' et < '+ranges[output]);\r\n\t\t\t\treturn output ;\r\n\t\t\t}\r\n\t\t\tif(node) {\r\n\t\t\t\tvar leaves = dm_Tools.getChildrenAtLevel(node) ;\r\n\t\t\t\tif(leaves) {\r\n\t\t\t\t\tleaves.forEach(function(leaf) {\r\n\t\t\t\t\t\tvar unite = leaf.rawNode[uniteKmColName] ;\r\n\t\t\t\t\t\tvar km = leaf.rawNode[colonne] ;\r\n\t\t\t\t\t\tvar rangeIdx ;\r\n\t\t\t\t\t\tvar remisageValue = leaf.rawNode[remisageColName] ;\r\n\t\t\t\t\t\tvar takeit = true ;\r\n\t\t\t\t\t\tif(isRemisage) {\r\n\t\t\t\t\t\t\ttakeit = remisageValue && (remisageValue.toLowerCase() == 'oui') ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t\tif(unite && (unite.toLowerCase() == \"km\") && !isNaN(km) && takeit) {\r\n\t\t\t\t\t\t\trangeIdx = getRangeIdx(km) ;\r\n\t\t\t\t\t\t\tvehicParKmRange[rangeIdx]++ ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}) ;\r\n\t\t\t\t\tfor(var i=0; i<vehicParKmRange.length; i++) {\r\n\t\t\t\t\t\tnbVehic = vehicParKmRange[i] ;\r\n\t\t\t\t\t\tif(nbVehic > 0) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t\t\telt.value = nbVehic ;\r\n\t\t\t\t\t\t\telt.unit = (us)?'vehicules ':'véhicules ' ;\r\n\t\t\t\t\t\t\tif(i == 0) {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'with less than ':'à moins de ') + ranges[i] + ' km' ;\r\n\t\t\t\t\t\t\t} else if(i == ranges.length) {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'with more than ':'avec plus de ') + ranges[i-1] + ' km' ;\r\n\t\t\t\t\t\t\t} else {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'between ':'entre ') + ranges[i-1] + ((us)?' and ':' et ') + ranges[i] + ' km' ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t} ;\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output ;\t\t\t\r\n\t\t} ; return doit(totalKmHorsRemisageColName, [0, 2000, 4000, 6000, 8000, 10000, 12000], false, true) ;",
+				"label": "Total kilomètres pour le service par an"
+			}, {
+				"name": "nbCartesEssence",
+				"label": "Number of gas cards",
+				"edit": false
+			}, {
+				"name": "nbCartesEssenceParServ",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (level, us, cumul4sameName) {\r\n\t\t\tvar output, elt ;\r\n\t\t\tif (node) {\r\n\t\t\t\tvar listOfChildrenWithRightLevel = dm_Tools.getChildrenAtLevel(node, level) ;\r\n\t\t\t\tif(listOfChildrenWithRightLevel) {\r\n\t\t\t\t\tvar map ;\r\n\t\t\t\t\tlistOfChildrenWithRightLevel.forEach(function (nodeI) {\r\n\t\t\t\t\t\tif(nodeI.rawNode.nbCartesEssence > 0) {\r\n\t\t\t\t\t\t\tif(!cumul4sameName) {\r\n\t\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t\t\t\telt.value = nodeI.rawNode.nbCartesEssence ;\r\n\t\t\t\t\t\t\t\telt.name = nodeI.name ;\r\n\t\t\t\t\t\t\t\telt.unit = (us)?'Gas card(s)':'carte(s) essence' ;\r\n\t\t\t\t\t\t\t} else {\r\n\t\t\t\t\t\t\t\tif(!map) map = {} ;\r\n\t\t\t\t\t\t\t\tif(!map[nodeI.name]) map[nodeI.name] = {'value': 0, 'unit': (us)?'Gas card(s)':'carte(s) essence'} ;\r\n\t\t\t\t\t\t\t\tmap[nodeI.name].value += nodeI.rawNode.nbCartesEssence ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t});\r\n\t\t\t\t\tif(map) {\r\n\t\t\t\t\t\tfor(var prop in map) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt) ;\r\n\t\t\t\t\t\t\telt.value = map[prop].value ;\r\n\t\t\t\t\t\t\telt.name = prop ;\r\n\t\t\t\t\t\t\telt.unit = map[prop].unit ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output;\r\n    \t} ; return doit(5, true) ;",
+				"label": "Gas cards per service"
+			}, {
+				"name": "nbCartesEssenceParUnite",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (level, us, cumul4sameName) {\r\n\t\t\tvar output, elt ;\r\n\t\t\tif (node) {\r\n\t\t\t\tvar listOfChildrenWithRightLevel = dm_Tools.getChildrenAtLevel(node, level) ;\r\n\t\t\t\tif(listOfChildrenWithRightLevel) {\r\n\t\t\t\t\tvar map ;\r\n\t\t\t\t\tlistOfChildrenWithRightLevel.forEach(function (nodeI) {\r\n\t\t\t\t\t\tif(nodeI.rawNode.nbCartesEssence > 0) {\r\n\t\t\t\t\t\t\tif(!cumul4sameName) {\r\n\t\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t\t\t\telt.value = nodeI.rawNode.nbCartesEssence ;\r\n\t\t\t\t\t\t\t\telt.name = nodeI.name ;\r\n\t\t\t\t\t\t\t\telt.unit = (us)?'Gas card(s)':'carte(s) essence' ;\r\n\t\t\t\t\t\t\t} else {\r\n\t\t\t\t\t\t\t\tif(!map) map = {} ;\r\n\t\t\t\t\t\t\t\tif(!map[nodeI.name]) map[nodeI.name] = {'value': 0, 'unit': (us)?'Gas card(s)':'carte(s) essence'} ;\r\n\t\t\t\t\t\t\t\tmap[nodeI.name].value += nodeI.rawNode.nbCartesEssence ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t});\r\n\t\t\t\t\tif(map) {\r\n\t\t\t\t\t\tfor(var prop in map) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt) ;\r\n\t\t\t\t\t\t\telt.value = map[prop].value ;\r\n\t\t\t\t\t\t\telt.name = prop ;\r\n\t\t\t\t\t\t\telt.unit = map[prop].unit ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output;\r\n    \t} ; return doit(6, true) ;",
+				"label": "Gas cards per project"
+			}, {
+				"name": "nb2rouesParModele",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (type) {\r\n\t\t\tvar output ;\r\n\t\t\tif (node && node.children) {\r\n\t\t\t\tfor (var modele in node.rawNode.nbVehicParModele) {\r\n\t\t\t\t\tif (type && node.rawNode.nbVehicParModele[modele] &&\r\n\t\t\t\t\t\tdm_Tools.compare(node.rawNode.nbVehicParModele[modele]['type'], type)) {\r\n\t\t\t\t\t\tif (!output)\r\n\t\t\t\t\t\t\toutput = [];\r\n\t\t\t\t\t\tvar elt = {};\r\n\t\t\t\t\t\telt.name = modele;\r\n\t\t\t\t\t\telt.value = node.rawNode.nbVehicParModele[modele].count;\r\n\t\t\t\t\t\t/*elt.unit=node.rawNode.nbVehicParModele[modele]['type'] ;*/\r\n\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output ;\r\n    \t} ; return doit('Deux roues') ;",
+				"label": "Scooter models"
+			}, {
+				"name": "nbVLParModele",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (type) {\r\n\t\t\tvar output ;\r\n\t\t\tif (node && node.children) {\r\n\t\t\t\tfor (var modele in node.rawNode.nbVehicParModele) {\r\n\t\t\t\t\tif (type && node.rawNode.nbVehicParModele[modele] &&\r\n\t\t\t\t\t\tdm_Tools.compare(node.rawNode.nbVehicParModele[modele]['type'], type)) {\r\n\t\t\t\t\t\tif (!output)\r\n\t\t\t\t\t\t\toutput = [];\r\n\t\t\t\t\t\tvar elt = {};\r\n\t\t\t\t\t\telt.name = modele;\r\n\t\t\t\t\t\telt.value = node.rawNode.nbVehicParModele[modele].count;\r\n\t\t\t\t\t\t/*elt.unit=node.rawNode.nbVehicParModele[modele]['type'] ;*/\r\n\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output ;\r\n    \t} ; return doit('Véhicule léger') ;",
+				"label": "Car models"
+			}, {
+				"name": "nbVULParModele",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (type) {\r\n\t\t\tvar output ;\r\n\t\t\tif (node && node.children) {\r\n\t\t\t\tfor (var modele in node.rawNode.nbVehicParModele) {\r\n\t\t\t\t\tif (type && node.rawNode.nbVehicParModele[modele] &&\r\n\t\t\t\t\t\tdm_Tools.compare(node.rawNode.nbVehicParModele[modele]['type'], type)) {\r\n\t\t\t\t\t\tif (!output)\r\n\t\t\t\t\t\t\toutput = [];\r\n\t\t\t\t\t\tvar elt = {};\r\n\t\t\t\t\t\telt.name = modele;\r\n\t\t\t\t\t\telt.value = node.rawNode.nbVehicParModele[modele].count;\r\n\t\t\t\t\t\t/*elt.unit=node.rawNode.nbVehicParModele[modele]['type'] ;*/\r\n\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output ;\r\n    \t} ; return doit('Utilitaire léger') ;",
+				"label": "Commercial vehicules"
+			}, {
+				"name": "nbUtilitairesParModele",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (type) {\r\n\t\t\tvar output ;\r\n\t\t\tif (node && node.children) {\r\n\t\t\t\tfor (var modele in node.rawNode.nbVehicParModele) {\r\n\t\t\t\t\tif (type && node.rawNode.nbVehicParModele[modele] &&\r\n\t\t\t\t\t\tdm_Tools.compare(node.rawNode.nbVehicParModele[modele]['type'], type)) {\r\n\t\t\t\t\t\tif (!output)\r\n\t\t\t\t\t\t\toutput = [];\r\n\t\t\t\t\t\tvar elt = {};\r\n\t\t\t\t\t\telt.name = modele;\r\n\t\t\t\t\t\telt.value = node.rawNode.nbVehicParModele[modele].count;\r\n\t\t\t\t\t\t/*elt.unit=node.rawNode.nbVehicParModele[modele]['type'] ;*/\r\n\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output ;\r\n    \t} ; return doit('Utilitaire') ;",
+				"label": "Trucks"
+			}, {
+				"name": "nbSpecifiquesParModele",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (type) {\r\n\t\t\tvar output ;\r\n\t\t\tif (node && node.children) {\r\n\t\t\t\tfor (var modele in node.rawNode.nbVehicParModele) {\r\n\t\t\t\t\tif (type && node.rawNode.nbVehicParModele[modele] &&\r\n\t\t\t\t\t\tdm_Tools.compare(node.rawNode.nbVehicParModele[modele]['type'], type)) {\r\n\t\t\t\t\t\tif (!output)\r\n\t\t\t\t\t\t\toutput = [];\r\n\t\t\t\t\t\tvar elt = {};\r\n\t\t\t\t\t\telt.name = modele;\r\n\t\t\t\t\t\telt.value = node.rawNode.nbVehicParModele[modele].count;\r\n\t\t\t\t\t\t/*elt.unit=node.rawNode.nbVehicParModele[modele]['type'] ;*/\r\n\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output ;\r\n    \t} ; return doit('Spécifique') ;",
+				"label": "Specific vehicules"
+			}]
+		}, {
+			"name": "Service",
+			"children": [{
+				"name": "nbVehicules",
+				"label": "Number of vehicules",
+				"edit": false
+			}, {
+				"name": "nbVehicParUnite",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (level, us, cumul4sameName) {\r\n\t\t\tvar output, elt;\r\n\t\t\tif (node) {\r\n\t\t\t\tvar listOfChildrenWithRightLevel = dm_Tools.getChildrenAtLevel(node, level) ;\r\n\t\t\t\tif(listOfChildrenWithRightLevel) {\r\n\t\t\t\t\tvar map ;\r\n\t\t\t\t\tlistOfChildrenWithRightLevel.forEach(function (nodeI) {\r\n\t\t\t\t\t\tif(!cumul4sameName) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt) ;\r\n\t\t\t\t\t\t\telt.value = nodeI.rawNode.nbVehicules ;\r\n\t\t\t\t\t\t\telt.name = nodeI.name ;\r\n\t\t\t\t\t\t\telt.unit = (us)?'vehicule(s)':'véhicule(s)' ;\r\n\t\t\t\t\t\t\t//elt.nodeList = nodeI.rawNode.nbVehicules_nodeList ;\r\n\t\t\t\t\t\t} else {\r\n\t\t\t\t\t\t\tif(!map) map = {} ;\r\n\t\t\t\t\t\t\tif(!map[nodeI.name]) map[nodeI.name] = {'value': 0, 'unit': (us)?'vehicule(s)':'véhicule(s)'} ;\r\n\t\t\t\t\t\t\tmap[nodeI.name].value += nodeI.rawNode.nbVehicules ;\r\n\t\t\t\t\t\t\t//if(!map[nodeI.name].nodeList) map[nodeI.name].nodeList = [] ;\r\n\t\t\t\t\t\t\t//dm_Tools.concat(map[nodeI.name].nodeList, nodeI.rawNode.nbVehicules_nodeList) ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}) ;\r\n\t\t\t\t\tif(map) {\r\n\t\t\t\t\t\tfor(var prop in map) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt) ;\r\n\t\t\t\t\t\t\telt.value = map[prop].value ;\r\n\t\t\t\t\t\t\telt.name = prop ;\r\n\t\t\t\t\t\t\telt.unit = map[prop].unit ;\r\n\t\t\t\t\t\t\t//elt.nodeList = map[prop].nodeList ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output;\r\n    \t} ; return doit(6, true) ;",
+				"label": "Vehicule per project"
+			}, {
+				"name": "nbVehicParEq",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (level, us, cumul4sameName) {\r\n\t\t\tvar output, elt;\r\n\t\t\tif (node) {\r\n\t\t\t\tvar listOfChildrenWithRightLevel = dm_Tools.getChildrenAtLevel(node, level) ;\r\n\t\t\t\tif(listOfChildrenWithRightLevel) {\r\n\t\t\t\t\tvar map ;\r\n\t\t\t\t\tlistOfChildrenWithRightLevel.forEach(function (nodeI) {\r\n\t\t\t\t\t\tif(!cumul4sameName) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt) ;\r\n\t\t\t\t\t\t\telt.value = nodeI.rawNode.nbVehicules ;\r\n\t\t\t\t\t\t\telt.name = nodeI.name ;\r\n\t\t\t\t\t\t\telt.unit = (us)?'vehicule(s)':'véhicule(s)' ;\r\n\t\t\t\t\t\t\t//elt.nodeList = nodeI.rawNode.nbVehicules_nodeList ;\r\n\t\t\t\t\t\t} else {\r\n\t\t\t\t\t\t\tif(!map) map = {} ;\r\n\t\t\t\t\t\t\tif(!map[nodeI.name]) map[nodeI.name] = {'value': 0, 'unit': (us)?'vehicule(s)':'véhicule(s)'} ;\r\n\t\t\t\t\t\t\tmap[nodeI.name].value += nodeI.rawNode.nbVehicules ;\r\n\t\t\t\t\t\t\t//if(!map[nodeI.name].nodeList) map[nodeI.name].nodeList = [] ;\r\n\t\t\t\t\t\t\t//dm_Tools.concat(map[nodeI.name].nodeList, nodeI.rawNode.nbVehicules_nodeList) ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}) ;\r\n\t\t\t\t\tif(map) {\r\n\t\t\t\t\t\tfor(var prop in map) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt) ;\r\n\t\t\t\t\t\t\telt.value = map[prop].value ;\r\n\t\t\t\t\t\t\telt.name = prop ;\r\n\t\t\t\t\t\t\telt.unit = map[prop].unit ;\r\n\t\t\t\t\t\t\t//elt.nodeList = map[prop].nodeList ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output;\r\n    \t} ; return doit(7, true) ;",
+				"label": "Vehicule per team"
+			}, {
+				"name": "nbVehicParType",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (us) {\r\n\t\t\tvar output;\r\n\t\t\tif (node && node.children) {\r\n\t\t\t\toutput = [{\r\n\t\t\t\t\t\tvalue : node.rawNode.nb2roues,\r\n\t\t\t\t\t\tunit : (us)?'Scooter(s)':'2roues'\r\n\t\t\t\t\t}, {\r\n\t\t\t\t\t\tvalue : node.rawNode.nbVL,\r\n\t\t\t\t\t\tunit : (us)?'Car(s)':'Véhicule(s) léger(s)'\r\n\t\t\t\t\t}, {\r\n\t\t\t\t\t\tvalue : node.rawNode.nbVUL,\r\n\t\t\t\t\t\tunit : (us)?'Commercial vehicule(s)':'Utilitaire(s) léger(s)'\r\n\t\t\t\t\t}, {\r\n\t\t\t\t\t\tvalue : node.rawNode.nbUtilitaires,\r\n\t\t\t\t\t\tunit : (us)?'Truck(s)':'Utilitaire(s)'\r\n\t\t\t\t\t}, {\r\n\t\t\t\t\t\tvalue : node.rawNode.nbSpecifiques,\r\n\t\t\t\t\t\tunit : (us)?'Specific vehicule(s)':'Véhicule(s) spécifique(s)'\r\n\t\t\t\t\t}\r\n\t\t\t\t];\r\n\t\t\t}\r\n\t\t\treturn output;\r\n\t\t} ; return doit(true) ;",
+				"label": "Vehicule per type"
+			}, {
+				"name": "nbVehicParAnneePie",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (us) {\r\n\t\t\tvar output, elt;\r\n\t\t\tif (node && node.children) {\r\n\t\t\t\tvar nodeYears = node.rawNode[\"nbVehicParAnnee\"] ;\r\n\t\t\t\tif(nodeYears) {\r\n\t\t\t\t\tif(!output) output = [] ;\r\n\t\t\t\t\tfor(var year in nodeYears) {\r\n\t\t\t\t\t\telt = {};\r\n\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t\telt.value = nodeYears[year] ;\r\n\t\t\t\t\t\telt.name = year ;\r\n\t\t\t\t\t\telt.unit = (us)?'vehicule(s)':'véhicule(s)' ;\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output;\r\n    \t} ; return doit(true) ;",
+				"label": "Vehicule per year"
+			}, {
+				"name": "nbRemisages",
+				"label": "Storage at home",
+				"edit": false
+			}, {
+				"name": "nbRemisageParUnite",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (level, us) {\r\n\t\t\tvar output, elt ;\r\n\t\t\tif (node) {\r\n\t\t\t\tvar listOfChildrenWithRightLevel = dm_Tools.getChildrenAtLevel(node, level) ;\r\n\t\t\t\tif(listOfChildrenWithRightLevel) {\r\n\t\t\t\t\tlistOfChildrenWithRightLevel.forEach(function (nodeI) {\r\n\t\t\t\t\t\tif(nodeI.rawNode.nbRemisages > 0) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t\t\telt.value = nodeI.rawNode.nbRemisages ;\r\n\t\t\t\t\t\t\telt.name = nodeI.name ;\r\n\t\t\t\t\t\t\telt.unit = (us)?'Home storage(s)':'remisage(s) à domicile' ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t});\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output;\r\n    \t} ; return doit(6, true) ;",
+				"label": "Home storage per project"
+			}, {
+				"name": "nbRemisageParEq",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (level, us) {\r\n\t\t\tvar output, elt ;\r\n\t\t\tif (node) {\r\n\t\t\t\tvar listOfChildrenWithRightLevel = dm_Tools.getChildrenAtLevel(node, level) ;\r\n\t\t\t\tif(listOfChildrenWithRightLevel) {\r\n\t\t\t\t\tlistOfChildrenWithRightLevel.forEach(function (nodeI) {\r\n\t\t\t\t\t\tif(nodeI.rawNode.nbRemisages > 0) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t\t\telt.value = nodeI.rawNode.nbRemisages ;\r\n\t\t\t\t\t\t\telt.name = nodeI.name ;\r\n\t\t\t\t\t\t\telt.unit = (us)?'Home storage(s)':'remisage(s) à domicile' ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t});\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output;\r\n    \t} ; return doit(7, true) ;",
+				"label": "Home storage per team"
+			}, {
+				"name": "nbKm",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var totalKmColName = 'Number of km (or hours)', doit = function (colonne, ranges, isRemisage, us) {\r\n\t\t\tvar output, elt, vehicParKmRange = [] ;\r\n\t\t\tvar remisageColName = 'Autorisation de remisage' ;\r\n\t\t\tvar uniteKmColName = 'Unité km ou heures' ;\r\n\t\t\tfor(var i=0; i<ranges.length+1; i++) {\r\n\t\t\t\tvehicParKmRange.push(0) ;\r\n\t\t\t}\r\n\t\t\tfunction getRangeIdx(value) {\r\n\t\t\t\tvar output, rangeMax ;\r\n\t\t\t\tvar i ;\r\n\t\t\t\tfor(i=0; i<ranges.length; i++) {\r\n\t\t\t\t\trangeMax = ranges[i] ;\r\n\t\t\t\t\tif(!output && (value <= rangeMax)) {\r\n\t\t\t\t\t\toutput = i ;\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t\tif(value > rangeMax) output = i ;\r\n\t\t\t\t//console.log(value+' km       > '+ranges[output-1]+' et < '+ranges[output]);\r\n\t\t\t\treturn output ;\r\n\t\t\t}\r\n\t\t\tif(node) {\r\n\t\t\t\tvar leaves = dm_Tools.getChildrenAtLevel(node) ;\r\n\t\t\t\tif(leaves) {\r\n\t\t\t\t\tleaves.forEach(function(leaf) {\r\n\t\t\t\t\t\tvar unite = leaf.rawNode[uniteKmColName] ;\r\n\t\t\t\t\t\tvar km = leaf.rawNode[colonne] ;\r\n\t\t\t\t\t\tvar rangeIdx ;\r\n\t\t\t\t\t\tvar remisageValue = leaf.rawNode[remisageColName] ;\r\n\t\t\t\t\t\tvar takeit = true ;\r\n\t\t\t\t\t\tif(isRemisage) {\r\n\t\t\t\t\t\t\ttakeit = remisageValue && (remisageValue.toLowerCase() == 'oui') ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t\tif(unite && (unite.toLowerCase() == \"km\") && !isNaN(km) && takeit) {\r\n\t\t\t\t\t\t\trangeIdx = getRangeIdx(km) ;\r\n\t\t\t\t\t\t\tvehicParKmRange[rangeIdx]++ ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}) ;\r\n\t\t\t\t\tfor(var i=0; i<vehicParKmRange.length; i++) {\r\n\t\t\t\t\t\tnbVehic = vehicParKmRange[i] ;\r\n\t\t\t\t\t\tif(nbVehic > 0) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t\t\telt.value = nbVehic ;\r\n\t\t\t\t\t\t\telt.unit = (us)?'vehicules ':'véhicules ' ;\r\n\t\t\t\t\t\t\tif(i == 0) {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'with less than ':'à moins de ') + ranges[i] + ' km' ;\r\n\t\t\t\t\t\t\t} else if(i == ranges.length) {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'with more than ':'avec plus de ') + ranges[i-1] + ' km' ;\r\n\t\t\t\t\t\t\t} else {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'between ':'entre ') + ranges[i-1] + ((us)?' and ':' et ') + ranges[i] + ' km' ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t} ;\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output ;\t\t\t\r\n\t\t} ; return doit(totalKmColName, [0, 10000, 20000, 40000, 60000, 80000, 100000, 150000, 200000], false, true) ;",
+				"label": "Total kilomètres parcourus"
+			}, {
+				"name": "nbKmRemisageParAn",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var totalKmRemisageColName = 'Number of km for home storage', doit = function (colonne, ranges, isRemisage, us) {\r\n\t\t\tvar output, elt, vehicParKmRange = [] ;\r\n\t\t\tvar remisageColName = 'Autorisation de remisage' ;\r\n\t\t\tvar uniteKmColName = 'Unité km ou heures' ;\r\n\t\t\tfor(var i=0; i<ranges.length+1; i++) {\r\n\t\t\t\tvehicParKmRange.push(0) ;\r\n\t\t\t}\r\n\t\t\tfunction getRangeIdx(value) {\r\n\t\t\t\tvar output, rangeMax ;\r\n\t\t\t\tvar i ;\r\n\t\t\t\tfor(i=0; i<ranges.length; i++) {\r\n\t\t\t\t\trangeMax = ranges[i] ;\r\n\t\t\t\t\tif(!output && (value <= rangeMax)) {\r\n\t\t\t\t\t\toutput = i ;\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t\tif(value > rangeMax) output = i ;\r\n\t\t\t\t//console.log(value+' km       > '+ranges[output-1]+' et < '+ranges[output]);\r\n\t\t\t\treturn output ;\r\n\t\t\t}\r\n\t\t\tif(node) {\r\n\t\t\t\tvar leaves = dm_Tools.getChildrenAtLevel(node) ;\r\n\t\t\t\tif(leaves) {\r\n\t\t\t\t\tleaves.forEach(function(leaf) {\r\n\t\t\t\t\t\tvar unite = leaf.rawNode[uniteKmColName] ;\r\n\t\t\t\t\t\tvar km = leaf.rawNode[colonne] ;\r\n\t\t\t\t\t\tvar rangeIdx ;\r\n\t\t\t\t\t\tvar remisageValue = leaf.rawNode[remisageColName] ;\r\n\t\t\t\t\t\tvar takeit = true ;\r\n\t\t\t\t\t\tif(isRemisage) {\r\n\t\t\t\t\t\t\ttakeit = remisageValue && (remisageValue.toLowerCase() == 'oui') ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t\tif(unite && (unite.toLowerCase() == \"km\") && !isNaN(km) && takeit) {\r\n\t\t\t\t\t\t\trangeIdx = getRangeIdx(km) ;\r\n\t\t\t\t\t\t\tvehicParKmRange[rangeIdx]++ ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}) ;\r\n\t\t\t\t\tfor(var i=0; i<vehicParKmRange.length; i++) {\r\n\t\t\t\t\t\tnbVehic = vehicParKmRange[i] ;\r\n\t\t\t\t\t\tif(nbVehic > 0) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t\t\telt.value = nbVehic ;\r\n\t\t\t\t\t\t\telt.unit = (us)?'vehicules ':'véhicules ' ;\r\n\t\t\t\t\t\t\tif(i == 0) {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'with less than ':'à moins de ') + ranges[i] + ' km' ;\r\n\t\t\t\t\t\t\t} else if(i == ranges.length) {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'with more than ':'avec plus de ') + ranges[i-1] + ' km' ;\r\n\t\t\t\t\t\t\t} else {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'between ':'entre ') + ranges[i-1] + ((us)?' and ':' et ') + ranges[i] + ' km' ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t} ;\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output ;\t\t\t\r\n\t\t} ; return doit(totalKmRemisageColName, [0, 2000, 4000, 6000, 8000, 10000, 12000], true, true) ;",
+				"label": "Total kilomètres pour remisage par an"
+			}, {
+				"name": "nbKmServiceParAn",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var totalKmHorsRemisageColName = 'Number of km for the service', doit = function (colonne, ranges, isRemisage, us) {\r\n\t\t\tvar output, elt, vehicParKmRange = [] ;\r\n\t\t\tvar remisageColName = 'Autorisation de remisage' ;\r\n\t\t\tvar uniteKmColName = 'Unité km ou heures' ;\r\n\t\t\tfor(var i=0; i<ranges.length+1; i++) {\r\n\t\t\t\tvehicParKmRange.push(0) ;\r\n\t\t\t}\r\n\t\t\tfunction getRangeIdx(value) {\r\n\t\t\t\tvar output, rangeMax ;\r\n\t\t\t\tvar i ;\r\n\t\t\t\tfor(i=0; i<ranges.length; i++) {\r\n\t\t\t\t\trangeMax = ranges[i] ;\r\n\t\t\t\t\tif(!output && (value <= rangeMax)) {\r\n\t\t\t\t\t\toutput = i ;\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t\tif(value > rangeMax) output = i ;\r\n\t\t\t\t//console.log(value+' km       > '+ranges[output-1]+' et < '+ranges[output]);\r\n\t\t\t\treturn output ;\r\n\t\t\t}\r\n\t\t\tif(node) {\r\n\t\t\t\tvar leaves = dm_Tools.getChildrenAtLevel(node) ;\r\n\t\t\t\tif(leaves) {\r\n\t\t\t\t\tleaves.forEach(function(leaf) {\r\n\t\t\t\t\t\tvar unite = leaf.rawNode[uniteKmColName] ;\r\n\t\t\t\t\t\tvar km = leaf.rawNode[colonne] ;\r\n\t\t\t\t\t\tvar rangeIdx ;\r\n\t\t\t\t\t\tvar remisageValue = leaf.rawNode[remisageColName] ;\r\n\t\t\t\t\t\tvar takeit = true ;\r\n\t\t\t\t\t\tif(isRemisage) {\r\n\t\t\t\t\t\t\ttakeit = remisageValue && (remisageValue.toLowerCase() == 'oui') ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t\tif(unite && (unite.toLowerCase() == \"km\") && !isNaN(km) && takeit) {\r\n\t\t\t\t\t\t\trangeIdx = getRangeIdx(km) ;\r\n\t\t\t\t\t\t\tvehicParKmRange[rangeIdx]++ ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}) ;\r\n\t\t\t\t\tfor(var i=0; i<vehicParKmRange.length; i++) {\r\n\t\t\t\t\t\tnbVehic = vehicParKmRange[i] ;\r\n\t\t\t\t\t\tif(nbVehic > 0) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t\t\telt.value = nbVehic ;\r\n\t\t\t\t\t\t\telt.unit = (us)?'vehicules ':'véhicules ' ;\r\n\t\t\t\t\t\t\tif(i == 0) {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'with less than ':'à moins de ') + ranges[i] + ' km' ;\r\n\t\t\t\t\t\t\t} else if(i == ranges.length) {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'with more than ':'avec plus de ') + ranges[i-1] + ' km' ;\r\n\t\t\t\t\t\t\t} else {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'between ':'entre ') + ranges[i-1] + ((us)?' and ':' et ') + ranges[i] + ' km' ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t} ;\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output ;\t\t\t\r\n\t\t} ; return doit(totalKmHorsRemisageColName, [0, 2000, 4000, 6000, 8000, 10000, 12000], false, true) ;",
+				"label": "Total kilomètres pour le service par an"
+			}, {
+				"name": "nbCartesEssence",
+				"label": "Number of gas cards",
+				"edit": false
+			}]
+		}, {
+			"name": "Unité",
+			"children": [{
+				"name": "nbVehicules",
+				"label": "Number of vehicules",
+				"edit": false
+			}, {
+				"name": "nbVehicParEq",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (level, us, cumul4sameName) {\r\n\t\t\tvar output, elt;\r\n\t\t\tif (node) {\r\n\t\t\t\tvar listOfChildrenWithRightLevel = dm_Tools.getChildrenAtLevel(node, level) ;\r\n\t\t\t\tif(listOfChildrenWithRightLevel) {\r\n\t\t\t\t\tvar map ;\r\n\t\t\t\t\tlistOfChildrenWithRightLevel.forEach(function (nodeI) {\r\n\t\t\t\t\t\tif(!cumul4sameName) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt) ;\r\n\t\t\t\t\t\t\telt.value = nodeI.rawNode.nbVehicules ;\r\n\t\t\t\t\t\t\telt.name = nodeI.name ;\r\n\t\t\t\t\t\t\telt.unit = (us)?'vehicule(s)':'véhicule(s)' ;\r\n\t\t\t\t\t\t\t//elt.nodeList = nodeI.rawNode.nbVehicules_nodeList ;\r\n\t\t\t\t\t\t} else {\r\n\t\t\t\t\t\t\tif(!map) map = {} ;\r\n\t\t\t\t\t\t\tif(!map[nodeI.name]) map[nodeI.name] = {'value': 0, 'unit': (us)?'vehicule(s)':'véhicule(s)'} ;\r\n\t\t\t\t\t\t\tmap[nodeI.name].value += nodeI.rawNode.nbVehicules ;\r\n\t\t\t\t\t\t\t//if(!map[nodeI.name].nodeList) map[nodeI.name].nodeList = [] ;\r\n\t\t\t\t\t\t\t//dm_Tools.concat(map[nodeI.name].nodeList, nodeI.rawNode.nbVehicules_nodeList) ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}) ;\r\n\t\t\t\t\tif(map) {\r\n\t\t\t\t\t\tfor(var prop in map) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt) ;\r\n\t\t\t\t\t\t\telt.value = map[prop].value ;\r\n\t\t\t\t\t\t\telt.name = prop ;\r\n\t\t\t\t\t\t\telt.unit = map[prop].unit ;\r\n\t\t\t\t\t\t\t//elt.nodeList = map[prop].nodeList ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output;\r\n    \t} ; return doit(7, true) ;",
+				"label": "Vehicule per team"
+			}, {
+				"name": "nbVehicParType",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (us) {\r\n\t\t\tvar output;\r\n\t\t\tif (node && node.children) {\r\n\t\t\t\toutput = [{\r\n\t\t\t\t\t\tvalue : node.rawNode.nb2roues,\r\n\t\t\t\t\t\tunit : (us)?'Scooter(s)':'2roues'\r\n\t\t\t\t\t}, {\r\n\t\t\t\t\t\tvalue : node.rawNode.nbVL,\r\n\t\t\t\t\t\tunit : (us)?'Car(s)':'Véhicule(s) léger(s)'\r\n\t\t\t\t\t}, {\r\n\t\t\t\t\t\tvalue : node.rawNode.nbVUL,\r\n\t\t\t\t\t\tunit : (us)?'Commercial vehicule(s)':'Utilitaire(s) léger(s)'\r\n\t\t\t\t\t}, {\r\n\t\t\t\t\t\tvalue : node.rawNode.nbUtilitaires,\r\n\t\t\t\t\t\tunit : (us)?'Truck(s)':'Utilitaire(s)'\r\n\t\t\t\t\t}, {\r\n\t\t\t\t\t\tvalue : node.rawNode.nbSpecifiques,\r\n\t\t\t\t\t\tunit : (us)?'Specific vehicule(s)':'Véhicule(s) spécifique(s)'\r\n\t\t\t\t\t}\r\n\t\t\t\t];\r\n\t\t\t}\r\n\t\t\treturn output;\r\n\t\t} ; return doit(true) ;",
+				"label": "Vehicule per type"
+			}, {
+				"name": "nbVehicParAnneePie",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (us) {\r\n\t\t\tvar output, elt;\r\n\t\t\tif (node && node.children) {\r\n\t\t\t\tvar nodeYears = node.rawNode[\"nbVehicParAnnee\"] ;\r\n\t\t\t\tif(nodeYears) {\r\n\t\t\t\t\tif(!output) output = [] ;\r\n\t\t\t\t\tfor(var year in nodeYears) {\r\n\t\t\t\t\t\telt = {};\r\n\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t\telt.value = nodeYears[year] ;\r\n\t\t\t\t\t\telt.name = year ;\r\n\t\t\t\t\t\telt.unit = (us)?'vehicule(s)':'véhicule(s)' ;\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output;\r\n    \t} ; return doit(true) ;",
+				"label": "Vehicule per year"
+			}, {
+				"name": "nbRemisages",
+				"label": "Storage at home",
+				"edit": false
+			}, {
+				"name": "nbRemisageParEq",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (level, us) {\r\n\t\t\tvar output, elt ;\r\n\t\t\tif (node) {\r\n\t\t\t\tvar listOfChildrenWithRightLevel = dm_Tools.getChildrenAtLevel(node, level) ;\r\n\t\t\t\tif(listOfChildrenWithRightLevel) {\r\n\t\t\t\t\tlistOfChildrenWithRightLevel.forEach(function (nodeI) {\r\n\t\t\t\t\t\tif(nodeI.rawNode.nbRemisages > 0) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t\t\telt.value = nodeI.rawNode.nbRemisages ;\r\n\t\t\t\t\t\t\telt.name = nodeI.name ;\r\n\t\t\t\t\t\t\telt.unit = (us)?'Home storage(s)':'remisage(s) à domicile' ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t});\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output;\r\n    \t} ; return doit(7, true) ;",
+				"label": "Home storage per team"
+			}, {
+				"name": "nbKm",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var totalKmColName = 'Number of km (or hours)', doit = function (colonne, ranges, isRemisage, us) {\r\n\t\t\tvar output, elt, vehicParKmRange = [] ;\r\n\t\t\tvar remisageColName = 'Autorisation de remisage' ;\r\n\t\t\tvar uniteKmColName = 'Unité km ou heures' ;\r\n\t\t\tfor(var i=0; i<ranges.length+1; i++) {\r\n\t\t\t\tvehicParKmRange.push(0) ;\r\n\t\t\t}\r\n\t\t\tfunction getRangeIdx(value) {\r\n\t\t\t\tvar output, rangeMax ;\r\n\t\t\t\tvar i ;\r\n\t\t\t\tfor(i=0; i<ranges.length; i++) {\r\n\t\t\t\t\trangeMax = ranges[i] ;\r\n\t\t\t\t\tif(!output && (value <= rangeMax)) {\r\n\t\t\t\t\t\toutput = i ;\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t\tif(value > rangeMax) output = i ;\r\n\t\t\t\t//console.log(value+' km       > '+ranges[output-1]+' et < '+ranges[output]);\r\n\t\t\t\treturn output ;\r\n\t\t\t}\r\n\t\t\tif(node) {\r\n\t\t\t\tvar leaves = dm_Tools.getChildrenAtLevel(node) ;\r\n\t\t\t\tif(leaves) {\r\n\t\t\t\t\tleaves.forEach(function(leaf) {\r\n\t\t\t\t\t\tvar unite = leaf.rawNode[uniteKmColName] ;\r\n\t\t\t\t\t\tvar km = leaf.rawNode[colonne] ;\r\n\t\t\t\t\t\tvar rangeIdx ;\r\n\t\t\t\t\t\tvar remisageValue = leaf.rawNode[remisageColName] ;\r\n\t\t\t\t\t\tvar takeit = true ;\r\n\t\t\t\t\t\tif(isRemisage) {\r\n\t\t\t\t\t\t\ttakeit = remisageValue && (remisageValue.toLowerCase() == 'oui') ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t\tif(unite && (unite.toLowerCase() == \"km\") && !isNaN(km) && takeit) {\r\n\t\t\t\t\t\t\trangeIdx = getRangeIdx(km) ;\r\n\t\t\t\t\t\t\tvehicParKmRange[rangeIdx]++ ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}) ;\r\n\t\t\t\t\tfor(var i=0; i<vehicParKmRange.length; i++) {\r\n\t\t\t\t\t\tnbVehic = vehicParKmRange[i] ;\r\n\t\t\t\t\t\tif(nbVehic > 0) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t\t\telt.value = nbVehic ;\r\n\t\t\t\t\t\t\telt.unit = (us)?'vehicules ':'véhicules ' ;\r\n\t\t\t\t\t\t\tif(i == 0) {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'with less than ':'à moins de ') + ranges[i] + ' km' ;\r\n\t\t\t\t\t\t\t} else if(i == ranges.length) {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'with more than ':'avec plus de ') + ranges[i-1] + ' km' ;\r\n\t\t\t\t\t\t\t} else {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'between ':'entre ') + ranges[i-1] + ((us)?' and ':' et ') + ranges[i] + ' km' ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t} ;\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output ;\t\t\t\r\n\t\t} ; return doit(totalKmColName, [0, 10000, 20000, 40000, 60000, 80000, 100000, 150000, 200000], false, true) ;",
+				"label": "Total kilomètres parcourus"
+			}, {
+				"name": "nbKmRemisageParAn",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var totalKmRemisageColName = 'Number of km for home storage', doit = function (colonne, ranges, isRemisage, us) {\r\n\t\t\tvar output, elt, vehicParKmRange = [] ;\r\n\t\t\tvar remisageColName = 'Autorisation de remisage' ;\r\n\t\t\tvar uniteKmColName = 'Unité km ou heures' ;\r\n\t\t\tfor(var i=0; i<ranges.length+1; i++) {\r\n\t\t\t\tvehicParKmRange.push(0) ;\r\n\t\t\t}\r\n\t\t\tfunction getRangeIdx(value) {\r\n\t\t\t\tvar output, rangeMax ;\r\n\t\t\t\tvar i ;\r\n\t\t\t\tfor(i=0; i<ranges.length; i++) {\r\n\t\t\t\t\trangeMax = ranges[i] ;\r\n\t\t\t\t\tif(!output && (value <= rangeMax)) {\r\n\t\t\t\t\t\toutput = i ;\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t\tif(value > rangeMax) output = i ;\r\n\t\t\t\t//console.log(value+' km       > '+ranges[output-1]+' et < '+ranges[output]);\r\n\t\t\t\treturn output ;\r\n\t\t\t}\r\n\t\t\tif(node) {\r\n\t\t\t\tvar leaves = dm_Tools.getChildrenAtLevel(node) ;\r\n\t\t\t\tif(leaves) {\r\n\t\t\t\t\tleaves.forEach(function(leaf) {\r\n\t\t\t\t\t\tvar unite = leaf.rawNode[uniteKmColName] ;\r\n\t\t\t\t\t\tvar km = leaf.rawNode[colonne] ;\r\n\t\t\t\t\t\tvar rangeIdx ;\r\n\t\t\t\t\t\tvar remisageValue = leaf.rawNode[remisageColName] ;\r\n\t\t\t\t\t\tvar takeit = true ;\r\n\t\t\t\t\t\tif(isRemisage) {\r\n\t\t\t\t\t\t\ttakeit = remisageValue && (remisageValue.toLowerCase() == 'oui') ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t\tif(unite && (unite.toLowerCase() == \"km\") && !isNaN(km) && takeit) {\r\n\t\t\t\t\t\t\trangeIdx = getRangeIdx(km) ;\r\n\t\t\t\t\t\t\tvehicParKmRange[rangeIdx]++ ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}) ;\r\n\t\t\t\t\tfor(var i=0; i<vehicParKmRange.length; i++) {\r\n\t\t\t\t\t\tnbVehic = vehicParKmRange[i] ;\r\n\t\t\t\t\t\tif(nbVehic > 0) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t\t\telt.value = nbVehic ;\r\n\t\t\t\t\t\t\telt.unit = (us)?'vehicules ':'véhicules ' ;\r\n\t\t\t\t\t\t\tif(i == 0) {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'with less than ':'à moins de ') + ranges[i] + ' km' ;\r\n\t\t\t\t\t\t\t} else if(i == ranges.length) {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'with more than ':'avec plus de ') + ranges[i-1] + ' km' ;\r\n\t\t\t\t\t\t\t} else {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'between ':'entre ') + ranges[i-1] + ((us)?' and ':' et ') + ranges[i] + ' km' ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t} ;\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output ;\t\t\t\r\n\t\t} ; return doit(totalKmRemisageColName, [0, 2000, 4000, 6000, 8000, 10000, 12000], true, true) ;",
+				"label": "Total kilomètres pour remisage par an"
+			}, {
+				"name": "nbKmServiceParAn",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var totalKmHorsRemisageColName = 'Number of km for the service', doit = function (colonne, ranges, isRemisage, us) {\r\n\t\t\tvar output, elt, vehicParKmRange = [] ;\r\n\t\t\tvar remisageColName = 'Autorisation de remisage' ;\r\n\t\t\tvar uniteKmColName = 'Unité km ou heures' ;\r\n\t\t\tfor(var i=0; i<ranges.length+1; i++) {\r\n\t\t\t\tvehicParKmRange.push(0) ;\r\n\t\t\t}\r\n\t\t\tfunction getRangeIdx(value) {\r\n\t\t\t\tvar output, rangeMax ;\r\n\t\t\t\tvar i ;\r\n\t\t\t\tfor(i=0; i<ranges.length; i++) {\r\n\t\t\t\t\trangeMax = ranges[i] ;\r\n\t\t\t\t\tif(!output && (value <= rangeMax)) {\r\n\t\t\t\t\t\toutput = i ;\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t\tif(value > rangeMax) output = i ;\r\n\t\t\t\t//console.log(value+' km       > '+ranges[output-1]+' et < '+ranges[output]);\r\n\t\t\t\treturn output ;\r\n\t\t\t}\r\n\t\t\tif(node) {\r\n\t\t\t\tvar leaves = dm_Tools.getChildrenAtLevel(node) ;\r\n\t\t\t\tif(leaves) {\r\n\t\t\t\t\tleaves.forEach(function(leaf) {\r\n\t\t\t\t\t\tvar unite = leaf.rawNode[uniteKmColName] ;\r\n\t\t\t\t\t\tvar km = leaf.rawNode[colonne] ;\r\n\t\t\t\t\t\tvar rangeIdx ;\r\n\t\t\t\t\t\tvar remisageValue = leaf.rawNode[remisageColName] ;\r\n\t\t\t\t\t\tvar takeit = true ;\r\n\t\t\t\t\t\tif(isRemisage) {\r\n\t\t\t\t\t\t\ttakeit = remisageValue && (remisageValue.toLowerCase() == 'oui') ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t\tif(unite && (unite.toLowerCase() == \"km\") && !isNaN(km) && takeit) {\r\n\t\t\t\t\t\t\trangeIdx = getRangeIdx(km) ;\r\n\t\t\t\t\t\t\tvehicParKmRange[rangeIdx]++ ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}) ;\r\n\t\t\t\t\tfor(var i=0; i<vehicParKmRange.length; i++) {\r\n\t\t\t\t\t\tnbVehic = vehicParKmRange[i] ;\r\n\t\t\t\t\t\tif(nbVehic > 0) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t\t\telt.value = nbVehic ;\r\n\t\t\t\t\t\t\telt.unit = (us)?'vehicules ':'véhicules ' ;\r\n\t\t\t\t\t\t\tif(i == 0) {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'with less than ':'à moins de ') + ranges[i] + ' km' ;\r\n\t\t\t\t\t\t\t} else if(i == ranges.length) {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'with more than ':'avec plus de ') + ranges[i-1] + ' km' ;\r\n\t\t\t\t\t\t\t} else {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'between ':'entre ') + ranges[i-1] + ((us)?' and ':' et ') + ranges[i] + ' km' ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t} ;\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output ;\t\t\t\r\n\t\t} ; return doit(totalKmHorsRemisageColName, [0, 2000, 4000, 6000, 8000, 10000, 12000], false, true) ;",
+				"label": "Total kilomètres pour le service par an"
+			}, {
+				"name": "nbCartesEssence",
+				"label": "Number of gas cards",
+				"edit": false
+			}]
+		}, {
+			"name": "Equipe",
+			"children": [{
+				"name": "nbVehicules",
+				"label": "Number of vehicules",
+				"edit": false
+			}, {
+				"name": "nbVehicParType",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (us) {\r\n\t\t\tvar output;\r\n\t\t\tif (node && node.children) {\r\n\t\t\t\toutput = [{\r\n\t\t\t\t\t\tvalue : node.rawNode.nb2roues,\r\n\t\t\t\t\t\tunit : (us)?'Scooter(s)':'2roues'\r\n\t\t\t\t\t}, {\r\n\t\t\t\t\t\tvalue : node.rawNode.nbVL,\r\n\t\t\t\t\t\tunit : (us)?'Car(s)':'Véhicule(s) léger(s)'\r\n\t\t\t\t\t}, {\r\n\t\t\t\t\t\tvalue : node.rawNode.nbVUL,\r\n\t\t\t\t\t\tunit : (us)?'Commercial vehicule(s)':'Utilitaire(s) léger(s)'\r\n\t\t\t\t\t}, {\r\n\t\t\t\t\t\tvalue : node.rawNode.nbUtilitaires,\r\n\t\t\t\t\t\tunit : (us)?'Truck(s)':'Utilitaire(s)'\r\n\t\t\t\t\t}, {\r\n\t\t\t\t\t\tvalue : node.rawNode.nbSpecifiques,\r\n\t\t\t\t\t\tunit : (us)?'Specific vehicule(s)':'Véhicule(s) spécifique(s)'\r\n\t\t\t\t\t}\r\n\t\t\t\t];\r\n\t\t\t}\r\n\t\t\treturn output;\r\n\t\t} ; return doit(true) ;",
+				"label": "Vehicule per type"
+			}, {
+				"name": "nbVehicParAnneePie",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var doit = function (us) {\r\n\t\t\tvar output, elt;\r\n\t\t\tif (node && node.children) {\r\n\t\t\t\tvar nodeYears = node.rawNode[\"nbVehicParAnnee\"] ;\r\n\t\t\t\tif(nodeYears) {\r\n\t\t\t\t\tif(!output) output = [] ;\r\n\t\t\t\t\tfor(var year in nodeYears) {\r\n\t\t\t\t\t\telt = {};\r\n\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t\telt.value = nodeYears[year] ;\r\n\t\t\t\t\t\telt.name = year ;\r\n\t\t\t\t\t\telt.unit = (us)?'vehicule(s)':'véhicule(s)' ;\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output;\r\n    \t} ; return doit(true) ;",
+				"label": "Vehicule per year"
+			}, {
+				"name": "nbRemisages",
+				"label": "Storage at home",
+				"edit": false
+			}, {
+				"name": "nbKm",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var totalKmColName = 'Number of km (or hours)', doit = function (colonne, ranges, isRemisage, us) {\r\n\t\t\tvar output, elt, vehicParKmRange = [] ;\r\n\t\t\tvar remisageColName = 'Autorisation de remisage' ;\r\n\t\t\tvar uniteKmColName = 'Unité km ou heures' ;\r\n\t\t\tfor(var i=0; i<ranges.length+1; i++) {\r\n\t\t\t\tvehicParKmRange.push(0) ;\r\n\t\t\t}\r\n\t\t\tfunction getRangeIdx(value) {\r\n\t\t\t\tvar output, rangeMax ;\r\n\t\t\t\tvar i ;\r\n\t\t\t\tfor(i=0; i<ranges.length; i++) {\r\n\t\t\t\t\trangeMax = ranges[i] ;\r\n\t\t\t\t\tif(!output && (value <= rangeMax)) {\r\n\t\t\t\t\t\toutput = i ;\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t\tif(value > rangeMax) output = i ;\r\n\t\t\t\t//console.log(value+' km       > '+ranges[output-1]+' et < '+ranges[output]);\r\n\t\t\t\treturn output ;\r\n\t\t\t}\r\n\t\t\tif(node) {\r\n\t\t\t\tvar leaves = dm_Tools.getChildrenAtLevel(node) ;\r\n\t\t\t\tif(leaves) {\r\n\t\t\t\t\tleaves.forEach(function(leaf) {\r\n\t\t\t\t\t\tvar unite = leaf.rawNode[uniteKmColName] ;\r\n\t\t\t\t\t\tvar km = leaf.rawNode[colonne] ;\r\n\t\t\t\t\t\tvar rangeIdx ;\r\n\t\t\t\t\t\tvar remisageValue = leaf.rawNode[remisageColName] ;\r\n\t\t\t\t\t\tvar takeit = true ;\r\n\t\t\t\t\t\tif(isRemisage) {\r\n\t\t\t\t\t\t\ttakeit = remisageValue && (remisageValue.toLowerCase() == 'oui') ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t\tif(unite && (unite.toLowerCase() == \"km\") && !isNaN(km) && takeit) {\r\n\t\t\t\t\t\t\trangeIdx = getRangeIdx(km) ;\r\n\t\t\t\t\t\t\tvehicParKmRange[rangeIdx]++ ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}) ;\r\n\t\t\t\t\tfor(var i=0; i<vehicParKmRange.length; i++) {\r\n\t\t\t\t\t\tnbVehic = vehicParKmRange[i] ;\r\n\t\t\t\t\t\tif(nbVehic > 0) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t\t\telt.value = nbVehic ;\r\n\t\t\t\t\t\t\telt.unit = (us)?'vehicules ':'véhicules ' ;\r\n\t\t\t\t\t\t\tif(i == 0) {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'with less than ':'à moins de ') + ranges[i] + ' km' ;\r\n\t\t\t\t\t\t\t} else if(i == ranges.length) {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'with more than ':'avec plus de ') + ranges[i-1] + ' km' ;\r\n\t\t\t\t\t\t\t} else {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'between ':'entre ') + ranges[i-1] + ((us)?' and ':' et ') + ranges[i] + ' km' ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t} ;\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output ;\t\t\t\r\n\t\t} ; return doit(totalKmColName, [0, 10000, 20000, 40000, 60000, 80000, 100000, 150000, 200000], false, true) ;",
+				"label": "Total kilomètres parcourus"
+			}, {
+				"name": "nbKmRemisageParAn",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var totalKmRemisageColName = 'Number of km for home storage', doit = function (colonne, ranges, isRemisage, us) {\r\n\t\t\tvar output, elt, vehicParKmRange = [] ;\r\n\t\t\tvar remisageColName = 'Autorisation de remisage' ;\r\n\t\t\tvar uniteKmColName = 'Unité km ou heures' ;\r\n\t\t\tfor(var i=0; i<ranges.length+1; i++) {\r\n\t\t\t\tvehicParKmRange.push(0) ;\r\n\t\t\t}\r\n\t\t\tfunction getRangeIdx(value) {\r\n\t\t\t\tvar output, rangeMax ;\r\n\t\t\t\tvar i ;\r\n\t\t\t\tfor(i=0; i<ranges.length; i++) {\r\n\t\t\t\t\trangeMax = ranges[i] ;\r\n\t\t\t\t\tif(!output && (value <= rangeMax)) {\r\n\t\t\t\t\t\toutput = i ;\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t\tif(value > rangeMax) output = i ;\r\n\t\t\t\t//console.log(value+' km       > '+ranges[output-1]+' et < '+ranges[output]);\r\n\t\t\t\treturn output ;\r\n\t\t\t}\r\n\t\t\tif(node) {\r\n\t\t\t\tvar leaves = dm_Tools.getChildrenAtLevel(node) ;\r\n\t\t\t\tif(leaves) {\r\n\t\t\t\t\tleaves.forEach(function(leaf) {\r\n\t\t\t\t\t\tvar unite = leaf.rawNode[uniteKmColName] ;\r\n\t\t\t\t\t\tvar km = leaf.rawNode[colonne] ;\r\n\t\t\t\t\t\tvar rangeIdx ;\r\n\t\t\t\t\t\tvar remisageValue = leaf.rawNode[remisageColName] ;\r\n\t\t\t\t\t\tvar takeit = true ;\r\n\t\t\t\t\t\tif(isRemisage) {\r\n\t\t\t\t\t\t\ttakeit = remisageValue && (remisageValue.toLowerCase() == 'oui') ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t\tif(unite && (unite.toLowerCase() == \"km\") && !isNaN(km) && takeit) {\r\n\t\t\t\t\t\t\trangeIdx = getRangeIdx(km) ;\r\n\t\t\t\t\t\t\tvehicParKmRange[rangeIdx]++ ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}) ;\r\n\t\t\t\t\tfor(var i=0; i<vehicParKmRange.length; i++) {\r\n\t\t\t\t\t\tnbVehic = vehicParKmRange[i] ;\r\n\t\t\t\t\t\tif(nbVehic > 0) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t\t\telt.value = nbVehic ;\r\n\t\t\t\t\t\t\telt.unit = (us)?'vehicules ':'véhicules ' ;\r\n\t\t\t\t\t\t\tif(i == 0) {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'with less than ':'à moins de ') + ranges[i] + ' km' ;\r\n\t\t\t\t\t\t\t} else if(i == ranges.length) {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'with more than ':'avec plus de ') + ranges[i-1] + ' km' ;\r\n\t\t\t\t\t\t\t} else {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'between ':'entre ') + ranges[i-1] + ((us)?' and ':' et ') + ranges[i] + ' km' ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t} ;\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output ;\t\t\t\r\n\t\t} ; return doit(totalKmRemisageColName, [0, 2000, 4000, 6000, 8000, 10000, 12000], true, true) ;",
+				"label": "Total kilomètres pour remisage par an"
+			}, {
+				"name": "nbKmServiceParAn",
+				"graph": "pie",
+                "type": "graph",
+				"doTransition": true,
+				"input": "var totalKmHorsRemisageColName = 'Number of km for the service', doit = function (colonne, ranges, isRemisage, us) {\r\n\t\t\tvar output, elt, vehicParKmRange = [] ;\r\n\t\t\tvar remisageColName = 'Autorisation de remisage' ;\r\n\t\t\tvar uniteKmColName = 'Unité km ou heures' ;\r\n\t\t\tfor(var i=0; i<ranges.length+1; i++) {\r\n\t\t\t\tvehicParKmRange.push(0) ;\r\n\t\t\t}\r\n\t\t\tfunction getRangeIdx(value) {\r\n\t\t\t\tvar output, rangeMax ;\r\n\t\t\t\tvar i ;\r\n\t\t\t\tfor(i=0; i<ranges.length; i++) {\r\n\t\t\t\t\trangeMax = ranges[i] ;\r\n\t\t\t\t\tif(!output && (value <= rangeMax)) {\r\n\t\t\t\t\t\toutput = i ;\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t\tif(value > rangeMax) output = i ;\r\n\t\t\t\t//console.log(value+' km       > '+ranges[output-1]+' et < '+ranges[output]);\r\n\t\t\t\treturn output ;\r\n\t\t\t}\r\n\t\t\tif(node) {\r\n\t\t\t\tvar leaves = dm_Tools.getChildrenAtLevel(node) ;\r\n\t\t\t\tif(leaves) {\r\n\t\t\t\t\tleaves.forEach(function(leaf) {\r\n\t\t\t\t\t\tvar unite = leaf.rawNode[uniteKmColName] ;\r\n\t\t\t\t\t\tvar km = leaf.rawNode[colonne] ;\r\n\t\t\t\t\t\tvar rangeIdx ;\r\n\t\t\t\t\t\tvar remisageValue = leaf.rawNode[remisageColName] ;\r\n\t\t\t\t\t\tvar takeit = true ;\r\n\t\t\t\t\t\tif(isRemisage) {\r\n\t\t\t\t\t\t\ttakeit = remisageValue && (remisageValue.toLowerCase() == 'oui') ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t\tif(unite && (unite.toLowerCase() == \"km\") && !isNaN(km) && takeit) {\r\n\t\t\t\t\t\t\trangeIdx = getRangeIdx(km) ;\r\n\t\t\t\t\t\t\tvehicParKmRange[rangeIdx]++ ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}) ;\r\n\t\t\t\t\tfor(var i=0; i<vehicParKmRange.length; i++) {\r\n\t\t\t\t\t\tnbVehic = vehicParKmRange[i] ;\r\n\t\t\t\t\t\tif(nbVehic > 0) {\r\n\t\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\t\toutput = [] ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telt = {} ;\r\n\t\t\t\t\t\t\toutput.push(elt);\r\n\t\t\t\t\t\t\telt.value = nbVehic ;\r\n\t\t\t\t\t\t\telt.unit = (us)?'vehicules ':'véhicules ' ;\r\n\t\t\t\t\t\t\tif(i == 0) {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'with less than ':'à moins de ') + ranges[i] + ' km' ;\r\n\t\t\t\t\t\t\t} else if(i == ranges.length) {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'with more than ':'avec plus de ') + ranges[i-1] + ' km' ;\r\n\t\t\t\t\t\t\t} else {\r\n\t\t\t\t\t\t\t\telt.unit += ((us)?'between ':'entre ') + ranges[i-1] + ((us)?' and ':' et ') + ranges[i] + ' km' ;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t} ;\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\treturn output ;\t\t\t\r\n\t\t} ; return doit(totalKmHorsRemisageColName, [0, 2000, 4000, 6000, 8000, 10000, 12000], false, true) ;",
+				"label": "Total kilomètres pour le service par an"
+			}, {
+				"name": "nbCartesEssence",
+				"label": "Number of gas cards",
+				"edit": false
+			}]
+		}, {
+			"name": "Véhicule",
+			"children": [{
+				"name": "Immat",
+				"label": "Registration"
+			}, {
+				"name": "Nom",
+				"label": "Last name"
+			}, {
+				"name": "Pr_nom",
+				"label": "First name"
+			}, {
+				"name": "Libell__Ville_ou_CASA",
+				"label": "Site"
+			}, {
+				"name": "Libell__Direction",
+				"label": "Business unit"
+			}, {
+				"name": "Libell__Service",
+				"label": "Service"
+			}, {
+				"name": "Marque",
+				"label": "Brand"
+			}, {
+				"name": "Modèle",
+				"label": "Model"
+			}, {
+				"name": "Type_en",
+				"label": "Type"
+			}, {
+				"name": "Année",
+				"label": "Year"
+			}, {
+				"name": "Carburant",
+				"label": "Type of gas"
+			}, {
+				"name": "Total compteur km ou heures ATAL",
+				"label": "Total km or hours"
+			}, {
+				"name": "Unité km ou heures",
+				"label": "Unit (km or h)"
+			}, {
+				"name": "Total km par an",
+				"label": "km per year"
+			}, {
+				"name": "Home storage",
+				"label": "Storage authorization"
+			}, {
+				"name": "Nb de trajets par jour",
+				"label": "Nb of storage journeys per day"
+			}, {
+				"name": "km Aller simple",
+				"label": "Storage single distance"
+			}, {
+				"name": "Total km remisage par jour",
+				"label": "Total storage distance per day"
+			}, {
+				"name": "nb de jours de remisage par an",
+				"label": "Nb of storage days per year"
+			}, {
+				"name": "Gas card",
+				"label": "Gas card"
+			}, {
+				"name": "Total km remisage par an",
+				"label": "Total storage distance"
+			}, {
+				"name": "Total km hors remisage",
+				"label": "Distance for the service"
+			}]
+		}]
+	}
+}

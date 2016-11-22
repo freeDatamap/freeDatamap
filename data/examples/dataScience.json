@@ -1,0 +1,1057 @@
+{
+    "name": "Data Science",
+    "children": [{
+        "name": "Learning Algorithms",
+        "children": [{
+            "name": "Instance-Based Methods",
+            "children": [{
+                "name": "k-Nearest Neighbor (kNN)",
+                "url": "http://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm"
+            }, {
+                "name": "Learning Vector Quantization (LVQ)",
+                "url": "http://en.wikipedia.org/wiki/Learning_vector_quantization"
+            }]
+        }, {
+            "name": "Probabilistic Classifiers",
+            "children": [{
+                "name": "Naive Bayes (NB)",
+                "url": "http://en.wikipedia.org/wiki/Naive_Bayes_classifier"
+            }, {
+                "name": "Bayesian Belief Network (BBN)",
+                "url": "http://en.wikipedia.org/wiki/Bayesian_network"
+            }]
+        }, {
+            "name": "Decision Trees",
+            "children": [{
+                "name": "C4.5/5.0",
+                "url": "http://en.wikipedia.org/wiki/C4.5_algorithm#Improvements_in_C5.0.2FSee5_algorithm"
+            }, {
+                "name": "Classification and Regression Tree (CART)",
+                "url": "http://en.wikipedia.org/wiki/Decision_tree_learning"
+            }, {
+                "name": "M5' Algorithm",
+                "url": "comingSoon.png"
+            }, {
+                "name": "Chi-squared Automatic Interaction Detection (CHAID)",
+                "url": "http://en.wikipedia.org/wiki/CHAID"
+            }, {
+                "name": "Decision Stump",
+                "url": "http://en.wikipedia.org/wiki/Decision_stump"
+            }, {
+                "name": "Multivariate Adaptive Regression Splines (MARS)",
+                "url": "http://en.wikipedia.org/wiki/Multivariate_adaptive_regression_splines"
+            }, {
+                "name": "Gradient Boosting Machines (GBM)",
+                "url": "http://en.wikipedia.org/wiki/Gradient_boosting"
+            }]
+        }, {
+            "name": "Rule Learners",
+            "children": [{
+                "name": "Incremental Reduced Error Pruning (IREP)",
+                "url": "papers/irep.pdf"
+            }, {
+                "name": "Repeated Incremental Pruning to Produce Error Reduction (RIPPER)",
+                "url": "papers/ripper.pdf"
+            }, {
+                "name": "IREP++",
+                "url": "papers/irepplusplus.pdf"
+            }, {
+                "name": "SLIPPER",
+                "url": "papers/slipper.pdf"
+            }, {
+                "name": "TRIPPER",
+                "url": "papers/tripper.pdf"
+            }]
+        }, {
+            "name": "Regression",
+            "children": [{
+                "name": "Multiple Linear Regression",
+                "url": "http://en.wikipedia.org/wiki/Linear_regression"
+            }, {
+                "name": "Logistic Regression",
+                "url": "http://en.wikipedia.org/wiki/Logistic_regression"
+            }, {
+                "name": "Stepwise Regression",
+                "url": "http://en.wikipedia.org/wiki/Stepwise_regression"
+            }, {
+                "name": "Ridge Regression",
+                "url": "http://en.wikipedia.org/wiki/Tikhonov_regularization"
+            }, {
+                "name": "Least Absolute Shrinkage and Selection Operator (LASSO)",
+                "url": "http://en.wikipedia.org/wiki/Least_squares#Lasso_method"
+            }, {
+                "name": "Elastic Net Regularization",
+                "url": "http://en.wikipedia.org/wiki/Elastic_net_regularization"
+            }, {
+                "name": "Multivariate Adaptive Regression Splines (MARS)",
+                "url": "http://en.wikipedia.org/wiki/Multivariate_adaptive_regression_splines"
+            }, {
+                "name": "Locally Estimated Scatterplot Smoothing (LOESS)",
+                "url": "http://en.wikipedia.org/wiki/Local_regression"
+            }]
+        }, {
+            "name": "Artificial Neural Networks",
+            "children": [{
+                    "name": "Feedforward Network",
+                    "url": "http://en.wikipedia.org/wiki/Feedforward_neural_network"
+                }, {
+                    "name": "Radial Basis Function Network",
+                    "url": "http://en.wikipedia.org/wiki/Radial_basis_function_network"
+                }, {
+                    "name": "Kohonen Self Organizing Network",
+                    "url": "http://en.wikipedia.org/wiki/Self-organizing_map"
+                }, {
+                    "name": "Learning Vector Quantization",
+                    "url": "http://en.wikipedia.org/wiki/Learning_vector_quantization"
+                }, {
+                    "name": "Recurrent Neural Networks",
+
+                    "children": [{
+                        "name": "Architectures",
+
+
+                        "children": [{
+                                "name": "Hopfield Network",
+                                "url": "http://en.wikipedia.org/wiki/Hopfield_network"
+                            }, {
+                                "name": "Elman/Jordan Networks",
+                                "url": "papers/elmanjordan.pdf"
+                            }, {
+                                "name": "Echo State Network",
+                                "url": "http://en.wikipedia.org/wiki/Echo_state_network"
+                            }, {
+                                "name": "Long Short Term Memory Network",
+                                "url": "http://en.wikipedia.org/wiki/Long_short_term_memory"
+                            }, {
+                                "name": "Bi-Directional Recurrent Neural Network",
+                                "url": "papers/BRNN.pdf"
+                            }, {
+                                "name": "Continuous Time Recurrent Neural Network",
+                                "url": "papers/CTRNN.pdf"
+                            }, {
+                                "name": "Hierarchical Recurrent Neural Network",
+                                "url": "papers/HRNN.pdf"
+                            }, {
+                                "name": "Recurrent Multilayer Perceptron",
+                                "url": "papers/RMLP.pdf"
+                            }, {
+                                "name": "Second Order Recurrent Neural Network",
+                                "url": "papers/sornn.pdf"
+                            }, {
+                                "name": "Multiple Time Scales Recurrent Neural Network",
+                                "url": "papers/mtsrnn.pdf"
+                            }, {
+                                "name": "Stochastic Neural Network",
+                                "url": "http://en.wikipedia.org/wiki/Stochastic_neural_network"
+                            }
+
+                        ]
+                    }]
+                },
+
+
+
+
+                {
+                    "name": "Modular Neural Networks",
+
+
+                    "children": [{
+                        "name": "Associative Neural Network",
+                        "url": "papers/asnn.pdf"
+                    }]
+                }
+
+
+            ]
+
+        }, {
+            "name": "Deep Learning",
+
+
+            "children": [{
+                    "name": "Architectures",
+
+
+                    "children": [{
+                        "name": "Deep Neural Network",
+                        "url": "papers/bengio.pdf"
+                    }, {
+                        "name": "Deep Belief Network",
+                        "url": "http://en.wikipedia.org/wiki/Deep_belief_network"
+                    }, {
+                        "name": "Convolutional Neural Network",
+                        "url": "http://en.wikipedia.org/wiki/Convolutional_neural_network"
+                    }, {
+                        "name": "Convolutional Deep Belief Network",
+                        "url": "http://en.wikipedia.org/wiki/Convolutional_Deep_Belief_Networks"
+                    }, {
+                        "name": "Deep Boltzmann Machines",
+                        "url": "papers/larochelle.pdf"
+                    }, {
+                        "name": "Stacked (Denoising) Auto-Encoders",
+                        "url": "papers/vincent.pdf"
+                    }, {
+                        "name": "Deep Stacking Network",
+                        "url": "papers/dong.pdf"
+                    }, {
+                        "name": "Tensor Deep Stacking Network (T-DSN)",
+                        "url": "papers/deng.pdf"
+                    }, {
+                        "name": "Spike-and-Slab RBMs (ssRBMs)",
+                        "url": "papers/luo.pdf"
+                    }, {
+                        "name": "Compound Hierarchical-Deep Models",
+                        "url": "papers/torralba.pdf"
+                    }, {
+                        "name": "Deep Coding Network",
+                        "url": "papers/yu.pdf"
+                    }, {
+                        "name": "Deep Kernel Machines",
+                        "url": "papers/saul.pdf"
+                    }, {
+                        "name": "Deep Q-Network",
+                        "url": "papers/dqn.pdf"
+                    }]
+                }
+
+            ]
+
+
+
+        }, {
+            "name": "Kernel Methods",
+            "children": [{
+                    "name": "Kernels",
+
+
+
+                    "children": [{
+                        "name": "Linear",
+                        "url": "http://en.wikipedia.org/wiki/Kernel_%28linear_algebra%29"
+                    }, {
+                        "name": "Guassian Radial Basis",
+                        "url": "http://en.wikipedia.org/wiki/Radial_basis_function_kernel"
+                    }, {
+                        "name": "Polynomial",
+                        "url": "http://en.wikipedia.org/wiki/Polynomial_kernel"
+                    }, {
+                        "name": "Hyperbolic Tangent",
+                        "url": "http://en.wikipedia.org/wiki/Hyperbolic_function"
+                    }, {
+                        "name": "Bessel",
+                        "url": "http://en.wikipedia.org/wiki/Bessel_function"
+                    }, {
+                        "name": "Laplace Radial Basis",
+                        "url": ""
+                    }, {
+                        "name": "ANOVA Radial Basis",
+                        "url": ""
+                    }]
+                },
+
+
+
+                {
+                    "name": "Methods",
+
+                    "children": [{
+                            "name": "Support Vector Machine",
+                            "url": "http://en.wikipedia.org/wiki/Support_vector_machine"
+                        }, {
+                            "name": "Relevance Vector Machine",
+                            "url": "http://en.wikipedia.org/wiki/Relevance_vector_machine"
+                        }, {
+                            "name": "Gaussian Processes",
+                            "url": "http://en.wikipedia.org/wiki/Gaussian_process"
+                        }, {
+                            "name": "Ranking",
+                            "url": "papers/ranking.pdf"
+                        }, {
+                            "name": "Online Learning with Kernels",
+                            "url": "papers/onlinekern.pdf"
+                        }, {
+                            "name": "Spectral Clustering",
+                            "url": "http://en.wikipedia.org/wiki/Spectral_clustering"
+                        }, {
+                            "name": "Kernel Principle Components Analysis (KPCA)",
+                            "url": "http://en.wikipedia.org/wiki/Kernel_principal_component_analysis"
+                        }, {
+                            "name": "Kernel Feature Analysis",
+                            "url": "papers/Feng.pdf"
+                        }, {
+                            "name": "Kernel Canonical Correlation Analysis (KCCA)",
+                            "url": "papers/kCCA.pdf"
+                        }, {
+                            "name": "Interior Point Code Quadratic Optimizer",
+                            "url": "papers/loqo.pdf"
+                        }, {
+                            "name": "Incomplete Cholesky Decomposition",
+                            "url": "http://en.wikipedia.org/wiki/Incomplete_Cholesky_factorization"
+                        }
+
+
+                    ]
+                }
+
+            ]
+        }, {
+            "name": "Association Rules",
+            "children": [{
+                "name": "Apriori Algorithm",
+                "url": "http://en.wikipedia.org/wiki/Apriori_algorithm"
+            }, {
+                "name": "Eclat Algorithm",
+                "url": "papers/Eclat.pdf"
+            }, {
+                "name": "FP-Growth",
+                "url": "papers/hunyadi.pdf"
+            }]
+        }, {
+            "name": "Clustering",
+            "children": [{
+                    "name": "Connectivity Models",
+
+                    "children": [{
+                        "name": "Hierarchical Clustering",
+
+
+
+                        "children": [{
+                                "name": "Single Linkage",
+                                "url": "http://en.wikipedia.org/wiki/Single-linkage_clustering"
+                            }, {
+                                "name": "Complete Linkage",
+                                "url": "http://en.wikipedia.org/wiki/Complete-linkage_clustering"
+                            }, {
+                                "name": "Average Linkage",
+                                "url": "http://en.wikipedia.org/wiki/UPGMA"
+                            }
+
+                        ]
+
+
+
+                    }]
+
+                }, {
+                    "name": "Centroid Models",
+
+                    "children": [{
+                        "name": "k-Means",
+                        "url": "http://en.wikipedia.org/wiki/K-means_clustering"
+                    }, {
+                        "name": "k-Medoids",
+                        "url": "http://en.wikipedia.org/wiki/K-medoids"
+                    }, {
+                        "name": "k-Medians",
+                        "url": "http://en.wikipedia.org/wiki/K-medians_clustering"
+                    }, {
+                        "name": "K-Means++",
+                        "url": "http://en.wikipedia.org/wiki/K-means%2B%2B"
+                    }, {
+                        "name": "Fuzzy C-Means",
+                        "url": "http://en.wikipedia.org/wiki/Fuzzy_clustering#Fuzzy_c-means_clustering"
+                    }]
+                }, {
+                    "name": "Distribution Models",
+                    "children": [{
+                        "name": "Expectation-Maximization (EM) Algorithm",
+                        "url": "http://en.wikipedia.org/wiki/Expectation%E2%80%93maximization_algorithm"
+                    }]
+                }, {
+                    "name": "Density Models",
+                    "children": [{
+                        "name": "DBSCAN",
+                        "url": "http://en.wikipedia.org/wiki/DBSCAN"
+                    }, {
+                        "name": "OPTICS",
+                        "url": "http://en.wikipedia.org/wiki/OPTICS_algorithm"
+                    }, {
+                        "name": "EnDBSCAN",
+                        "url": "comingSoon.png"
+                    }, {
+                        "name": "Mean-shift",
+                        "url": "http://en.wikipedia.org/wiki/Mean-shift"
+                    }]
+                }, {
+                    "name": "Subspace Models",
+                    "children": [{
+                        "name": "CLIQUE",
+                        "url": "http://en.wikipedia.org/wiki/Clique_problem"
+                    }]
+                }, {
+                    "name": "Performant",
+                    "children": [{
+                        "name": "BIRCH",
+                        "url": "http://en.wikipedia.org/wiki/BIRCH_(data_clustering)"
+                    }, {
+                        "name": "CLARANS",
+                        "url": "comingSoon.png"
+                    }, {
+                        "name": "BSAS",
+                        "url": "http://en.wikipedia.org/wiki/Basic_sequential_algorithmic_scheme"
+                    }]
+                }
+
+            ]
+
+        }]
+    }, {
+        "name": "Model Validation",
+        "children": [{
+            "name": "Confusion Matrix",
+            "url": "http://en.wikipedia.org/wiki/Confusion_matrix"
+        }, {
+            "name": "Kappa Statistic",
+            "url": "http://en.wikipedia.org/wiki/Cohen%27s_kappa"
+        }, {
+            "name": "Sensitivity and Specificity",
+            "url": "http://en.wikipedia.org/wiki/Sensitivity_and_specificity"
+        }, {
+            "name": "Precision and Recall",
+            "url": "http://en.wikipedia.org/wiki/Precision_and_recall"
+        }, {
+            "name": "ROC Curves",
+            "url": "http://en.wikipedia.org/wiki/Receiver_operating_characteristic"
+        }, {
+            "name": "Cross Validation",
+            "url": "http://en.wikipedia.org/wiki/Cross-validation_(statistics)"
+        }, {
+            "name": "Bootstrap Sampling",
+            "url": "http://en.wikipedia.org/wiki/Bootstrapping_(statistics)"
+        }, {
+            "name": "Cluster Validity",
+            "children": [{
+                "name": "Internal Evaluation",
+                "children": [{
+                    "name": "Daviesâ€“Bouldin index",
+                    "url": "http://en.wikipedia.org/wiki/Davies%E2%80%93Bouldin_index"
+                }, {
+                    "name": "Dunn index",
+                    "url": "http://en.wikipedia.org/wiki/Dunn_index"
+                }, {
+                    "name": "Silhouette coefficient",
+                    "url": "http://en.wikipedia.org/wiki/Silhouette_(clustering)"
+                }]
+            }, {
+                "name": "External Evaluation",
+                "children": [{
+                    "name": "Rand Measure",
+                    "url": "http://en.wikipedia.org/wiki/Rand_index"
+                }, {
+                    "name": "F-measure",
+                    "url": "http://en.wikipedia.org/wiki/F1_score"
+                }, {
+                    "name": "Jaccard index",
+                    "url": "http://en.wikipedia.org/wiki/Jaccard_index"
+                }, {
+                    "name": "Fowlkes-Mallows index",
+                    "url": "http://en.wikipedia.org/wiki/Fowlkes%E2%80%93Mallows_index"
+                }, {
+                    "name": "Mutual Information",
+                    "url": "http://en.wikipedia.org/wiki/Mutual_information"
+                }]
+            }]
+
+        }]
+    }, {
+        "name": "Model Performance",
+        "children": [{
+            "name": "Automated Parameter Tuning",
+            "url": "http://en.wikipedia.org/wiki/Reactive_search_optimization"
+        }, {
+            "name": "Customized Tuning",
+            "url": "http://en.wikipedia.org/wiki/Hyperparameter_optimization"
+        }, {
+            "name": "Meta Learning",
+            "children": [{
+                "name": "Bagging",
+                "url": "http://en.wikipedia.org/wiki/Bootstrap_aggregating"
+            }, {
+                "name": "Boosting",
+                "url": "http://en.wikipedia.org/wiki/Boosting_(machine_learning)"
+            }, {
+                "name": "Random Forests",
+                "url": "http://en.wikipedia.org/wiki/Random_forest"
+            }]
+        }, {
+            "name": "Regularization",
+            "url": "http://en.wikipedia.org/wiki/Regularization_(mathematics)"
+        }, {
+            "name": "Stacked Generalization",
+            "url": "http://en.wikipedia.org/wiki/Ensemble_averaging"
+        }, {
+            "name": "Gradient Boosting Machines (GBM)",
+            "url": "http://en.wikipedia.org/wiki/Gradient_boosting"
+        }]
+    }, {
+        "name": "Data Visualization",
+        "children": [{
+            "name": "Line Chart",
+            "url": "http://en.wikipedia.org/wiki/Line_chart"
+        }, {
+            "name": "Bar Chart",
+            "url": "http://en.wikipedia.org/wiki/Bar_chart"
+        }, {
+            "name": "Histogram",
+            "url": "http://en.wikipedia.org/wiki/Histogram"
+        }, {
+            "name": "Scatterplot",
+            "url": "http://en.wikipedia.org/wiki/Scatter_plot"
+        }, {
+            "name": "Boxplot",
+            "url": "http://en.wikipedia.org/wiki/Box_plot"
+        }, {
+            "name": "Pareto Chart",
+            "url": "http://en.wikipedia.org/wiki/Pareto_chart"
+        }, {
+            "name": "Pie Chart",
+            "url": "http://en.wikipedia.org/wiki/Pie_chart"
+        }, {
+            "name": "Area Chart",
+            "url": "http://en.wikipedia.org/wiki/Area_chart"
+        }, {
+            "name": "Control Chart",
+            "url": "http://en.wikipedia.org/wiki/Control_chart"
+        }, {
+            "name": "Run Chart",
+            "url": "http://en.wikipedia.org/wiki/Run_chart"
+        }, {
+            "name": "Stem-and-Leaf Display",
+            "url": "http://en.wikipedia.org/wiki/Stem-and-leaf_display"
+        }, {
+            "name": "Cartogram",
+            "url": "http://en.wikipedia.org/wiki/Cartogram"
+        }, {
+            "name": "Sparkline",
+            "url": "http://en.wikipedia.org/wiki/Sparkline"
+        }, {
+            "name": "Table",
+            "url": "http://en.wikipedia.org/wiki/Table_(database)"
+        }]
+    }, {
+        "name": "Databases",
+        "children": [{
+            "name": "Relational",
+            "children": [{
+                "name": "Microsoft SQL Server",
+                "url": "http://en.wikipedia.org/wiki/Microsoft_SQL_Server"
+            }, {
+                "name": "MySQL",
+                "url": "http://en.wikipedia.org/wiki/MySQL"
+            }, {
+                "name": "SQLite",
+                "url": "http://en.wikipedia.org/wiki/SQLite"
+            }, {
+                "name": "PostgreSQL",
+                "url": "http://en.wikipedia.org/wiki/PostgreSQL"
+            }, {
+                "name": "Netezza",
+                "url": "http://en.wikipedia.org/wiki/Netezza"
+            }, {
+                "name": "SQL Azure",
+                "url": "http://en.wikipedia.org/wiki/SQL_Azure"
+            }, {
+                "name": "EnterpriseDB",
+                "url": "http://en.wikipedia.org/wiki/EnterpriseDB"
+            }, {
+                "name": "DB2",
+                "url": "http://en.wikipedia.org/wiki/IBM_DB2"
+            }, {
+                "name": "Oracle",
+                "url": "http://en.wikipedia.org/wiki/Oracle"
+            }]
+        }, {
+            "name": "NoSQL",
+            "children": [{
+                "name": "Key-Value Store",
+                "children": [{
+                    "name": "DynamoDB",
+                    "url": "http://en.wikipedia.org/wiki/Amazon_DynamoDB"
+                }, {
+                    "name": "Riak",
+                    "url": "http://en.wikipedia.org/wiki/Riak"
+                }, {
+                    "name": "Redis",
+                    "url": "http://en.wikipedia.org/wiki/Redis"
+                }, {
+                    "name": "Berkeley DB",
+                    "url": "http://en.wikipedia.org/wiki/Berkeley_DB"
+                }, {
+                    "name": "Project Voldemort",
+                    "url": "comingSoon.png"
+                }, {
+                    "name": "MemcacheDB",
+                    "url": "http://en.wikipedia.org/wiki/MemcacheDB"
+                }, {
+                    "name": "ArangoDB",
+                    "url": "comingSoon.png"
+                }]
+            }, {
+                "name": "Document Store",
+                "children": [{
+                    "name": "MongoDB",
+                    "url": "http://en.wikipedia.org/wiki/MongoDB"
+                }, {
+                    "name": "CouchDB",
+                    "url": "http://en.wikipedia.org/wiki/CouchDB"
+                }, {
+                    "name": "RavenDB",
+                    "url": "http://en.wikipedia.org/wiki/Document-oriented_database"
+                }, {
+                    "name": "RaptorDB",
+                    "url": "comingSoon.png"
+                }]
+            }, {
+                "name": "Column Family Stores",
+                "children": [{
+                    "name": "HBase",
+                    "url": "http://en.wikipedia.org/wiki/Apache_HBase"
+                }, {
+                    "name": "Cassandra",
+                    "url": "http://en.wikipedia.org/wiki/Apache_Cassandra"
+                }, {
+                    "name": "Hypertable",
+                    "url": "http://en.wikipedia.org/wiki/Hypertable"
+                }, {
+                    "name": "Accumulo",
+                    "url": "http://en.wikipedia.org/wiki/Apache_Accumulo"
+                }]
+            }, {
+                "name": "Graph",
+                "children": [{
+                    "name": "Neo4J",
+                    "url": "http://en.wikipedia.org/wiki/Neo4j"
+                }, {
+                    "name": "Infinite Graph",
+                    "url": "http://en.wikipedia.org/wiki/Graph_database"
+                }, {
+                    "name": "HyperGraphDB",
+                    "url": "http://en.wikipedia.org/wiki/Graph_database"
+                }, {
+                    "name": "OrientDB",
+                    "url": "http://en.wikipedia.org/wiki/OrientDB"
+                }]
+            }]
+        }]
+    }, {
+        "name": "Production",
+        "children": [{
+                "name": "Paradigms",
+                "children": [{
+                    "name": "MapReduce",
+                    "url": "http://en.wikipedia.org/wiki/MapReduce"
+                }, {
+                    "name": "Dataflow",
+                    "url": "http://googlecloudplatform.blogspot.com/2014/06/sneak-peek-google-cloud-dataflow-a-cloud-native-data-processing-service.html"
+                }]
+            },
+
+            {
+                "name": "Platforms",
+                "children": [{
+                    "name": "Pig",
+                    "url": "http://en.wikipedia.org/wiki/Pig_(programming_tool)"
+                }, {
+                    "name": "Hive",
+                    "url": "http://en.wikipedia.org/wiki/Apache_Hive"
+                }]
+            }, {
+                "name": "Resource Managers",
+                "children": [{
+                    "name": "YARN",
+                    "url": "http://blog.cloudera.com/blog/2012/10/mr2-and-yarn-briefly-explained/"
+                }]
+            }, {
+                "name": "Architectures/Frameworks",
+                "children": [{
+                    "name": "Batch",
+                    "children": [{
+                        "name": "Hadoop",
+                        "url": "http://en.wikipedia.org/wiki/Apache_Hadoop"
+                    }]
+                }, {
+                    "name": "Real-Time/Streaming",
+                    "children": [{
+                        "name": "Spark",
+                        "url": "http://en.wikipedia.org/wiki/Apache_Spark"
+                    }, {
+                        "name": "Storm",
+                        "url": "http://en.wikipedia.org/wiki/Storm_(event_processor)"
+                    }, {
+                        "name": "Apache Kafka",
+                        "url": "http://en.wikipedia.org/wiki/Apache_Kafka"
+                    }]
+                }, {
+                    "name": "Mixed",
+                    "children": [{
+                        "name": "Lambda",
+                        "url": "http://en.wikipedia.org/wiki/Lambda_architecture"
+                    }, {
+                        "name": "Apache Samza",
+                        "url": "http://en.wikipedia.org/wiki/Apache_Samza"
+                    }, {
+                        "name": "Naiad",
+                        "url": "http://research.microsoft.com/pubs/201100/naiad_sosp2013.pdf"
+                    }]
+                }]
+            }, {
+                "name": "Agnostic Specifications",
+                "children": [{
+                    "name": "PMML",
+                    "url": "http://en.wikipedia.org/wiki/Predictive_Model_Markup_Language"
+                }]
+            }, {
+                "name": "Distributed ML Libraries",
+                "children": [{
+                    "name": "Mahout",
+                    "url": "http://en.wikipedia.org/wiki/Apache_Mahout"
+                }, {
+                    "name": "MLlib",
+                    "url": "https://spark.apache.org/mllib/"
+                }, {
+                    "name": "GraphLab",
+                    "url": "http://en.wikipedia.org/wiki/GraphLab"
+                }, {
+                    "name": "H2O",
+                    "url": "http://en.wikipedia.org/wiki/H2o_%28Analytics_tool%29"
+                }]
+            }, {
+                "name": "Cloud computing",
+                "children": [{
+                    "name": "AWS/EC2",
+                    "url": "http://en.wikipedia.org/wiki/Amazon_Elastic_Compute_Cloud"
+                }, {
+                    "name": "GCE",
+                    "url": "http://en.wikipedia.org/wiki/Google_Compute_Engine"
+                }]
+            }
+
+        ]
+    }, {
+        "name": "Languages",
+        "children": [{
+            "name": "R",
+            "url": "http://en.wikipedia.org/wiki/R_(programming_language)"
+        }, {
+            "name": "Python",
+            "url": "http://en.wikipedia.org/wiki/Python_(programming_language)"
+        }, {
+            "name": "Scala",
+            "url": "http://en.wikipedia.org/wiki/Scala_(programming_language)"
+        }, {
+            "name": "Julia",
+            "url": "http://en.wikipedia.org/wiki/Julia_(programming_language)"
+        }, {
+            "name": "Java",
+            "url": "http://en.wikipedia.org/wiki/Java_(programming_language)"
+        }, {
+            "name": "Clojure",
+            "url": "http://en.wikipedia.org/wiki/Clojure"
+        }]
+    }, {
+        "name": "Data Cleaning",
+        "children": [{
+            "name": "Type Conversion",
+            "url": "http://en.wikipedia.org/wiki/Type_conversion"
+        }, {
+            "name": "Character Manipulation",
+            "url": "http://gastonsanchez.com/Handling_and_Processing_Strings_in_R.pdf"
+        }, {
+            "name": "Character Encoding",
+            "url": "http://en.wikipedia.org/wiki/Character_encoding"
+        }, {
+            "name": "Missing Values",
+            "url": "http://en.wikipedia.org/wiki/Missing_data"
+        }, {
+            "name": "Special Values",
+            "url": "comingSoon.png"
+        }, {
+            "name": "Outliers",
+            "url": "http://en.wikipedia.org/wiki/Outlier"
+        }, {
+            "name": "Inconsistencies",
+            "url": "comingSoon.png"
+        }, {
+            "name": "Error Localization",
+            "url": "comingSoon.png"
+        }, {
+            "name": "Transformation",
+            "url": "comingSoon.png"
+        }, {
+            "name": "Deductive Correction",
+            "url": "comingSoon.png"
+        }, {
+            "name": "Imputation",
+            "url": "http://en.wikipedia.org/wiki/Imputation_(statistics)"
+        }, {
+            "name": "Minimal Value Adjustment",
+            "url": "comingSoon.png"
+        }]
+    }, {
+        "name": "Data Preparation",
+        "children": [{
+            "name": "Feature Learning",
+            "url": "http://en.wikipedia.org/wiki/Feature_learning"
+        }, {
+            "name": "Feature Selection",
+            "url": "http://en.wikipedia.org/wiki/Feature_selection"
+        }, {
+            "name": "Feature Engineering",
+            "url": "papers/feature_eng.pdf"
+        }, {
+            "name": "Dimensionality Reduction",
+            "children": [{
+                "name": "Principal Component Analysis (PCA)",
+                "url": "http://en.wikipedia.org/wiki/Principal_component_analysis"
+            }, {
+                "name": "Partial Least Squares Regression (PLS)",
+                "url": "http://en.wikipedia.org/wiki/Partial_least_squares_regression"
+            }, {
+                "name": "Sammon Mapping",
+                "url": "http://en.wikipedia.org/wiki/Sammon_mapping"
+            }, {
+                "name": "Multidimensional Scaling (MDS)",
+                "url": "http://en.wikipedia.org/wiki/Multidimensional_scaling"
+            }, {
+                "name": "Projection Pursuit",
+                "url": "http://en.wikipedia.org/wiki/Projection_pursuit"
+            }]
+        }]
+    }, {
+        "name": "Statistics",
+        "children": [{
+                "name": "Hypothesis Testing",
+                "url": "http://en.wikipedia.org/wiki/Statistical_hypothesis_testing"
+            }, {
+                "name": "P-Value",
+                "url": "http://en.wikipedia.org/wiki/P-value"
+            }, {
+                "name": "Effect Size",
+                "url": "http://en.wikipedia.org/wiki/Effect_size"
+            }, {
+                "name": "Confidence Interval",
+                "url": "http://en.wikipedia.org/wiki/Confidence_interval"
+            }, {
+                "name": "Meta Analysis",
+                "url": "http://en.wikipedia.org/wiki/Meta-analysis"
+            }, {
+                "name": "Heteroskedasticity",
+                "url": "http://en.wikipedia.org/wiki/Heteroscedasticity"
+            }, {
+                "name": "Benford's Law",
+                "url": "http://en.wikipedia.org/wiki/Benford%27s_law"
+            }, {
+                "name": "Multiple Hypothesis Testing",
+                "url": "http://en.wikipedia.org/wiki/Multiple_comparisons_problem"
+            }, {
+                "name": "Familywise Error Rate",
+                "url": "http://en.wikipedia.org/wiki/Familywise_error_rate"
+            }, {
+                "name": "False Discovery Rate",
+                "url": "http://en.wikipedia.org/wiki/False_discovery_rate"
+            }, {
+                "name": "Covariance",
+                "url": "http://en.wikipedia.org/wiki/Covariance"
+            }, {
+                "name": "Correlation",
+                "url": "http://en.wikipedia.org/wiki/Correlation_and_dependence"
+            }, {
+                "name": "Frequentist Approaches",
+                "url": "http://en.wikipedia.org/wiki/Frequentist_inference"
+            }, {
+                "name": "Bayesian Approaches",
+                "url": "http://en.wikipedia.org/wiki/Bayesian_inference"
+            }
+
+        ]
+    }, {
+        "name": "Development",
+        "children": [{
+            "name": "Web Frameworks",
+            "children": [{
+                "name": "R",
+                "children": [{
+                    "name": "Shiny",
+                    "url": "http://shiny.rstudio.com/"
+                }]
+            }, {
+                "name": "Java",
+                "children": [{
+                    "name": "Google Web Toolkit",
+                    "url": "http://en.wikipedia.org/wiki/Google_Web_Toolkit"
+                }, {
+                    "name": "Spring MVC",
+                    "url": "http://en.wikipedia.org/wiki/Spring_Framework"
+                }, {
+                    "name": "Grails",
+                    "url": "http://en.wikipedia.org/wiki/Grails_(framework)"
+                }, {
+                    "name": "Vaadin",
+                    "url": "http://en.wikipedia.org/wiki/Vaadin"
+                }, {
+                    "name": "Play",
+                    "url": "http://en.wikipedia.org/wiki/Play_framework"
+                }]
+            }, {
+                "name": "PHP",
+                "children": [{
+                    "name": "CodeIgniter",
+                    "url": "http://en.wikipedia.org/wiki/CodeIgniter"
+                }, {
+                    "name": "Symfony2",
+                    "url": "http://en.wikipedia.org/wiki/Symfony"
+                }, {
+                    "name": "Phalcon",
+                    "url": "http://en.wikipedia.org/wiki/Phalcon_(framework)"
+                }, {
+                    "name": "Laravel",
+                    "url": "http://en.wikipedia.org/wiki/Laravel"
+                }]
+            }, {
+                "name": "Ruby",
+                "children": [{
+                    "name": "Ruby on Rails",
+                    "url": "http://en.wikipedia.org/wiki/Ruby_on_Rails"
+                }, {
+                    "name": "Sinatra",
+                    "url": "http://en.wikipedia.org/wiki/Sinatra_(software)"
+                }, {
+                    "name": "Padrino",
+                    "url": "http://en.wikipedia.org/wiki/Padrino_(web_framework)"
+                }, {
+                    "name": "Lotus",
+                    "url": "http://lotusrb.org/"
+                }]
+            }, {
+                "name": "Python",
+                "children": [{
+                    "name": "Django",
+                    "url": "http://en.wikipedia.org/wiki/Django_(web_framework)"
+                }, {
+                    "name": "Flask",
+                    "url": "http://en.wikipedia.org/wiki/Flask_(web_framework)"
+                }, {
+                    "name": "Pyramid",
+                    "url": "http://en.wikipedia.org/wiki/Pylons_project#Pyramid"
+                }]
+            }, {
+                "name": "Javascript",
+                "children": [{
+                    "name": "jQuery",
+                    "url": "http://en.wikipedia.org/wiki/JQuery"
+                }, {
+                    "name": "Angular",
+                    "url": "http://en.wikipedia.org/wiki/AngularJS"
+                }]
+            }, {
+                "name": "CSS",
+                "children": [{
+                    "name": "Foundation Framework",
+                    "url": "http://en.wikipedia.org/wiki/Foundation_(framework)"
+                }, {
+                    "name": "Twitter Bootstrap",
+                    "url": "http://en.wikipedia.org/wiki/Bootstrap_(front-end_framework)"
+                }, {
+                    "name": "Yahoo Pure",
+                    "url": "http://purecss.io/"
+                }]
+            }]
+        }, {
+            "name": "Visualization",
+            "children": [{
+                "name": "D3",
+                "url": "http://en.wikipedia.org/wiki/D3.js"
+            }]
+        }, {
+            "name": "Version Control",
+            "children": [{
+                "name": "GitHub",
+                "url": "http://en.wikipedia.org/wiki/GitHub"
+            }]
+        }]
+    }, {
+        "name": "Applications",
+        "children": [{
+                "name": "Natural Language Processing",
+                "children": [
+
+                    {
+                        "name": "Optical Character Recognition",
+                        "url": "http://en.wikipedia.org/wiki/Optical_character_recognition"
+                    }, {
+                        "name": "Sentiment Analysis",
+                        "url": "http://en.wikipedia.org/wiki/Sentiment_analysis"
+                    }, {
+                        "name": "Speech Recognition",
+                        "url": "http://en.wikipedia.org/wiki/Speech_recognition"
+                    }, {
+                        "name": "Topic Modeling",
+                        "url": "http://en.wikipedia.org/wiki/Topic_model"
+                    }, {
+                        "name": "Information Retrieval",
+                        "url": "http://en.wikipedia.org/wiki/Information_retrieval"
+                    }, {
+                        "name": "Automatic Summarization",
+                        "url": "http://en.wikipedia.org/wiki/Automatic_summarization"
+                    }, {
+                        "name": "Named Entity Recognition",
+                        "url": "http://en.wikipedia.org/wiki/Named-entity_recognition"
+                    }, {
+                        "name": "Natural Language Generation",
+                        "url": "http://en.wikipedia.org/wiki/Natural_language_generation"
+                    }, {
+                        "name": "Machine Translation",
+                        "url": "http://en.wikipedia.org/wiki/Machine_translation"
+                    }
+
+                ]
+
+            }, {
+                "name": "Computer Vision",
+                "url": "http://en.wikipedia.org/wiki/Computer_vision"
+            }, {
+                "name": "Search Engines",
+                "url": "http://en.wikipedia.org/wiki/Learning_to_rank"
+            }, {
+                "name": "Medical Diagnosis",
+                "url": "papers/med.pdf"
+            }, {
+                "name": "Robotics",
+                "url": "http://en.wikipedia.org/wiki/Robot_learning"
+            }, {
+                "name": "Bioinformatics",
+                "url": "papers/bio.pdf"
+            }, {
+                "name": "Cheminformatics",
+                "url": "papers/cheminfo.pdf"
+            }, {
+                "name": "Computational Chemistry",
+                "url": "papers/chem.pdf"
+            }, {
+                "name": "Astrophysics",
+                "url": "papers/astro.pdf"
+            }, {
+                "name": "Stock Market Analysis",
+                "url": "papers/stock.pdf"
+            }, {
+                "name": "DNA Sequencing",
+                "url": "papers/dna.pdf"
+            }, {
+                "name": "Speech Recognition",
+                "url": "papers/speech.pdf"
+            }, {
+                "name": "Software Engineering",
+                "url": "papers/software.pdf"
+            }, {
+                "name": "Information Retrieval",
+                "url": "papers/information.pdf"
+            }, {
+                "name": "Recommender Systems",
+                "url": "http://en.wikipedia.org/wiki/Recommender_system"
+            }
+
+        ]
+    }]
+}

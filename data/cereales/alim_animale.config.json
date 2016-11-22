@@ -1,0 +1,597 @@
+{
+    "$schema": "http://www.freedatamap.com/jsonConfigSchema/schema#",
+    "$charset": "UTF-8",
+    "config": {
+        "name": "alim_animale.config",
+        "root": null,
+        "txtFontSize": 13,
+        "displayColumnsAsAttributes": true,
+        "center": null,
+        "depth": 2,
+        "sort": "items",
+        "sortDescendant": true,
+        "dm_DatamapName": "Alimentation animale",
+        "csvSepIsSemicolon": true,
+        "dm_sourceFile": "cereales/alim_animale.csv",
+        "$schema": "http://www.freedatamap.com/jsonConfigSchema/schema#",
+        "icon": "../../config/images/config/config_root.png",
+        "possibleProperties": null,
+        "maxNbOfColumns2tree": 10,
+        "displayTransversalConnections": true,
+        "displayArrowsOfTransversalConnections": true,
+        "nullOrUndefinedLegend": "non renseigné",
+        "maxDepthForExport": 4,
+        "aggregate": [{
+            "name": "k tonnes",
+            "array index": 0,
+            "execAfterChildrenVisit": true,
+            "funcDropdown": "sum property",
+            "propertyName": "k tonnes",
+            "value": "var output  ;
+var onlyLeaves = true || false ;
+if(!onlyLeaves || !node.children) {
+    output = node.rawNode['k tonnes'] ;
+}
+if(node.children) {
+    for(var i=0; i<node.children.length; i++) {
+        if(!output) output = 0 ;
+        output += parseFloat(node.children[i].rawNode[propName] || 0) ;
+    }
+}
+return output ;",
+            "onlyLeaves": true
+        }, {
+            "name": "kTonnesPie",
+            "array index": 1,
+            "value": "var output, elt;
+if(node.children && (node.children.length > 0) && !node.dm_isReducedNode) {
+    var levelMin = dm_Tools.getDepth(node) ;
+    var colName ;
+    var doIt = function(node) {
+        if (!output) {
+            output = [] ;
+        }
+        elt = {} ;
+        output.push(elt) ;
+        elt.value = node.rawNode['k tonnes'] ;
+        elt.name = node.name ; //dm_Tools.getNodePath(node, '', true, null, levelMin+1) ;
+        elt.unit = 'kilo tonne(s)' ;
+    };
+    var parentLevel = dm_Tools.getDepth(node) ;
+    var depth = 1 ;
+    var dive = function(node) {
+        if (node) {
+            var nodeLevel = dm_Tools.getDepth(node) ;
+            if (nodeLevel == parentLevel + depth) {
+                doIt(node);
+
+                if(!colName) {
+                    var configNode = dm_Tools.getConfig(node) ;
+                    if(configNode && configNode.columns && (configNode.columns.length >= nodeLevel)) {
+                        var col = configNode.columns[nodeLevel-1] ;
+                        if(col) colName = col.name ;
+                    }
+                }
+            } else if ((dm_Tools.getDepth(node) < parentLevel + depth) && (node.children)) {
+                node.children.forEach(function(child) {
+                    dive(child);
+                });
+            }
+        }
+    } ;
+    dive(node);
+    if(!node.rawNode['kTonnesPie.dm_props']) node.rawNode['kTonnesPie.dm_props'] = {} ;
+    node.rawNode['kTonnesPie.dm_props'].label = 'kilo tonnes par ' + colName ;
+    node.rawNode['kTonnesPie.dm_props'].visible = true ;
+} else {
+    if(!node.rawNode) node.rawNode = {} ;
+    if(!node.rawNode['kTonnesPie.dm_props']) node.rawNode['kTonnesPie.dm_props'] = {}
+    node.rawNode['kTonnesPie.dm_props'].visible = false ;
+    node.rawNode['kTonnesPie.dm_props'].edit = false ;
+}
+return output ;",
+            "execAfterChildrenVisit": true
+        }, {
+            "name": "items",
+            "array index": 2,
+            "value": "var output = 1, child ;
+if(node.children && (node.children.length > 0)) {
+    var i = node.children.length - 1 ;
+    output = 0 ;
+    for(; i>=0; i--) {
+        child = node.children[i] ;
+        if(!child.rawNode[propName]) {
+            console.log('----- WARNING ! during items aggregation ITEMS VALUE ERROR ----------->' + dm_Tools.getNodePath(child), ' items = ' + child.rawNode[propName]) ;
+        }
+        output += node.children[i].rawNode[propName] ;
+    }
+    if(output > 1) {
+        if(!node.rawNode[propName + '.dm_props']) node.rawNode[propName + '.dm_props'] = {} ;
+        node.rawNode[propName + '.dm_props'].visible = true ;
+    }
+} else {
+    if(!node.rawNode) node.rawNode = {} ;
+    if(!node.rawNode[propName + '.dm_props']) node.rawNode[propName + '.dm_props'] = {} ;
+    node.rawNode[propName + '.dm_props'].visible = false ;
+    node.rawNode[propName + '.dm_props'].edit = false ;
+}
+if(!output) {
+    console.log('----- WARNING ! during items aggregation ITEMS VALUE ERROR ----------->' + dm_Tools.getNodePath(node), ' items = ' + output) ;
+}
+return output ;",
+            "funcDropdown": "count leaves",
+            "execAfterChildrenVisit": true,
+            "onlyLeaves": true,
+            "label": "Items",
+            "visible": true,
+            "type": "text",
+            "source": "aggregation"
+        }, {
+            "name": "itemsPie",
+            "array index": 3,
+            "value": "var output, elt;
+if(node.children && (node.children.length > 0) && !node.dm_isReducedNode) {
+    var levelMin = dm_Tools.getDepth(node) ;
+    var colName ;
+    var doIt = function(node) {
+        if (!output) {
+            output = [] ;
+        }
+        elt = {} ;
+        output.push(elt) ;
+        elt.value = node.rawNode['items'] ;
+        elt.name = node.name ; //dm_Tools.getNodePath(node, '', true, null, levelMin+1) ;
+        elt.unit = 'item(s)' ;
+    };
+    var parentLevel = dm_Tools.getDepth(node) ;
+    var depth = 1 ;
+    var dive = function(node) {
+        if (node) {
+            var nodeLevel = dm_Tools.getDepth(node) ;
+            if (nodeLevel == parentLevel + depth) {
+                doIt(node);
+
+                if(!colName) {
+                    var configNode = dm_Tools.getConfig(node) ;
+                    if(configNode && configNode.columns && (configNode.columns.length >= nodeLevel)) {
+                        var col = configNode.columns[nodeLevel-1] ;
+                        if(col) colName = col.name ;
+                    }
+                }
+            } else if ((dm_Tools.getDepth(node) < parentLevel + depth) && (node.children)) {
+                node.children.forEach(function(child) {
+                    dive(child);
+                });
+            }
+        }
+    } ;
+    dive(node);
+    if(!node.rawNode['itemsPie.dm_props']) node.rawNode['itemsPie.dm_props'] = {} ;
+    node.rawNode['itemsPie.dm_props'].label = colName ;
+    node.rawNode['itemsPie.dm_props'].visible = true ;
+} else {
+    if(!node.rawNode) node.rawNode = {} ;
+    if(!node.rawNode['itemsPie.dm_props']) node.rawNode['itemsPie.dm_props'] = {}
+    node.rawNode['itemsPie.dm_props'].visible = false ;
+    node.rawNode['itemsPie.dm_props'].edit = false ;
+}
+return output ;",
+            "execAfterChildrenVisit": true
+        }, {
+            "name": "treeSunburst",
+            "array index": 4,
+            "value": "
+if(!node.children || (node.children.length == 0) || node.dm_isReducedNode) {
+    if(!node.rawNode) node.rawNode = {} ;
+    if(!node.rawNode['treeSunburst.dm_props']) node.rawNode['treeSunburst.dm_props'] = {}
+    node.rawNode['treeSunburst.dm_props'].visible = false ;
+    node.rawNode['treeSunburst.dm_props'].edit = false ;
+} else {
+    if(!node.rawNode['treeSunburst.dm_props']) node.rawNode['treeSunburst.dm_props'] = {}
+    node.rawNode['treeSunburst.dm_props'].visible = true ;
+}
+return null ;",
+            "execAfterChildrenVisit": true
+        }],
+        "columnNames": ["Famille", "Catégorie", "sous-catégorie", "matière première", "Nb établ.", "k tonnes", "%"],
+        "columns": [{
+            "name": "Famille",
+            "array index": 0,
+            "columnIndex": 0
+        }, {
+            "name": "Catégorie",
+            "array index": 1,
+            "columnIndex": 1
+        }, {
+            "name": "sous-catégorie",
+            "array index": 2,
+            "columnIndex": 2
+        }, {
+            "array index": 3,
+            "children": [{
+                "name": "matière première",
+                "array index": 0,
+                "columnIndex": 3
+            }]
+        }],
+        "displayProps": [{
+            "name": "root",
+            "edit": false,
+            "visible": false,
+            "children": [{
+                "name": "kTonnesPie",
+                "array index": 1,
+                "label": "kilo tonnes par famille",
+                "type": "graph",
+                "edit": false,
+                "visible": true,
+                "graph": "pie",
+                "doTransition": true,
+                "textInPie": false,
+                "order": 10,
+                "keepAfterGoto": true
+            }, {
+                "name": "k tonnes",
+                "array index": 0,
+                "label": "kilo tonnes",
+                "type": "text",
+                "edit": false,
+                "visible": true,
+                "order": 15,
+                "keepAfterGoto": true
+            }, {
+                "name": "itemsPie",
+                "array index": 4,
+                "label": "Items",
+                "type": "graph",
+                "edit": false,
+                "visible": true,
+                "graph": "pie",
+                "doTransition": true,
+                "textInPie": false,
+                "order": 40,
+                "keepAfterGoto": true
+            }, {
+                "name": "items",
+                "array index": 2,
+                "label": "Items",
+                "type": "text",
+                "edit": false,
+                "visible": true,
+                "order": 41,
+                "keepAfterGoto": true
+            }, {
+                "name": "treeSunburst",
+                "array index": 6,
+                "label": "Items",
+                "type": "graph",
+                "graphModel": "sunburstChart",
+                "maxLength": 12,
+                "edit": false,
+                "visible": true,
+                "order": 45,
+                "keepAfterGoto": true
+            }, {
+                "name": "underlyingRawValues",
+                "array index": 3,
+                "label": "underlyingRawValues",
+                "order": 1000,
+                "visible": false,
+                "edit": false,
+                "dontExport": true,
+                "keepAfterGoto": true
+            }, {
+                "name": "underlyingRawValuesCharts",
+                "array index": 5,
+                "label": "underlyingRawValuesCharts",
+                "order": 1001,
+                "visible": false,
+                "keepAfterGoto": true,
+                "dontExport": true
+            }]
+        }, {
+            "name": "level 1",
+            "edit": false,
+            "visible": false,
+            "children": [{
+                "name": "kTonnesPie",
+                "array index": 1,
+                "label": "kilo tonnes par famille",
+                "type": "graph",
+                "edit": false,
+                "visible": true,
+                "graph": "pie",
+                "doTransition": true,
+                "textInPie": false,
+                "order": 10,
+                "keepAfterGoto": true
+            }, {
+                "name": "k tonnes",
+                "array index": 0,
+                "label": "kilo tonnes",
+                "type": "text",
+                "edit": false,
+                "visible": true,
+                "order": 15,
+                "keepAfterGoto": true
+            }, {
+                "name": "itemsPie",
+                "array index": 4,
+                "label": "Items",
+                "type": "graph",
+                "edit": false,
+                "visible": true,
+                "graph": "pie",
+                "doTransition": true,
+                "textInPie": false,
+                "order": 40,
+                "keepAfterGoto": true
+            }, {
+                "name": "items",
+                "array index": 2,
+                "label": "Items",
+                "type": "text",
+                "edit": false,
+                "visible": true,
+                "order": 41,
+                "keepAfterGoto": true
+            }, {
+                "name": "treeSunburst",
+                "array index": 6,
+                "label": "Items",
+                "type": "graph",
+                "graphModel": "sunburstChart",
+                "maxLength": 12,
+                "edit": false,
+                "visible": true,
+                "order": 45,
+                "keepAfterGoto": true
+            }, {
+                "name": "underlyingRawValues",
+                "array index": 3,
+                "label": "underlyingRawValues",
+                "order": 1000,
+                "visible": false,
+                "edit": false,
+                "dontExport": true,
+                "keepAfterGoto": true
+            }, {
+                "name": "underlyingRawValuesCharts",
+                "array index": 5,
+                "label": "underlyingRawValuesCharts",
+                "order": 1001,
+                "visible": false,
+                "keepAfterGoto": true,
+                "dontExport": true
+            }]
+        }, {
+            "name": "level 2",
+            "edit": false,
+            "visible": false,
+            "children": [{
+                "name": "kTonnesPie",
+                "array index": 1,
+                "label": "kilo tonnes par famille",
+                "type": "graph",
+                "edit": false,
+                "visible": true,
+                "graph": "pie",
+                "doTransition": true,
+                "textInPie": false,
+                "order": 10,
+                "keepAfterGoto": true
+            }, {
+                "name": "k tonnes",
+                "array index": 0,
+                "label": "kilo tonnes",
+                "type": "text",
+                "edit": false,
+                "visible": true,
+                "order": 15,
+                "keepAfterGoto": true
+            }, {
+                "name": "itemsPie",
+                "array index": 4,
+                "label": "Items",
+                "type": "graph",
+                "edit": false,
+                "visible": true,
+                "graph": "pie",
+                "doTransition": true,
+                "textInPie": false,
+                "order": 40,
+                "keepAfterGoto": true
+            }, {
+                "name": "items",
+                "array index": 2,
+                "label": "Items",
+                "type": "text",
+                "edit": false,
+                "visible": true,
+                "order": 41,
+                "keepAfterGoto": true
+            }, {
+                "name": "treeSunburst",
+                "array index": 6,
+                "label": "Items",
+                "type": "graph",
+                "graphModel": "sunburstChart",
+                "maxLength": 12,
+                "edit": false,
+                "visible": true,
+                "order": 45,
+                "keepAfterGoto": true
+            }, {
+                "name": "underlyingRawValues",
+                "array index": 3,
+                "label": "underlyingRawValues",
+                "order": 1000,
+                "visible": false,
+                "edit": false,
+                "dontExport": true,
+                "keepAfterGoto": true
+            }, {
+                "name": "underlyingRawValuesCharts",
+                "array index": 5,
+                "label": "underlyingRawValuesCharts",
+                "order": 1001,
+                "visible": false,
+                "keepAfterGoto": true,
+                "dontExport": true
+            }]
+        }, {
+            "name": "level 3",
+            "edit": false,
+            "visible": false,
+            "children": [{
+                "name": "kTonnesPie",
+                "array index": 1,
+                "label": "kilo tonnes par famille",
+                "type": "graph",
+                "edit": false,
+                "visible": true,
+                "graph": "pie",
+                "doTransition": true,
+                "textInPie": false,
+                "order": 10,
+                "keepAfterGoto": true
+            }, {
+                "name": "k tonnes",
+                "array index": 0,
+                "label": "kilo tonnes",
+                "type": "text",
+                "edit": false,
+                "visible": true,
+                "order": 15,
+                "keepAfterGoto": true
+            }, {
+                "name": "itemsPie",
+                "array index": 4,
+                "label": "Items",
+                "type": "graph",
+                "edit": false,
+                "visible": true,
+                "graph": "pie",
+                "doTransition": true,
+                "textInPie": false,
+                "order": 40,
+                "keepAfterGoto": true
+            }, {
+                "name": "items",
+                "array index": 2,
+                "label": "Items",
+                "type": "text",
+                "edit": false,
+                "visible": true,
+                "order": 41,
+                "keepAfterGoto": true
+            }, {
+                "name": "treeSunburst",
+                "array index": 6,
+                "label": "Items",
+                "type": "graph",
+                "graphModel": "sunburstChart",
+                "maxLength": 12,
+                "edit": false,
+                "visible": true,
+                "order": 45,
+                "keepAfterGoto": true
+            }, {
+                "name": "underlyingRawValues",
+                "array index": 3,
+                "label": "underlyingRawValues",
+                "order": 1000,
+                "visible": false,
+                "edit": false,
+                "dontExport": true,
+                "keepAfterGoto": true
+            }, {
+                "name": "underlyingRawValuesCharts",
+                "array index": 5,
+                "label": "underlyingRawValuesCharts",
+                "order": 1001,
+                "visible": false,
+                "keepAfterGoto": true,
+                "dontExport": true
+            }]
+        }, {
+            "name": "leaf",
+            "edit": true,
+            "visible": true
+        }],
+        "specifics": [{
+            "name": "$dm_all",
+            "array index": 0,
+            "array index.dm_props": {
+                "visible": true,
+                "editable": true,
+                "name": "array index"
+            },
+            "drawUnderlyingRawValuesCharts": "
+dm_Tools.buildCharts4underlyingRawValues(node, null, null, ['drawUnderlyingRawValuesCharts']) ;
+'#dm_STOP_AND_REDRAW_ATTRIBUTES_PANEL#1000' ;
+",
+            "drawUnderlyingRawValuesCharts.dm_props": {
+                "order": 999,
+                "visible": true,
+                "dontExport": true,
+                "type": "execute",
+                "name": "drawUnderlyingRawValuesCharts"
+            }
+        }],
+        "styles": [{
+            "name": "root",
+            "array index": 0,
+            "level": 0,
+            "arrow": true,
+            "arc": false,
+            "rNod": 10,
+            "link": 140,
+            "color": "#1f77b4",
+            "attrPaneCol": "#aec7e8",
+            "backgroundImage": null
+        }, {
+            "name": "level 1",
+            "array index": 1,
+            "level": 1,
+            "arrow": true,
+            "arc": false,
+            "rNod": 10,
+            "link": 160,
+            "color": "#1f77b4",
+            "attrPaneCol": "#aec7e8"
+        }, {
+            "name": "level 2",
+            "array index": 2,
+            "level": 2,
+            "arrow": true,
+            "arc": false,
+            "rNod": 9,
+            "link": 130,
+            "color": "#ff7f0e",
+            "attrPaneCol": "#ffbb78"
+        }, {
+            "name": "level 3",
+            "array index": 3,
+            "level": 3,
+            "arrow": true,
+            "arc": false,
+            "rNod": 9,
+            "link": 130,
+            "color": "#2ca02c",
+            "attrPaneCol": "#98df8a"
+        }, {
+            "name": "leaf",
+            "array index": 4,
+            "level": 4,
+            "arrow": false,
+            "arc": true,
+            "rNod": 4,
+            "link": 120,
+            "color": "#c7c7c7",
+            "attrPaneCol": "#c7c7c7",
+            "txtCol": "#7f7f7f"
+        }],
+        "setColumns2node": {}
+    }
+}

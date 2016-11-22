@@ -1,0 +1,543 @@
+{
+    "$schema": "http://www.freedatamap.com/jsonSchema/schema#",
+    "$charset": "UTF-8",
+    "root": {
+        "name": "CityMoove",
+        "level": 0,
+        "rawNode": {
+        	"icon": "CityMoove/datamoove_logo.png",
+        	"icon.dm_props": {
+        		"textX": 2
+        	},
+        	"image": "CityMoove/data_moove_big_logo.png",
+        	"image.dm_props": {
+        		"type": "image",
+        		"visible": true,
+        		"borderRadius": 10
+        	},
+            "Description1": "
+                <div class='dm_normal'>
+                    <div class='dm_center'>
+                    	<br/>
+                        <h2>Explore the city like never before!</h2>
+                    	<br/>
+                    </div>
+                </div>",
+            "Description1.dm_props": {
+                "type": "rich text",
+                "visible": true,
+                "name": "Description1",
+                "level": 0,
+                "label": "Description",
+                "source": "user"
+            },
+            "backgroundImage": "CityMoove/nice_massena.jpg",
+            "backgroundImage.dm_props": {
+                "name": "backgroundImage",
+                "visible": true,
+                "label": "backgroundImage",
+                "type": "image",
+                "dontExport": true,
+                "opacity": 0.17,
+                "edit": false
+            },
+            "carousel1": "
+                    <div id='cityMooveCarousel' class='carousel slide' style='max-width: 670px; max-height: 379px;'>
+                        <ol class='carousel-indicators' hidden>
+                            <li data-target='#cityMooveCarousel' data-slide-to='0' class='active'></li> 
+                            <li data-target='#cityMooveCarousel' data-slide-to='1'></li>
+                            <li data-target='#cityMooveCarousel' data-slide-to='2'></li>
+                            <li data-target='#cityMooveCarousel' data-slide-to='3'></li>
+                            <li data-target='#cityMooveCarousel' data-slide-to='4'></li>
+                            <li data-target='#cityMooveCarousel' data-slide-to='5'></li>
+                            <li data-target='#cityMooveCarousel' data-slide-to='6'></li>
+                            <li data-target='#cityMooveCarousel' data-slide-to='7'></li>
+                            <li data-target='#cityMooveCarousel' data-slide-to='8'></li>
+                            <li data-target='#cityMooveCarousel' data-slide-to='9'></li>
+                        </ol>
+                        <div class='carousel-inner'>
+                            <div class='item active'>
+                                
+                                <img src='data/images/CityMoove/bckgrnds/promenade.jpg' alt=''/>
+                                <div class='carousel-caption'>
+                                    <p>Find an interesting place for you and your family.</p>
+                                </div>
+                            </div>
+                            <div class='item'>
+                                
+                                <img src='data/images/CityMoove/bckgrnds/restaurant_terrasse.jpg' alt=''/>
+                                <div class='carousel-caption'>
+                                    <p>Find the best rated restaurant close to you.</p>
+                                </div>
+                            </div>
+                            <div class='item'>
+                                
+                                <img src='data/images/CityMoove/bckgrnds/carnaval Nice.jpg' alt=''/>
+                                <div class='carousel-caption'>
+                                    <p>Find the event that fits your expectations.</p>
+                                </div>
+                            </div>
+                            <div class='item'>
+                                
+                                <img src='data/images/CityMoove/bckgrnds/Transport.jpg' alt=''/>
+                                <div class='carousel-caption'>
+                                    <p>Find the transport from where you are to where you want to go.</p>
+                                </div>
+                            </div>
+                            <div class='item'>
+                                
+                                <img src='data/images/CityMoove/bckgrnds/Shop and service.jpg' alt=''/>
+                                <div class='carousel-caption'>
+                                    <p>Find the shop you need</p>
+                                </div>
+                            </div>
+                            <div class='item'>
+                                
+                                <img src='data/images/CityMoove/bckgrnds/Concert.jpeg' alt=''/>
+                                <div class='carousel-caption'>
+                                    <p>Find your favorite night place</p>
+                                </div>
+                            </div>
+                            <div class='item'>
+                                
+                                <img src='data/images/CityMoove/bckgrnds/Allianz-Riviera.jpg' alt=''/>
+                                <div class='carousel-caption'>
+                                    <p>Find the sport event you cannot miss.</p>
+                                </div>
+                            </div>
+                            <div class='item'>
+                                
+                                <img src='data/images/CityMoove/bckgrnds/visual art.jpg' alt=''/>
+                                <div class='carousel-caption'>
+                                    <p>Find interesting places thanks to a recommended tour of the city.</p>
+                                </div>
+                            </div>
+                            <div class='item'>
+                                
+                                <img src='data/images/CityMoove/bckgrnds/family.jpg' alt=''/>
+                                <div class='carousel-caption'>
+                                    <p>Find your way to the best places.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <a class='left carousel-control' href='#cityMooveCarousel' data-slide='prev'>&lsaquo;</a>
+                        <a class='right carousel-control' href='#cityMooveCarousel' data-slide='next'>&rsaquo;</a>
+                        <br/>
+                    </div>",
+            "carousel1.dm_props": {
+                "type": "rich text",
+                "visible": true,
+                "name": "carousel1",
+                "label": "carousel1",
+                "leaveEventsOn": ".carousel-control",
+                "onload": "$(\"#cityMooveCarousel\").carousel({'interval': 10000}) ; $(\"#cityMooveCarousel_modal\").carousel({'interval': 10000}) ;",
+                "level": 0,
+                "source": "user",
+                "onModalSed": {
+                    "cityMooveCarousel": "cityMooveCarousel_modal"
+                }
+            },
+            "treeSunburst.dm_props": {
+            	"visible": false 
+            },
+        	"sparqlPrefix": "
+PREFIX a: <http://www.w3.org/2005/Atom>
+PREFIX address: <http://schemas.talis.com/2005/address/schema#>
+PREFIX admin: <http://webns.net/mvcb/>
+PREFIX atom: <http://atomowl.org/ontologies/atomrdf#>
+PREFIX aws: <http://soap.amazon.com/>
+PREFIX b3s: <http://b3s.openlinksw.com/>
+PREFIX batch: <http://schemas.google.com/gdata/batch>
+PREFIX bibo: <http://purl.org/ontology/bibo/>
+PREFIX bif: <bif:>
+PREFIX bugzilla: <http://www.openlinksw.com/schemas/bugzilla#>
+PREFIX c: <http://www.w3.org/2002/12/cal/icaltzd#>
+PREFIX category: <http://dbpedia.org/resource/Category:>
+PREFIX cb: <http://www.crunchbase.com/>
+PREFIX cc: <http://web.resource.org/cc/>
+PREFIX cixty: <http://www.3cixty.com/ontology#>
+PREFIX content: <http://purl.org/rss/1.0/modules/content/>
+PREFIX cv: <http://purl.org/captsolo/resume-rdf/0.2/cv#>
+PREFIX cvbase: <http://purl.org/captsolo/resume-rdf/0.2/base#>
+PREFIX dawgt: <http://www.w3.org/2001/sw/DataAccess/tests/test-dawg#>
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX dbpedia: <http://dbpedia.org/resource/>
+PREFIX dbpprop: <http://dbpedia.org/property/>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX digg: <http://digg.com/docs/diggrss/>
+PREFIX dul: <http://ontologydesignpatterns.org/ont/dul/DUL.owl#>
+PREFIX ebay: <urn:ebay:apis:eBLBaseComponents>
+PREFIX enc: <http://purl.oclc.org/net/rss_2.0/enc#>
+PREFIX exif: <http://www.w3.org/2003/12/exif/ns/>
+PREFIX fb: <http://api.facebook.com/1.0/>
+PREFIX fbase: <http://rdf.freebase.com/ns/>
+PREFIX ff: <http://api.friendfeed.com/2008/03>
+PREFIX fn: <http://www.w3.org/2005/xpath-functions/#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX g: <http://base.google.com/ns/1.0>
+PREFIX gb: <http://www.openlinksw.com/schemas/google-base#>
+PREFIX gd: <http://schemas.google.com/g/2005>
+PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX geonames: <http://www.geonames.org/ontology#>
+PREFIX georss: <http://www.georss.org/georss>
+PREFIX gml: <http://www.opengis.net/gml>
+PREFIX go: <http://purl.org/obo/owl/GO#>
+PREFIX grs: <http://www.georss.org/georss/>
+PREFIX hlisting: <http://www.openlinksw.com/schemas/hlisting/>
+PREFIX hoovers: <http://wwww.hoovers.com/>
+PREFIX hrev: <http:/www.purl.org/stuff/hrev#>
+PREFIX ical: <http://www.w3.org/2002/12/cal/ical#>
+PREFIX ir: <http://web-semantics.org/ns/image-regions>
+PREFIX itunes: <http://www.itunes.com/DTDs/Podcast-1.0.dtd>
+PREFIX ldp: <http://www.w3.org/ns/ldp#>
+PREFIX lgv: <http://linkedgeodata.org/vocabulary#>
+PREFIX link: <http://www.xbrl.org/2003/linkbase>
+PREFIX locationOnt: <http://data.linkedevents.org/def/location#>
+PREFIX locn: <http://www.w3.org/ns/locn#>
+PREFIX lod: <http://lod.openlinksw.com/>
+PREFIX lode: <http://linkedevents.org/ontology/>
+PREFIX ma-ont: <http://www.w3.org/ns/ma-ont#>
+PREFIX math: <http://www.w3.org/2000/10/swap/math#>
+PREFIX media: <http://search.yahoo.com/mrss/>
+PREFIX mesh: <http://purl.org/commons/record/mesh/>
+PREFIX meta: <urn:oasis:names:tc:opendocument:xmlns:meta:1.0>
+PREFIX mf: <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#>
+PREFIX mmd: <http://musicbrainz.org/ns/mmd-1.0#>
+PREFIX mo: <http://purl.org/ontology/mo/>
+PREFIX mql: <http://www.freebase.com/>
+PREFIX nci: <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#>
+PREFIX nfo: <http://www.semanticdesktop.org/ontologies/nfo/#>
+PREFIX ng: <http://www.openlinksw.com/schemas/ning#>
+PREFIX nyt: <http://data.nytimes.com/>
+PREFIX oai: <http://www.openarchives.org/OAI/2.0/>
+PREFIX oai_dc: <http://www.openarchives.org/OAI/2.0/oai_dc/>
+PREFIX obo: <http://www.geneontology.org/formats/oboInOwl#>
+PREFIX office: <urn:oasis:names:tc:opendocument:xmlns:office:1.0>
+PREFIX ogc: <http://www.opengis.net/>
+PREFIX ogcgml: <http://www.opengis.net/ont/gml#>
+PREFIX ogcgs: <http://www.opengis.net/ont/geosparql#>
+PREFIX ogcgsf: <http://www.opengis.net/def/function/geosparql/>
+PREFIX ogcgsr: <http://www.opengis.net/def/rule/geosparql/>
+PREFIX ogcsf: <http://www.opengis.net/ont/sf#>
+PREFIX ont3: <http://3cixty.com/ontology#>
+PREFIX oo: <urn:oasis:names:tc:opendocument:xmlns:meta:1.0:>
+PREFIX openSearch: <http://a9.com/-/spec/opensearchrss/1.0/>
+PREFIX opl: <http://www.openlinksw.com/schema/attribution#>
+PREFIX opl-gs: <http://www.openlinksw.com/schemas/getsatisfaction/>
+PREFIX opl-meetup: <http://www.openlinksw.com/schemas/meetup/>
+PREFIX opl-xbrl: <http://www.openlinksw.com/schemas/xbrl/>
+PREFIX oplweb: <http://www.openlinksw.com/schemas/oplweb#>
+PREFIX ore: <http://www.openarchives.org/ore/terms/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX product: <http://www.buy.com/rss/module/productV2/>
+PREFIX protseq: <http://purl.org/science/protein/bysequence/>
+PREFIX qb: <http://purl.org/linked-data/cube#>
+PREFIX r: <http://backend.userland.com/rss2>
+PREFIX radio: <http://www.radiopop.co.uk/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfa: <http://www.w3.org/ns/rdfa#>
+PREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX rev: <http://purl.org/stuff/rev#>
+PREFIX review: <http:/www.purl.org/stuff/rev#>
+PREFIX rss: <http://purl.org/rss/1.0/>
+PREFIX sc: <http://purl.org/science/owl/sciencecommons/>
+PREFIX schema: <http://schema.org/>
+PREFIX scovo: <http://purl.org/NET/scovo#>
+PREFIX sd: <http://www.w3.org/ns/sparql-service-description#>
+PREFIX sf: <urn:sobject.enterprise.soap.sforce.com>
+PREFIX sioc: <http://rdfs.org/sioc/ns#>
+PREFIX sioct: <http://rdfs.org/sioc/types#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX slash: <http://purl.org/rss/1.0/modules/slash/>
+PREFIX sql: <sql:>
+PREFIX ssn: <http://www.w3.org/ns/ssn/>
+PREFIX stock: <http://xbrlontology.com/ontology/finance/stock_market#>
+PREFIX time: <http://www.w3.org/2006/time#>
+PREFIX topo: <http://data.ign.fr/def/topo#>
+PREFIX transit: <http://vocab.org/transit/terms/>
+PREFIX twfy: <http://www.openlinksw.com/schemas/twfy#>
+PREFIX umbel: <http://umbel.org/umbel#>
+PREFIX umbel-ac: <http://umbel.org/umbel/ac/>
+PREFIX umbel-sc: <http://umbel.org/umbel/sc/>
+PREFIX uniprot: <http://purl.uniprot.org/>
+PREFIX usc: <http://www.rdfabout.com/rdf/schema/uscensus/details/100pct/>
+PREFIX v: <http://www.openlinksw.com/xsltext/>
+PREFIX vcard: <http://www.w3.org/2001/vcard-rdf/3.0#>
+PREFIX vcard2006: <http://www.w3.org/2006/vcard/ns#>
+PREFIX vi: <http://www.openlinksw.com/virtuoso/xslt/>
+PREFIX virt: <http://www.openlinksw.com/virtuoso/xslt>
+PREFIX virtcxml: <http://www.openlinksw.com/schemas/virtcxml#>
+PREFIX virtrdf: <http://www.openlinksw.com/schemas/virtrdf#>
+PREFIX void: <http://rdfs.org/ns/void#>
+PREFIX wb: <http://www.worldbank.org/>
+PREFIX wf: <http://www.w3.org/2005/01/wf/flow#>
+PREFIX wfw: <http://wellformedweb.org/CommentAPI/>
+PREFIX xf: <http://www.w3.org/2004/07/xpath-functions>
+PREFIX xfn: <http://gmpg.org/xfn/11#>
+PREFIX xhtml: <http://www.w3.org/1999/xhtml>
+PREFIX xhv: <http://www.w3.org/1999/xhtml/vocab#>
+PREFIX xi: <http://www.xbrl.org/2003/instance>
+PREFIX xml: <http://www.w3.org/XML/1998/namespace>
+PREFIX xn: <http://www.ning.com/atom/1.0>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX xsl10: <http://www.w3.org/XSL/Transform/1.0>
+PREFIX xsl1999: <http://www.w3.org/1999/XSL/Transform>
+PREFIX xslwd: <http://www.w3.org/TR/WD-xsl>
+PREFIX y: <urn:yahoo:maps>
+PREFIX yago: <http://dbpedia.org/class/yago/>
+PREFIX yt: <http://gdata.youtube.com/schemas/2007>
+PREFIX zem: <http://s.zemanta.com/ns#>
+",
+			"sparqlPrefix.dm_props": {
+				"visible": false
+			}
+        },
+        "dm_DatamapName": "citymoove.json",
+        "dm_config": {
+            "sort": "order",
+            "sortDescendant": false,
+            "inheritDefaultConfig": true,
+	        "specifics": [
+	        /* ----------------------------------------------------------------------------------------------------------------------------------------
+	                     "name": "$dm_all",
+	           ----------------------------------------------------------------------------------------------------------------------------------------*/
+	        {
+	            "name": "$dm_all",
+	            "rawNode": {
+	                "drawUnderlyingRawValuesCharts": "
+//dm_Tools.buildCharts4underlyingRawValues(node, null, null, ['drawUnderlyingRawValuesCharts']) ;
+//'#dm_STOP_AND_REDRAW_ATTRIBUTES_PANEL#1000' ;
+",
+	                "drawUnderlyingRawValuesCharts.dm_props": {
+	                    "order": 999,
+	                    "visible": false,
+	                    "dontExport": true,
+	                    "type": "execute",
+	                    "hideFromEdit": true
+	                }
+	            }
+	        }]
+        },
+        "children": [{
+            "name": "All events and places",
+            "level": 1,
+            "rawNode": {
+            	"order": 0,
+	        	"icon": "CityMoove/all_events_and_places.png",
+	        	"icon.dm_props": {
+	        		"type": "image",
+	        		"visible": true
+	        	}
+            }
+        }, {
+            "name": "Interesting place",
+            "level": 1,
+            "rawNode": {
+            	"order": 1,
+	        	"icon": "CityMoove/interesting_place.png",
+	        	"icon.dm_props": {
+	        		"type": "image",
+	        		"visible": true
+	        	}
+            },
+            "children": [{
+                "name": "Food",
+                "level": 2,
+                "rawNode": {
+                	"execBefore" : "
+if(!node.rawNode.sparqlQueryDone) {
+	var sparqlEndpoint = 'http://3cixty-alpha.eurecom.fr/sparql' ;
+
+	var sparqlRequest = '
+	SELECT (SAMPLE(?score) AS ?score) (SAMPLE(?identifier) AS ?identifier) ?venue (SAMPLE(?title) AS ?title) (SAMPLE(?cell) AS ?cell) (SAMPLE(?cellGeo) AS ?cellGeo) (SAMPLE(?editorialScore) AS ?editorialScore) (SAMPLE(?descriptionScore) AS ?descriptionScore) (SAMPLE(?posterScore) AS ?posterScore) (SAMPLE(?description) AS ?description) (SAMPLE(?icon) AS ?icon) (SAMPLE(?long) AS ?long) (SAMPLE(?lat) AS ?lat)
+	{
+		SELECT DISTINCT ((5*?editorialScore + ?descriptionScore + ?posterScore) AS ?score) ?identifier ?venue ?title ?cell ?cellGeo ?editorialScore ?descriptionScore ?posterScore ?description ?icon ?long ?lat
+		WHERE
+		{
+			{
+				SELECT DISTINCT ?venue ?title ?cell ?cellGeo ?editorialScore ?descriptionScore ?posterScore
+				WHERE
+				{
+					?venue (locationOnt:businessType|locationOnt:businessTypeTop) <http://data.linkedevents.org/kos/3cixty/food> . 
+					GRAPH ?src { ?venue a dul:Place . }
+					FILTER(?src = <http://3cixty.com/nice/places> || ?src = <http://3cixty.com/stmartindevesubie/places>) 
+					?venue rdfs:label ?title . 
+					?venue locationOnt:cell ?cell . 
+					?cell geo:location ?cellGeo . 
+					?venue cixty:editorialScore ?editorialScore . 
+					?venue cixty:descriptionScore ?descriptionScore . 
+					?venue cixty:posterScore ?posterScore . 
+				} 
+				ORDER BY DESC (?editorialScore) DESC (?posterScore) DESC (?descriptionScore)
+				LIMIT 200 OFFSET 0
+			} 
+			OPTIONAL{
+				?venue schema:description ?description . 
+			} 
+			OPTIONAL{
+				?venue lode:poster ?imgObj . 
+				?imgObj ma-ont:locator ?icon . 
+			} 
+			OPTIONAL{
+				?venue geo:location ?geometry . 
+				?geometry geo:long ?long . 
+				?geometry geo:lat ?lat . 
+			} 
+			OPTIONAL { ?venue dc:identifier ?identifier . } 
+		} 
+	}
+	GROUP BY ?venue
+		ORDER BY DESC (?score)
+	LIMIT 30
+	' ;
+
+	dm_Tools.querySparql(sparqlEndpoint, sparqlRequest, node, 'CityMoove') ;
+	node.rawNode.sparqlQueryDone = true ;
+}
+",
+	                "execBefore.dm_props": {
+	                    "order": 0,
+	                    "visible": true,
+	                    "type": "execute"
+	                },					
+		        	"icon": "CityMoove/food.png",
+		        	"icon.dm_props": {
+		        		"type": "image",
+		        		"visible": true
+		        	},
+		        	"sparqlQueryDone": null,
+		        	"sparqlQueryDone.dm_props": {
+		        		"visible": false,
+		        		"dontExport": true
+		        	}
+                }
+            }, {
+                "name": "Shop and Service",
+                "level": 2,
+                "rawNode": {
+		        	"icon": "CityMoove/shop_and_services.png",
+		        	"icon.dm_props": {
+		        		"type": "image",
+		        		"visible": true
+		        	}
+                }
+            }, {
+                "name": "Professional and other",
+                "level": 2,
+                "rawNode": {
+		        	"icon": "CityMoove/professional.png",
+		        	"icon.dm_props": {
+		        		"type": "image",
+		        		"visible": true
+		        	}
+                }
+            }, {
+                "name": "Travel and Transport",
+                "level": 2,
+                "rawNode": {
+		        	"icon": "CityMoove/travels_and_transports.png",
+		        	"icon.dm_props": {
+		        		"type": "image",
+		        		"visible": true
+		        	}
+                }
+            }, {
+                "name": "Nightlife",
+                "level": 2,
+                "rawNode": {
+		        	"icon": "CityMoove/Nightlife.png",
+		        	"icon.dm_props": {
+		        		"type": "image",
+		        		"visible": true
+		        	}
+                }
+            }]
+        }, {
+            "name": "Directions to a place",
+            "level": 1,
+            "rawNode": {
+            	"order": 2,
+	        	"icon": "CityMoove/to_a_place.png",
+	        	"icon.dm_props": {
+	        		"type": "image",
+	        		"visible": true
+	        	}
+            }
+        }, {
+            "name": "Interesting event",
+            "level": 1,
+            "rawNode": {
+            	"order": 3,
+	        	"icon": "CityMoove/interesting_event.png",
+	        	"icon.dm_props": {
+	        		"type": "image",
+	        		"visible": true
+	        	}
+            },
+            "children": [{
+                "name": "Concert",
+                "level": 2,
+                "rawNode": {
+		        	"icon": "CityMoove/concert.png",
+		        	"icon.dm_props": {
+		        		"type": "image",
+		        		"visible": true
+		        	}
+                }
+            }, {
+                "name": "Sports",
+                "level": 2,
+                "rawNode": {
+		        	"icon": "CityMoove/sports.png",
+		        	"icon.dm_props": {
+		        		"type": "image",
+		        		"visible": true
+		        	}
+                }
+            }, {
+                "name": "Visual arts",
+                "level": 2,
+                "rawNode": {
+		        	"icon": "CityMoove/visual_arts.png",
+		        	"icon.dm_props": {
+		        		"type": "image",
+		        		"visible": true
+		        	}
+                }
+            }, {
+                "name": "Business",
+                "level": 2,
+                "rawNode": {
+		        	"icon": "CityMoove/business.png",
+		        	"icon.dm_props": {
+		        		"type": "image",
+		        		"visible": true
+		        	}
+                }
+            }, {
+                "name": "Family and kids",
+                "level": 2,
+                "rawNode": {
+		        	"icon": "CityMoove/family.png",
+		        	"icon.dm_props": {
+		        		"type": "image",
+		        		"visible": true
+		        	}
+                }
+            }]
+        }, {
+            "name": "Recommended tours",
+            "level": 1,
+            "rawNode": {
+            	"order": 4,
+	        	"icon": "CityMoove/recommended_tours.png",
+	        	"icon.dm_props": {
+	        		"type": "image",
+	        		"visible": true
+	        	}
+            }
+        }]
+    }
+}

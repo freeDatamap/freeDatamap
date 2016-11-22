@@ -1,0 +1,516 @@
+{
+    "$schema": "http://www.freedatamap.com/jsonConfigSchema/schema#",
+    "$charset": "UTF-8",
+    "config": {
+        "name": "stations.config",
+        "root": null,
+        "txtFontSize": 13,
+        "multicolorBrothers": true,
+        "displayColumnsAsAttributes": true,
+        "center": null,
+        "depth": 2,
+        "sort": "items",
+        "sortDescendant": true,
+        "dm_DatamapName": "BikeLogic",
+        "csvSepIsSemicolon": false,
+        "dm_sourceFile": "bikeLogic/stations.csv",
+        "$schema": "http://www.freedatamap.com/jsonConfigSchema/schema#",
+        "forceCharge": -450,
+        "forceFriction": 0.6,
+        "forceAlpha": 0.1,
+        "forceGravity": 0,
+        "forceTheta": -2,
+        "maxDepthForExport": 3,
+        "icon": "../../config/images/config/config_root.png",
+        "possibleProperties": null,
+        "maxNbOfColumns2tree": 10,
+        "displayTransversalConnections": true,
+        "displayArrowsOfTransversalConnections": true,
+        "aggregate": [{
+            "name": "items",
+            "array index": 0,
+            "value": "var output = 1, child ;
+if(node.children && (node.children.length > 0)) {
+    var i = node.children.length - 1 ;
+    output = 0 ;
+    for(; i>=0; i--) {
+        child = node.children[i] ;
+        if(!child.rawNode[propName]) {
+            console.log('----- WARNING ! during items aggregation ITEMS VALUE ERROR ----------->' + dm_Tools.getNodePath(child), ' items = ' + child.rawNode[propName]) ;
+        }
+        output += node.children[i].rawNode[propName] ;
+    }
+    if(output > 1) {
+        if(!node.rawNode[propName + '.dm_props']) node.rawNode[propName + '.dm_props'] = {} ;
+        node.rawNode[propName + '.dm_props'].visible = true ;
+    }
+} else {
+    if(!node.rawNode) node.rawNode = {} ;
+    if(!node.rawNode[propName + '.dm_props']) node.rawNode[propName + '.dm_props'] = {} ;
+    node.rawNode[propName + '.dm_props'].visible = false ;
+    node.rawNode[propName + '.dm_props'].edit = false ;
+}
+if(!output) {
+    console.log('----- WARNING ! during items aggregation ITEMS VALUE ERROR ----------->' + dm_Tools.getNodePath(node), ' items = ' + output) ;
+}
+return output ;",
+            "funcDropdown": "count leaves",
+            "execAfterChildrenVisit": true,
+            "onlyLeaves": true,
+            "label": "Items",
+            "visible": true,
+            "type": "text",
+            "source": "aggregation"
+        }, {
+            "name": "itemsPie",
+            "array index": 1,
+            "value": "var output, elt;
+if(node.children && (node.children.length > 0) && !node.dm_isReducedNode) {
+    var levelMin = dm_Tools.getDepth(node) ;
+    var colName ;
+    var doIt = function(node) {
+        if (!output) {
+            output = [] ;
+        }
+        elt = {} ;
+        output.push(elt) ;
+        elt.value = node.rawNode['items'] ;
+        elt.name = node.name ; //dm_Tools.getNodePath(node, '', true, null, levelMin+1) ;
+        elt.unit = 'item(s)' ;
+    };
+    var parentLevel = dm_Tools.getDepth(node) ;
+    var depth = 1 ;
+    var dive = function(node) {
+        if (node) {
+            var nodeLevel = dm_Tools.getDepth(node) ;
+            if (nodeLevel == parentLevel + depth) {
+                doIt(node);
+
+                if(!colName) {
+                    var configNode = dm_Tools.getConfig(node) ;
+                    if(configNode && configNode.columns && (configNode.columns.length >= nodeLevel)) {
+                        var col = configNode.columns[nodeLevel-1] ;
+                        if(col) colName = col.name ;
+                    }
+                }
+            } else if ((dm_Tools.getDepth(node) < parentLevel + depth) && (node.children)) {
+                node.children.forEach(function(child) {
+                    dive(child);
+                });
+            }
+        }
+    } ;
+    dive(node);
+    if(!node.rawNode['itemsPie.dm_props']) node.rawNode['itemsPie.dm_props'] = {} ;
+    node.rawNode['itemsPie.dm_props'].label = colName ;
+    node.rawNode['itemsPie.dm_props'].visible = true ;
+} else {
+    if(!node.rawNode) node.rawNode = {} ;
+    if(!node.rawNode['itemsPie.dm_props']) node.rawNode['itemsPie.dm_props'] = {}
+    node.rawNode['itemsPie.dm_props'].visible = false ;
+    node.rawNode['itemsPie.dm_props'].edit = false ;
+}
+return output ;",
+            "execAfterChildrenVisit": true
+        }, {
+            "name": "treeSunburst",
+            "array index": 2,
+            "value": "
+if(!node.children || (node.children.length == 0) || node.dm_isReducedNode) {
+    if(!node.rawNode) node.rawNode = {} ;
+    if(!node.rawNode['treeSunburst.dm_props']) node.rawNode['treeSunburst.dm_props'] = {}
+    node.rawNode['treeSunburst.dm_props'].visible = false ;
+    node.rawNode['treeSunburst.dm_props'].edit = false ;
+} else {
+    if(!node.rawNode['treeSunburst.dm_props']) node.rawNode['treeSunburst.dm_props'] = {}
+    node.rawNode['treeSunburst.dm_props'].visible = true ;
+}
+return null ;",
+            "execAfterChildrenVisit": true
+        }],
+        "columnNames": ["station_id", "name", "lat", "long", "dockcount", "landmark", "installation"],
+        "columns": [{
+            "name": "landmark",
+            "array index": 0,
+            "columnIndex": 5
+        }, {
+            "name": "dockcount",
+            "array index": 1,
+            "columnIndex": 4
+        }, {
+            "name": "name",
+            "array index": 2,
+            "columnIndex": 1
+        }],
+        "displayProps": [{
+            "name": "root",
+            "edit": false,
+            "visible": false,
+            "children": [{
+                "name": "items",
+                "array index": 0,
+                "label": "Items",
+                "type": "text",
+                "edit": false,
+                "visible": true,
+                "order": 41,
+                "keepAfterGoto": true
+            }, {
+                "name": "array index",
+                "visible": false,
+                "dontExport": true
+            }, {
+                "name": "underlyingRawValues",
+                "array index": 1,
+                "label": "underlyingRawValues",
+                "order": 1000,
+                "visible": false,
+                "edit": false,
+                "dontExport": true,
+                "keepAfterGoto": true
+            }, {
+                "name": "itemsPie",
+                "array index": 2,
+                "label": "Items",
+                "type": "graph",
+                "edit": false,
+                "visible": true,
+                "graph": "pie",
+                "doTransition": true,
+                "textInPie": false,
+                "order": 40,
+                "keepAfterGoto": true
+            }, {
+                "name": "underlyingRawValuesCharts",
+                "array index": 3,
+                "label": "underlyingRawValuesCharts",
+                "order": 1001,
+                "visible": false,
+                "keepAfterGoto": true,
+                "dontExport": true
+            }, {
+                "name": "treeSunburst",
+                "array index": 4,
+                "label": "Items",
+                "type": "graph",
+                "graphModel": "sunburstChart",
+                "maxLength": 12,
+                "edit": false,
+                "visible": true,
+                "order": 45,
+                "keepAfterGoto": true
+            }]
+        }, {
+            "name": "level 1",
+            "edit": false,
+            "visible": false,
+            "children": [{
+                "name": "items",
+                "array index": 0,
+                "label": "Items",
+                "type": "text",
+                "edit": false,
+                "visible": true,
+                "order": 41,
+                "keepAfterGoto": true
+            }, {
+                "name": "array index",
+                "visible": false,
+                "dontExport": true
+            }, {
+                "name": "underlyingRawValues",
+                "array index": 1,
+                "label": "underlyingRawValues",
+                "order": 1000,
+                "visible": false,
+                "edit": false,
+                "dontExport": true,
+                "keepAfterGoto": true
+            }, {
+                "name": "itemsPie",
+                "array index": 2,
+                "label": "Items",
+                "type": "graph",
+                "edit": false,
+                "visible": true,
+                "graph": "pie",
+                "doTransition": true,
+                "textInPie": false,
+                "order": 40,
+                "keepAfterGoto": true
+            }, {
+                "name": "underlyingRawValuesCharts",
+                "array index": 3,
+                "label": "underlyingRawValuesCharts",
+                "order": 1001,
+                "visible": false,
+                "keepAfterGoto": true,
+                "dontExport": true
+            }, {
+                "name": "treeSunburst",
+                "array index": 4,
+                "label": "Items",
+                "type": "graph",
+                "graphModel": "sunburstChart",
+                "maxLength": 12,
+                "edit": false,
+                "visible": true,
+                "order": 45,
+                "keepAfterGoto": true
+            }]
+        }, {
+            "name": "level 2",
+            "edit": false,
+            "visible": false,
+            "children": [{
+                "name": "items",
+                "array index": 0,
+                "label": "Items",
+                "type": "text",
+                "edit": false,
+                "visible": true,
+                "order": 41,
+                "keepAfterGoto": true
+            }, {
+                "name": "array index",
+                "visible": false,
+                "dontExport": true
+            }, {
+                "name": "underlyingRawValues",
+                "array index": 1,
+                "label": "underlyingRawValues",
+                "order": 1000,
+                "visible": false,
+                "edit": false,
+                "dontExport": true,
+                "keepAfterGoto": true
+            }, {
+                "name": "itemsPie",
+                "array index": 2,
+                "label": "Items",
+                "type": "graph",
+                "edit": false,
+                "visible": true,
+                "graph": "pie",
+                "doTransition": true,
+                "textInPie": false,
+                "order": 40,
+                "keepAfterGoto": true
+            }, {
+                "name": "underlyingRawValuesCharts",
+                "array index": 3,
+                "label": "underlyingRawValuesCharts",
+                "order": 1001,
+                "visible": false,
+                "keepAfterGoto": true,
+                "dontExport": true
+            }, {
+                "name": "treeSunburst",
+                "array index": 4,
+                "label": "Items",
+                "type": "graph",
+                "graphModel": "sunburstChart",
+                "maxLength": 12,
+                "edit": false,
+                "visible": true,
+                "order": 45,
+                "keepAfterGoto": true
+            }]
+        }, {
+            "name": "leaf",
+            "edit": false,
+            "visible": true,
+            "children": [{
+                "name": "items",
+                "array index": 0,
+                "label": "Items",
+                "type": "text",
+                "edit": false,
+                "visible": true,
+                "order": 41,
+                "keepAfterGoto": true
+            }, {
+                "name": "array index",
+                "visible": false,
+                "dontExport": true
+            }, {
+                "name": "underlyingRawValues",
+                "array index": 1,
+                "label": "underlyingRawValues",
+                "order": 1000,
+                "visible": false,
+                "edit": false,
+                "dontExport": true,
+                "keepAfterGoto": true
+            }, {
+                "name": "itemsPie",
+                "array index": 2,
+                "label": "Items",
+                "type": "graph",
+                "edit": false,
+                "visible": true,
+                "graph": "pie",
+                "doTransition": true,
+                "textInPie": false,
+                "order": 40,
+                "keepAfterGoto": true
+            }, {
+                "name": "underlyingRawValuesCharts",
+                "array index": 3,
+                "label": "underlyingRawValuesCharts",
+                "order": 1001,
+                "visible": false,
+                "keepAfterGoto": true,
+                "dontExport": true
+            }, {
+                "name": "treeSunburst",
+                "array index": 4,
+                "label": "Items",
+                "type": "graph",
+                "graphModel": "sunburstChart",
+                "maxLength": 12,
+                "edit": false,
+                "visible": true,
+                "order": 45,
+                "keepAfterGoto": true
+            }]
+        }],
+        "specifics": [{
+            "name": "$dm_root",
+            "array index": 0,
+            "array index.dm_props": {
+                "visible": true,
+                "editable": true,
+                "name": "array index"
+            },
+            "icon": "bikeLogic/logo.png",
+            "icon.dm_props": {
+                "order": 10,
+                "visible": true,
+                "scaleFactor": 5.5,
+                "type": "image",
+                "name": "icon",
+                "imageName": "bikeLogic/logo.png",
+                "width": 207,
+                "height": 180
+            }
+        }, {
+            "name": "$dm_all",
+            "array index": 1,
+            "array index.dm_props": {
+                "visible": true,
+                "editable": true,
+                "name": "array index"
+            },
+            "drawUnderlyingRawValuesCharts": "
+dm_Tools.buildCharts4underlyingRawValues(node, null, null, ['drawUnderlyingRawValuesCharts']) ;
+'#dm_STOP_AND_REDRAW_ATTRIBUTES_PANEL#1000' ;
+",
+            "drawUnderlyingRawValuesCharts.dm_props": {
+                "order": 999,
+                "visible": true,
+                "dontExport": true,
+                "type": "execute",
+                "name": "drawUnderlyingRawValuesCharts"
+            },
+            "dm_geoMapDisplayStreetView.dm_props": {
+                "order": 0,
+                "type": "streetView",
+                "edit": false,
+                "visible": true,
+                "dontExport": true
+            },
+            "dm_geometry_type.dm_props": {
+                "label": "geometry",
+                "edit": false,
+                "visible": false,
+                "dontExport": true
+            },
+            "dm_geometry_coords.dm_props": {
+                "label": "geometry coords",
+                "edit": false,
+                "visible": false,
+                "dontExport": true
+            },
+            "dm_geoMapCoordsMinMax.dm_props": {
+                "edit": false,
+                "visible": false,
+                "dontExport": true
+            },
+            "dm_geoMapAggregatedGeoJson.dm_props": {
+                "edit": false,
+                "visible": false,
+                "dontExport": true
+            },
+            "dm_geoMapRelativeBaryCenter.dm_props": {
+                "edit": false,
+                "visible": false,
+                "dontExport": true
+            }
+        }],
+        "styles": [{
+            "name": "root",
+            "array index": 0,
+            "level": 0,
+            "arrow": true,
+            "arc": false,
+            "rNod": 10,
+            "link": 150,
+            "color": "#1f77b4",
+            "mapOpacity": 0.4,
+            "attrPaneCol": "#aec7e8",
+            "backgroundImage": "../../images/empty.jpg",
+            "backgroundImage.dm_props": {
+                "name": "backgroundImage",
+                "imageName": "../../images/empty.jpg",
+                "type": "image"
+            }
+            /*,
+            "backgroundImage": "bikeLogic/bikeLogic.jpg",
+            "backgroundImage.dm_props": {
+                "name": "backgroundImage",
+                "visible": true,
+                "label": "backgroundImage",
+                "type": "image",
+                "dontExport": true,
+                "imageName": "bikeLogic/bikeLogic.jpg",
+                "opacity": 0.15,
+                "order": 11
+            }*/
+        }, {
+            "name": "level 1",
+            "array index": 1,
+            "level": 1,
+            "arrow": true,
+            "arc": false,
+            "rNod": 10,
+            "link": 130,
+            "color": "#1f77b4",
+            "mapOpacity": 0.5,
+            "attrPaneCol": "#aec7e8"
+        }, {
+            "name": "level 2",
+            "array index": 2,
+            "level": 2,
+            "arrow": true,
+            "arc": false,
+            "rNod": 9,
+            "link": 130,
+            "color": "#ff7f0e",
+            "mapOpacity": 0.6,
+            "attrPaneCol": "#ffbb78"
+        }, {
+            "name": "leaf",
+            "array index": 3,
+            "level": 3,
+            "arrow": true,
+            "arc": false,
+            "rNod": 9,
+            "link": 130,
+            "color": "#2ca02c",
+            "mapOpacity": 0.7,
+            "attrPaneCol": "#98df8a"
+        }],
+        "setColumns2node": {}
+    }
+}

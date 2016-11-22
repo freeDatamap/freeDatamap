@@ -1,0 +1,266 @@
+{
+    "$schema": "http://www.freedatamap.com/jsonConfigSchema/schema#",
+    "$charset": "UTF-8",
+    "config": {
+        "name": "financeurs.config",
+        "root": null,
+        "txtFontSize": 13,
+        "displayColumnsAsAttributes": false,
+        "center": null,
+        "depth": 2,
+        "sort": "Dates",
+        "sortDescendant": true,
+        "dm_DatamapName": "Financeurs",
+        "csvSepIsSemicolon": true,
+        "dm_sourceFile": "TV/financeurs.csv",
+        "$schema": "http://www.freedatamap.com/jsonConfigSchema/schema#",
+        "icon": "../../config/images/config/config_root.png",
+        "possibleProperties": null,
+        "maxNbOfColumns2tree": 10,
+        "displayTransversalConnections": true,
+        "displayArrowsOfTransversalConnections": true,
+        "retintIcons": false,
+        "aggregate": [{
+            "name": "items",
+            "array index": 0,
+            "value": "var output = 1, child ;
+if(node.children && (node.children.length > 0)) {
+    var i = node.children.length - 1 ;
+    output = 0 ;
+    for(; i>=0; i--) {
+        child = node.children[i] ;
+        if(!child.rawNode[propName]) {
+            console.log('----- WARNING ! during items aggregation ITEMS VALUE ERROR ----------->' + dm_Tools.getNodePath(child), ' items = ' + child.rawNode[propName]) ;
+        }
+        output += node.children[i].rawNode[propName] ;
+    }
+    if(output > 1) {
+        if(!node.rawNode[propName + '.dm_props']) node.rawNode[propName + '.dm_props'] = {} ;
+        //node.rawNode[propName + '.dm_props'].visible = true ;
+    }
+} else {
+    if(!node.rawNode[propName + '.dm_props']) node.rawNode[propName + '.dm_props'] = {} ;
+    node.rawNode[propName + '.dm_props'].visible = false ;
+    node.rawNode[propName + '.dm_props'].edit = false ;
+}
+if(!output) {
+    console.log('----- WARNING ! during items aggregation ITEMS VALUE ERROR ----------->' + dm_Tools.getNodePath(node), ' items = ' + output) ;
+}
+return output ;",
+            "funcDropdown": "count leaves",
+            "execAfterChildrenVisit": true,
+            "onlyLeaves": true,
+            "label": "Items",
+            "type": "text",
+            "source": "aggregation",
+            "children": [{
+                "name": "dm_props",
+                "array index": 0,
+                "dontExport": true,
+                "hideFromEdit": true
+            }]
+        }, {
+            "name": "itemsPie",
+            "array index": 1,
+            "value": "var output, elt;
+if(node.children && (node.children.length > 0) && !node.dm_isReducedNode) {
+    var levelMin = dm_Tools.getDepth(node) ;
+    var colName ;
+    var doIt = function(node) {
+        if (!output) {
+            output = [] ;
+        }
+        elt = {} ;
+        output.push(elt) ;
+        elt.value = node.rawNode['items'] ;
+        elt.name = node.name ; //dm_Tools.getNodePath(node, '', true, null, levelMin+1) ;
+        elt.unit = 'item(s)' ;
+    };
+    var parentLevel = dm_Tools.getDepth(node) ;
+    var depth = 1 ;
+    var dive = function(node) {
+        if (node) {
+            var nodeLevel = dm_Tools.getDepth(node) ;
+            if (nodeLevel == parentLevel + depth) {
+                doIt(node);
+
+                if(!colName) {
+                    var configNode = dm_Tools.getConfig(node) ;
+                    if(configNode && configNode.columns && (configNode.columns.length >= nodeLevel)) {
+                        var col = configNode.columns[nodeLevel-1] ;
+                        if(col) colName = col.name ;
+                    }
+                }
+            } else if ((dm_Tools.getDepth(node) < parentLevel + depth) && (node.children)) {
+                node.children.forEach(function(child) {
+                    dive(child);
+                });
+            }
+        }
+    } ;
+    dive(node);
+    if(!node.rawNode['itemsPie.dm_props']) node.rawNode['itemsPie.dm_props'] = {} ;
+    node.rawNode['itemsPie.dm_props'].label = colName ;
+    //node.rawNode['itemsPie.dm_props'].visible = true ;
+} else {
+    if(!node.rawNode['itemsPie.dm_props']) node.rawNode['itemsPie.dm_props'] = {}
+    node.rawNode['itemsPie.dm_props'].visible = false ;
+    node.rawNode['itemsPie.dm_props'].edit = false ;
+}
+return output ;",
+            "execAfterChildrenVisit": true,
+            "children": [{
+                "name": "dm_props",
+                "array index": 1,
+                "dontExport": true,
+                "hideFromEdit": true
+            }]
+        }, {
+            "name": "treeSunburst",
+            "array index": 2,
+            "value": "null",
+            "execAfterChildrenVisit": true,
+            "children": [{
+                "name": "dm_props",
+                "array index": 2,
+                "dontExport": true,
+                "hideFromEdit": true
+            }]
+        }],
+        "columnNames": ["Categorie", "Element", "icon", "url"],
+        "columns": [{
+            "name": "Categorie",
+            "array index": 0,
+            "columnIndex": 0
+        }, {
+            "name": "Element",
+            "array index": 1,
+            "columnIndex": 1
+        }],
+        "displayProps": [{
+            "name": "root",
+            "edit": false,
+            "visible": false,
+            "children": [{
+                "name": "icon",
+                "type": "image",
+                "visible": true
+            }, {
+                "name": "financeursListe",
+                "value": "
+var output = [] ;
+var children = dm_Tools.getNonReducedChildren(node) ;
+while(children.length > 0) {
+    var child = children.pop() ;
+    var w = 1 ;
+    if(child.rawNode) w = child.rawNode.weight ;
+    output.push({'text': child.name, 'weight': w}) ;
+}
+output ;
+",
+                "type": "list",
+                "randomSize": false,
+                "fontMin": 28,
+                "visible": true,
+                "colorPalette": "dm_Tools.modifiedCategory20b() ;",
+                "hideFromEdit": true
+            }]
+        }, {
+            "name": "level 1",
+            "edit": false,
+            "visible": false,
+            "children": [{
+                "name": "icon",
+                "type": "image",
+                "visible": true
+            }, {
+                "name": "url",
+                "label": "<img src=\"images/url_out.png\"/>&nbsp;&nbsp;&nbsp;Accéder au site",
+                "type": "action",
+                "content.type": "window url",
+                "edit": false,
+                "visible": true
+            }, {
+                "name": "carousel",
+                "value": "dm_Tools.createCarouselFromChildren(node, 1, true, 'icon', true, 'financeursCarousel') ;",
+                "type": "rich text",
+                "visible": true,
+                "leaveEventsOn": ".carousel-control",
+                "onload": "$(\"#financeursCarousel\").carousel({'interval': 10000}) ; $(\"#financeursCarousel_modal\").carousel({'interval': 10000}) ;",
+                "onModalSed": {
+                    "financeursCarousel": "financeursCarousel_modal"
+                }
+            /*
+            }, {
+                "name": "url",
+                "value": "var output = '<embed src=\"' + value + '\" style=\"width:100%; height:450px;\"></embed>'; output ;",
+                "type": "rich text"
+            */
+            }]
+        }, {
+            "name": "leaf",
+            "edit": false,
+            "visible": false,
+            "children": [{
+                "name": "icon",
+                "type": "image",
+                "maxWidthOrHeight": 590,
+                "visible": true
+            }]
+        }],
+        "specifics": [{
+            "name": "$dm_leaf",
+            "icon.dm_props": {
+                "borderRadius": 10
+            }
+        }],
+        "styles": [{
+            "name": "root",
+            "array index": 0,
+            "level": 0,
+            "arrow": true,
+            "arc": false,
+            "rNod": 10,
+            "link": 180,
+            "color": "#8C2C0E",
+            /*"drawUnderlyingRawValuesCharts": false,*/
+            "backgroundImage": "TV/images/Sophia.jpg",
+            "backgroundImage.dm_props": {
+                "opacity": 0.2
+            },
+            "txtFontSize": 16,
+            "mapOpacity": 0.5
+        }, {
+            "name": "level 1",
+            "icon.dm_props": {
+                "panelMaxHeight": 180,
+                "textX": 20
+            },
+            "level": 1,
+            "arrow": true,
+            "arc": false,
+            "rNod": 10,
+            "link": 180,
+            "txtFontSize": 12,
+            "color": "#842B5B",
+            "mapOpacity": 0.65
+        }, {
+            "name": "leaf",
+            "icon.dm_props": {
+                "textX": 20
+            },
+            "level": 2,
+            "arrow": false,
+            "arc": true,
+            "rNod": 4,
+            "link": 190,
+            "txtFontSize": 12,
+            "color": "#c7c7c7",
+            "txtCol": "#666666",
+            "rotatingTargetColor": "#F28A35",
+            "mapOpacity": 0.65
+        }],
+        "setColumns2node": {},
+        "maxDepthForExport": 2
+    }
+}

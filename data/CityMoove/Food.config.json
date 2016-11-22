@@ -1,0 +1,373 @@
+{
+	"$schema": "http://www.freedatamap.com/jsonConfigSchema/schema#",
+    "$charset": "UTF-8",
+    "config": {
+        "root": null,
+        "txtFontSize": 13,
+        "displayColumnsAsAttributes": true,
+        "dontReduceNumberOfChildren": true,
+        "multicolorBrothers": true,
+        "noColNameInShortDisplayName": true,
+        "displayColumnsAsAttributes": false,
+        "forceCharge": -4000,
+        "retintIcons": false,
+        "styles": [{
+            "name": "root",
+            "level": 0,
+            "arrow": true,
+            "arc": false,
+            "rNod": 10,
+            "link": 150,
+            "color": "#A8482B",
+            "backgroundImage": "../../images/empty.jpg",
+            "backgroundImage.dm_props": {
+                "name": "backgroundImage",
+                "visible": true,
+                "label": "backgroundImage",
+                "type": "image",
+                "dontExport": true,
+                "edit": false
+            }
+        }, {
+            "name": "level 1",
+            "level": 1,
+            "arrow": true,
+            "arc": false,
+            "rNod": 10,
+            "link": 100,
+            "linkStrength": 10,
+            "color": "#4E9A95",
+            "icon": "CityMoove/score.png",
+            "icon.dm_props": {
+                "width": 180,
+                "height": 180,
+                "type": "image",
+                "visible": true
+            },
+            "backgroundImage": "../../images/empty.jpg",
+            "backgroundImage.dm_props": {
+                "name": "backgroundImage",
+                "visible": true,
+                "label": "backgroundImage",
+                "type": "image",
+                "dontExport": true,
+                "edit": false
+            }
+        }, {
+            "name": "leaf",
+            "level": 2,
+            "arrow": true,
+            "arc": false,
+            "rNod": 9,
+            "link": 130,
+            "color": "#A8482B",
+            "icon.dm_props": {
+                "type": "image",
+                "visible": true,
+                "borderRadius": 10,
+                "scaleFactor": 5,
+                "textX": 12
+            },
+            "backgroundImage": "../../images/empty.jpg",
+            "backgroundImage.dm_props": {
+                "name": "backgroundImage",
+                "visible": true,
+                "label": "backgroundImage",
+                "type": "image",
+                "dontExport": true,
+                "edit": false
+            }
+        }],
+        "center": null,
+        "depth": 2,
+        "setColumns2node": {},
+        "sort": "items",
+        "sortDescendant": true,
+        "columns": [{
+            "name": "score",
+            "columnIndex": 0
+        }, {
+            "name": "title",
+            "columnIndex": 3
+        }],
+        "aggregate": [{
+            "name": "items",
+            "value": "var output = 1, child ;
+if(node.children && (node.children.length > 0)) {
+    var i = node.children.length - 1 ;
+    output = 0 ;
+    for(; i>=0; i--) {
+        child = node.children[i] ;
+        if(!child.rawNode[propName]) {
+            console.log('----- WARNING ! during items aggregation ITEMS VALUE ERROR ----------->' + dm_Tools.getNodePath(child), ' items = ' + child.rawNode[propName]) ;
+        }
+        output += node.children[i].rawNode[propName] ;
+    }
+    if(output > 1) {
+        if(!node.rawNode[propName + '.dm_props']) node.rawNode[propName + '.dm_props'] = {} ;
+        //node.rawNode[propName + '.dm_props'].visible = true ;
+    }
+} else {
+    if(!node.rawNode[propName + '.dm_props']) node.rawNode[propName + '.dm_props'] = {} ;
+    node.rawNode[propName + '.dm_props'].visible = false ;
+    node.rawNode[propName + '.dm_props'].edit = false ;
+}
+if(!output) {
+    console.log('----- WARNING ! during items aggregation ITEMS VALUE ERROR ----------->' + dm_Tools.getNodePath(node), ' items = ' + output) ;
+}
+return output ;",
+            "funcDropdown": "count leaves",
+            "execAfterChildrenVisit": true,
+            "onlyLeaves": true,
+            "label": "Items",
+            "type": "text",
+            "source": "aggregation",
+            "dm_props": {
+                "dontExport": true,
+                "hideFromEdit": true
+            }
+        /*
+        }, {
+            "name": "underlyingRawValues",
+            "value": "return dm_Tools.getUnderlyingRawValuesPerNode(node, propName) ;",
+            "execAfterChildrenVisit": true
+        */
+        }, {
+            "name": "itemsPie",
+            "value": "var output, elt;
+if(node.children && (node.children.length > 0) && !node.dm_isReducedNode) {
+    var levelMin = dm_Tools.getDepth(node) ;
+    var colName ;
+    var doIt = function(node) {
+        if (!output) {
+            output = [] ;
+        }
+        elt = {} ;
+        output.push(elt) ;
+        elt.value = node.rawNode['items'] ;
+        elt.name = node.name ; //dm_Tools.getNodePath(node, '', true, null, levelMin+1) ;
+        elt.unit = 'item(s)' ;
+    };
+    var parentLevel = dm_Tools.getDepth(node) ;
+    var depth = 1 ;
+    var dive = function(node) {
+        if (node) {
+            var nodeLevel = dm_Tools.getDepth(node) ;
+            if (nodeLevel == parentLevel + depth) {
+                doIt(node);
+
+                if(!colName) {
+                    var configNode = dm_Tools.getConfig(node) ;
+                    if(configNode && configNode.columns && (configNode.columns.length >= nodeLevel)) {
+                        var col = configNode.columns[nodeLevel-1] ;
+                        if(col) colName = col.name ;
+                    }
+                }
+            } else if ((dm_Tools.getDepth(node) < parentLevel + depth) && (node.children)) {
+                node.children.forEach(function(child) {
+                    dive(child);
+                });
+            }
+        }
+    } ;
+    dive(node);
+    if(!node.rawNode['itemsPie.dm_props']) node.rawNode['itemsPie.dm_props'] = {} ;
+    node.rawNode['itemsPie.dm_props'].label = colName ;
+    //node.rawNode['itemsPie.dm_props'].visible = true ;
+} else {
+    if(!node.rawNode['itemsPie.dm_props']) node.rawNode['itemsPie.dm_props'] = {}
+    node.rawNode['itemsPie.dm_props'].visible = false ;
+    node.rawNode['itemsPie.dm_props'].edit = false ;
+}
+return output ;",
+            "execAfterChildrenVisit": true,
+            "dm_props": {
+                "dontExport": true,
+                "hideFromEdit": true
+            }
+        /*
+        },{
+            "name": "underlyingRawValuesCharts",
+            "value": "dm_Tools.buildCharts4underlyingRawValues(node, 'underlyingRawValues') ;",
+            "execAfterChildrenVisit": true
+        */
+        },{
+            "name": "treeSunburst",
+            "value": "
+if(!node.children || (node.children.length == 0) || node.dm_isReducedNode) {
+    if(!node.rawNode['treeSunburst.dm_props']) node.rawNode['treeSunburst.dm_props'] = {}
+    node.rawNode['treeSunburst.dm_props'].visible = false ;
+    node.rawNode['treeSunburst.dm_props'].edit = false ;
+}
+return null ;",
+            "execAfterChildrenVisit": true,
+            "dm_props": {
+                "dontExport": true,
+                "hideFromEdit": true
+            }
+        },{
+            "name": "renameScore",
+            "value": "
+if(node.level == 1) {
+    if(node.name && ((''+node.name).substring(0, 7) != 'score: ')) {
+        node.name = 'score: ' + node.name ;
+    }
+}
+",
+            "execAfterChildrenVisit": true,
+            "dm_props": {
+                "dontExport": true,
+                "hideFromEdit": true
+            }
+        }],
+        "columnNames": [],
+        "displayProps": [{
+            "name": "root",
+            "children": [
+            {
+                "name": "childrenCloud",
+                "value": "
+var output = [] ;
+var children = dm_Tools.getNonReducedChildren(node, 3, 'onlyGivenLevel', 'absoluteLvl') ;
+var name ;
+while(children.length > 0) {
+    name = children.pop().name ;
+    if(output.indexOf(name) < 0) {
+        output.push(name) ;
+    }
+}
+output ;
+",
+                "order": 30,
+                "type": "cloud",
+                "visible": true,
+                "sizeFactor": 40,
+                /*"heightPercent": "50%",*/
+                "angleFactor": 8,
+                "colorPalette": "dm_Tools.modifiedCategory20b() ;",
+                "hideFromEdit": true,
+                "dontExport": true,
+                "displayEvenIfNull": true
+            }, {
+                "name": "treeSunburst",
+                "label": "Food places",
+                "type": "graph",
+                "graphModel": "sunburstChart",
+                "maxLength": 12,
+                "edit": false,
+                "visible": true,
+                "order": 40,
+                "dontExport": true,
+                "keepAfterGoto": true
+            }, {
+                "name": "carousel",
+                "value": "dm_Tools.createCarouselFromChildren(node, -1, false, 'icon', true, 'photosCarousel', true, true) ;",
+                "order": 50,
+                "type": "rich text",
+                "visible": true,
+                "leaveEventsOn": ".carousel-control",
+                "onload": "$(\"#photosCarousel\").carousel({'interval': 10000}) ; $(\"#photosCarousel_modal\").carousel({'interval': 10000}) ;",
+                "onModalSed": {
+                    "photosCarousel": "photosCarousel_modal"
+                }
+            }],
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "level 1",
+            "children": [
+            {
+                "name": "carousel",
+                "value": "dm_Tools.createCarouselFromChildren(node, -1, false, 'icon', true, 'photosCarousel', true, true) ;",
+                "order": 30,
+                "type": "rich text",
+                "visible": true,
+                "leaveEventsOn": ".carousel-control",
+                "onload": "$(\"#photosCarousel\").carousel({'interval': 10000}) ; $(\"#photosCarousel_modal\").carousel({'interval': 10000}) ;",
+                "onModalSed": {
+                    "photosCarousel": "photosCarousel_modal"
+                }
+            }, {
+                "name": "treeSunburst",
+                "edit": false,
+                "visible": false
+            }, {
+                "name": "childrenCloud",
+                "value": "
+var output = [] ;
+var children = dm_Tools.getNonReducedChildren(node, 2, 'onlyGivenLevel', 'absoluteLvl') ;
+var name ;
+while(children.length > 0) {
+    name = children.pop().name ;
+    if(output.indexOf(name) < 0) {
+        output.push(name) ;
+    }
+}
+output ;
+",
+                "order": 50,
+                "type": "cloud",
+                "visible": false,
+                "sizeFactor": 40,
+                /*"heightPercent": "50%",*/
+                "angleFactor": 8,
+                "colorPalette": "dm_Tools.modifiedCategory20b() ;",
+                "hideFromEdit": true,
+                "dontExport": true,
+                "displayEvenIfNull": true
+            }],
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "leaf",
+            "children": [
+            {
+                "name": "dm_geoMapDisplayStreetView",
+                "dontDeleteWhenCleanUpConfig": true,
+                "dontExport": true,
+                "type": "streetView"
+            }]
+        }],
+        "specifics": [
+        /* ----------------------------------------------------------------------------------------------------------------------------------------
+                     "name": "$dm_all",
+           ----------------------------------------------------------------------------------------------------------------------------------------
+        {
+            "name": "$dm_all",
+            "rawNode": {
+                "execBeforeAll": "
+'#dm_STOP_AND_REDRAW_ATTRIBUTES_PANEL#1' ;
+",
+                "execBeforeAll.dm_props": {
+                    "order": 0,
+                    "visible": true,
+                    "type": "execute"
+                },
+                "drawUnderlyingRawValuesCharts": "
+dm_Tools.buildCharts4underlyingRawValues(node, null, null, ['drawUnderlyingRawValuesCharts']) ;
+'#dm_STOP_AND_REDRAW_ATTRIBUTES_PANEL#1000' ;
+",
+                "drawUnderlyingRawValuesCharts.dm_props": {
+                    "order": 999,
+                    "visible": true,
+                    "dontExport": true,
+                    "type": "execute",
+                    "hideFromEdit": true
+                }
+            }
+        },
+        /* ----------------------------------------------------------------------------------------------------------------------------------------
+                     "name": "$dm_root|*",
+           ----------------------------------------------------------------------------------------------------------------------------------------*/
+        {
+            "name": "$dm_root|*",
+            "rawNode": {
+                "icon": "CityMoove/score.png",
+                "icon.dm_props": {
+                    "type": "image",
+                    "visible": true
+                }
+            }
+        }]
+    }
+}

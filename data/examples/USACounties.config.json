@@ -1,0 +1,612 @@
+{
+    "$schema": "http://www.freedatamap.com/jsonConfigSchema/schema#",
+    "$charset": "UTF-8",
+    "config": {
+        "name": "examples/USACounties.config",
+        "root": null,
+        "txtFontSize": 13,
+        "displayColumnsAsAttributes": true,
+        "center": null,
+        "depth": 1,
+        "sort": "CENSUSAREA",
+        "sortDescendant": true,
+        "displayArrowsOfTransversalConnections": false,
+        "sort1": "items",
+        "multicolorBrothers": true,
+        "maxDepthForExport": 2,
+        "dm_DatamapName": "USA Counties",
+        "dm_sourceFile": "examples/USACounties.geojson",
+        "$schema": "http://www.freedatamap.com/jsonConfigSchema/schema#",
+        "icon": "../../config/images/config/config_root.png",
+        "possibleProperties": null,
+        "maxNbOfColumns2tree": 10,
+        "csvSepIsSemicolon": true,
+        "displayTransversalConnections": true,
+        "dontReduceNumberOfChildren": true,
+        "forceCharge": -4000,
+        "moveRootXPercent": 30,
+        "moveRootYPercent": 0,
+        "moveRootMapXPercent": -20,
+        "moveRootMapYPercent": 0,
+        "props4globalSearch": ["STATE", "stateName"],
+        "aggregate": [{
+            "name": "items",
+            "array index": 0,
+            "value": "var output = 1, child ;
+if(node.children && (node.children.length > 0)) {
+    var i = node.children.length - 1 ;
+    output = 0 ;
+    for(; i>=0; i--) {
+        child = node.children[i] ;
+        if(!child.rawNode[propName]) {
+            console.log('----- WARNING ! during items aggregation ITEMS VALUE ERROR ----------->' + dm_Tools.getNodePath(child), ' items = ' + child.rawNode[propName]) ;
+        }
+        output += node.children[i].rawNode[propName] ;
+    }
+    if(output > 1) {
+        if(!node.rawNode[propName + '.dm_props']) node.rawNode[propName + '.dm_props'] = {} ;
+        node.rawNode[propName + '.dm_props'].visible = true ;
+    }
+} else {
+    if(!node.rawNode) node.rawNode = {} ;
+    if(!node.rawNode[propName + '.dm_props']) node.rawNode[propName + '.dm_props'] = {} ;
+    node.rawNode[propName + '.dm_props'].visible = false ;
+    node.rawNode[propName + '.dm_props'].edit = false ;
+}
+if(!output) {
+    console.log('----- WARNING ! during items aggregation ITEMS VALUE ERROR ----------->' + dm_Tools.getNodePath(node), ' items = ' + output) ;
+}
+return output ;",
+            "funcDropdown": "count leaves",
+            "execAfterChildrenVisit": true,
+            "onlyLeaves": true
+        }, {
+            "name": "dm_geoMapCoordsMinMax",
+            "array index": 1,
+            "value": "var output  ;
+if(!true || !node.children) {
+    output = dm_Tools.geoMapGetMinMax(node.rawNode['dm_geometry_coords'], null, true, node.rawNode['dm_geometry_type']) ;
+}
+if(node.children) {
+    for(var i=0; i<node.children.length; i++) {
+        output = dm_Tools.geoMapGetMinMax(node.children[i].rawNode[propName], output, null, 'min max') ;
+    }
+}
+//console.log('node name '+node.name+' min/max '+JSON.stringify(output)) ;
+return output ;",
+            "propertyName": "dm_geometry_coords",
+            "funcDropdown": "sum property",
+            "execAfterChildrenVisit": true,
+            "onlyLeaves": true
+        }, {
+            "name": "dm_geoMapRelativeBaryCenter",
+            "array index": 2,
+            "value": "return dm_Tools.geoMapRelativeBaryCenter(node, 'items') ;",
+            "propertyName": "dm_geometry_relative_barycenter_on_nb_items",
+            "execAfterChildrenVisit": true,
+            "onlyLeaves": true
+        }, {
+            "name": "dm_geoMapAggregatedGeoJson",
+            "array index": 3,
+            "value": "return dm_Tools.geoMapAggregateGeometry(node, propName) ;",
+            "propertyName": "dm_geometry_coords",
+            "funcDropdown": "sum property",
+            "execAfterChildrenVisit": true,
+            "onlyLeaves": true
+        }, {
+            "name": "linear",
+            "array index": 4,
+            "value": "var output  ;
+if(!true || !node.children) {
+    output = dm_Tools.geoMapCalculateLinear(node.rawNode.dm_geometry_coords, true) ;
+}
+if(node.children) {
+    for(var i=0; i<node.children.length; i++) {
+        if(!output) output = 0 ;
+        output += parseFloat(node.children[i].rawNode[propName] || 0) ;
+    }
+}
+return output ;",
+            "propertyName": "dm_geometry_coords",
+            "funcDropdown": "sum property",
+            "execAfterChildrenVisit": true,
+            "onlyLeaves": true
+        }, {
+            "name": "dm_geoMapDisplayStreetView",
+            "value": "var output  ;
+if(!true || !node.children) {
+    var point = dm_Tools.geoMapGetClosest2center(node) ;
+    output = {'lat': point[1], 'lng': point[0]} ;
+}
+return output;",
+            "propertyName": "dm_geometry_coords",
+            "funcDropdown": "sum property",
+            "execAfterChildrenVisit": true,
+            "onlyLeaves": true
+        }, {
+            "name": "displayName",
+            "array index": 6,
+            "value": "var output ;
+if(node.level == 1) {
+    var config = dm_Tools.getConfig(node) ;
+    var code = config.privateFunctions.stateFips2name ;
+    var output = eval(code) ;
+    node.rawNode.stateName = output ;
+    node.rawNode['stateName.dm_props'] = {
+        'label': 'STATE NAME',
+        'visible': true
+    }
+    //console.log(node.level + '   ' + node.name + '   ' + output) ;
+} else if(node.level > 1) {
+    node.rawNode.stateName = node.parent.rawNode.stateName ;
+    node.rawNode['stateName.dm_props'] = {
+        'label': 'STATE NAME',
+        'visible': true
+    }
+}
+return output ;
+",
+            "execAfterChildrenVisit": false,
+            "onlyLeaves": true,
+            "dm_props": {
+                "visible": false
+            }
+        }, {
+            "name": "icon",
+            "array index": 7,
+            "value": "var output ;
+if((node.level == 1) && node.rawNode && node.rawNode.STATE) {
+    var stateId = node.rawNode.STATE ;
+    if((stateId == 3) || (stateId == 7) || (stateId == 14) || (stateId == 43) || (stateId == 52)) { // || (stateId > 56)) {
+        output = null ;
+    } else {
+        if((''+stateId).length < 2) stateId = '0' + stateId ;
+        output = 'examples/USA_flags/' + stateId + '.png' ;
+    }
+}
+if(node.children && !node.parent) {
+    output = '../../images/logo_freeDatamap.png' ;
+    if(!node.rawNode['icon.dm_props']) node.rawNode['icon.dm_props'] = {} ;
+    node.rawNode['icon.dm_props'].scaleFactor = 5.5 ;
+}
+return output ;
+",
+            "execAfterChildrenVisit": true,
+            "onlyLeaves": true,
+            "dm_props": {
+                "order": 0,
+                "visible": true,
+                "scaleFactor": 3.5,
+                "noTint": true,
+                "type": "image"
+            }
+        }, {
+            "name": "CENSUSAREA",
+            "array index": 8,
+            "value": "var output ;
+if(!node.children) {
+    output = node.rawNode.CENSUSAREA ;
+} else {
+    output = 0 ;
+    for(var i=0; i<node.children.length; i++) {
+        output += node.children[i].rawNode.CENSUSAREA ;
+    }
+}
+return output ;
+",
+            "execAfterChildrenVisit": true,
+            "dm_props": {
+                "order": 0,
+                "visible": false
+            }
+        }],
+        "columnNames": ["GEO_ID", "STATE", "COUNTY", "NAME", "LSAD", "CENSUSAREA", "dm_geometry_type", "dm_geometry_coords"],
+        "columns": [{
+            "name": "STATE",
+            "array index": 0,
+            "columnIndex": 1,
+            "displayName": null
+        }, {
+            "array index": 1,
+            "displayName": null,
+            "children": [{
+                "name": "NAME",
+                "array index": 0,
+                "columnIndex": 3,
+                "displayName": null
+            }]
+        }],
+        "displayProps": [{
+            "name": "root",
+            "edit": false,
+            "visible": false,
+            "children": [{
+                "name": "items",
+                "array index": 0
+            }, {
+                "name": "areaPie",
+                "array index": 1
+            }, {
+                "name": "itemsPie",
+                "array index": 2
+            }]
+        }, {
+            "name": "level 1",
+            "edit": false,
+            "visible": false,
+            "children": [{
+                "name": "items",
+                "array index": 0
+            }, {
+                "name": "areaPie",
+                "array index": 1
+            }, {
+                "name": "itemsPie",
+                "array index": 2
+            }]
+        }, {
+            "name": "leaf",
+            "visible": true
+        }],
+        "specifics": [{
+            "name": "$dm_all",
+            "array index": 0,
+            "array index.dm_props": {
+                "visible": false,
+                "editable": false,
+                "name": "array index"
+            },
+            "execBeforeAll": "
+if(node.level > 0) {
+    node.rawNode['itemsPie.dm_props'].visible = false ;
+}
+'#dm_STOP_AND_REDRAW_ATTRIBUTES_PANEL#1' ;
+",
+            "execBeforeAll.dm_props": {
+                "order": 0,
+                "visible": true,
+                "type": "execute"
+            },
+            "childrenCloud": "
+var output ;
+var children = dm_Tools.getNonReducedChildren(node) ;
+var child, childName ;
+while(children.length > 0) {
+    if(!output) output = [] ;
+    child = children.pop() ;
+    childName ;
+    if(child.rawNode) childName = child.rawNode.displayName ;
+    if(!childName) childName = child.name ;
+    output.push(childName) ;
+}
+output ;
+",
+            "childrenCloud.dm_props":  {
+                "order": 10,
+                "type": "cloud",
+                "visible": true,
+                "dontExport": true,
+                "colorPalette": "dm_Tools.modifiedCategory20b() ;",
+                "hideFromEdit": true
+            },
+            "CENSUSAREA.dm_props": {
+                "order": 12,
+                "label": "Area",
+                "type": "text",
+                "edit": false,
+                "visible": true
+            },
+            "areaPie.dm_props": {
+                "order": 15,
+                "label": "Areas",
+                "type": "graph",
+                "edit": false,
+                "visible": true,
+                "graph": "pie",
+                "doTransition": true,
+                "predefinedGraphDropdown": "pie based on property",
+                "graphProperty1": "CENSUSAREA",
+                "graphUnit1": null,
+                "graphDepth": 1,
+                "textInPie": false,
+                "input": "var config = dm_Tools.getConfig(node) ;
+var code = config.privateFunctions.areaPie ;
+return eval(code) ;
+",
+                "dontDeleteWhenCleanUpConfig": true,
+                "name": "areaPie"
+            },
+            "items.dm_props": {
+                "order": 20,
+                "label": "Counties",
+                "type": "text",
+                "edit": false,
+                "visible": true,
+                "dontDeleteWhenCleanUpConfig": true,
+                "name": "items"
+            },
+            "itemsPie.dm_props": {
+                "order": 21,
+                "label": "Counties",
+                "type": "graph",
+                "edit": false,
+                "visible": true,
+                "graph": "pie",
+                "doTransition": true,
+                "predefinedGraphDropdown": "pie based on property",
+                "graphProperty1": "items",
+                "graphUnit1": "item(s)",
+                "graphDepth": 1,
+                "textInPie": false,
+                "input": "var config = dm_Tools.getConfig(node) ;
+var code = config.privateFunctions.itemsPie ;
+return eval(code) ;
+",
+                "dontDeleteWhenCleanUpConfig": true,
+                "name": "itemsPie"
+            },
+            "linear.dm_props": {
+                "label": "Linear",
+                "type": "text",
+                "edit": false,
+                "visible": false,
+                "dontDeleteWhenCleanUpConfig": true,
+                "name": "linear"
+            },
+            "linearPie.dm_props": {
+                "label": "Linear",
+                "type": "graph",
+                "edit": false,
+                "visible": false,
+                "graph": "pie",
+                "doTransition": true,
+                "predefinedGraphDropdown": "pie based on property",
+                "graphProperty1": "linear",
+                "graphUnit1": "meter(s)",
+                "graphDepth": 1,
+                "textInPie": false,
+                "input": "var config = dm_Tools.getConfig(node) ;
+var code = config.privateFunctions.linearPie ;
+return eval(code) ;
+",
+                "dontDeleteWhenCleanUpConfig": true,
+                "name": "linearPie"
+            },
+            "dm_geoMapDisplayStreetView.dm_props": {
+                "order": 0,
+                "type": "streetView",
+                "edit": false,
+                "visible": true,
+                "dontExport": true,
+                "dontDeleteWhenCleanUpConfig": true,
+                "name": "dm_geoMapDisplayStreetView"
+            },
+            "dm_geometry_type.dm_props": {
+                "label": "geometry",
+                "edit": false,
+                "visible": false,
+                "dontExport": true,
+                "dontDeleteWhenCleanUpConfig": true,
+                "name": "dm_geometry_type"
+            },
+            "dm_geometry_coords.dm_props": {
+                "label": "geometry coords",
+                "edit": false,
+                "visible": false,
+                "dontExport": true,
+                "dontDeleteWhenCleanUpConfig": true,
+                "name": "dm_geometry_coords"
+            },
+            "dm_geoMapCoordsMinMax.dm_props": {
+                "edit": false,
+                "visible": false,
+                "dontExport": true,
+                "dontDeleteWhenCleanUpConfig": true,
+                "name": "dm_geoMapCoordsMinMax"
+            },
+            "dm_geoMapAggregatedGeoJson.dm_props": {
+                "edit": false,
+                "visible": false,
+                "dontExport": true,
+                "dontDeleteWhenCleanUpConfig": true,
+                "name": "dm_geoMapAggregatedGeoJson"
+            },
+            "dm_geoMapRelativeBaryCenter.dm_props": {
+                "edit": false,
+                "visible": false,
+                "dontExport": true,
+                "dontDeleteWhenCleanUpConfig": true,
+                "name": "dm_geoMapRelativeBaryCenter"
+            }
+        }],
+        "styles": [{
+            "name": "root",
+            "array index": 0,
+            "level": 0,
+            "arrow": true,
+            "arc": false,
+            "rNod": 10,
+            "link": 150,
+            "color": "#1f77b4",
+            "attrPaneCol": "#aec7e8",
+            "txtFontSize": 14,
+            "mapOpacity": 0.5,
+            "backgroundImage": "../../images/empty.jpg"
+        }, {
+            "name": "level 1",
+            "array index": 1,
+            "level": 1,
+            "arrow": true,
+            "arc": false,
+            "rNod": 10,
+            "link": 130,
+            "txtFontSize": 13,
+            "color": "#1f77b4",
+            "mapOpacity": 0.5,
+            "attrPaneCol": "#aec7e8"
+        }, {
+            "name": "leaf",
+            "array index": 2,
+            "level": 2,
+            "arrow": false,
+            "arc": true,
+            "rNod": 4,
+            "link": 95,
+            "color": "#c7c7c7",
+            "attrPaneCol": "#c7c7c7",
+            "mapOpacity": 0.6,
+            "txtCol": "#7f7f7f"
+        }],
+        "privateFunctions": {
+            "itemsPie": "var output, elt;
+var levelMin = dm_Tools.getDepth(node) ;
+var doIt = function(node) {
+    if (!output) {
+        output = [] ;
+    }
+    elt = {} ;
+    output.push(elt) ;
+    elt.value = node.rawNode['items'] ;
+    elt.name = node.rawNode.displayName || node.name ; //dm_Tools.getNodePath(node, '', true, null, levelMin+1) ;
+    elt.unit = 'counties' ;
+};
+var parentLevel = dm_Tools.getDepth(node) ;
+var depth = 1 ;
+var dive = function(node) {
+    if (node) {
+        if (dm_Tools.getDepth(node) == parentLevel + depth) {
+            doIt(node);
+        } else if ((dm_Tools.getDepth(node) < parentLevel + depth) && (node.children)) {
+            node.children.forEach(function(child) {
+                dive(child);
+            });
+        }
+    }
+} ;
+dive(node);
+output ;",
+            "linearPie": "var output, elt;
+var levelMin = dm_Tools.getDepth(node) ;
+var doIt = function(node) {
+    if (!output) {
+        output = [] ;
+    }
+    elt = {} ;
+    output.push(elt) ;
+    elt.value = node.rawNode['linear'] ;
+    elt.name = dm_Tools.getNodePath(node, '', true, null, levelMin+1) ;
+    elt.unit = 'meter(s)' ;
+};
+var parentLevel = dm_Tools.getDepth(node) ;
+var depth = 1 ;
+var dive = function(node) {
+    if (node) {
+        if (dm_Tools.getDepth(node) == parentLevel + depth) {
+            doIt(node);
+        } else if ((dm_Tools.getDepth(node) < parentLevel + depth) && (node.children)) {
+            node.children.forEach(function(child) {
+                dive(child);
+            });
+        }
+    }
+} ;
+dive(node);
+output ;
+",
+            "areaPie": "var output, elt;
+var levelMin = dm_Tools.getDepth(node) ;
+var doIt = function(node) {
+    if (!output) {
+        output = [] ;
+    }
+    elt = {} ;
+    output.push(elt) ;
+    elt.value = node.rawNode['CENSUSAREA'] ;
+    elt.name = node.rawNode.displayName || node.name ; //dm_Tools.getNodePath(node, '', true, null, levelMin+1) ;
+    elt.unit = null ; //'square meter(s)' ;
+};
+var parentLevel = dm_Tools.getDepth(node) ;
+var depth = 1 ;
+var dive = function(node) {
+    if (node) {
+        if (dm_Tools.getDepth(node) == parentLevel + depth) {
+            doIt(node);
+        } else if ((dm_Tools.getDepth(node) < parentLevel + depth) && (node.children)) {
+            node.children.forEach(function(child) {
+                dive(child);
+            });
+        }
+    }
+} ;
+dive(node);
+output ;
+",
+            "stateFips2name": "var output ;
+var statesVector = [
+    {'abbr': 'AL', 'name': 'Alabama', 'capital': 'Montgomery', 'fips': 1},
+    {'abbr': 'AK', 'name': 'Alaska', 'capital': 'Juneau', 'fips': 2},
+    {'abbr': 'AZ', 'name': 'Arizona', 'capital': 'Phoenix', 'fips': 4},
+    {'abbr': 'AR', 'name': 'Arkansas', 'capital': 'Little Rock', 'fips': 5},
+    {'abbr': 'CA', 'name': 'California', 'capital': 'Sacramento', 'fips': 6},
+    {'abbr': 'CO', 'name': 'Colorado', 'capital': 'Denver', 'fips': 8},
+    {'abbr': 'CT', 'name': 'Connecticut', 'capital': 'Hartford', 'fips': 9},
+    {'abbr': 'DE', 'name': 'Delaware', 'capital': 'Dover', 'fips': 10},
+    {'abbr': 'DC', 'name': 'District of Columbia', 'capital': '', 'fips': 11},
+    {'abbr': 'FL', 'name': 'Florida', 'capital': 'Tallahassee', 'fips': 12},
+    {'abbr': 'GA', 'name': 'Georgia', 'capital': 'Atlanta', 'fips': 13},
+    {'abbr': 'HI', 'name': 'Hawaii', 'capital': 'Honolulu', 'fips': 15},
+    {'abbr': 'ID', 'name': 'Idaho', 'capital': 'Boise', 'fips': 16},
+    {'abbr': 'IL', 'name': 'Illinois', 'capital': 'Springfield', 'fips': 17},
+    {'abbr': 'IN', 'name': 'Indiana', 'capital': 'Indianapolis', 'fips': 18},
+    {'abbr': 'IA', 'name': 'Iowa', 'capital': 'Des Moines', 'fips': 19},
+    {'abbr': 'KS', 'name': 'Kansas', 'capital': 'Topeka', 'fips': 20},
+    {'abbr': 'KY', 'name': 'Kentucky', 'capital': 'Frankfort', 'fips': 21},
+    {'abbr': 'LA', 'name': 'Louisiana', 'capital': 'Baton Rouge', 'fips': 22},
+    {'abbr': 'ME', 'name': 'Maine', 'capital': 'Augusta', 'fips': 23},
+    {'abbr': 'MD', 'name': 'Maryland', 'capital': 'Annapolis', 'fips': 24},
+    {'abbr': 'MA', 'name': 'Massachusetts', 'capital': 'Boston', 'fips': 25},
+    {'abbr': 'MI', 'name': 'Michigan', 'capital': 'Lansing', 'fips': 26},
+    {'abbr': 'MN', 'name': 'Minnesota', 'capital': 'Saint Paul', 'fips': 27},
+    {'abbr': 'MS', 'name': 'Mississippi', 'capital': 'Jackson', 'fips': 28},
+    {'abbr': 'MO', 'name': 'Missouri', 'capital': 'Jefferson City', 'fips': 29},
+    {'abbr': 'MT', 'name': 'Montana', 'capital': 'Helena', 'fips': 30},
+    {'abbr': 'NE', 'name': 'Nebraska', 'capital': 'Lincoln', 'fips': 31},
+    {'abbr': 'NV', 'name': 'Nevada', 'capital': 'Carson City', 'fips': 32},
+    {'abbr': 'NH', 'name': 'New Hampshire', 'capital': 'Concord', 'fips': 33},
+    {'abbr': 'NJ', 'name': 'New Jersey', 'capital': 'Trenton', 'fips': 34},
+    {'abbr': 'NM', 'name': 'New Mexico', 'capital': 'Santa Fe', 'fips': 35},
+    {'abbr': 'NY', 'name': 'New York', 'capital': 'Albany', 'fips': 36},
+    {'abbr': 'NC', 'name': 'North Carolina', 'capital': 'Raleigh', 'fips': 37},
+    {'abbr': 'ND', 'name': 'North Dakota', 'capital': 'Bismarck', 'fips': 38},
+    {'abbr': 'OH', 'name': 'Ohio', 'capital': 'Columbus', 'fips': 39},
+    {'abbr': 'OK', 'name': 'Oklahoma', 'capital': 'Oklahoma City', 'fips': 40},
+    {'abbr': 'OR', 'name': 'Oregon', 'capital': 'Salem', 'fips': 41},
+    {'abbr': 'PA', 'name': 'Pennsylvania', 'capital': 'Harrisburg', 'fips': 42},
+    {'abbr': 'RI', 'name': 'Rhode Island', 'capital': 'Providence', 'fips': 44},
+    {'abbr': 'SC', 'name': 'South Carolina', 'capital': 'Columbia', 'fips': 45},
+    {'abbr': 'SD', 'name': 'South Dakota', 'capital': 'Pierre', 'fips': 46},
+    {'abbr': 'TN', 'name': 'Tennessee', 'capital': 'Nashville', 'fips': 47},
+    {'abbr': 'TX', 'name': 'Texas', 'capital': 'Austin', 'fips': 48},
+    {'abbr': 'UT', 'name': 'Utah', 'capital': 'Salt Lake City', 'fips': 49},
+    {'abbr': 'VT', 'name': 'Vermont', 'capital': 'Montpelier', 'fips': 50},
+    {'abbr': 'VA', 'name': 'Virginia', 'capital': 'Richmond', 'fips': 51},
+    {'abbr': 'WA', 'name': 'Washington', 'capital': 'Olympia', 'fips': 53},
+    {'abbr': 'WV', 'name': 'West Virginia', 'capital': 'Charleston', 'fips': 54},
+    {'abbr': 'WI', 'name': 'Wisconsin', 'capital': 'Madison', 'fips': 55},
+    {'abbr': 'WY', 'name': 'Wyoming', 'capital': 'Cheyenne', 'fips': 56},
+    {'abbr': 'PR', 'name': 'Puerto Rico', 'capital': '', 'fips': 72},
+    {'abbr': 'AS', 'name': 'American Samoa', 'capital': '', 'fips': 60},
+    {'abbr': 'GU', 'name': 'Guam', 'capital': '', 'fips': 66},
+    {'abbr': 'MP', 'name': 'Northern Mariana Islands', 'capital': '', 'fips': 69},
+    {'abbr': 'VI', 'name': 'Virgin Islands', 'capital': '', 'fips': 78}
+] ;
+var statesPerFips = {} ;
+for(var i=0; i<statesVector.length; i++) {
+    statesPerFips[statesVector[i].fips] = statesVector[i] ;
+}
+output = statesPerFips[node.name].name ;
+"
+        },
+        "setColumns2node": {}
+    }
+}

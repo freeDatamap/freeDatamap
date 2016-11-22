@@ -1,0 +1,1603 @@
+{
+	"$schema": "http://www.freedatamap.com/jsonConfigSchema/schema#",
+    "$charset": "UTF-8",
+    "config": {
+        "root": null,
+        "txtFontSize": 13,
+        "displayColumnsAsAttributes": true,
+        "dontReduceNumberOfChildren": true,
+        "forceCharge": -2000,
+        "linkDistance": 30,
+        "forceLinkStrength": 5.3,
+        "noTransition": true,
+        "styles": [{
+            "name": "root",
+            "level": 0,
+            "arrow": true,
+            "arc": false,
+            "rNod": 7,
+            "link": 150,
+            "color": "#2B8468",
+            "icon": "../../images/helium.png",
+            "icon.dm_props": {
+                "name": "icon",
+                "label": "icon",
+                "type": "image",
+                "source": "user",
+                "imageName": "../../images/helium.png",
+                "width": 180,
+                "height": 179,
+                "panelMaxHeight": 179,
+                "scaleFactor": 5.5,
+                "edit": false,
+                "visible": true
+            },
+            "backgroundImage": "helium/dna.jpg",
+            "backgroundImage.dm_props": {
+                "name": "backgroundImage",
+                "visible": true,
+                "label": "backgroundImage",
+                "type": "image",
+                "dontExport": true,
+                "edit": false,
+                "opacity": 0.18
+            }
+        }, {
+            "name": "level 1",
+            "level": 1,
+            "arrow": true,
+            "arc": false,
+            "rNod": 7,
+            "link": 130,
+            "color": "#1f77b4",
+            "attrPaneCol": "#aec7e8"
+        }, {
+            "name": "level 2",
+            "level": 2,
+            "arrow": true,
+            "arc": false,
+            "rNod": 7,
+            "link": 130,
+            "color": "#ff7f0e",
+            "attrPaneCol": "#ffbb78"
+        }, {
+            "name": "level 3",
+            "level": 3,
+            "arrow": true,
+            "arc": false,
+            "rNod": 7,
+            "link": 130,
+            "color": "#2ca02c",
+            "attrPaneCol": "#98df8a"
+        }, {
+            "name": "level 4",
+            "level": 4,
+            "arrow": true,
+            "arc": false,
+            "rNod": 7,
+            "link": 130,
+            "color": "#d62728",
+            "attrPaneCol": "#ff9896"
+        }, {
+            "name": "level 5",
+            "level": 5,
+            "arrow": true,
+            "arc": false,
+            "rNod": 7,
+            "link": 130,
+            "color": "#9467bd",
+            "attrPaneCol": "#c5b0d5"
+        }, {
+            "name": "level 6",
+            "level": 6,
+            "arrow": true,
+            "arc": false,
+            "rNod": 7,
+            "link": 130,
+            "color": "#e377c2",
+            "attrPaneCol": "#f7b6d2"
+        }, {
+            "name": "level 7",
+            "level": 7,
+            "arrow": true,
+            "arc": false,
+            "rNod": 7,
+            "link": 130,
+            "color": "#bcbd22",
+            "attrPaneCol": "#dbdb8d"
+        }, {
+            "name": "level 8",
+            "level": 8,
+            "arrow": true,
+            "arc": false,
+            "rNod": 7,
+            "link": 130,
+            "color": "#17becf",
+            "attrPaneCol": "#9edae5"
+        }, {
+            "name": "level 9",
+            "level": 9,
+            "arrow": true,
+            "arc": false,
+            "rNod": 7,
+            "link": 130,
+            "color": "#6b6ecf",
+            "attrPaneCol": "#9c9ede"
+        }, {
+            "name": "level 10",
+            "level": 10,
+            "arrow": true,
+            "arc": false,
+            "rNod": 7,
+            "link": 130,
+            "color": "#1f77b4",
+            "attrPaneCol": "#aec7e8"
+        }, {
+            "name": "level 11",
+            "level": 11,
+            "arrow": true,
+            "arc": false,
+            "rNod": 7,
+            "link": 130,
+            "color": "#ff7f0e",
+            "attrPaneCol": "#ffbb78"
+        }, {
+            "name": "level 12",
+            "level": 12,
+            "arrow": true,
+            "arc": false,
+            "rNod": 7,
+            "link": 130,
+            "color": "#2ca02c",
+            "attrPaneCol": "#98df8a"
+        }, {
+            "name": "level 13",
+            "level": 13,
+            "arrow": true,
+            "arc": false,
+            "rNod": 7,
+            "link": 130,
+            "color": "#d62728",
+            "attrPaneCol": "#ff9896"
+        }, {
+            "name": "level 14",
+            "level": 14,
+            "arrow": true,
+            "arc": false,
+            "rNod": 7,
+            "link": 130,
+            "color": "#9467bd",
+            "attrPaneCol": "#c5b0d5"
+        }, {
+            "name": "level 15",
+            "level": 15,
+            "arrow": true,
+            "arc": false,
+            "rNod": 7,
+            "link": 130,
+            "color": "#e377c2",
+            "attrPaneCol": "#f7b6d2"
+        }, {
+            "name": "level 16",
+            "level": 16,
+            "arrow": true,
+            "arc": false,
+            "rNod": 6,
+            "link": 130,
+            "color": "#bcbd22",
+            "attrPaneCol": "#dbdb8d"
+        }, {
+            "name": "level 17",
+            "level": 17,
+            "arrow": true,
+            "arc": false,
+            "rNod": 6,
+            "link": 130,
+            "color": "#17becf",
+            "attrPaneCol": "#9edae5"
+        }, {
+            "name": "level 18",
+            "level": 18,
+            "arrow": true,
+            "arc": false,
+            "rNod": 6,
+            "link": 130,
+           "color": "#6b6ecf",
+            "attrPaneCol": "#9c9ede"
+        }, {
+            "name": "leaf",
+            "level": 19,
+            "arrow": false,
+            "arc": true,
+            "rNod": 6,
+            "link": 95,
+            "color": "#c7c7c7",
+            "attrPaneCol": "#c7c7c7",
+            "txtCol": "#7f7f7f"
+        }],
+        "center": null,
+        "depth": 2,
+        "setColumns2node": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+        "sort": "items",
+        "sortDescendant": true,
+        "columns": [],
+        "strengthOfParentLinks": 2.5,
+        "linkDistanceFactorOfParentLinks": 1.5,
+        "removeRootNodeFromParentsInGraph": true,
+        "aggregate": [{
+            "name": "items",
+            "value": "var output = 1, child ;
+if(node.children && (node.children.length > 0)) {
+    var i = node.children.length - 1 ;
+    output = 0 ;
+    for(; i>=0; i--) {
+        child = node.children[i] ;
+        if(!child.rawNode[propName]) {
+            console.log('----- WARNING ! during items aggregation ITEMS VALUE ERROR ----------->' + dm_Tools.getNodePath(child), ' items = ' + child.rawNode[propName]) ;
+        }
+        output += node.children[i].rawNode[propName] ;
+    }
+    if(output > 1) {
+        if(!node.rawNode[propName + '.dm_props']) node.rawNode[propName + '.dm_props'] = {} ;
+        //node.rawNode[propName + '.dm_props'].visible = true ;
+    }
+} else {
+    if(!node.rawNode) node.rawNode = {} ;
+    if(!node.rawNode[propName + '.dm_props']) node.rawNode[propName + '.dm_props'] = {} ;
+    node.rawNode[propName + '.dm_props'].visible = false ;
+    node.rawNode[propName + '.dm_props'].edit = false ;
+}
+if(!output) {
+    console.log('----- WARNING ! during items aggregation ITEMS VALUE ERROR ----------->' + dm_Tools.getNodePath(node), ' items = ' + output) ;
+}
+return output ;",
+            "funcDropdown": "count leaves",
+            "execAfterChildrenVisit": true,
+            "onlyLeaves": true,
+            "label": "Children",
+            /*"visible": true,*/
+            "type": "text",
+            "source": "aggregation"
+        /*
+        }, {
+            "name": "underlyingRawValues",
+            "value": "return dm_Tools.getUnderlyingRawValuesPerNode(node, propName) ;",
+            "execAfterChildrenVisit": true
+        */
+        }, {
+            "name": "itemsPie",
+            "value": "var output, elt;
+if(node.children && (node.children.length > 0) && !node.dm_isReducedNode) {
+    var levelMin = dm_Tools.getDepth(node) ;
+    var colName ;
+    var doIt = function(node) {
+        if (!output) {
+            output = [] ;
+        }
+        elt = {} ;
+        output.push(elt) ;
+        elt.value = node.rawNode['items'] ;
+        elt.name = node.name ; //dm_Tools.getNodePath(node, '', true, null, levelMin+1) ;
+        elt.unit = 'child(ren)' ;
+    };
+    var parentLevel = dm_Tools.getDepth(node) ;
+    var depth = 1 ;
+    var dive = function(node) {
+        if (node) {
+            var nodeLevel = dm_Tools.getDepth(node) ;
+            if (nodeLevel == parentLevel + depth) {
+                doIt(node);
+
+                if(!colName) {
+                    var configNode = dm_Tools.getConfig(node) ;
+                    if(configNode && configNode.columns && (configNode.columns.length >= nodeLevel)) {
+                        var col = configNode.columns[nodeLevel-1] ;
+                        if(col) colName = col.name ;
+                    }
+                }
+            } else if ((dm_Tools.getDepth(node) < parentLevel + depth) && (node.children)) {
+                node.children.forEach(function(child) {
+                    dive(child);
+                });
+            }
+        }
+    } ;
+    dive(node);
+    if(!node.rawNode['itemsPie.dm_props']) node.rawNode['itemsPie.dm_props'] = {} ;
+    node.rawNode['itemsPie.dm_props'].label = colName ;
+    //node.rawNode['itemsPie.dm_props'].visible = true ;
+} else {
+    if(!node.rawNode) node.rawNode = {} ;
+    if(!node.rawNode['itemsPie.dm_props']) node.rawNode['itemsPie.dm_props'] = {}
+    node.rawNode['itemsPie.dm_props'].visible = false ;
+    node.rawNode['itemsPie.dm_props'].edit = false ;
+}
+return output ;",
+            "execAfterChildrenVisit": true
+        /*
+        },{
+            "name": "underlyingRawValuesCharts",
+            "value": "dm_Tools.buildCharts4underlyingRawValues(node, 'underlyingRawValues') ;",
+            "execAfterChildrenVisit": true
+        */
+        },{
+            "name": "treeSunburst",
+            "value": "
+if(!node.children || (node.children.length == 0) || node.dm_isReducedNode) {
+    if(!node.rawNode) node.rawNode = {} ;
+    if(!node.rawNode['treeSunburst.dm_props']) node.rawNode['treeSunburst.dm_props'] = {}
+    node.rawNode['treeSunburst.dm_props'].visible = false ;
+    node.rawNode['treeSunburst.dm_props'].edit = false ;
+} else {
+    if(!node.rawNode['treeSunburst.dm_props']) node.rawNode['treeSunburst.dm_props'] = {}
+    node.rawNode['treeSunburst.dm_props'].visible = true ;
+}
+return null ;",
+            "execAfterChildrenVisit": true
+        },{
+            "name": "parentsTreeSunburst",
+            "execAfterChildrenVisit": true
+        }],
+        "columnNames": [],
+        "displayProps": [{
+            "name": "root",
+            "children": [{
+                "name": "items",
+                "label": "Children",
+                "type": "text",
+                "edit": false,
+                "visible": false,
+                "order": 41,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "underlyingRawValues",
+                "label": "underlyingRawValues",
+                "order": 1000,
+                "visible": false,
+                "edit": false,
+                "dontExport": true,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "itemsPie",
+                "label": "Children",
+                "type": "graph",
+                "edit": false,
+                "visible": false,
+                "graph": "pie",
+                "doTransition": true,
+                "textInPie": false,
+                "order": 40,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "underlyingRawValuesCharts",
+                "label": "underlyingRawValuesCharts",
+                "order": 1001,
+                "visible": false,
+                "keepAfterGoto": true,
+                "dontExport": true
+            },
+            {
+                "name": "treeSunburst",
+                "label": "Children",
+                "type": "graph",
+                "graphModel": "sunburstChart",
+                "maxLength": 12,
+                "edit": false,
+                "visible": true,
+                "order": 45,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "parentsTreeSunburst",
+                "label": "Parents",
+                "type": "graph",
+                "graphModel": "sunburstChart",
+                "sunburstType": "parents",
+                "maxLength": 12,
+                "edit": false,
+                "visible": true,
+                "order": 50,
+                "keepAfterGoto": true
+            }],
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "level 1",
+            "children": [{
+                "name": "items",
+                "label": "Children",
+                "type": "text",
+                "edit": false,
+                "visible": false,
+                "order": 41,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "underlyingRawValues",
+                "label": "underlyingRawValues",
+                "order": 1000,
+                "visible": false,
+                "edit": false,
+                "dontExport": true,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "itemsPie",
+                "label": "Children",
+                "type": "graph",
+                "edit": false,
+                "visible": false,
+                "graph": "pie",
+                "doTransition": true,
+                "textInPie": false,
+                "order": 40,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "underlyingRawValuesCharts",
+                "label": "underlyingRawValuesCharts",
+                "order": 1001,
+                "visible": false,
+                "keepAfterGoto": true,
+                "dontExport": true
+            },
+            {
+                "name": "treeSunburst",
+                "label": "Children",
+                "type": "graph",
+                "graphModel": "sunburstChart",
+                "maxLength": 12,
+                "edit": false,
+                "visible": true,
+                "order": 45,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "parentsTreeSunburst",
+                "label": "Parents",
+                "type": "graph",
+                "graphModel": "sunburstChart",
+                "sunburstType": "parents",
+                "maxLength": 12,
+                "edit": false,
+                "visible": true,
+                "order": 50,
+                "keepAfterGoto": true
+            }],
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "level 2",
+            "children": [{
+                "name": "items",
+                "label": "Children",
+                "type": "text",
+                "edit": false,
+                "visible": false,
+                "order": 41,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "underlyingRawValues",
+                "label": "underlyingRawValues",
+                "order": 1000,
+                "visible": false,
+                "edit": false,
+                "dontExport": true,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "itemsPie",
+                "label": "Children",
+                "type": "graph",
+                "edit": false,
+                "visible": false,
+                "graph": "pie",
+                "doTransition": true,
+                "textInPie": false,
+                "order": 40,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "underlyingRawValuesCharts",
+                "label": "underlyingRawValuesCharts",
+                "order": 1001,
+                "visible": false,
+                "keepAfterGoto": true,
+                "dontExport": true
+            },
+            {
+                "name": "treeSunburst",
+                "label": "Children",
+                "type": "graph",
+                "graphModel": "sunburstChart",
+                "maxLength": 12,
+                "edit": false,
+                "visible": true,
+                "order": 45,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "parentsTreeSunburst",
+                "label": "Parents",
+                "type": "graph",
+                "graphModel": "sunburstChart",
+                "sunburstType": "parents",
+                "maxLength": 12,
+                "edit": false,
+                "visible": true,
+                "order": 50,
+                "keepAfterGoto": true
+            }],
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "level 3",
+            "children": [{
+                "name": "items",
+                "label": "Children",
+                "type": "text",
+                "edit": false,
+                "visible": false,
+                "order": 41,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "underlyingRawValues",
+                "label": "underlyingRawValues",
+                "order": 1000,
+                "visible": false,
+                "edit": false,
+                "dontExport": true,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "itemsPie",
+                "label": "Children",
+                "type": "graph",
+                "edit": false,
+                "visible": false,
+                "graph": "pie",
+                "doTransition": true,
+                "textInPie": false,
+                "order": 40,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "underlyingRawValuesCharts",
+                "label": "underlyingRawValuesCharts",
+                "order": 1001,
+                "visible": false,
+                "keepAfterGoto": true,
+                "dontExport": true
+            },
+            {
+                "name": "treeSunburst",
+                "label": "Children",
+                "type": "graph",
+                "graphModel": "sunburstChart",
+                "maxLength": 12,
+                "edit": false,
+                "visible": true,
+                "order": 45,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "parentsTreeSunburst",
+                "label": "Parents",
+                "type": "graph",
+                "graphModel": "sunburstChart",
+                "sunburstType": "parents",
+                "maxLength": 12,
+                "edit": false,
+                "visible": true,
+                "order": 50,
+                "keepAfterGoto": true
+            }],
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "level 4",
+            "children": [{
+                "name": "items",
+                "label": "Children",
+                "type": "text",
+                "edit": false,
+                "visible": false,
+                "order": 41,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "underlyingRawValues",
+                "label": "underlyingRawValues",
+                "order": 1000,
+                "visible": false,
+                "edit": false,
+                "dontExport": true,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "itemsPie",
+                "label": "Children",
+                "type": "graph",
+                "edit": false,
+                "visible": false,
+                "graph": "pie",
+                "doTransition": true,
+                "textInPie": false,
+                "order": 40,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "underlyingRawValuesCharts",
+                "label": "underlyingRawValuesCharts",
+                "order": 1001,
+                "visible": false,
+                "keepAfterGoto": true,
+                "dontExport": true
+            },
+            {
+                "name": "treeSunburst",
+                "label": "Children",
+                "type": "graph",
+                "graphModel": "sunburstChart",
+                "maxLength": 12,
+                "edit": false,
+                "visible": true,
+                "order": 45,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "parentsTreeSunburst",
+                "label": "Parents",
+                "type": "graph",
+                "graphModel": "sunburstChart",
+                "sunburstType": "parents",
+                "maxLength": 12,
+                "edit": false,
+                "visible": true,
+                "order": 50,
+                "keepAfterGoto": true
+            }],
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "level 5",
+            "children": [{
+                "name": "items",
+                "label": "Children",
+                "type": "text",
+                "edit": false,
+                "visible": false,
+                "order": 41,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "underlyingRawValues",
+                "label": "underlyingRawValues",
+                "order": 1000,
+                "visible": false,
+                "edit": false,
+                "dontExport": true,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "itemsPie",
+                "label": "Children",
+                "type": "graph",
+                "edit": false,
+                "visible": false,
+                "graph": "pie",
+                "doTransition": true,
+                "textInPie": false,
+                "order": 40,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "underlyingRawValuesCharts",
+                "label": "underlyingRawValuesCharts",
+                "order": 1001,
+                "visible": false,
+                "keepAfterGoto": true,
+                "dontExport": true
+            },
+            {
+                "name": "treeSunburst",
+                "label": "Children",
+                "type": "graph",
+                "graphModel": "sunburstChart",
+                "maxLength": 12,
+                "edit": false,
+                "visible": true,
+                "order": 45,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "parentsTreeSunburst",
+                "label": "Parents",
+                "type": "graph",
+                "graphModel": "sunburstChart",
+                "sunburstType": "parents",
+                "maxLength": 12,
+                "edit": false,
+                "visible": true,
+                "order": 50,
+                "keepAfterGoto": true
+            }],
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "level 6",
+            "children": [{
+                "name": "items",
+                "label": "Children",
+                "type": "text",
+                "edit": false,
+                "visible": false,
+                "order": 41,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "underlyingRawValues",
+                "label": "underlyingRawValues",
+                "order": 1000,
+                "visible": false,
+                "edit": false,
+                "dontExport": true,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "itemsPie",
+                "label": "Children",
+                "type": "graph",
+                "edit": false,
+                "visible": false,
+                "graph": "pie",
+                "doTransition": true,
+                "textInPie": false,
+                "order": 40,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "underlyingRawValuesCharts",
+                "label": "underlyingRawValuesCharts",
+                "order": 1001,
+                "visible": false,
+                "keepAfterGoto": true,
+                "dontExport": true
+            },
+            {
+                "name": "treeSunburst",
+                "label": "Children",
+                "type": "graph",
+                "graphModel": "sunburstChart",
+                "maxLength": 12,
+                "edit": false,
+                "visible": true,
+                "order": 45,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "parentsTreeSunburst",
+                "label": "Parents",
+                "type": "graph",
+                "graphModel": "sunburstChart",
+                "sunburstType": "parents",
+                "maxLength": 12,
+                "edit": false,
+                "visible": true,
+                "order": 50,
+                "keepAfterGoto": true
+            }],
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "level 7",
+            "children": [{
+                "name": "items",
+                "label": "Children",
+                "type": "text",
+                "edit": false,
+                "visible": false,
+                "order": 41,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "underlyingRawValues",
+                "label": "underlyingRawValues",
+                "order": 1000,
+                "visible": false,
+                "edit": false,
+                "dontExport": true,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "itemsPie",
+                "label": "Children",
+                "type": "graph",
+                "edit": false,
+                "visible": false,
+                "graph": "pie",
+                "doTransition": true,
+                "textInPie": false,
+                "order": 40,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "underlyingRawValuesCharts",
+                "label": "underlyingRawValuesCharts",
+                "order": 1001,
+                "visible": false,
+                "keepAfterGoto": true,
+                "dontExport": true
+            },
+            {
+                "name": "treeSunburst",
+                "label": "Children",
+                "type": "graph",
+                "graphModel": "sunburstChart",
+                "maxLength": 12,
+                "edit": false,
+                "visible": true,
+                "order": 45,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "parentsTreeSunburst",
+                "label": "Parents",
+                "type": "graph",
+                "graphModel": "sunburstChart",
+                "sunburstType": "parents",
+                "maxLength": 12,
+                "edit": false,
+                "visible": true,
+                "order": 50,
+                "keepAfterGoto": true
+            }],
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "level 8",
+            "children": [{
+                "name": "items",
+                "label": "Children",
+                "type": "text",
+                "edit": false,
+                "visible": false,
+                "order": 41,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "underlyingRawValues",
+                "label": "underlyingRawValues",
+                "order": 1000,
+                "visible": false,
+                "edit": false,
+                "dontExport": true,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "itemsPie",
+                "label": "Children",
+                "type": "graph",
+                "edit": false,
+                "visible": false,
+                "graph": "pie",
+                "doTransition": true,
+                "textInPie": false,
+                "order": 40,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "underlyingRawValuesCharts",
+                "label": "underlyingRawValuesCharts",
+                "order": 1001,
+                "visible": false,
+                "keepAfterGoto": true,
+                "dontExport": true
+            },
+            {
+                "name": "treeSunburst",
+                "label": "Children",
+                "type": "graph",
+                "graphModel": "sunburstChart",
+                "maxLength": 12,
+                "edit": false,
+                "visible": true,
+                "order": 45,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "parentsTreeSunburst",
+                "label": "Parents",
+                "type": "graph",
+                "graphModel": "sunburstChart",
+                "sunburstType": "parents",
+                "maxLength": 12,
+                "edit": false,
+                "visible": true,
+                "order": 50,
+                "keepAfterGoto": true
+            }],
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "level 9",
+            "children": [{
+                "name": "items",
+                "label": "Children",
+                "type": "text",
+                "edit": false,
+                "visible": false,
+                "order": 41,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "underlyingRawValues",
+                "label": "underlyingRawValues",
+                "order": 1000,
+                "visible": false,
+                "edit": false,
+                "dontExport": true,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "itemsPie",
+                "label": "Children",
+                "type": "graph",
+                "edit": false,
+                "visible": false,
+                "graph": "pie",
+                "doTransition": true,
+                "textInPie": false,
+                "order": 40,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "underlyingRawValuesCharts",
+                "label": "underlyingRawValuesCharts",
+                "order": 1001,
+                "visible": false,
+                "keepAfterGoto": true,
+                "dontExport": true
+            },
+            {
+                "name": "treeSunburst",
+                "label": "Children",
+                "type": "graph",
+                "graphModel": "sunburstChart",
+                "maxLength": 12,
+                "edit": false,
+                "visible": true,
+                "order": 45,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "parentsTreeSunburst",
+                "label": "Parents",
+                "type": "graph",
+                "graphModel": "sunburstChart",
+                "sunburstType": "parents",
+                "maxLength": 12,
+                "edit": false,
+                "visible": true,
+                "order": 50,
+                "keepAfterGoto": true
+            }],
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "level 10",
+            "children": [{
+                "name": "items",
+                "label": "Children",
+                "type": "text",
+                "edit": false,
+                "visible": false,
+                "order": 41,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "underlyingRawValues",
+                "label": "underlyingRawValues",
+                "order": 1000,
+                "visible": false,
+                "edit": false,
+                "dontExport": true,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "itemsPie",
+                "label": "Children",
+                "type": "graph",
+                "edit": false,
+                "visible": false,
+                "graph": "pie",
+                "doTransition": true,
+                "textInPie": false,
+                "order": 40,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "underlyingRawValuesCharts",
+                "label": "underlyingRawValuesCharts",
+                "order": 1001,
+                "visible": false,
+                "keepAfterGoto": true,
+                "dontExport": true
+            },
+            {
+                "name": "treeSunburst",
+                "label": "Children",
+                "type": "graph",
+                "graphModel": "sunburstChart",
+                "maxLength": 12,
+                "edit": false,
+                "visible": true,
+                "order": 45,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "parentsTreeSunburst",
+                "label": "Parents",
+                "type": "graph",
+                "graphModel": "sunburstChart",
+                "sunburstType": "parents",
+                "maxLength": 12,
+                "edit": false,
+                "visible": true,
+                "order": 50,
+                "keepAfterGoto": true
+            }],
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "level 11",
+            "children": [{
+                "name": "items",
+                "label": "Children",
+                "type": "text",
+                "edit": false,
+                "visible": false,
+                "order": 41,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "underlyingRawValues",
+                "label": "underlyingRawValues",
+                "order": 1000,
+                "visible": false,
+                "edit": false,
+                "dontExport": true,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "itemsPie",
+                "label": "Children",
+                "type": "graph",
+                "edit": false,
+                "visible": false,
+                "graph": "pie",
+                "doTransition": true,
+                "textInPie": false,
+                "order": 40,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "underlyingRawValuesCharts",
+                "label": "underlyingRawValuesCharts",
+                "order": 1001,
+                "visible": false,
+                "keepAfterGoto": true,
+                "dontExport": true
+            },
+            {
+                "name": "treeSunburst",
+                "label": "Children",
+                "type": "graph",
+                "graphModel": "sunburstChart",
+                "maxLength": 12,
+                "edit": false,
+                "visible": true,
+                "order": 45,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "parentsTreeSunburst",
+                "label": "Parents",
+                "type": "graph",
+                "graphModel": "sunburstChart",
+                "sunburstType": "parents",
+                "maxLength": 12,
+                "edit": false,
+                "visible": true,
+                "order": 50,
+                "keepAfterGoto": true
+            }],
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "level 12",
+            "children": [{
+                "name": "items",
+                "label": "Children",
+                "type": "text",
+                "edit": false,
+                "visible": false,
+                "order": 41,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "underlyingRawValues",
+                "label": "underlyingRawValues",
+                "order": 1000,
+                "visible": false,
+                "edit": false,
+                "dontExport": true,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "itemsPie",
+                "label": "Children",
+                "type": "graph",
+                "edit": false,
+                "visible": false,
+                "graph": "pie",
+                "doTransition": true,
+                "textInPie": false,
+                "order": 40,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "underlyingRawValuesCharts",
+                "label": "underlyingRawValuesCharts",
+                "order": 1001,
+                "visible": false,
+                "keepAfterGoto": true,
+                "dontExport": true
+            },
+            {
+                "name": "treeSunburst",
+                "label": "Children",
+                "type": "graph",
+                "graphModel": "sunburstChart",
+                "maxLength": 12,
+                "edit": false,
+                "visible": true,
+                "order": 45,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "parentsTreeSunburst",
+                "label": "Parents",
+                "type": "graph",
+                "graphModel": "sunburstChart",
+                "sunburstType": "parents",
+                "maxLength": 12,
+                "edit": false,
+                "visible": true,
+                "order": 50,
+                "keepAfterGoto": true
+            }],
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "level 13",
+            "children": [{
+                "name": "items",
+                "label": "Children",
+                "type": "text",
+                "edit": false,
+                "visible": false,
+                "order": 41,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "underlyingRawValues",
+                "label": "underlyingRawValues",
+                "order": 1000,
+                "visible": false,
+                "edit": false,
+                "dontExport": true,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "itemsPie",
+                "label": "Children",
+                "type": "graph",
+                "edit": false,
+                "visible": false,
+                "graph": "pie",
+                "doTransition": true,
+                "textInPie": false,
+                "order": 40,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "underlyingRawValuesCharts",
+                "label": "underlyingRawValuesCharts",
+                "order": 1001,
+                "visible": false,
+                "keepAfterGoto": true,
+                "dontExport": true
+            },
+            {
+                "name": "treeSunburst",
+                "label": "Children",
+                "type": "graph",
+                "graphModel": "sunburstChart",
+                "maxLength": 12,
+                "edit": false,
+                "visible": true,
+                "order": 45,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "parentsTreeSunburst",
+                "label": "Parents",
+                "type": "graph",
+                "graphModel": "sunburstChart",
+                "sunburstType": "parents",
+                "maxLength": 12,
+                "edit": false,
+                "visible": true,
+                "order": 50,
+                "keepAfterGoto": true
+            }],
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "level 14",
+            "children": [{
+                "name": "items",
+                "label": "Children",
+                "type": "text",
+                "edit": false,
+                "visible": false,
+                "order": 41,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "underlyingRawValues",
+                "label": "underlyingRawValues",
+                "order": 1000,
+                "visible": false,
+                "edit": false,
+                "dontExport": true,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "itemsPie",
+                "label": "Children",
+                "type": "graph",
+                "edit": false,
+                "visible": false,
+                "graph": "pie",
+                "doTransition": true,
+                "textInPie": false,
+                "order": 40,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "underlyingRawValuesCharts",
+                "label": "underlyingRawValuesCharts",
+                "order": 1001,
+                "visible": false,
+                "keepAfterGoto": true,
+                "dontExport": true
+            },
+            {
+                "name": "treeSunburst",
+                "label": "Children",
+                "type": "graph",
+                "graphModel": "sunburstChart",
+                "maxLength": 12,
+                "edit": false,
+                "visible": true,
+                "order": 45,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "parentsTreeSunburst",
+                "label": "Parents",
+                "type": "graph",
+                "graphModel": "sunburstChart",
+                "sunburstType": "parents",
+                "maxLength": 12,
+                "edit": false,
+                "visible": true,
+                "order": 50,
+                "keepAfterGoto": true
+            }],
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "level 15",
+            "children": [{
+                "name": "items",
+                "label": "Children",
+                "type": "text",
+                "edit": false,
+                "visible": false,
+                "order": 41,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "underlyingRawValues",
+                "label": "underlyingRawValues",
+                "order": 1000,
+                "visible": false,
+                "edit": false,
+                "dontExport": true,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "itemsPie",
+                "label": "Children",
+                "type": "graph",
+                "edit": false,
+                "visible": false,
+                "graph": "pie",
+                "doTransition": true,
+                "textInPie": false,
+                "order": 40,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "underlyingRawValuesCharts",
+                "label": "underlyingRawValuesCharts",
+                "order": 1001,
+                "visible": false,
+                "keepAfterGoto": true,
+                "dontExport": true
+            },
+            {
+                "name": "treeSunburst",
+                "label": "Children",
+                "type": "graph",
+                "graphModel": "sunburstChart",
+                "maxLength": 12,
+                "edit": false,
+                "visible": true,
+                "order": 45,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "parentsTreeSunburst",
+                "label": "Parents",
+                "type": "graph",
+                "graphModel": "sunburstChart",
+                "sunburstType": "parents",
+                "maxLength": 12,
+                "edit": false,
+                "visible": true,
+                "order": 50,
+                "keepAfterGoto": true
+            }],
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "level 16",
+            "children": [{
+                "name": "items",
+                "label": "Children",
+                "type": "text",
+                "edit": false,
+                "visible": false,
+                "order": 41,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "underlyingRawValues",
+                "label": "underlyingRawValues",
+                "order": 1000,
+                "visible": false,
+                "edit": false,
+                "dontExport": true,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "itemsPie",
+                "label": "Children",
+                "type": "graph",
+                "edit": false,
+                "visible": false,
+                "graph": "pie",
+                "doTransition": true,
+                "textInPie": false,
+                "order": 40,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "underlyingRawValuesCharts",
+                "label": "underlyingRawValuesCharts",
+                "order": 1001,
+                "visible": false,
+                "keepAfterGoto": true,
+                "dontExport": true
+            },
+            {
+                "name": "treeSunburst",
+                "label": "Children",
+                "type": "graph",
+                "graphModel": "sunburstChart",
+                "maxLength": 12,
+                "edit": false,
+                "visible": true,
+                "order": 45,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "parentsTreeSunburst",
+                "label": "Parents",
+                "type": "graph",
+                "graphModel": "sunburstChart",
+                "sunburstType": "parents",
+                "maxLength": 12,
+                "edit": false,
+                "visible": true,
+                "order": 50,
+                "keepAfterGoto": true
+            }],
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "level 17",
+            "children": [{
+                "name": "items",
+                "label": "Children",
+                "type": "text",
+                "edit": false,
+                "visible": false,
+                "order": 41,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "underlyingRawValues",
+                "label": "underlyingRawValues",
+                "order": 1000,
+                "visible": false,
+                "edit": false,
+                "dontExport": true,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "itemsPie",
+                "label": "Children",
+                "type": "graph",
+                "edit": false,
+                "visible": false,
+                "graph": "pie",
+                "doTransition": true,
+                "textInPie": false,
+                "order": 40,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "underlyingRawValuesCharts",
+                "label": "underlyingRawValuesCharts",
+                "order": 1001,
+                "visible": false,
+                "keepAfterGoto": true,
+                "dontExport": true
+            },
+            {
+                "name": "treeSunburst",
+                "label": "Children",
+                "type": "graph",
+                "graphModel": "sunburstChart",
+                "maxLength": 12,
+                "edit": false,
+                "visible": true,
+                "order": 45,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "parentsTreeSunburst",
+                "label": "Parents",
+                "type": "graph",
+                "graphModel": "sunburstChart",
+                "sunburstType": "parents",
+                "maxLength": 12,
+                "edit": false,
+                "visible": true,
+                "order": 50,
+                "keepAfterGoto": true
+            }],
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "level 18",
+            "children": [{
+                "name": "items",
+                "label": "Children",
+                "type": "text",
+                "edit": false,
+                "visible": false,
+                "order": 41,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "underlyingRawValues",
+                "label": "underlyingRawValues",
+                "order": 1000,
+                "visible": false,
+                "edit": false,
+                "dontExport": true,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "itemsPie",
+                "label": "Children",
+                "type": "graph",
+                "edit": false,
+                "visible": false,
+                "graph": "pie",
+                "doTransition": true,
+                "textInPie": false,
+                "order": 40,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "underlyingRawValuesCharts",
+                "label": "underlyingRawValuesCharts",
+                "order": 1001,
+                "visible": false,
+                "keepAfterGoto": true,
+                "dontExport": true
+            },
+            {
+                "name": "treeSunburst",
+                "label": "Children",
+                "type": "graph",
+                "graphModel": "sunburstChart",
+                "maxLength": 12,
+                "edit": false,
+                "visible": true,
+                "order": 45,
+                "keepAfterGoto": true
+            },
+            {
+                "name": "parentsTreeSunburst",
+                "label": "Parents",
+                "type": "graph",
+                "graphModel": "sunburstChart",
+                "sunburstType": "parents",
+                "maxLength": 12,
+                "edit": false,
+                "visible": true,
+                "order": 50,
+                "keepAfterGoto": true
+            }],
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "leaf",
+            "children": [],
+            "edit": true,
+            "visible": true
+        }],
+        "specifics": [
+        /* ----------------------------------------------------------------------------------------------------------------------------------------
+                     "name": "$dm_all",
+           ----------------------------------------------------------------------------------------------------------------------------------------*/
+        {
+            "name": "$dm_all",
+            "rawNode": {
+                "drawUnderlyingRawValuesCharts": "
+dm_Tools.buildCharts4underlyingRawValues(node, null, null, ['drawUnderlyingRawValuesCharts']) ;
+'#dm_STOP_AND_REDRAW_ATTRIBUTES_PANEL#1000' ;
+",
+                "drawUnderlyingRawValuesCharts.dm_props": {
+                    "order": 999,
+                    "visible": true,
+                    "dontExport": true,
+                    "type": "execute"
+                }
+            }
+        }]
+    }
+}

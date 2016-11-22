@@ -1,0 +1,2142 @@
+{
+    "$schema": "http://www.freedatamap.com/jsonConfigSchema/schema#",
+    "$charset": "UTF-8",
+    "config": {
+        "name": "somebody",
+        "root": "somebody",
+        "center": "somebody",
+        "depth": 2,
+        "ask4server": true,
+        "sort": "items",
+        "sortDescendant": true,
+        "displayTransversalConnections": true,
+        "displayArrowsOfTransversalConnections": true,
+        "txtFontSize": 13,
+        "aggregate": [{
+            "name": "items",
+            "array index": 1,
+            "value": "var output = 1 ;
+if(node.children && (node.children.length > 0)) {
+    var i = node.children.length - 1 ;
+    output = 0 ;
+    for(; i>=0; i--) {
+        output += node.children[i].rawNode[propName] ;
+    }
+}
+return output ;",
+            "funcDropdown": "count leaves",
+            "execAfterChildrenVisit": true,
+            "onlyLeaves": true
+        /*
+        }, {
+            "name": "listOfChildrenNames",
+            "array index": 2,
+            "value": "var output = '<div class=\"dm_normal\"><table align=\"center\"><tr><td><div class=\"dm_emphasis dm_txtShadow\"><h3>' ;
+if(node.children && (node.children.length > 0)) {
+    var children = dm_Tools.getNonReducedChildren(node) ;
+    var i = 0 ;
+    while(children.length > 0) {
+        var isOdd = (i/2 != Math.round(i/2)) ;
+        if(isOdd) output += '<div class=\"dm_info\">' ;
+        output += children.pop().name + '<br/>' ;
+        if(isOdd) output += '</div>' ;
+        i++ ;
+    }
+}
+output += '</h3></div></td></tr></table></div>' ;
+return output ;",
+            "funcDropdown": "count leaves",
+            "execAfterChildrenVisit": true,
+            "onlyLeaves": true
+        */
+        }, {
+            "name": "duration",
+            "array index": 3,
+            "value": "var output ;
+if(node.rawNode.startDate) {
+    var endDate = new Date() ;
+    if(node.rawNode.endDate) endDate = new Date(node.rawNode.endDate) ;
+    output = endDate - new Date(node.rawNode.startDate) ;
+}
+if(output) {
+    var ymd = dm_Tools.secondsToString(output/1000) ;
+    node.rawNode.durationStr = ((ymd.years)?ymd.years + ' year' + ((ymd.years>1)?'s':''):'') +
+                               ((ymd.months)?((ymd.years>0)?' ':'') + ymd.months + ' month' + ((ymd.months>1)?'s':'') :'') ;
+}
+return output ;
+",
+            "execAfterChildrenVisit": true
+        }],
+        "displayProps": [{
+            "name": "root",
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "level 1",
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "level 2",
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "level 3",
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "level 4",
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "level 5",
+            "visible": false,
+            "edit": false
+        }, {
+            "name": "level 6",
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "level 7",
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "level 8",
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "level 9",
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "level 10",
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "level 11",
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "level 12",
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "level 13",
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "level 14",
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "level 15",
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "level 16",
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "level 17",
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "level 18",
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "leaf",
+            "edit": true,
+            "visible": true
+        }],
+        "styles": [{
+            "name": "root",
+            "array index": 0,
+            "level": 0,
+            "arrow": true,
+            "arc": false,
+            "rNod": 10,
+            "link": 190,
+            "color": "#1f77b4",
+            "attrPaneCol": "#aec7e8"
+        }, {
+            "name": "level 1",
+            "array index": 1,
+            "level": 1,
+            "arrow": true,
+            "arc": false,
+            "rNod": 10,
+            "link": 130,
+            "color": "#1f77b4",
+            "attrPaneCol": "#aec7e8"
+        }, {
+            "name": "level 2",
+            "array index": 2,
+            "level": 2,
+            "arrow": true,
+            "arc": false,
+            "rNod": 9,
+            "link": 130,
+            "color": "#d62728",
+            "attrPaneCol": "#ff9896"
+        }, {
+            "name": "level 3",
+            "array index": 3,
+            "level": 3,
+            "arrow": true,
+            "arc": false,
+            "rNod": 9,
+            "link": 180,
+            "color": "#2ca02c",
+            "attrPaneCol": "#98df8a"
+        }, {
+            "name": "level 4",
+            "array index": 4,
+            "level": 4,
+            "arrow": true,
+            "arc": false,
+            "rNod": 8,
+            "link": 130,
+            "color": "#ff7f0e",
+            "attrPaneCol": "#ffbb78"
+        }, {
+            "name": "level 5",
+            "array index": 5,
+            "level": 5,
+            "arrow": true,
+            "arc": false,
+            "rNod": 8,
+            "link": 130,
+            "color": "#e377c2",
+            "attrPaneCol": "#f7b6d2"
+        }, {
+            "name": "level 6",
+            "array index": 6,
+            "level": 6,
+            "arrow": true,
+            "arc": false,
+            "rNod": 7,
+            "link": 130,
+            "color": "#bcbd22",
+            "attrPaneCol": "#dbdb8d"
+        }, {
+            "name": "level 7",
+            "array index": 7,
+            "level": 7,
+            "arrow": true,
+            "arc": false,
+            "rNod": 7,
+            "link": 130,
+            "color": "#17becf",
+            "attrPaneCol": "#9edae5"
+        }, {
+            "name": "level 8",
+            "array index": 8,
+            "level": 8,
+            "arrow": true,
+            "arc": false,
+            "rNod": 6,
+            "link": 130,
+            "color": "#6b6ecf",
+            "attrPaneCol": "#9c9ede"
+        }, {
+            "name": "level 9",
+            "array index": 9,
+            "level": 9,
+            "arrow": true,
+            "arc": false,
+            "rNod": 6,
+            "link": 130,
+            "color": "#1f77b4",
+            "attrPaneCol": "#aec7e8"
+        }, {
+            "name": "level 10",
+            "array index": 10,
+            "level": 10,
+            "arrow": true,
+            "arc": false,
+            "rNod": 5,
+            "link": 130,
+            "color": "#ff7f0e",
+            "attrPaneCol": "#ffbb78"
+        }, {
+            "name": "level 11",
+            "array index": 11,
+            "level": 11,
+            "arrow": true,
+            "arc": false,
+            "rNod": 5,
+            "link": 130,
+            "color": "#2ca02c",
+            "attrPaneCol": "#98df8a"
+        }, {
+            "name": "level 12",
+            "array index": 12,
+            "level": 12,
+            "arrow": true,
+            "arc": false,
+            "rNod": 5,
+            "link": 130,
+            "color": "#d62728",
+            "attrPaneCol": "#ff9896"
+        }, {
+            "name": "level 13",
+            "array index": 13,
+            "level": 13,
+            "arrow": true,
+            "arc": false,
+            "rNod": 5,
+            "link": 130,
+            "color": "#9467bd",
+            "attrPaneCol": "#c5b0d5"
+        }, {
+            "name": "level 14",
+            "array index": 14,
+            "level": 14,
+            "arrow": true,
+            "arc": false,
+            "rNod": 5,
+            "link": 130,
+            "color": "#e377c2",
+            "attrPaneCol": "#f7b6d2"
+        }, {
+            "name": "level 15",
+            "array index": 15,
+            "level": 15,
+            "arrow": true,
+            "arc": false,
+            "rNod": 4,
+            "link": 130,
+            "color": "#bcbd22",
+            "attrPaneCol": "#dbdb8d"
+        }, {
+            "name": "level 16",
+            "array index": 16,
+            "level": 16,
+            "arrow": true,
+            "arc": false,
+            "rNod": 4,
+            "link": 130,
+            "color": "#17becf",
+            "attrPaneCol": "#9edae5"
+        }, {
+            "name": "level 17",
+            "array index": 17,
+            "level": 17,
+            "arrow": true,
+            "arc": false,
+            "rNod": 4,
+            "link": 130,
+            "color": "#6b6ecf",
+            "attrPaneCol": "#9c9ede"
+        }, {
+            "name": "level 18",
+            "array index": 18,
+            "level": 18,
+            "arrow": true,
+            "arc": false,
+            "rNod": 4,
+            "link": 130,
+            "color": "#6b6ecf",
+            "attrPaneCol": "#9c9ede"
+        }, {
+            "name": "leaf",
+            "array index": 19,
+            "level": 19,
+            "arrow": false,
+            "arc": true,
+            "rNod": 4,
+            "link": 95,
+            "color": "#c7c7c7",
+            "attrPaneCol": "#c7c7c7",
+            "txtCol": "#7f7f7f"
+        }],
+        "columnNames": 0,
+        "maxDepthForExport": 0,
+        "specifics": [
+        /* ----------------------------------------------------------------------------------------------------------------------------------------
+                     "name": "$dm_root",
+           ----------------------------------------------------------------------------------------------------------------------------------------*/
+        {
+            "name": "$dm_root",
+            "rawNode": {
+                "setEmptyDefaults": "
+//node.rawNode.icon = node.rawNode.icon || 'socialMap/socialMapLogo.png' ;
+
+delete node.rawNode.setEmptyDefaults ;
+delete node.rawNode['setEmptyDefaults.dm_props'] ;
+'#dm_STOP_AND_REDRAW_ATTRIBUTES_PANEL#1' ;
+",
+                "setEmptyDefaults.dm_props": {
+                    "order": 0,
+                    "type": "execute",
+                    "visible": true
+                },
+                "array index.dm_props": {
+                    "visible": false
+                },
+                "dm_newAttribute": null,
+                "dm_newAttribute.dm_props": {
+                    "order": 1,
+                    "visible": false,
+                    "hideFromEdit": true
+                },
+                "displayName": null,
+                "displayName.dm_props": {
+                    "visible": false,
+                    "dontReplaceIfNotNull": true,
+                    "hideFromEdit": true
+                },
+                "icon": "socialMap/socialMapLogo.png",
+                "icon.dm_props": {
+                    "order": 2,
+                    "label": "Picture or logo",
+                    "type": "image",
+                    "visible": true,
+                    "width": 180,
+                    "height": 180,
+                    "scaleFactor": 5.5,
+                    "dontReplaceIfNotNull": true,
+                    "panelMaxHeight": 180,
+                    "dropzoneLabel": "Drag and drop your file here",
+                    "displayValueLabel": false,
+                    "dontEdit": ["removeButton", "name", "label", "edit", "type", "source", "x", "y", "width", "height", "scaleFactor", "imageName", "inlineSrc", "panelMaxHeight"]
+                },
+                "firstName": "firstname",
+                "firstName.dm_props": {
+                    "order": 3,
+                    "label": "First name",
+                    "visible": false,
+                    "type": "text",
+                    "dontReplaceIfNotNull": true,
+                    "dontEdit": ["removeButton", "name", "label", "edit", "visible", "type", "source"]
+                },
+                "lastName": "lastname",
+                "lastName.dm_props": {
+                    "order": 4,
+                    "label": "Last name",
+                    "visible": false,
+                    "type": "text",
+                    "dontReplaceIfNotNull": true,
+                    "dontEdit": ["removeButton", "name", "label", "edit", "visible", "type", "source"]
+                },
+                "birthYear": null,
+                "birthYear.dm_props": {
+                    "order": 5,
+                    "label": "Birth year",
+                    "visible": false,
+                    "type": "dropdown",
+                    "placeHolder": "year",
+                    "dropdownList": "
+var max = 150 ;
+var curDate = new Date() ;
+var curYear = curDate.getFullYear() ;
+var output = [] ;
+for(var i=0; i<max; i++) {
+    output.push(curYear-i) ;
+}
+output ;
+",
+                    "onAdd": "",
+                    "width": 80,
+                    "editValue": false,
+                    "displayValueLabel": false,
+                    "dontExport": true,
+                    "dontEdit": ["removeButton", "name", "label", "edit", "visible", "type", "source"],
+                    "dontReplaceIfNotNull": true,
+                    "onChange": "
+var monthIdx = node.rawNode['birthMonth.dm_props'].selectedIndex ;
+var i=0 ;
+var output = [] ;
+while((new Date(node.rawNode.birthYear, monthIdx, ++i)).getMonth() === monthIdx) {
+    output.push(i) ;
+}
+node.rawNode['birthDay.dm_props'].dropdownList = output ;
+dm_Tools.feedDropDownAttribute(node, 'birthDay', output) ;
+"
+                },
+                "birthMonth": null,
+                "birthMonth.dm_props": {
+                    "order": 6,
+                    "label": "Birth month",
+                    "visible": false,
+                    "type": "dropdown",
+                    "placeHolder": "month",
+                    "dropdownList": "['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']",
+                    "onAdd": "",
+                    "width": 110,
+                    "editValue": false,
+                    "displayValueLabel": false,
+                    "dontExport": true,
+                    "dontEdit": ["removeButton", "name", "label", "edit", "visible", "type", "source"],
+                    "dontReplaceIfNotNull": true,
+                    "onChange": "
+var monthIdx = node.rawNode['birthMonth.dm_props'].selectedIndex ;
+var i=0 ;
+var output = [] ;
+while((new Date(node.rawNode.birthYear, monthIdx, ++i)).getMonth() === monthIdx) {
+    output.push(i) ;
+}
+node.rawNode['birthDay.dm_props'].dropdownList = output ;
+dm_Tools.feedDropDownAttribute(node, 'birthDay', output) ;
+"
+                },
+                "birthDay": null,
+                "birthDay.dm_props": {
+                    "order": 7,
+                    "label": "Birth day",
+                    "visible": false,
+                    "type": "dropdown",
+                    "placeHolder": "day",
+                    "dropdownList": "
+var monthIdx = node.rawNode['birthMonth.dm_props'].selectedIndex ;
+var i=0 ;
+var output = [] ;
+while((new Date(node.rawNode.birthYear, monthIdx, ++i)).getMonth() === monthIdx) {
+    output.push(i) ;
+}
+output ;
+",
+                    "onAdd": "",
+                    "width": 60,
+                    "editValue": false,
+                    "displayValueLabel": false,
+                    "dontExport": true,
+                    "dontReplaceIfNotNull": true,
+                    "dontEdit": ["removeButton", "name", "label", "edit", "visible", "type", "source"]
+                },
+                "sound": "music/dj-chronos_giant-wing-flap-1.mp3",
+                "sound.dm_props": {
+                    "order": 10,
+                    "label": "Jingle",
+                    "type": "music",
+                    "visible": true,
+                    "dontReplaceIfNotNull": true,
+                    "dontReplaceIfNotNull": true,
+                    "dontEdit": ["removeButton", "name", "label", "edit", "type", "source", "x", "y", "scaleFactor", "inlineSrc", "panelMaxHeight"]
+                },
+                "backgroundImage": "socialMap/social-network.jpg",
+                "backgroundImage.dm_props": {
+                    "order": 11,
+                    "label": "Background image",
+                    "type": "image",
+                    "visible": true,
+                    "width": 540,
+                    "height": 405,
+                    "dontReplaceIfNotNull": true,
+                    "opacity": 0.18,
+                    "dontExport": true,
+                    "dropzoneLabel": "Drag and drop your file here",
+                    "displayValueLabel": false,
+                    "dontEdit": ["removeButton", "name", "label", "edit", "type", "source", "x", "y", "width", "height", "scaleFactor", "imageName", "inlineSrc", "panelMaxHeight", "textX", "borderRadius"]
+                },
+                "title": "",
+                "title.dm_props": {
+                    "order": 20,
+                    "label": null,
+                    "visible": true,
+                    "type": "text",
+                    "dontEdit": ["removeButton", "name", "notNestedLabel", "edit", "type", "source"],
+                    "value": "...title or slogan...",
+                    "rows": 2,
+                    "width": "100%",
+                    "dontReplaceIfNotNull": true,
+                    "onPreEdit": "
+dm_Tools.onPreEditRichText(node, prop) ;
+",
+                    "onPreDisplay": "
+dm_Tools.onPostChangeRichText(node, prop, '<div class=\"dm_normal\"><div class=\"dm_center\"><h2>', '</h2></div>') ;
+",
+                    "onPostChange": "
+dm_Tools.onPostChangeRichText(node, prop, '<div class=\"dm_normal\"><div class=\"dm_center\"><h2>', '</h2></div>') ;
+"
+                },
+                "summary": "",
+                "summary.dm_props": {
+                    "order": 21,
+                    "label": null,
+                    "visible": true,
+                    "type": "text",
+                    "dontEdit": ["removeButton", "name", "notNestedLabel", "edit", "type", "source"],
+                    "value": "...some few words or sentences to be used as summary...",
+                    "rows": 3,
+                    "width": "100%",
+                    "dontReplaceIfNotNull": true,
+                    "onPreEdit": "
+dm_Tools.onPreEditRichText(node, prop) ;
+",
+                    "onPreDisplay": "
+dm_Tools.onPostChangeRichText(node, prop, '<div class=\"dm_normal\"><table align=\"center\"><tr><td><div class=\"dm_border dm_success dm_center\"><b>', '</b></div></td></tr></table></div>') ;
+",
+                    "onPostChange": "
+dm_Tools.onPostChangeRichText(node, prop, '<div class=\"dm_normal\"><table align=\"center\"><tr><td><div class=\"dm_border dm_success dm_center\"><b>', '</b></div></td></tr></table></div>') ;
+"
+                },
+                "email": null,
+                "email.dm_props": {
+                    "order": 40,
+                    "label": "my.email @ company.com",
+                    "visible": true,
+                    "type": "action",
+                    "image": "socialMap/Mail-icon.png",
+                    "class": "btn-large",
+                    "content.type": "href",
+                    "content.url": "mailto:my.email@company.com",
+                    "dontExport": true,
+                    "dontReplaceIfNotNull": true,
+                    "dontEdit": ["removeButton", "name", "notNestedLabel", "edit", "type", "source", "image", "class", "execBefore", "content.exec", "content.type"]
+                },
+                "tel": null,
+                "tel.dm_props": {
+                    "order": 41,
+                    "label": "06 12 34 56 78",
+                    "visible": true,
+                    "type": "action",
+                    "image": "socialMap/tel-icon.png",
+                    "class": "btn-large",
+                    "content.type": "href",
+                    "content.url": "tel:+33612345678",
+                    "dontExport": true,
+                    "dontReplaceIfNotNull": true,
+                    "dontEdit": ["removeButton", "name", "notNestedLabel", "edit", "type", "source", "image", "class", "execBefore", "content.exec", "content.type"]
+                },
+                "updateName": "
+var upperFirstChar = function(str) {
+    var str = '' + str ;
+    var output = '' ;
+    if(str) {
+        output += str[0].toUpperCase() ;
+        if(str.length > 1) {
+            output += str.substring(1) ;
+        }
+    }
+    return output ;
+}
+node.rawNode.firstName = upperFirstChar(node.rawNode.firstName) ;
+node.rawNode.lastName = upperFirstChar(node.rawNode.lastName) ;
+var desiredName = 
+    ((node.rawNode.firstName)?node.rawNode.firstName + ' ':'') +
+    node.rawNode.lastName +
+    ((node.rawNode.birthYear)?' ' + node.rawNode.birthYear + 
+        ((node.rawNode.birthMonth)?'/' + (node.rawNode['birthMonth.dm_props'].selectedIndex+1) + '/' + node.rawNode.birthDay:'')
+        :'') ;
+var madeAChange = false ;
+if(desiredName != node.name) {
+    madeAChange = true ;
+    node.name = desiredName ;
+    var getDir = function(str) {
+        var dir = '' ;
+        var lastSlashIdx = str.lastIndexOf('/') ;
+        if(lastSlashIdx > 0) dir = str.substring(0, lastSlashIdx+1) ;
+        return dir ;
+    }
+    var formattedNodeName = dm_ServerTools.formatJSVarName(node.name, 'preserve dots') ;
+    if(node.dm_DatamapName) {
+        node.dm_DatamapName = getDir(node.dm_DatamapName) + formattedNodeName + '.json' ;
+    }
+    if(node.dm_config) {
+        node.dm_config.center = node.name ;
+        node.dm_config.root = node.name ;
+        node.dm_config.dm_DatamapName = node.dm_DatamapName ;
+        node.dm_config.dm_sourceFile = node.dm_DatamapName ;
+    }
+}
+
+var relNode = dm_Tools.getChild(node, 'Relations') ;
+if(!relNode) {
+    madeAChange = true ;
+    relNode = dm_Datamap.createNode(node, 'Relations') ;
+}
+if(!dm_Tools.getChild(relNode, 'Work relations')) {
+    madeAChange = true ;
+    dm_Datamap.createNode(relNode, 'Work relations') ;
+}
+if(!dm_Tools.getChild(relNode, 'Friends')) {
+    madeAChange = true ;
+    dm_Datamap.createNode(relNode, 'Friends') ;
+}
+if(!dm_Tools.getChild(relNode, 'Family')) {
+    madeAChange = true ;
+    dm_Datamap.createNode(relNode, 'Family') ;
+}
+if(!dm_Tools.getChild(relNode, 'Schoolmates')) {
+    madeAChange = true ;
+    dm_Datamap.createNode(relNode, 'Schoolmates') ;
+}
+
+var persoNode = dm_Tools.getChild(node, 'Personal') ;
+if(!persoNode) {
+    madeAChange = true ;
+    persoNode = dm_Datamap.createNode(node, 'Personal') ;
+}
+if(!dm_Tools.getChild(persoNode, 'Photos')) {
+    madeAChange = true ;
+    dm_Datamap.createNode(persoNode, 'Photos') ;
+}
+if(!dm_Tools.getChild(persoNode, 'Videos')) {
+    madeAChange = true ;
+    dm_Datamap.createNode(persoNode, 'Videos') ;
+}
+if(!dm_Tools.getChild(persoNode, 'Musics')) {
+    madeAChange = true ;
+    dm_Datamap.createNode(persoNode, 'Musics') ;
+}
+if(!dm_Tools.getChild(persoNode, 'Books')) {
+    madeAChange = true ;
+    dm_Datamap.createNode(persoNode, 'Books') ;
+}
+
+// add missing children nodes
+var expeNode = dm_Tools.getChild(node, 'Experience') ;
+if(!expeNode) {
+    madeAChange = true ;
+    expeNode = dm_Datamap.createNode(node, 'Experience') ;
+}
+if(!dm_Tools.getChild(expeNode, 'Skills')) {
+    madeAChange = true ;
+    dm_Datamap.createNode(expeNode, 'Skills') ;
+}
+if(!dm_Tools.getChild(expeNode, 'Positions')) {
+    madeAChange = true ;
+    dm_Datamap.createNode(expeNode, 'Positions') ;
+}
+if(!dm_Tools.getChild(expeNode, 'Volunteering')) {
+    madeAChange = true ;
+    dm_Datamap.createNode(expeNode, 'Volunteering') ;
+}
+if(!dm_Tools.getChild(expeNode, 'Languages')) {
+    madeAChange = true ;
+    dm_Datamap.createNode(expeNode, 'Languages') ;
+}
+if(!dm_Tools.getChild(expeNode, 'Educations')) {
+    madeAChange = true ;
+    dm_Datamap.createNode(expeNode, 'Educations') ;
+}
+
+if(!dm_Tools.getChild(node, 'Tchat')) {
+    madeAChange = true ;
+    dm_Datamap.createNode(node, 'Tchat') ;
+}
+if(!dm_Tools.getChild(node, 'Communicate')) {
+    madeAChange = true ;
+    dm_Datamap.createNode(node, 'Communicate') ;
+}
+if(!dm_Tools.getChild(node, 'Calendar')) {
+    madeAChange = true ;
+    dm_Datamap.createNode(node, 'Calendar') ;
+}
+
+/*
+if(madeAChange) {
+    dm_UI.lastAttrPanelUpdatedNode = null ; // needed to refresh the attributes panel
+    dm_UI.onResize() ; // need to refresh the graph to see the new node name up to date in the graph
+}
+*/
+",
+                "updateName.dm_props": {
+                    "order": 0,
+                    "type": "execute",
+                    "visible": true,
+                    "hideFromEdit": true
+                }
+            }
+        },
+        /* ----------------------------------------------------------------------------------------------------------------------------------------
+                     "name": "$dm_root|Experience",
+           ----------------------------------------------------------------------------------------------------------------------------------------*/
+        {
+            "name": "$dm_root|Experience",
+            "rawNode": {
+                "setEmptyDefaults": "
+//node.rawNode.icon = node.rawNode.icon || 'socialMap/myPicture.png' ;
+
+delete node.rawNode.setEmptyDefaults ;
+delete node.rawNode['setEmptyDefaults.dm_props'] ;
+
+// pick up the icon of people
+var src = node.parent.rawNode ;
+node.rawNode.peoplePicture = src.icon ;
+node.rawNode['peoplePicture.dm_props'] = dm_Tools.clone(src['icon.dm_props']) ;
+node.rawNode['peoplePicture.dm_props'].order = 4 ;
+node.rawNode['peoplePicture.dm_props'].hideFromEdit = true ;
+delete node.rawNode['peoplePicture.dm_props'].tintedSrc ;
+
+// copy skillsCloud from child skill node
+var skillsNode = dm_Tools.getChild(node, 'Skills') ;
+node.rawNode['skillsCloud.dm_props'] = dm_Tools.clone(skillsNode.rawNode['skillsCloud.dm_props']) ;
+node.rawNode['skillsCloud.dm_props'].order = 25 ;
+node.rawNode.skillsCloud = 'node = dm_Tools.getChild(node, \"Skills\") ;' + skillsNode.rawNode.skillsCloud ;
+
+// copy companyPie chart from child position node
+var posNode = dm_Tools.getChild(node, 'Positions') ;
+node.rawNode['companiesPie.dm_props'] = dm_Tools.clone(posNode.rawNode['companiesPie.dm_props']) ;
+//node.rawNode['companiesPie.dm_props'].visible = false ;
+node.rawNode['companiesPie.dm_props'].order = 26 ;
+node.rawNode['companiesPie.dm_props'].value = 'node = dm_Tools.getChild(node, \"Positions\") ;' + 
+                                              node.rawNode['companiesPie.dm_props'].value ;
+
+// get the latest position
+var posNode = dm_Tools.getChild(node, 'Positions') ;
+var pos = dm_Tools.getNonReducedChildren(posNode) ;
+var now = new Date() ;
+var p, minDuration, mostRecent, diff, endDateMilli ;
+for(var i=0; i<pos.length; i++) {
+    p = pos[i] ;
+    endDateMilli = now ;
+    if(p.rawNode.endDate) {
+        endDateMilli = new Date(p.rawNode.endDate) ;
+    }
+    diff = now - endDateMilli ;
+    if(!minDuration) {
+        minDuration = diff ;
+    } else {
+        minDuration = Math.min(minDuration, diff) ;
+    }
+    if(diff == minDuration) {
+        mostRecent = p ;
+    }
+}
+if(mostRecent) {
+    if(!node.rawNode['title.dm_props']) node.rawNode['title.dm_props'] = {} ;
+    node.rawNode['title.dm_props'].value = mostRecent.rawNode['title.dm_props'].value ;
+    if(!node.rawNode['organization.dm_props']) node.rawNode['organization.dm_props'] = {} ;
+    node.rawNode['organization.dm_props'].value = mostRecent.rawNode['organization.dm_props'].value ;
+}
+
+dm_Tools.forceAllOnPostChange(node) ;
+
+'#dm_STOP_AND_REDRAW_ATTRIBUTES_PANEL#1' ;
+",
+                "setEmptyDefaults.dm_props": {
+                    "order": 0,
+                    "type": "execute",
+                    "visible": true
+                },
+                "array index.dm_props": {
+                    "visible": false
+                },
+                "dm_newAttribute": null,
+                "dm_newAttribute.dm_props": {
+                    "order": 1,
+                    "visible": false,
+                    "label": "Add a new experience",
+                    "type": "dropdown",
+                    "dropdownList": "['Position', 'Skill', 'Education', 'Language']",
+                    "onAdd": "",
+                    "editValue": false,
+                    "displayValueLabel": false,
+                    "dontExport": true,
+                    "onAdd": "
+var toAddStr = node.rawNode.dm_newAttribute ;
+var child = dm_Tools.getChild(node, toAddStr + 's') ;
+if(!child) {
+    child = dm_Datamap.createNode(node, toAddStr + 's') ;
+}
+var createdNode = dm_Datamap.createNode(child, '...') ;
+
+dm_Tools.forceAllOnPostChange(node) ;
+dm_Datamap.focusNode(createdNode) ;
+dm_UI.onResize() ;
+",
+                    "dontEdit": ["name", "label", "edit", "visible", "type", "source"]
+                },
+                "icon": "socialMap/experience.png",
+                "icon.dm_props": {
+                    "order": 2,
+                    "type": "image",
+                    "visible": true,
+                    "displayInAttrPanel": false,
+                    "width": 140,
+                    "height": 140,
+                    "scaleFactor": 5.5,
+                    "hideFromEdit": true
+                },
+                "title": "",
+                "title.dm_props": {
+                    "order": 20,
+                    "label": null,
+                    "visible": true,
+                    "type": "text",
+                    "dontEdit": ["removeButton", "name", "notNestedLabel", "edit", "type", "source"],
+                    "value": "current title",
+                    "rows": 2,
+                    "width": "100%",
+                    "dontReplaceIfNotNull": true,
+                    "onPreEdit": "
+dm_Tools.onPreEditRichText(node, prop) ;
+",
+                    "onPreDisplay": "
+dm_Tools.onPostChangeRichText(node, prop, '<div class=\"dm_normal\"><div class=\"dm_center\"><h2>', '</h2></div>') ;
+",
+                    "onPostChange": "
+dm_Tools.onPostChangeRichText(node, prop, '<div class=\"dm_normal\"><div class=\"dm_center\"><h2>', '</h2></div>') ;
+"
+                },
+                "organization": "",
+                "organization.dm_props": {
+                    "order": 21,
+                    "label": "compagny name",
+                    "visible": true,
+                    "type": "text",
+                    "dontEdit": ["removeButton", "name", "notNestedLabel", "edit", "type", "source"],
+                    "value": "compagny",
+                    "rows": 2,
+                    "width": "100%",
+                    "dontReplaceIfNotNull": true,
+                    "onPreEdit": "
+dm_Tools.onPreEditRichText(node, prop) ;
+",
+                    "onPreDisplay": "
+dm_Tools.onPostChangeRichText(node, prop, '<div class=\"dm_normal\"><div class=\"dm_center dm_emphasis dm_info dm_txtShadow\"><h2>', '</h2></div>') ;
+",
+                    "onPostChange": "
+dm_Tools.onPostChangeRichText(node, prop, '<div class=\"dm_normal\"><div class=\"dm_center dm_emphasis dm_info dm_txtShadow\"><h2>', '</h2></div>') ;
+"
+                },
+                "skillsCloud": "",
+                "companiesPie": "",
+                "summary": "",
+                "summary.dm_props": {
+                    "order": 30,
+                    "label": null,
+                    "visible": true,
+                    "type": "text",
+                    "dontEdit": ["removeButton", "name", "notNestedLabel", "edit", "type", "source"],
+                    "value": "key elements for your summary",
+                    "rows": 3,
+                    "width": "100%",
+                    "dontReplaceIfNotNull": true,
+                    "onPreEdit": "
+dm_Tools.onPreEditRichText(node, prop) ;
+",
+                    "onPreDisplay": "
+dm_Tools.onPostChangeRichText(node, prop, '<div class=\"dm_normal\"><table align=\"center\"><tr><td><div class=\"dm_border dm_success dm_center\"><b>', '</b></div></td></tr></table></div>') ;
+",
+                    "onPostChange": "
+dm_Tools.onPostChangeRichText(node, prop, '<div class=\"dm_normal\"><table align=\"center\"><tr><td><div class=\"dm_border dm_success dm_center\"><b>', '</b></div></td></tr></table></div>') ;
+"
+                },
+                /*
+                "description": "",
+                "description.dm_props": {
+                    "order": 31,
+                    "label": null,
+                    "visible": true,
+                    "type": "text",
+                    "dontEdit": ["removeButton", "name", "notNestedLabel", "edit", "type", "source"],
+                    "value": "main skills or specialties",
+                    "rows": 3,
+                    "width": "100%",
+                    "dontReplaceIfNotNull": true,
+                    "onPreEdit": "
+dm_Tools.onPreEditRichText(node, prop) ;
+",
+                    "onPreDisplay": "
+dm_Tools.onPostChangeRichText(node, prop, '<div class=\"dm_normal\"><table align=\"center\"><tr><td><div class=\"dm_emphasis dm_info dm_txtShadow\">', '</div></td></tr></table></div>') ;
+",
+                    "onPostChange": "
+dm_Tools.onPostChangeRichText(node, prop, '<div class=\"dm_normal\"><table align=\"center\"><tr><td><div class=\"dm_emphasis dm_info dm_txtShadow\">', '</div></td></tr></table></div>') ;
+"
+                },
+                */
+                "email": null,
+                "email.dm_props": {
+                    "order": 40,
+                    "label": "professional.email @ myCompagny.com",
+                    "visible": true,
+                    "type": "action",
+                    "image": "socialMap/Mail-icon.png",
+                    "class": "btn-large",
+                    "content.type": "href",
+                    "content.url": "mailto:professional.email@myCompagny.com",
+                    "dontExport": true,
+                    "dontReplaceIfNotNull": true,
+                    "dontEdit": ["removeButton", "name", "notNestedLabel", "edit", "type", "source", "image", "class", "execBefore", "content.exec", "content.type"]
+                },
+                "tel": null,
+                "tel.dm_props": {
+                    "order": 41,
+                    "label": "06 12 34 56 78",
+                    "visible": true,
+                    "type": "action",
+                    "image": "socialMap/tel-icon.png",
+                    "class": "btn-large",
+                    "content.type": "href",
+                    "content.url": "tel:+33612345678",
+                    "dontExport": true,
+                    "dontReplaceIfNotNull": true,
+                    "dontEdit": ["removeButton", "name", "notNestedLabel", "edit", "type", "source", "image", "class", "execBefore", "content.exec", "content.type"]
+                }
+            }
+        },
+        /* ----------------------------------------------------------------------------------------------------------------------------------------
+                     "name": "$dm_root|Experience|Positions",
+           ----------------------------------------------------------------------------------------------------------------------------------------*/
+        {
+            "name": "$dm_root|Experience|Positions",
+            "rawNode": {
+                "setEmptyDefaults": "
+delete node.rawNode.setEmptyDefaults ;
+delete node.rawNode['setEmptyDefaults.dm_props'] ;
+
+dm_Tools.forceAllOnPostChange(node) ;
+
+// pick up the icon of people
+var src = node.parent.parent.rawNode ;
+node.rawNode.peoplePicture = src.icon ;
+node.rawNode['peoplePicture.dm_props'] = dm_Tools.clone(src['icon.dm_props']) ;
+node.rawNode['peoplePicture.dm_props'].order = 4 ;
+node.rawNode['peoplePicture.dm_props'].hideFromEdit = true ;
+delete node.rawNode['peoplePicture.dm_props'].tintedSrc ;
+
+'#dm_STOP_AND_REDRAW_ATTRIBUTES_PANEL#1' ;
+",
+                "setEmptyDefaults.dm_props": {
+                    "order": 0,
+                    "type": "execute",
+                    "visible": true
+                },
+                "array index.dm_props": {
+                    "visible": false
+                },
+                "dm_newAttribute": null,
+                "dm_newAttribute.dm_props": {
+                    "order": 1,
+                    "visible": false,
+                    "label": "Add a new position",
+                    "type": "text",
+                    "onAdd": "",
+                    "editValue": true,
+                    "displayValueLabel": false,
+                    "dontExport": true,
+                    "onAdd": "
+var createdNode = dm_Datamap.createNode(node, node.rawNode.dm_newAttribute) ;
+
+// force all onPostChange
+var prop ;
+for(var p in node.rawNode) {
+    if(node.rawNode[p + '.dm_props'] && node.rawNode[p + '.dm_props'].onPostChange) {
+        prop = {'name': p} ;
+        eval(node.rawNode[p + '.dm_props'].onPostChange) ;
+    }
+}
+console.log(dm_Tools.getNodeUrl(createdNode)) ;
+dm_Datamap.focusNode(createdNode) ;
+dm_UI.onResize() ;
+",
+                    "dontEdit": ["name", "label", "edit", "visible", "type", "source"]
+                },
+                "icon": "socialMap/position.png",
+                "icon.dm_props": {
+                    "order": 2,
+                    "type": "image",
+                    "visible": true,
+                    "displayInAttrPanel": false,
+                    "width": 140,
+                    "height": 140,
+                    "scaleFactor": 5.5,
+                    "dontReplaceIfNotNull": true,
+                    "hideFromEdit": true
+                },
+                /*
+                "positionsCloud": "
+var output = [] ;
+var children = dm_Tools.getNonReducedChildren(node) ;
+while(children.length > 0) output.push(children.pop().name) ;
+output ;
+",
+                "positionsCloud.dm_props":  {
+                    "order": 10,
+                    "type": "cloud",
+                    "visible": true,
+                    "sizeFactor": 20,
+                    "angleFactor": 8
+                },
+                */
+                "compagniesCloud": "
+var output = [] ;
+var children = dm_Tools.getNonReducedChildren(node) ;
+while(children.length > 0) output.push(children.pop().rawNode['organization.dm_props'].value) ;
+output ;
+",
+                "compagniesCloud.dm_props":  {
+                    "order": 20,
+                    "type": "cloud",
+                    "visible": true,
+                    "sizeFactor": 40,
+                    "heightPercent": "35%",
+                    "angleFactor": 8,
+                    "colorPalette": "dm_Tools.modifiedCategory20b() ;",
+                    "hideFromEdit": true
+                },
+                "companiesPie": "",
+                "companiesPie.dm_props": {
+                    "order": 21,
+                    "visible": true,
+                    "edit": false,
+                    "label": "Companies",
+                    "type": "graph",
+                    "value": "
+var output, elt ;
+var children = dm_Tools.getNonReducedChildren(node) ;
+var child ;
+var companies = {} ;
+for(var i=0; i<children.length; i++) {
+    child = children[i] ;
+    if(child.rawNode['organization.dm_props']) {
+        var orgName = child.rawNode['organization.dm_props'].value ;
+        if(orgName) {
+            if(!companies[orgName]) companies[orgName] = 0 ;
+            companies[orgName] += child.rawNode.duration ;
+        }
+    }
+}
+var dur ;
+for(var k in companies) {
+    if (!output) {
+        output = [] ;
+    }
+    elt = {} ;
+    output.push(elt) ;
+    dur = companies[k] ;
+    elt.value = dur ;
+    var ymd = dm_Tools.secondsToString(dur/1000) ;
+    elt.valueStr = ((ymd.years)?ymd.years + ' year' + ((ymd.years>1)?'s':''):'') +
+                   ((ymd.months)?((ymd.years>0)?' ':'') + ymd.months + ' month' + ((ymd.months>1)?'s':'') :'') ;
+    elt.name = dm_Tools.splitStr(k, 20, '\\n') ;
+}
+return output;"
+                },
+                "listOfChildrenNames": "
+var output = [] ;
+var children = dm_Tools.getNonReducedChildren(node) ;
+while(children.length > 0) output.push(children.pop().name) ;
+output ;
+",
+                "listOfChildrenNames.dm_props": {
+                    "order": 30,
+                    "type": "list",
+                    "fontFactor": 2,
+                    "colorPalette": "dm_Tools.modifiedCategory20b() ;",
+                    "visible": true,
+                    "hideFromEdit": true
+                },
+                "titlesPie": "",
+                "titlesPie.dm_props": {
+                    "order": 31,
+                    "visible": true,
+                    "edit": false,
+                    "label": "Positions",
+                    "type": "graph",
+                    "value": "
+var output, elt ;
+var doIt = function(node) {
+    if (!output) {
+        output = [] ;
+    }
+    elt = {} ;
+    output.push(elt) ;
+    elt.value = node.rawNode.duration ;
+    elt.valueStr = node.rawNode.durationStr ;
+    elt.name = dm_Tools.splitStr(node.name, 20, '\\n') ;
+    //elt.unit = unit ;
+} ;
+var children = dm_Tools.getNonReducedChildren(node) ;
+var child ;
+for(var i=0; i<children.length; i++) {
+    child = children[i] ;
+    doIt(child) ;
+}
+return output;"
+                }
+            }
+        },
+        /* ----------------------------------------------------------------------------------------------------------------------------------------
+                     "name": "$dm_root|Experience|Positions|*",
+           ----------------------------------------------------------------------------------------------------------------------------------------*/
+        {
+            "name": "$dm_root|Experience|Positions|*",
+            "rawNode": {
+                "setEmptyDefaults": "
+delete node.rawNode.setEmptyDefaults ;
+delete node.rawNode['setEmptyDefaults.dm_props'] ;
+
+dm_Tools.forceAllOnPostChange(node) ;
+
+'#dm_STOP_AND_REDRAW_ATTRIBUTES_PANEL#1' ;
+",
+                "setEmptyDefaults.dm_props": {
+                    "order": 0,
+                    "type": "execute",
+                    "visible": true
+                },
+                "dm_newAttribute": null,
+                "dm_newAttribute.dm_props": {
+                    "order": 1,
+                    "visible": false,
+                    "hideFromEdit": true,
+                    "dontEdit": ["name", "label", "edit", "visible", "type", "source"]
+                },
+                "icon": "socialMap/position.png",
+                "icon.dm_props": {
+                    "order": 2,
+                    "type": "image",
+                    "visible": true,
+                    "scaleFactor": 4,
+                    "width": 140,
+                    "height": 140,
+                    "dontReplaceIfNotNull": true,
+                    "hideFromEdit": true
+                },
+                "array index.dm_props": {
+                    "visible": false
+                },
+                "title": "",
+                "title.dm_props": {
+                    "order": 20,
+                    "label": "position title",
+                    "visible": true,
+                    "type": "text",
+                    "dontEdit": ["removeButton", "name", "notNestedLabel", "edit", "type", "source"],
+                    "value": "position title",
+                    "rows": 2,
+                    "width": "100%",
+                    "dontReplaceIfNotNull": true,
+                    "onPreEdit": "
+dm_Tools.onPreEditRichText(node, prop) ;
+",
+                    "onPreDisplay": "
+dm_Tools.onPostChangeRichText(node, prop, '<div class=\"dm_normal\"><div class=\"dm_center\"><h2>', '</h2></div>') ;
+",
+                    "onPostChange": "
+dm_Tools.onPostChangeRichText(node, prop, '<div class=\"dm_normal\"><div class=\"dm_center\"><h2>', '</h2></div>') ;
+"
+                },
+                "organization": "",
+                "organization.dm_props": {
+                    "order": 21,
+                    "label": "compagny name",
+                    "visible": true,
+                    "type": "text",
+                    "dontEdit": ["removeButton", "name", "notNestedLabel", "edit", "type", "source"],
+                    "value": "compagny",
+                    "rows": 2,
+                    "width": "100%",
+                    "dontReplaceIfNotNull": true,
+                    "onPreEdit": "
+dm_Tools.onPreEditRichText(node, prop) ;
+",
+                    "onPreDisplay": "
+dm_Tools.onPostChangeRichText(node, prop, '<div class=\"dm_normal\"><div class=\"dm_center dm_emphasis dm_info dm_txtShadow\"><h2>', '</h2></div>') ;
+",
+                    "onPostChange": "
+dm_Tools.onPostChangeRichText(node, prop, '<div class=\"dm_normal\"><div class=\"dm_center dm_emphasis dm_info dm_txtShadow\"><h2>', '</h2></div>') ;
+"
+                },
+                "summary": "",
+                "summary.dm_props": {
+                    "order": 22,
+                    "label": null,
+                    "visible": true,
+                    "type": "text",
+                    "dontEdit": ["removeButton", "name", "notNestedLabel", "edit", "type", "source"],
+                    "value": "key elements of your job",
+                    "rows": 3,
+                    "width": "100%",
+                    "dontReplaceIfNotNull": true,
+                    "onPreEdit": "
+dm_Tools.onPreEditRichText(node, prop) ;
+",
+                    "onPreDisplay": "
+dm_Tools.onPostChangeRichText(node, prop, '<div class=\"dm_normal\"><table align=\"center\"><tr><td><div class=\"dm_border dm_success dm_center\" style=\"line-height: 28px;\">', '</div></td></tr></table></div>') ;
+",
+                    "onPostChange": "
+dm_Tools.onPostChangeRichText(node, prop, '<div class=\"dm_normal\"><table align=\"center\"><tr><td><div class=\"dm_border dm_success dm_center\" style=\"line-height: 28px;\">', '</div></td></tr></table></div>') ;
+"
+                },
+                "description": "",
+                "description.dm_props": {
+                    "order": 23,
+                    "label": null,
+                    "visible": true,
+                    "type": "text",
+                    "dontEdit": ["removeButton", "name", "notNestedLabel", "edit", "type", "source"],
+                    "value": "job's description",
+                    "rows": 3,
+                    "width": "100%",
+                    "dontReplaceIfNotNull": true,
+                    "onPreEdit": "
+dm_Tools.onPreEditRichText(node, prop) ;
+",
+                    "onPreDisplay": "
+dm_Tools.onPostChangeRichText(node, prop, '<div class=\"dm_normal\"><table align=\"center\"><tr><td><div class=\"dm_emphasis dm_info dm_txtShadow\">', '</div></td></tr></table></div>') ;
+",
+                    "onPostChange": "
+dm_Tools.onPostChangeRichText(node, prop, '<div class=\"dm_normal\"><table align=\"center\"><tr><td><div class=\"dm_emphasis dm_info dm_txtShadow\">', '</div></td></tr></table></div>') ;
+"
+                }
+            }
+        },
+        /* ----------------------------------------------------------------------------------------------------------------------------------------
+                     "name": "$dm_root|Experience|Skills",
+           ----------------------------------------------------------------------------------------------------------------------------------------*/
+        {
+            "name": "$dm_root|Experience|Skills",
+            "rawNode": {
+                "setEmptyDefaults": "
+delete node.rawNode.setEmptyDefaults ;
+delete node.rawNode['setEmptyDefaults.dm_props'] ;
+
+dm_Tools.forceAllOnPostChange(node) ;
+
+// pick up the icon of people
+var src = node.parent.parent.rawNode ;
+node.rawNode.peoplePicture = src.icon ;
+node.rawNode['peoplePicture.dm_props'] = dm_Tools.clone(src['icon.dm_props']) ;
+node.rawNode['peoplePicture.dm_props'].order = 4 ;
+node.rawNode['peoplePicture.dm_props'].hideFromEdit = true ;
+delete node.rawNode['peoplePicture.dm_props'].tintedSrc ;
+
+'#dm_STOP_AND_REDRAW_ATTRIBUTES_PANEL#1' ;
+",
+                "setEmptyDefaults.dm_props": {
+                    "order": 0,
+                    "type": "execute",
+                    "visible": true
+                },
+                "dm_newAttribute": null,
+                "dm_newAttribute.dm_props": {
+                    "order": 1,
+                    "visible": false,
+                    "hideFromEdit": true,
+                    "dontEdit": ["name", "label", "edit", "visible", "type", "source"]
+                },
+                "array index.dm_props": {
+                    "visible": false
+                },
+                "icon": "socialMap/skill.png",
+                "icon.dm_props": {
+                    "order": 2,
+                    "type": "image",
+                    "visible": true,
+                    "displayInAttrPanel": false,
+                    "width": 140,
+                    "height": 140,
+                    "scaleFactor": 5.5,
+                    "hideFromEdit": true
+                },
+                "skillsCloud": "
+var output = [] ;
+var children = dm_Tools.getNonReducedChildren(node) ;
+while(children.length > 0) output.push(children.pop().name) ;
+output ;
+",
+                "skillsCloud.dm_props":  {
+                    "order": 10,
+                    "type": "cloud",
+                    "visible": true,
+                    "colorPalette": "dm_Tools.modifiedCategory20b() ;",
+                    "hideFromEdit": true
+                },
+                /*
+                "listOfChildrenNames.dm_props": {
+                    "order": 20,
+                    "type": "rich text",
+                    "visible": true
+                },
+                */
+                "listOfChildrenNames": "
+var output = [] ;
+var children = dm_Tools.getNonReducedChildren(node) ;
+while(children.length > 0) {
+    var child = children.pop() ;
+    var w = 1 ;
+    if(child.rawNode) w = child.rawNode.weight ;
+    output.push({'text': child.name, 'weight': w}) ;
+}
+output ;
+",
+                "listOfChildrenNames.dm_props": {
+                    "order": 20,
+                    "type": "list",
+                    "visible": true,
+                    "colorPalette": "dm_Tools.modifiedCategory20b() ;",
+                    "hideFromEdit": true
+                }
+            }
+        },
+        /* ----------------------------------------------------------------------------------------------------------------------------------------
+                     "name": "$dm_root|Experience|Skills|*",
+           ----------------------------------------------------------------------------------------------------------------------------------------*/
+        {
+            "name": "$dm_root|Experience|Skills|*",
+            "rawNode": {
+                "dm_newAttribute": null,
+                "dm_newAttribute.dm_props": {
+                    "order": 1,
+                    "visible": false,
+                    "hideFromEdit": true,
+                    "dontEdit": ["name", "label", "edit", "visible", "type", "source"]
+                },
+                "array index.dm_props": {
+                    "visible": false
+                },
+                "icon": "socialMap/skill.png",
+                "icon.dm_props": {
+                    "order": 2,
+                    "type": "image",
+                    "visible": true,
+                    "width": 140,
+                    "height": 140,
+                    "scaleFactor": 4,
+                    "hideFromEdit": true
+                },
+                "weight": 5,
+                "weight.dm_props": {
+                    "order": 3,
+                    "visible": true,
+                    "label": "Weight",
+                    "type": "slider",
+                    "value": 5,
+                    "displayEvenIfUndefined": true,
+                    "min": 0,
+                    "max": 10,
+                    "unit": "",
+                    "period": 1,
+                    "onlyRoundedValues": true,
+                    "onlyTicksValues": true,
+                    "hideFromEdit": true
+                },
+                "wikipediaDescription": "
+var searchTags = node.name.replace(' ', '+') ;
+var output = '<embed src=\"http://en.wikipedia.org/w/index.php?title=' + searchTags + '&amp;printable=yes\" style=\"width:100%; height:450px;\"></embed>' ;
+output ;",
+                "wikipediaDescription.dm_props": {
+                    "order": 10,
+                    "type": "rich text",
+                    "visible": true,
+                    "label": "wikipedia description"
+                }
+            }
+        },
+        /* ----------------------------------------------------------------------------------------------------------------------------------------
+                     "name": "$dm_root|Experience|Volunteering",
+           ----------------------------------------------------------------------------------------------------------------------------------------*/
+        {
+            "name": "$dm_root|Experience|Volunteering",
+            "rawNode": {
+                "setEmptyDefaults": "
+delete node.rawNode.setEmptyDefaults ;
+delete node.rawNode['setEmptyDefaults.dm_props'] ;
+
+dm_Tools.forceAllOnPostChange(node) ;
+
+// pick up the icon of people
+var src = node.parent.parent.rawNode ;
+node.rawNode.peoplePicture = src.icon ;
+node.rawNode['peoplePicture.dm_props'] = dm_Tools.clone(src['icon.dm_props']) ;
+node.rawNode['peoplePicture.dm_props'].order = 4 ;
+node.rawNode['peoplePicture.dm_props'].hideFromEdit = true ;
+delete node.rawNode['peoplePicture.dm_props'].tintedSrc ;
+
+'#dm_STOP_AND_REDRAW_ATTRIBUTES_PANEL#1' ;
+",
+                "setEmptyDefaults.dm_props": {
+                    "order": 0,
+                    "type": "execute",
+                    "visible": true
+                },
+                "dm_newAttribute": null,
+                "dm_newAttribute.dm_props": {
+                    "order": 1,
+                    "visible": false,
+                    "hideFromEdit": true,
+                    "dontEdit": ["name", "label", "edit", "visible", "type", "source"]
+                },
+                "array index.dm_props": {
+                    "visible": false
+                },
+                "icon": "socialMap/volunteer.png",
+                "icon.dm_props": {
+                    "order": 2,
+                    "type": "image",
+                    "visible": true,
+                    "displayInAttrPanel": false,
+                    "width": 140,
+                    "height": 140,
+                    "scaleFactor": 5.5,
+                    "hideFromEdit": true
+                },
+                /*
+                "volunteersCloud": "
+var output = [] ;
+var addChildren = function(node) {
+    var child ;
+    for(var i=0; i<node.children.length; i++) {
+        child = node.children[i] ;
+        if(child.dm_isReducedNode) {
+            addChildren(child) ;
+        } else {
+            output.push(child.name) ;
+        }
+    }
+}
+addChildren(node) ;
+output ;
+",
+                "volunteersCloud.dm_props":  {
+                    "order": 10,
+                    "type": "cloud",
+                    "visible": true,
+                    "hideFromEdit": true
+                },
+                */
+                "br": "<br/>",
+                "br.dm_props": {
+                    "order": 9,
+                    "visible": true,
+                    "type": "rich text"
+                },
+                "listOfChildrenNames": "
+var output = [] ;
+var children = dm_Tools.getNonReducedChildren(node) ;
+while(children.length > 0) output.push(children.pop().name) ;
+output ;
+",
+                "listOfChildrenNames.dm_props": {
+                    "order": 20,
+                    "type": "list",
+                    "visible": true,
+                    "colorPalette": "dm_Tools.modifiedCategory20b() ;",
+                    "hideFromEdit": true
+                }
+            }
+        },
+        /* ----------------------------------------------------------------------------------------------------------------------------------------
+                     "name": "$dm_root|Experience|Volunteering|*",
+           ----------------------------------------------------------------------------------------------------------------------------------------*/
+        {
+            "name": "$dm_root|Experience|Volunteering|*",
+            "rawNode": {
+                "dm_newAttribute": null,
+                "dm_newAttribute.dm_props": {
+                    "order": 1,
+                    "visible": false,
+                    "hideFromEdit": true,
+                    "dontEdit": ["name", "label", "edit", "visible", "type", "source"]
+                },
+                "array index.dm_props": {
+                    "visible": false
+                },
+                "icon": "socialMap/volunteer.png",
+                "icon.dm_props": {
+                    "order": 2,
+                    "type": "image",
+                    "visible": true,
+                    "width": 140,
+                    "height": 140,
+                    "scaleFactor": 4,
+                    "hideFromEdit": true
+                },
+                "title": "",
+                "title.dm_props": {
+                    "order": 20,
+                    "label": "volunteering title",
+                    "visible": true,
+                    "type": "text",
+                    "dontEdit": ["removeButton", "name", "notNestedLabel", "edit", "type", "source"],
+                    "value": "volunteering title",
+                    "rows": 2,
+                    "width": "100%",
+                    "dontReplaceIfNotNull": true,
+                    "onPreEdit": "
+dm_Tools.onPreEditRichText(node, prop) ;
+",
+                    "onPreDisplay": "
+dm_Tools.onPostChangeRichText(node, prop, '<div class=\"dm_normal\"><div class=\"dm_center\"><h2>', '</h2></div>') ;
+",
+                    "onPostChange": "
+dm_Tools.onPostChangeRichText(node, prop, '<div class=\"dm_normal\"><div class=\"dm_center\"><h2>', '</h2></div>') ;
+"
+                },
+                "cause": "",
+                "cause.dm_props": {
+                    "order": 21,
+                    "label": "sub title",
+                    "visible": true,
+                    "type": "text",
+                    "dontEdit": ["removeButton", "name", "notNestedLabel", "edit", "type", "source"],
+                    "value": "cause",
+                    "rows": 2,
+                    "width": "100%",
+                    "dontReplaceIfNotNull": true,
+                    "onPreEdit": "
+dm_Tools.onPreEditRichText(node, prop) ;
+",
+                    "onPreDisplay": "
+dm_Tools.onPostChangeRichText(node, prop, '<div class=\"dm_normal\"><div class=\"dm_center dm_emphasis dm_info dm_txtShadow\"><h2>', '</h2></div>') ;
+",
+                    "onPostChange": "
+dm_Tools.onPostChangeRichText(node, prop, '<div class=\"dm_normal\"><div class=\"dm_center dm_emphasis dm_info dm_txtShadow\"><h2>', '</h2></div>') ;
+"
+                },
+                "summary": "",
+                "summary.dm_props": {
+                    "order": 22,
+                    "label": null,
+                    "visible": true,
+                    "type": "text",
+                    "dontEdit": ["removeButton", "name", "notNestedLabel", "edit", "type", "source"],
+                    "value": "key elements of your job",
+                    "rows": 3,
+                    "width": "100%",
+                    "dontReplaceIfNotNull": true,
+                    "onPreEdit": "
+dm_Tools.onPreEditRichText(node, prop) ;
+",
+                    "onPreDisplay": "
+dm_Tools.onPostChangeRichText(node, prop, '<div class=\"dm_normal\"><table align=\"center\"><tr><td><div class=\"dm_border dm_success dm_center\" style=\"line-height: 28px;\">', '</div></td></tr></table></div>') ;
+",
+                    "onPostChange": "
+dm_Tools.onPostChangeRichText(node, prop, '<div class=\"dm_normal\"><table align=\"center\"><tr><td><div class=\"dm_border dm_success dm_center\" style=\"line-height: 28px;\">', '</div></td></tr></table></div>') ;
+"
+                }
+            }
+        },
+        /* ----------------------------------------------------------------------------------------------------------------------------------------
+                     "name": "$dm_root|Experience|Educations",
+           ----------------------------------------------------------------------------------------------------------------------------------------*/
+        {
+            "name": "$dm_root|Experience|Educations",
+            "rawNode": {
+                "setEmptyDefaults": "
+delete node.rawNode.setEmptyDefaults ;
+delete node.rawNode['setEmptyDefaults.dm_props'] ;
+
+dm_Tools.forceAllOnPostChange(node) ;
+
+// pick up the icon of people
+var src = node.parent.parent.rawNode ;
+node.rawNode.peoplePicture = src.icon ;
+node.rawNode['peoplePicture.dm_props'] = dm_Tools.clone(src['icon.dm_props']) ;
+node.rawNode['peoplePicture.dm_props'].order = 4 ;
+node.rawNode['peoplePicture.dm_props'].hideFromEdit = true ;
+delete node.rawNode['peoplePicture.dm_props'].tintedSrc ;
+
+'#dm_STOP_AND_REDRAW_ATTRIBUTES_PANEL#1' ;
+",
+                "setEmptyDefaults.dm_props": {
+                    "order": 0,
+                    "type": "execute",
+                    "visible": true
+                },
+                "dm_newAttribute": null,
+                "dm_newAttribute.dm_props": {
+                    "order": 1,
+                    "visible": false,
+                    "hideFromEdit": true,
+                    "dontEdit": ["name", "label", "edit", "visible", "type", "source"]
+                },
+                "array index.dm_props": {
+                    "visible": false
+                },
+                "icon": "socialMap/education.png",
+                "icon.dm_props": {
+                    "order": 2,
+                    "type": "image",
+                    "visible": true,
+                    "displayInAttrPanel": false,
+                    "width": 140,
+                    "height": 140,
+                    "scaleFactor": 5.5,
+                    "hideFromEdit": true
+                },
+                "br": "<br/>",
+                "br.dm_props": {
+                    "order": 9,
+                    "visible": true,
+                    "type": "rich text"
+                },
+                "listOfChildrenNames": "
+var output = [] ;
+var children = dm_Tools.getNonReducedChildren(node) ;
+while(children.length > 0) output.push(children.pop().name) ;
+output ;
+",
+                "listOfChildrenNames.dm_props": {
+                    "order": 20,
+                    "type": "list",
+                    "visible": true,
+                    "fontFactor": 5,
+                    "colorPalette": "dm_Tools.modifiedCategory20b() ;",
+                    "hideFromEdit": true
+                }
+            }
+        },
+        /* ----------------------------------------------------------------------------------------------------------------------------------------
+                     "name": "$dm_root|Experience|Educations|*",
+           ----------------------------------------------------------------------------------------------------------------------------------------*/
+        {
+            "name": "$dm_root|Experience|Educations|*",
+            "rawNode": {
+                "dm_newAttribute": null,
+                "dm_newAttribute.dm_props": {
+                    "order": 1,
+                    "visible": false,
+                    "hideFromEdit": true,
+                    "dontEdit": ["name", "label", "edit", "visible", "type", "source"]
+                },
+                "array index.dm_props": {
+                    "visible": false
+                },
+                "icon": "socialMap/education.png",
+                "icon.dm_props": {
+                    "order": 2,
+                    "type": "image",
+                    "visible": true,
+                    "displayInAttrPanel": false,
+                    "scaleFactor": 4,
+                    "width": 140,
+                    "height": 140,
+                    "dontReplaceIfNotNull": true,
+                    "hideFromEdit": true
+                },
+                "title": "",
+                "title.dm_props": {
+                    "order": 20,
+                    "label": "school",
+                    "visible": true,
+                    "type": "text",
+                    "dontEdit": ["removeButton", "name", "notNestedLabel", "edit", "type", "source"],
+                    "value": "school",
+                    "rows": 2,
+                    "width": "100%",
+                    "dontReplaceIfNotNull": true,
+                    "onPreEdit": "
+dm_Tools.onPreEditRichText(node, prop) ;
+",
+                    "onPreDisplay": "
+dm_Tools.onPostChangeRichText(node, prop, '<div class=\"dm_normal\"><div class=\"dm_center\"><h2>', '</h2></div>') ;
+",
+                    "onPostChange": "
+dm_Tools.onPostChangeRichText(node, prop, '<div class=\"dm_normal\"><div class=\"dm_center\"><h2>', '</h2></div>') ;
+"
+                },
+                "subTitle": "",
+                "subTitle.dm_props": {
+                    "order": 21,
+                    "label": "diploma",
+                    "visible": true,
+                    "type": "text",
+                    "dontEdit": ["removeButton", "name", "notNestedLabel", "edit", "type", "source"],
+                    "value": "diploma",
+                    "rows": 2,
+                    "width": "100%",
+                    "dontReplaceIfNotNull": true,
+                    "onPreEdit": "
+dm_Tools.onPreEditRichText(node, prop) ;
+",
+                    "onPreDisplay": "
+dm_Tools.onPostChangeRichText(node, prop, '<div class=\"dm_normal\"><div class=\"dm_center dm_emphasis dm_info dm_txtShadow\"><h2>', '</h2></div>') ;
+",
+                    "onPostChange": "
+dm_Tools.onPostChangeRichText(node, prop, '<div class=\"dm_normal\"><div class=\"dm_center dm_emphasis dm_info dm_txtShadow\"><h2>', '</h2></div>') ;
+"
+                },
+                "description": "",
+                "description.dm_props": {
+                    "order": 23,
+                    "label": null,
+                    "visible": true,
+                    "type": "text",
+                    "dontEdit": ["removeButton", "name", "notNestedLabel", "edit", "type", "source"],
+                    "value": "description",
+                    "rows": 3,
+                    "width": "100%",
+                    "dontReplaceIfNotNull": true,
+                    "onPreEdit": "
+dm_Tools.onPreEditRichText(node, prop) ;
+",
+                    "onPreDisplay": "
+dm_Tools.onPostChangeRichText(node, prop, '<div class=\"dm_normal\"><table align=\"center\"><tr><td><div class=\"dm_border dm_success dm_center\" style=\"line-height: 28px;\">', '</div></td></tr></table></div>') ;
+",
+                    "onPostChange": "
+dm_Tools.onPostChangeRichText(node, prop, '<div class=\"dm_normal\"><table align=\"center\"><tr><td><div class=\"dm_border dm_success dm_center\" style=\"line-height: 28px;\">', '</div></td></tr></table></div>') ;
+"
+                }
+            }
+        },
+        /* ----------------------------------------------------------------------------------------------------------------------------------------
+                     "name": "$dm_root|Experience|Languages",
+           ----------------------------------------------------------------------------------------------------------------------------------------*/
+        {
+            "name": "$dm_root|Experience|Languages",
+            "rawNode": {
+                "setEmptyDefaults": "
+delete node.rawNode.setEmptyDefaults ;
+delete node.rawNode['setEmptyDefaults.dm_props'] ;
+
+dm_Tools.forceAllOnPostChange(node) ;
+
+// pick up the icon of people
+var src = node.parent.parent.rawNode ;
+node.rawNode.peoplePicture = src.icon ;
+node.rawNode['peoplePicture.dm_props'] = dm_Tools.clone(src['icon.dm_props']) ;
+node.rawNode['peoplePicture.dm_props'].order = 4 ;
+node.rawNode['peoplePicture.dm_props'].hideFromEdit = true ;
+delete node.rawNode['peoplePicture.dm_props'].tintedSrc ;
+
+'#dm_STOP_AND_REDRAW_ATTRIBUTES_PANEL#1' ;
+",
+                "setEmptyDefaults.dm_props": {
+                    "order": 0,
+                    "type": "execute",
+                    "visible": true
+                },
+                "dm_newAttribute": null,
+                "dm_newAttribute.dm_props": {
+                    "order": 1,
+                    "visible": false,
+                    "hideFromEdit": true,
+                    "dontEdit": ["name", "label", "edit", "visible", "type", "source"]
+                },
+                "array index.dm_props": {
+                    "visible": false
+                },
+                "icon": "socialMap/language.png",
+                "icon.dm_props": {
+                    "order": 2,
+                    "type": "image",
+                    "visible": true,
+                    "displayInAttrPanel": false,
+                    "width": 140,
+                    "height": 140,
+                    "scaleFactor": 5.5,
+                    "hideFromEdit": true
+                },
+                "br": "<br/>",
+                "br.dm_props": {
+                    "order": 9,
+                    "visible": true,
+                    "type": "rich text"
+                },
+                "listOfChildrenNames": "
+var output = [] ;
+var children = dm_Tools.getNonReducedChildren(node) ;
+while(children.length > 0) output.push(children.pop().name) ;
+output ;
+",
+                "listOfChildrenNames.dm_props": {
+                    "order": 20,
+                    "type": "list",
+                    "visible": true,
+                    "hideFromEdit": true,
+                    "randomSize": false,
+                    "colorPalette": "dm_Tools.modifiedCategory20b() ;",
+                    "fontFactor": 25
+                }
+            }
+        },
+        /* ----------------------------------------------------------------------------------------------------------------------------------------
+                     "name": "$dm_root|Experience|Languages|*",
+           ----------------------------------------------------------------------------------------------------------------------------------------*/
+        {
+            "name": "$dm_root|Experience|Languages|*",
+            "rawNode": {
+                "dm_newAttribute": null,
+                "dm_newAttribute.dm_props": {
+                    "order": 1,
+                    "visible": false,
+                    "hideFromEdit": true,
+                    "dontEdit": ["name", "label", "edit", "visible", "type", "source"]
+                },
+                "array index.dm_props": {
+                    "visible": false
+                },
+                "icon": "socialMap/language.png",
+                "icon.dm_props": {
+                    "order": 2,
+                    "type": "image",
+                    "visible": true,
+                    "width": 140,
+                    "height": 140,
+                    "scaleFactor": 4,
+                    "hideFromEdit": true
+                },
+                "description": "",
+                "description.dm_props": {
+                    "order": 23,
+                    "label": null,
+                    "visible": true,
+                    "type": "text",
+                    "dontEdit": ["removeButton", "name", "notNestedLabel", "edit", "type", "source"],
+                    "value": "job's description",
+                    "rows": 3,
+                    "width": "100%",
+                    "dontReplaceIfNotNull": true,
+                    "onPreEdit": "
+dm_Tools.onPreEditRichText(node, prop) ;
+",
+                    "onPreDisplay": "
+dm_Tools.onPostChangeRichText(node, prop, '<div class=\"dm_normal\"><table align=\"center\"><tr><td><div class=\"dm_emphasis dm_info dm_txtShadow\">', '</div></td></tr></table></div>') ;
+",
+                    "onPostChange": "
+dm_Tools.onPostChangeRichText(node, prop, '<div class=\"dm_normal\"><table align=\"center\"><tr><td><div class=\"dm_emphasis dm_info dm_txtShadow\">', '</div></td></tr></table></div>') ;
+"
+                }
+            }
+        },
+        /* ----------------------------------------------------------------------------------------------------------------------------------------
+                     "name": "$dm_root|Relations",
+           ----------------------------------------------------------------------------------------------------------------------------------------*/
+        {
+            "name": "$dm_root|Relations",
+            "rawNode": {
+                "icon": "socialMap/relations.png",
+                "icon.dm_props": {
+                    "order": 2,
+                    "type": "image",
+                    "visible": true,
+                    "width": 140,
+                    "height": 140,
+                    "scaleFactor": 5.5,
+                    "hideFromEdit": true
+                }
+            }
+        },
+        /* ----------------------------------------------------------------------------------------------------------------------------------------
+                     "name": "$dm_root|Relations|Work relations",
+           ----------------------------------------------------------------------------------------------------------------------------------------*/
+        {
+            "name": "$dm_root|Relations|Work relations",
+            "rawNode": {
+                "icon": "socialMap/work-relation.png",
+                "icon.dm_props": {
+                    "order": 2,
+                    "type": "image",
+                    "visible": true,
+                    "width": 140,
+                    "height": 140,
+                    "scaleFactor": 5.5,
+                    "hideFromEdit": true
+                }
+            }
+        },
+        /* ----------------------------------------------------------------------------------------------------------------------------------------
+                     "name": "$dm_root|Relations|Friends",
+           ----------------------------------------------------------------------------------------------------------------------------------------*/
+        {
+            "name": "$dm_root|Relations|Friends",
+            "rawNode": {
+                "icon": "socialMap/friend.png",
+                "icon.dm_props": {
+                    "order": 2,
+                    "type": "image",
+                    "visible": true,
+                    "width": 140,
+                    "height": 140,
+                    "scaleFactor": 5.5,
+                    "hideFromEdit": true
+                }
+            }
+        },
+        /* ----------------------------------------------------------------------------------------------------------------------------------------
+                     "name": "$dm_root|Relations|Family",
+           ----------------------------------------------------------------------------------------------------------------------------------------*/
+        {
+            "name": "$dm_root|Relations|Family",
+            "rawNode": {
+                "icon": "socialMap/family.png",
+                "icon.dm_props": {
+                    "order": 2,
+                    "type": "image",
+                    "visible": true,
+                    "width": 140,
+                    "height": 140,
+                    "scaleFactor": 5.5,
+                    "hideFromEdit": true
+                }
+            }
+        },
+        /* ----------------------------------------------------------------------------------------------------------------------------------------
+                     "name": "$dm_root|Relations|Schoolmates",
+           ----------------------------------------------------------------------------------------------------------------------------------------*/
+        {
+            "name": "$dm_root|Relations|Schoolmates",
+            "rawNode": {
+                "icon": "socialMap/schoolmate.png",
+                "icon.dm_props": {
+                    "order": 2,
+                    "type": "image",
+                    "visible": true,
+                    "width": 140,
+                    "height": 140,
+                    "scaleFactor": 5.5,
+                    "hideFromEdit": true
+                }
+            }
+        },
+        /* ----------------------------------------------------------------------------------------------------------------------------------------
+                     "name": "$dm_root|Personal",
+           ----------------------------------------------------------------------------------------------------------------------------------------*/
+        {
+            "name": "$dm_root|Personal",
+            "rawNode": {
+                "icon": "socialMap/personal.png",
+                "icon.dm_props": {
+                    "order": 2,
+                    "type": "image",
+                    "visible": true,
+                    "width": 140,
+                    "height": 140,
+                    "scaleFactor": 5.5,
+                    "hideFromEdit": true
+                }
+            }
+        },
+        /* ----------------------------------------------------------------------------------------------------------------------------------------
+                     "name": "$dm_root|Personal|Photos",
+           ----------------------------------------------------------------------------------------------------------------------------------------*/
+        {
+            "name": "$dm_root|Personal|Photos",
+            "rawNode": {
+                "icon": "socialMap/photo.png",
+                "icon.dm_props": {
+                    "order": 2,
+                    "type": "image",
+                    "visible": true,
+                    "width": 140,
+                    "height": 140,
+                    "scaleFactor": 5.5,
+                    "hideFromEdit": true
+                }
+            }
+        },
+        /* ----------------------------------------------------------------------------------------------------------------------------------------
+                     "name": "$dm_root|Personal|Videos",
+           ----------------------------------------------------------------------------------------------------------------------------------------*/
+        {
+            "name": "$dm_root|Personal|Videos",
+            "rawNode": {
+                "icon": "socialMap/video.png",
+                "icon.dm_props": {
+                    "order": 2,
+                    "type": "image",
+                    "visible": true,
+                    "width": 140,
+                    "height": 140,
+                    "scaleFactor": 5.5,
+                    "hideFromEdit": true
+                }
+            }
+        },
+        /* ----------------------------------------------------------------------------------------------------------------------------------------
+                     "name": "$dm_root|Personal|Musics",
+           ----------------------------------------------------------------------------------------------------------------------------------------*/
+        {
+            "name": "$dm_root|Personal|Musics",
+            "rawNode": {
+                "icon": "socialMap/music.png",
+                "icon.dm_props": {
+                    "order": 2,
+                    "type": "image",
+                    "visible": true,
+                    "width": 140,
+                    "height": 140,
+                    "scaleFactor": 5.5,
+                    "hideFromEdit": true
+                }
+            }
+        },
+        /* ----------------------------------------------------------------------------------------------------------------------------------------
+                     "name": "$dm_root|Personal|Books",
+           ----------------------------------------------------------------------------------------------------------------------------------------*/
+        {
+            "name": "$dm_root|Personal|Books",
+            "rawNode": {
+                "icon": "socialMap/book.png",
+                "icon.dm_props": {
+                    "order": 2,
+                    "type": "image",
+                    "visible": true,
+                    "width": 140,
+                    "height": 140,
+                    "scaleFactor": 5.5,
+                    "hideFromEdit": true
+                }
+            }
+        },
+        /* ----------------------------------------------------------------------------------------------------------------------------------------
+                     "name": "$dm_root|Relations",
+           ----------------------------------------------------------------------------------------------------------------------------------------*/
+        {
+            "name": "$dm_root|Relations",
+            "rawNode": {
+                "icon": "socialMap/relations.png",
+                "icon.dm_props": {
+                    "order": 2,
+                    "type": "image",
+                    "visible": true,
+                    "width": 140,
+                    "height": 140,
+                    "scaleFactor": 5.5,
+                    "hideFromEdit": true
+                }
+            }
+        },
+        /* ----------------------------------------------------------------------------------------------------------------------------------------
+                     "name": "$dm_root|Communicate",
+           ----------------------------------------------------------------------------------------------------------------------------------------*/
+        {
+            "name": "$dm_root|Communicate",
+            "rawNode": {
+                "icon": "socialMap/communicate.png",
+                "icon.dm_props": {
+                    "order": 2,
+                    "type": "image",
+                    "visible": true,
+                    "width": 140,
+                    "height": 140,
+                    "scaleFactor": 5.5,
+                    "hideFromEdit": true
+                }
+            }
+        },
+        /* ----------------------------------------------------------------------------------------------------------------------------------------
+                     "name": "$dm_root|Tchat",
+           ----------------------------------------------------------------------------------------------------------------------------------------*/
+        {
+            "name": "$dm_root|Tchat",
+            "rawNode": {
+                "icon": "socialMap/tchat.png",
+                "icon.dm_props": {
+                    "order": 2,
+                    "type": "image",
+                    "visible": true,
+                    "width": 140,
+                    "height": 140,
+                    "scaleFactor": 5.5,
+                    "hideFromEdit": true
+                }
+            }
+        },
+        /* ----------------------------------------------------------------------------------------------------------------------------------------
+                     "name": "$dm_root|Calendar",
+           ----------------------------------------------------------------------------------------------------------------------------------------*/
+        {
+            "name": "$dm_root|Calendar",
+            "rawNode": {
+                "icon": "socialMap/calendar.png",
+                "icon.dm_props": {
+                    "order": 2,
+                    "type": "image",
+                    "visible": true,
+                    "width": 140,
+                    "height": 140,
+                    "scaleFactor": 5.5,
+                    "hideFromEdit": true
+                }
+            }
+        }
+        ]
+    }
+}

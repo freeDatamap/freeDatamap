@@ -1,0 +1,545 @@
+{
+    "$schema": "http://www.freedatamap.com/jsonConfigSchema/schema#",
+    "$charset": "UTF-8",
+    "config": {
+        "name": ".config",
+        "root": null,
+        "txtFontSize": 13,
+        "displayColumnsAsAttributes": true,
+        "center": null,
+        "depth": 1,
+        "sort": "items",
+        "sortDescendant": true,
+        "displayArrowsOfTransversalConnections": false,
+        "multicolorBrothers": true,
+        "maxDepthForExport": 6,
+        "dm_DatamapName": "Parcelles",
+        "dm_sourceFile": "cereales/Vallee_Rhone.geojson",
+        "$schema": "http://www.freedatamap.com/jsonConfigSchema/schema#",
+        "displayName": null,
+        "icon": "../../config/images/config/config_root.png",
+        "possibleProperties": null,
+        "maxNbOfColumns2tree": 10,
+        "csvSepIsSemicolon": true,
+        "displayTransversalConnections": true,
+        "nullOrUndefinedLegend": "non renseigné",
+        "aggregate": [{
+            "name": "items",
+            "array index": 0,
+            "value": "var output = 1 ;
+if(node.children) {
+    var i = node.children.length - 1 ;
+    output = 0 ;
+    for(; i>=0; i--) {
+        output += node.children[i].rawNode[propName] ;
+    }
+}
+return output ;",
+            "funcDropdown": "count leaves",
+            "execAfterChildrenVisit": true,
+            "onlyLeaves": true,
+            "displayName": null
+/*        }, {
+            "name": "ajoutCulture",
+            "array index": 1,
+            "value": "
+if(!node.children) {
+    var cultures = [{'Famille': 'Céréales', 'Catégorie': null, 'sous-catégorie': null, 'matière première': 'Blé tendre', 'k tonnes': 4931},
+        {'Famille': 'Céréales', 'Catégorie': null, 'sous-catégorie': null, 'matière première': 'Maïs', 'k tonnes': 3586},
+        {'Famille': 'Céréales', 'Catégorie': null, 'sous-catégorie': null, 'matière première': 'Orge', 'k tonnes': 1254},
+        {'Famille': 'Céréales', 'Catégorie': null, 'sous-catégorie': null, 'matière première': 'Triticale', 'k tonnes': 625},
+        {'Famille': 'Céréales', 'Catégorie': null, 'sous-catégorie': null, 'matière première': 'Sorgho', 'k tonnes': 48},
+        {'Famille': 'Céréales', 'Catégorie': null, 'sous-catégorie': null, 'matière première': 'Avoine', 'k tonnes': 53},
+        {'Famille': 'Céréales', 'Catégorie': null, 'sous-catégorie': null, 'matière première': 'Seigle', 'k tonnes': 7},
+        {'Famille': 'Tourteaux', 'Catégorie': null, 'sous-catégorie': 'Soja tannés', 'matière première': 'Soja', 'k tonnes': 111},
+        {'Famille': 'Tourteaux', 'Catégorie': null, 'sous-catégorie': 'Soja non tannés', 'matière première': 'Soja', 'k tonnes': 2790},
+        {'Famille': 'Tourteaux', 'Catégorie': null, 'sous-catégorie': null, 'matière première': 'Colza', 'k tonnes': 1980},
+        {'Famille': 'Tourteaux', 'Catégorie': null, 'sous-catégorie': 'Tournesol  non décortiqué', 'matière première': 'Tournesol (lopro)', 'k tonnes': 453},
+        {'Famille': 'Tourteaux', 'Catégorie': null, 'sous-catégorie': 'Tournesol décortiqué', 'matière première': 'Tournesol (hipro-midpro)', 'k tonnes': 787},
+        {'Famille': 'Tourteaux', 'Catégorie': null, 'sous-catégorie': null, 'matière première': 'Arachide', 'k tonnes': 44},
+        {'Famille': 'Tourteaux', 'Catégorie': null, 'sous-catégorie': null, 'matière première': 'Germes de maïs', 'k tonnes': 43},
+        {'Famille': 'Tourteaux', 'Catégorie': null, 'sous-catégorie': null, 'matière première': 'Lin', 'k tonnes': 60},
+        {'Famille': 'Tourteaux', 'Catégorie': null, 'sous-catégorie': null, 'matière première': 'Palme', 'k tonnes': 79}] ;
+    var sum = 0 ;
+    for(var i=0; i<cultures.length; i++) {
+        sum += cultures[i]['k tonnes'] ;
+    }
+    var idx = Math.random() * sum ;
+    sum = 0 ;
+    var culture = null ;
+    for(var i=0; !culture && (i<cultures.length); i++) {
+        sum += cultures[i]['k tonnes'] ;
+        if(idx < sum) culture = cultures[i] ;
+    }
+
+    if(!node.rawNode) node.rawNode = {} ;
+    for(var p in culture) {
+        node.rawNode[p] = culture[p] ;
+    }
+}
+",
+            "execAfterChildrenVisit": true,
+            "onlyLeaves": true,
+            "displayName": null
+*/
+        }, {
+            "name": "dm_geoMapCoordsMinMax",
+            "array index": 2,
+            "value": "var output  ;
+if(!true || !node.children) {
+    output = dm_Tools.geoMapGetMinMax(node.rawNode['dm_geometry_coords'], null, true, node.rawNode['dm_geometry_type']) ;
+}
+if(node.children) {
+    for(var i=0; i<node.children.length; i++) {
+        output = dm_Tools.geoMapGetMinMax(node.children[i].rawNode[propName], output, null, 'min max') ;
+    }
+}
+//console.log('node name '+node.name+' min/max '+JSON.stringify(output)) ;
+return output ;",
+            "propertyName": "dm_geometry_coords",
+            "funcDropdown": "sum property",
+            "execAfterChildrenVisit": true,
+            "onlyLeaves": true,
+            "displayName": null
+        }, {
+            "name": "dm_geoMapRelativeBaryCenter",
+            "array index": 3,
+            "value": "return dm_Tools.geoMapRelativeBaryCenter(node, 'items') ;",
+            "propertyName": "dm_geometry_relative_barycenter_on_nb_items",
+            "execAfterChildrenVisit": true,
+            "onlyLeaves": true,
+            "displayName": null
+        }, {
+            "name": "dm_geoMapAggregatedGeoJson",
+            "array index": 4,
+            "value": "return dm_Tools.geoMapAggregateGeometry(node, propName) ;",
+            "propertyName": "dm_geometry_coords",
+            "funcDropdown": "sum property",
+            "execAfterChildrenVisit": true,
+            "onlyLeaves": true,
+            "displayName": null
+        }, {
+            "name": "linear",
+            "array index": 5,
+            "value": "var output  ;
+if(!true || !node.children) {
+    output = dm_Tools.geoMapCalculateLinear(node.rawNode.dm_geometry_coords, true) ;
+}
+if(node.children) {
+    for(var i=0; i<node.children.length; i++) {
+        if(!output) output = 0 ;
+        output += parseFloat(node.children[i].rawNode[propName] || 0) ;
+    }
+}
+return output ;",
+            "propertyName": "dm_geometry_coords",
+            "funcDropdown": "sum property",
+            "visible": false,
+            "execAfterChildrenVisit": true,
+            "onlyLeaves": true,
+            "displayName": null
+        }, {
+            "name": "dm_geoMapDisplayStreetView",
+            "array index": 6,
+            "value": "var output  ;
+if(!true || !node.children) {
+    var point = dm_Tools.geoMapGetClosest2center(node) ;
+    output = {'lat': point[1], 'lng': point[0]} ;
+}
+return output;",
+            "propertyName": "dm_geometry_coords",
+            "funcDropdown": "sum property",
+            "execAfterChildrenVisit": true,
+            "onlyLeaves": true,
+            "displayName": null
+        }],
+        "columnNames": ["gml_id", "id_eng", "engagement", "dispositif", "surf_eng", "id_expl", "items", "displayName", "Famille", "matiere_premiere", "k_tonnes", "dm_geometry_type", "dm_geometry_coords", "sous_categorie"],
+        "columns": [{
+            "name": "Famille",
+            "array index": 0,
+            "columnIndex": 8
+        }, {
+            "name": "sous_categorie",
+            "array index": 1,
+            "columnIndex": 13
+        }, {
+            "name": "matiere_premiere",
+            "array index": 2,
+            "columnIndex": 9
+        }, {
+            "name": "id_expl",
+            "array index": 3,
+            "columnIndex": 5
+        }, {
+            "array index": 4,
+            "children": [{
+                "name": "id_eng",
+                "array index": 0,
+                "columnIndex": 1
+            }]
+        }],
+        "displayProps": [{
+            "name": "root",
+            "edit": false,
+            "visible": false,
+            "children": [{
+                "name": "items",
+                "array index": 0,
+                "displayName": null
+            }, {
+                "name": "itemsPie",
+                "array index": 1,
+                "displayName": null
+            }, {
+                "name": "linear",
+                "array index": 2,
+                "visible": false,
+                "displayName": null
+            }, {
+                "name": "linearPie",
+                "array index": 3,
+                "displayName": null
+            }]
+        }, {
+            "name": "level 1",
+            "edit": false,
+            "visible": false,
+            "children": [{
+                "name": "items",
+                "array index": 0,
+                "displayName": null
+            }, {
+                "name": "itemsPie",
+                "array index": 1,
+                "displayName": null
+            }, {
+                "name": "linear",
+                "array index": 2,
+                "visible": false,
+                "displayName": null
+            }, {
+                "name": "linearPie",
+                "array index": 3,
+                "displayName": null
+            }]
+        }, {
+            "name": "level 2",
+            "edit": false,
+            "visible": false,
+            "children": [{
+                "name": "items",
+                "array index": 0,
+                "displayName": null
+            }, {
+                "name": "itemsPie",
+                "array index": 1,
+                "displayName": null
+            }, {
+                "name": "linear",
+                "array index": 2,
+                "visible": false,
+                "displayName": null
+            }, {
+                "name": "linearPie",
+                "array index": 3,
+                "displayName": null
+            }]
+        }, {
+            "name": "level 3",
+            "edit": false,
+            "visible": false,
+            "children": [{
+                "name": "items",
+                "array index": 0,
+                "displayName": null
+            }, {
+                "name": "itemsPie",
+                "array index": 1,
+                "displayName": null
+            }, {
+                "name": "linear",
+                "array index": 2,
+                "visible": false,
+                "displayName": null
+            }, {
+                "name": "linearPie",
+                "array index": 3,
+                "displayName": null
+            }]
+        }, {
+            "name": "level 4"
+        }, {
+            "name": "leaf",
+            "edit": false,
+            "visible": true,
+            "children": [{
+                "name": "linear",
+                "array index": 2,
+                "visible": false,
+                "displayName": null
+            }]
+        }],
+        "specifics": [{
+            "name": "$dm_all",
+            "array index": 0,
+            "execBefore": "
+if(!node.children) {
+    if(!node.rawNode['items.dm_props']) node.rawNode['items.dm_props'] = {} ;
+    node.rawNode['items.dm_props'].visible = false ;
+    if(!node.rawNode['displayName.dm_props']) node.rawNode['displayName.dm_props'] = {} ;
+    node.rawNode['displayName.dm_props'].visible = false ;
+}
+'#dm_STOP_AND_REDRAW_ATTRIBUTES_PANEL#1' ;",
+            "execBefore.dm_props": {
+                "order": 0,
+                "visible": true,
+                "dontExport": true,
+                "hideFromEdit": true,
+                "type": "execute"
+            },
+            "items.dm_props": {
+                "label": "Items",
+                "type": "text",
+                "edit": false,
+                "visible": true,
+                "dontDeleteWhenCleanUpConfig": true,
+                "name": "items"
+            },
+            "itemsPie.dm_props": {
+                "label": "Items",
+                "type": "graph",
+                "edit": false,
+                "visible": true,
+                "graph": "pie",
+                "doTransition": true,
+                "predefinedGraphDropdown": "pie based on property",
+                "graphProperty1": "items",
+                "graphUnit1": "item(s)",
+                "graphDepth": 1,
+                "textInPie": false,
+                "input": "var config = dm_Tools.getConfig(node) ;
+var code = config.privateFunctions.itemsPie ;
+return eval(code) ;
+",
+                "dontDeleteWhenCleanUpConfig": true,
+                "name": "itemsPie"
+            },
+            "linear.dm_props": {
+                "label": "Linear",
+                "type": "text",
+                "edit": false,
+                "visible": false,
+                "dontDeleteWhenCleanUpConfig": true,
+                "name": "linear"
+            },
+            "linearPie.dm_props": {
+                "label": "Linear",
+                "type": "graph",
+                "edit": false,
+                "visible": true,
+                "graph": "pie",
+                "doTransition": true,
+                "predefinedGraphDropdown": "pie based on property",
+                "graphProperty1": "linear",
+                "graphUnit1": "meter(s)",
+                "graphDepth": 1,
+                "textInPie": false,
+                "input": "var config = dm_Tools.getConfig(node) ;
+var code = config.privateFunctions.linearPie ;
+return eval(code) ;
+",
+                "dontDeleteWhenCleanUpConfig": true,
+                "name": "linearPie"
+            },
+            "dm_geoMapDisplayStreetView.dm_props": {
+                "order": 0,
+                "type": "streetView",
+                "edit": false,
+                "visible": true,
+                "dontExport": true,
+                "dontDeleteWhenCleanUpConfig": true,
+                "name": "dm_geoMapDisplayStreetView"
+            },
+            "dm_geometry_type.dm_props": {
+                "label": "geometry",
+                "edit": false,
+                "visible": false,
+                "dontExport": true,
+                "dontDeleteWhenCleanUpConfig": true,
+                "name": "dm_geometry_type"
+            },
+            "dm_geometry_coords.dm_props": {
+                "label": "geometry coords",
+                "edit": false,
+                "visible": false,
+                "dontExport": true,
+                "dontDeleteWhenCleanUpConfig": true,
+                "name": "dm_geometry_coords"
+            },
+            "dm_geoMapCoordsMinMax.dm_props": {
+                "edit": false,
+                "visible": false,
+                "dontExport": true,
+                "dontDeleteWhenCleanUpConfig": true,
+                "name": "dm_geoMapCoordsMinMax"
+            },
+            "dm_geoMapAggregatedGeoJson.dm_props": {
+                "edit": false,
+                "visible": false,
+                "dontExport": true,
+                "dontDeleteWhenCleanUpConfig": true,
+                "name": "dm_geoMapAggregatedGeoJson"
+            },
+            "dm_geoMapRelativeBaryCenter.dm_props": {
+                "edit": false,
+                "visible": false,
+                "dontExport": true,
+                "dontDeleteWhenCleanUpConfig": true,
+                "name": "dm_geoMapRelativeBaryCenter"
+            },
+            "k tonnes.dm_props": {
+                "dontExport": true,
+                "edit": false,
+                "visible": false
+            },
+            "displayName": null
+        }],
+        "styles": [{
+            "name": "root",
+            "array index": 0,
+            "level": 0,
+            "arrow": true,
+            "arc": false,
+            "rNod": 10,
+            "link": 130,
+            "color": "#1f77b4",
+            "attrPaneCol": "#aec7e8",
+            "txtFontSize": 14,
+            "mapOpacity": 0.4,
+            "backgroundImage": "../../images/empty.jpg",
+            "backgroundImage.dm_props": {
+                "name": "backgroundImage",
+                "visible": true,
+                "label": "backgroundImage",
+                "type": "image",
+                "imageName": "../../images/empty.jpg",
+                "order": 11
+            },
+            "displayName": null
+        }, {
+            "name": "level 1",
+            "array index": 1,
+            "level": 1,
+            "arrow": true,
+            "arc": false,
+            "rNod": 10,
+            "link": 130,
+            "txtFontSize": 13,
+            "color": "#9467bd",
+            "attrPaneCol": "#c5b0d5",
+            "mapOpacity": 0.5,
+            "displayName": null
+        }, {
+            "name": "level 2",
+            "level": 2,
+            "arrow": true,
+            "arc": false,
+            "rNod": 9,
+            "link": 130,
+            "color": "#ff7f0e",
+            "mapOpacity": 0.6,
+            "attrPaneCol": "#ffbb78"
+        }, {
+            "name": "level 3",
+            "level": 3,
+            "arrow": true,
+            "arc": false,
+            "rNod": 9,
+            "link": 130,
+            "color": "#2ca02c",
+            "mapOpacity": 0.65,
+            "attrPaneCol": "#98df8a"
+        }, {
+            "name": "level 4",
+            "level": 4,
+            "arrow": true,
+            "arc": false,
+            "rNod": 8,
+            "link": 130,
+            "color": "#d62728",
+            "mapOpacity": 0.7,
+            "attrPaneCol": "#ff9896"
+        }, {
+            "name": "leaf",
+            "level": 5,
+            "arrow": false,
+            "arc": true,
+            "rNod": 4,
+            "link": 120,
+            "color": "#c7c7c7",
+            "attrPaneCol": "#c7c7c7",
+            "txtCol": "#7f7f7f",
+            "mapOpacity": 0.75,
+            "array index": 5
+        }],
+        "privateFunctions": {
+            "itemsPie": "var output, elt;
+var levelMin = dm_Tools.getDepth(node) ;
+var doIt = function(node) {
+    if (!output) {
+        output = [] ;
+    }
+    elt = {} ;
+    output.push(elt) ;
+    elt.value = node.rawNode['items'] ;
+    elt.name = dm_Tools.getNodePath(node, '', true, null, levelMin+1) ;
+    elt.unit = 'item(s)' ;
+};
+var parentLevel = dm_Tools.getDepth(node) ;
+var depth = 1 ;
+var dive = function(node) {
+    if (node) {
+        if (dm_Tools.getDepth(node) == parentLevel + depth) {
+            doIt(node);
+        } else if ((dm_Tools.getDepth(node) < parentLevel + depth) && (node.children)) {
+            node.children.forEach(function(child) {
+                dive(child);
+            });
+        }
+    }
+} ;
+dive(node);
+output ;",
+            "linearPie": "var output, elt;
+var levelMin = dm_Tools.getDepth(node) ;
+var doIt = function(node) {
+    if (!output) {
+        output = [] ;
+    }
+    elt = {} ;
+    output.push(elt) ;
+    elt.value = node.rawNode['linear'] ;
+    elt.name = dm_Tools.getNodePath(node, '', true, null, levelMin+1) ;
+    elt.unit = 'meter(s)' ;
+};
+var parentLevel = dm_Tools.getDepth(node) ;
+var depth = 1 ;
+var dive = function(node) {
+    if (node) {
+        if (dm_Tools.getDepth(node) == parentLevel + depth) {
+            doIt(node);
+        } else if ((dm_Tools.getDepth(node) < parentLevel + depth) && (node.children)) {
+            node.children.forEach(function(child) {
+                dive(child);
+            });
+        }
+    }
+} ;
+dive(node);
+output ;
+",
+            "displayName": null
+        },
+        "setColumns2node": {}
+    }
+}

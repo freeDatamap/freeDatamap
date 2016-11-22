@@ -1,0 +1,774 @@
+{
+    "$schema": "http://www.freedatamap.com/jsonConfigSchema/schema#",
+    "$charset": "UTF-8",
+    "config": {
+        "depth": 2,
+        "displayTransversalConnections": true,
+        "displayTransversalConnections.dm_props": {
+            "type": "boolean"
+        },
+        "fileExtension": "csv",
+        "sortDescendant": false,
+        "shiftCenterToBottomAccording2Depth": 1,
+        "linkDistanceAccording2DepthDomain": 24,
+        "linkDistanceAccording2DepthRange": 4,
+        "txtFontSize": 13,
+        "root": "KaaS",
+        "center": "KaaS",
+        "columns": [{
+            "array index": 0,
+            "columnIndex": 0,
+            "name": "training"
+        },
+        {
+            "array index": 1,
+            "columnIndex": 1,
+            "name": "category"
+        },
+        {
+            "array index": 2,
+            "columnIndex": 2,
+            "name": "sub category"
+        },
+        {
+            "array index": 3,
+            "columnIndex": 3,
+            "name": "chapter"
+        },
+        {
+            "array index": 4,
+            "columnIndex": 4,
+            "name": "sub-chapter"
+        },
+        {
+            "array index": 5,
+            "columnIndex": 5,
+            "name": "item"
+        }],
+        "retintIcons": true,
+        "retintIcons.dm_props": {
+            "type": "boolean",
+            "name": "retintIcons",
+            "label": "retintIcons"
+        },
+        "updateAllDmProps": false,
+        "updateAllDmProps.dm_props": {
+            "type": "boolean",
+            "name": "updateAllDmProps",
+            "label": "updateAllDmProps"
+        },
+        "updateAllImageSizes": false,
+        "updateAllImageSizes.dm_props": {
+            "type": "boolean",
+            "name": "updateAllImageSizes",
+            "label": "updateAllImageSizes"
+        },
+        "inlineAllImages": false,
+        "inlineAllImages.dm_props": {
+            "type": "boolean",
+            "name": "inlineAllImages",
+            "label": "inlineAllImages"
+        },
+        "styles": [{
+            "name": "root",
+            "level": 0,
+            "arrow": true,
+            "arrow.dm_props": {
+                "type": "boolean"
+            },
+            "arc": false,
+            "arc.dm_props": {
+                "type": "boolean"
+            },
+            "rNod": 10,
+            "link": 150,
+            "color": "#1f77b4",
+            "attrPaneCol": "#aec7e8",
+            "icon": "Trainings/e diploma.png",
+            "icon.dm_props": {
+                "width": 173,
+                "height": 180,
+                "scaleFactor": 5.7,
+                "panelMaxHeight": 180,
+                "type": "image",
+                "visible": true
+            },
+            "backgroundImage": "Trainings/sky.jpg",
+            "backgroundImage.dm_props": {
+                "type": "image",
+                "dontExport": true,
+                "visible": true
+            }
+        }, {
+            "name": "Training",
+            "level": 1,
+            "arrow": true,
+            "arrow.dm_props": {
+                "type": "boolean"
+            },
+            "arc": false,
+            "arc.dm_props": {
+                "type": "boolean"
+            },
+            "rNod": 10,
+            "link": 120,
+            "color": "#9467bd",
+            "attrPaneCol": "#c5b0d5",
+            "icon": "Trainings/learning-path.png",
+            "icon.dm_props": {
+                "width": 64,
+                "height": 64,
+                "scaleFactor": 5.3,
+                "panelMaxHeight": 180,
+                "type": "image",
+                "visible": true
+            },
+            "backgroundImage": "Trainings/sky.jpg",
+            "backgroundImage.dm_props": {
+                "dontExport": true,
+                "type": "image",
+                "visible": true
+            }
+        }, {
+            "name": "Category",
+            "level": 2,
+            "arrow": true,
+            "arrow.dm_props": {
+                "type": "boolean"
+            },
+            "arc": false,
+            "arc.dm_props": {
+                "type": "boolean"
+            },
+            "rNod": 10,
+            "link": 120,
+            "color": "#ff7f0e",
+            "attrPaneCol": "#ffbb78",
+            "icon": "Trainings/module-orange.png",
+            "icon.dm_props": {
+                "width": 64,
+                "height": 64,
+                "scaleFactor": 4.2,
+                "panelMaxHeight": 180,
+                "type": "image",
+                "visible": true
+            },
+            "backgroundImage": "Trainings/sky.jpg",
+            "backgroundImage.dm_props": {
+                "dontExport": true,
+                "type": "image",
+                "visible": true
+            }
+        }, {
+            "name": "Topic",
+            "level": 3,
+            "arrow": true,
+            "arrow.dm_props": {
+                "type": "boolean"
+            },
+            "arc": false,
+            "arc.dm_props": {
+                "type": "boolean"
+            },
+            "rNod": 8,
+            "link": 120,
+            "color": "#2ca02c",
+            "attrPaneCol": "#98df8a",
+            "icon": "Trainings/module-orange.png",
+            "icon.dm_props": {
+                "width": 64,
+                "height": 64,
+                "scaleFactor": 3.8,
+                "panelMaxHeight": 180,
+                "type": "image",
+                "visible": true
+            },
+            "backgroundImage": "Trainings/sky.jpg",
+            "backgroundImage.dm_props": {
+                "dontExport": true,
+                "type": "image",
+                "visible": true
+            }
+        }, {
+            "name": "Chapter",
+            "level": 4,
+            "arrow": true,
+            "arrow.dm_props": {
+                "type": "boolean"
+            },
+            "arc": false,
+            "arc.dm_props": {
+                "type": "boolean"
+            },
+            "rNod": 7,
+            "link": 120,
+            "color": "#d62728",
+            "attrPaneCol": "#ff9896",
+            "icon": "Trainings/hand-ebook.png",
+            "icon.dm_props": {
+                "width": 259,
+                "height": 180,
+                "scaleFactor": 6.5,
+                "panelMaxHeight": 180,
+                "type": "image",
+                "visible": true
+            },
+            "backgroundImage": "Trainings/sky.jpg",
+            "backgroundImage.dm_props": {
+                "dontExport": true,
+                "type": "image",
+                "visible": true
+            }
+        }, {
+            "name": "Sub chapter",
+            "level": 5,
+            "arrow": true,
+            "arrow.dm_props": {
+                "type": "boolean"
+            },
+            "arc": false,
+            "arc.dm_props": {
+                "type": "boolean"
+            },
+            "rNod": 6,
+            "link": 120,
+            "color": "#1f77b4",
+            "attrPaneCol": "#aec7e8",
+            "icon": "Trainings/chapter.png",
+            "icon.dm_props": {
+                "width": 349,
+                "height": 180,
+                "scaleFactor": 6.5,
+                "panelMaxHeight": 180,
+                "type": "image",
+                "visible": true
+            },
+            "backgroundImage": "Trainings/sky.jpg",
+            "backgroundImage.dm_props": {
+                "dontExport": true,
+                "type": "image",
+                "visible": true
+            }
+        }, {
+            "name": "Item",
+            "level": 6,
+            "arrow": false,
+            "arrow.dm_props": {
+                "type": "boolean"
+            },
+            "arc": true,
+            "arc.dm_props": {
+                "type": "boolean"
+            },
+            "rNod": 5,
+            "link": 60,
+            "color": "#878787",
+            "attrPaneCol": "#c7c7c7",
+            "txtCol": "#7f7f7f",
+            "backgroundImage": "Trainings/sky.jpg",
+            "backgroundImage.dm_props": {
+                "dontExport": true,
+                "type": "image",
+                "visible": true
+            }
+        }],
+        "sort": "order",
+        "props4globalSearch": ["tags"],
+        "aggregate": [{
+            "name": "cleanUnecessaryFields",
+            "execAfterChildrenVisit": true,
+            "value": "var doit = function () {\r\n        if (!(nodes.isUnecessaryFieldsCleaned == true)) {\r\n            var not4parents = [\"item\", \"type\", \"order\", \"duration\", \"tags\",\r\n                \"link\", \"description\", \"additional_references\", \"level of expertise\", \"authors\",\r\n                \"number of views\", \"number of like\", \"uid\", \"copyOf\", \"labelPath1\",\r\n                \"Next1\", \"Prev1\", \"labelPath2\", \"Next2\", \"Prev2\",\r\n                \"labelPath3\", \"Next3\", \"Prev3\"\r\n            ];\r\n            var root = node;\r\n            while (root.parent && !root.dm_config) root = root.parent;\r\n            var clean = function(node) {\r\n                if (node && node.rawNode && node.children) {\r\n                    not4parents.forEach(function(field) {\r\n                        delete node.rawNode[field];\r\n                    });\r\n                    node.children.forEach(function(child) {\r\n                        clean(child);\r\n                    });\r\n                }\r\n            }\r\n            clean(root);\r\n            nodes.isUnecessaryFieldsCleaned = true;\r\n        }\r\n    }; return doit() ;"
+        }, {
+            "name": "duration",
+            "execAfterChildrenVisit": true,
+            "value": "var doit = function () {\r\n        var defaultDuration4quizz = '3:00';\r\n        var output;\r\n        if (node) {\r\n            if (node.children) {\r\n                node.children.forEach(function(child) {\r\n                    if (child.rawNode.type && (child.rawNode.type.trim() == 'quizz')) {\r\n                        if (!output) output = 0;\r\n                        output += dm_Tools.parseDuration(defaultDuration4quizz);\r\n                    } else if (child.rawNode.duration && (child.rawNode.duration != '')) {\r\n                        if (!output) output = 0;\r\n                        output += dm_Tools.parseDuration(child.rawNode.duration);\r\n                    }\r\n                });\r\n                if (output) {\r\n                    output = dm_Tools.formatDuration(output);\r\n                }\r\n            } else if (node.rawNode) {\r\n                output = node.rawNode.duration; // preserve duration field\r\n                if (!output && node.rawNode.type && (node.rawNode.type.trim() == 'quizz')) {\r\n                    output = defaultDuration4quizz;\r\n                }\r\n            }\r\n        }\r\n        return output;\r\n    }; return doit() ;"
+        }, {
+            "name": "actionButton",
+            "execAfterChildrenVisit": true,
+            "value": "var doit = function () {\r\n        var actionBtnName = 'actionButton';\r\n        if (node && !node.children && node.rawNode) {\r\n            if (node.rawNode.link) {\r\n                node.rawNode[actionBtnName] = \"Action !\";\r\n                node.rawNode[actionBtnName + '.image'] = \"Trainings/quiz.png\";\r\n                node.rawNode[actionBtnName + '.type'] = \"action\";\r\n                node.rawNode[actionBtnName + '.edit'] = false;\r\n                node.rawNode[actionBtnName + '.visible'] = true;\r\n                node.rawNode[actionBtnName + '.class'] = 'btn-success';\r\n                node.rawNode[actionBtnName + '.content.type'] = 'iframe';\r\n                node.rawNode[actionBtnName + '.content.url'] = node.rawNode.link;\r\n                if (node.rawNode.type && (node.rawNode.type.trim() == 'video')) {\r\n                    node.rawNode[actionBtnName] = \"Play\" + ((node.rawNode.duration) ? '&nbsp;&nbsp;&nbsp;(' + dm_Tools.formatDuration(dm_Tools.parseDuration(node.rawNode.duration), null, null, true) + ')' : '');\r\n                    node.rawNode[actionBtnName + '.image'] = \"Trainings/video.png\";\r\n                } else if (node.rawNode.type && (node.rawNode.type.trim() == 'quizz')) {\r\n                    node.rawNode[actionBtnName] = \"Quiz\" + ((node.rawNode.duration) ? '&nbsp;&nbsp;&nbsp;(' + dm_Tools.formatDuration(dm_Tools.parseDuration(node.rawNode.duration), null, null, true) + ')' : '');\r\n                    node.rawNode[actionBtnName + '.image'] = \"Trainings/quiz.png\";\r\n                    node.rawNode[actionBtnName + '.class'] = 'btn-info';\r\n                }\r\n            }\r\n        }\r\n        return node.rawNode[actionBtnName]; // preserve name cause aggreg prop equals 'actionButton'\r\n    }; return doit() ;"
+        }, {
+            "name": "validateButton",
+            "execAfterChildrenVisit": true,
+            "value": "var doit = function () {\r\n        var validateBtnName = 'validateButton';\r\n        var certify = function() {\r\n            var avoidNodes = [];\r\n            var certifyParents = function(node) {\r\n                var certifyNode = function(node) {\r\n                    node.rawNode['icon_1'] = 'Trainings/success_stamp.png';\r\n                    node.rawNode['icon_1.dm_props'] = {\r\n                        'width': 152,\r\n                        'height': 148,\r\n                        'scaleFactor': 7,\r\n                        'imageName': 'Trainings/success_stamp.png'\r\n                    }\r\n                    /*\r\n                    node.rawNode['icon.1.width'] = '152';\r\n                    node.rawNode['icon.1.height'] = '148';\r\n                    node.rawNode['icon.1.scaleFactor'] = '7';\r\n                    */\r\n                }\r\n                var updateProgression = function(node) {\r\n                    if (node && node.rawNode) {\r\n                        if (!node.children) {\r\n                            if (node.rawNode['icon_1']) node.rawNode.nbOfPassed = 1;\r\n                        } else {\r\n                            var nbOfPassed = 0;\r\n                            var leaves = dm_Tools.getChildrenAtLevel(node);\r\n                            if (leaves) {\r\n                                leaves.forEach(function(leaf) {\r\n                                    if (leaf && leaf.rawNode) {\r\n                                        if (leaf.rawNode['icon_1']) nbOfPassed++;\r\n                                    }\r\n                                });\r\n                            }\r\n                            if (nbOfPassed) node.rawNode.nbOfPassed = nbOfPassed;\r\n                        }\r\n\r\n                        if (nbOfPassed > 0) {\r\n                            node.rawNode['gauge_1.dm_props'] = {\r\n                                'value': nbOfPassed,\r\n                                'max': node.rawNode.nbOfChallenges,\r\n                                'y': -21\r\n                            }\r\n                            /*\r\n                            node.rawNode['gauge_1.value'] = nbOfPassed;\r\n                            node.rawNode['gauge_1.max'] = node.rawNode.nbOfChallenges;\r\n                            node.rawNode['gauge_1.y'] = -21;\r\n                            */\r\n                        } else {\r\n                            for (var prop in node.rawNode) {\r\n                                if (prop.indexOf('gauge_1') == 0) delete node.rawNode[prop];\r\n                            }\r\n                        }\r\n                    }\r\n                    if (node.parent && !node.dm_config) updateProgression(node.parent);\r\n                }\r\n                if (node && node.rawNode) {\r\n                    var certifyIt = false;\r\n                    if (!node.children) {\r\n                        certifyIt = true;\r\n                    } else {\r\n                        certifyIt = true;\r\n                        node.children.forEach(function(child) {\r\n                            if (certifyIt) {\r\n                                if (child.rawNode && !child.rawNode['icon_1']) {\r\n                                    certifyIt = false;\r\n                                }\r\n                            }\r\n                        });\r\n                    }\r\n                    if (certifyIt) {\r\n                        certifyNode(node);\r\n                        updateProgression(node);\r\n\r\n                        var need2avoid = function(n) {\r\n                            var avoidIt = false;\r\n                            avoidNodes.forEach(function(avoid) {\r\n                                if (!avoidIt && (n == avoid)) avoidIt = true;\r\n                            });\r\n                            return avoidIt;\r\n                        }\r\n\r\n                        avoidNodes.push(node);\r\n\r\n                        // certify copy\r\n                        if (node.rawNode && node.rawNode.copyOf) {\r\n                            nodes.forEach(function(n) {\r\n                                if (n && n.rawNode && (n.rawNode.uid == node.rawNode.copyOf)) {\r\n                                    if (!need2avoid(n)) certifyParents(n);\r\n                                }\r\n                            });\r\n                        }\r\n\r\n                        // certify copies of this node\r\n                        nodes.forEach(function(n) {\r\n                            if (n && n.rawNode && n.rawNode.copyOf && (n.rawNode.copyOf == node.rawNode.uid)) {\r\n                                if (!need2avoid(n)) certifyParents(n);\r\n                            }\r\n                        });\r\n\r\n                        certifyParents(node.parent);\r\n                    }\r\n                }\r\n            }\r\n\r\n            certifyParents(node);\r\n\r\n            dm_UI.autoResize();\r\n        }\r\n        if (node && !node.children && node.rawNode) {\r\n            if (node.rawNode.link) {\r\n                node.rawNode[validateBtnName] = \"Validate\";\r\n                node.rawNode[validateBtnName + '.dm_props'] = {\r\n                    'image': \"Trainings/stamp.png\",\r\n                    'type': 'action',\r\n                    'edit': false,\r\n                    'visible': true,\r\n                    'class': 'btn-success',\r\n                    'content.exec': 'var doit = ' + certify + '; doit() ;'\r\n                } ;\r\n                /*\r\n                node.rawNode[validateBtnName + '.image'] = \"Trainings/stamp.png\";\r\n                node.rawNode[validateBtnName + '.type'] = \"action\";\r\n                node.rawNode[validateBtnName + '.edit'] = false;\r\n                node.rawNode[validateBtnName + '.visible'] = true;\r\n                node.rawNode[validateBtnName + '.class'] = 'btn-success';\r\n                node.rawNode[validateBtnName + '.content.exec'] = 'var doit = ' + certify + '; doit() ;';\r\n                */\r\n            }\r\n        }\r\n        return node.rawNode[validateBtnName]; // preserve name cause aggreg prop equals 'actionButton'\r\n    }; return doit() ;"
+        }, {
+            "name": "order",
+            "execAfterChildrenVisit": true,
+            "value": "var doit = function () {\r\n        var output;\r\n        if (node) {\r\n            if (node.children && (node.children.length > 0)) {\r\n                var orderSum = 0;\r\n                node.children.forEach(function(child) {\r\n                    if (child.rawNode && child.rawNode.order && !isNaN(child.rawNode.order)) {\r\n                        try {\r\n                            orderSum += parseInt(child.rawNode.order);\r\n                        } catch (error) {}\r\n                    }\r\n                });\r\n                output = orderSum / node.children.length;\r\n            } else if (node.rawNode) {\r\n                output = node.rawNode.order;\r\n            }\r\n        }\r\n        return output;\r\n    }; return doit() ;"
+        }, {
+            "name": "updateIcon",
+            "execAfterChildrenVisit": true,
+            "value": "var doit = function () {\r\n        var isParent = function(node, parentName) {\r\n            var output = false;\r\n            if (node) {\r\n                if (node.name == parentName) {\r\n                    output = true;\r\n                } else {\r\n                    output = isParent(node.parent, parentName);\r\n                }\r\n            }\r\n            return output;\r\n        }\r\n        if (node) {\r\n            if ((node.level >= 2) && (node.level <= 3)) {\r\n                var found = false;\r\n                if (isParent(node, \"Awareness Path\")) {\r\n                    node.rawNode[\"icon\"] = \"Trainings/awareness-module.png\";\r\n                    found = true;\r\n                } else if (isParent(node, \"Expert Path\")) {\r\n                    node.rawNode[\"icon\"] = \"Trainings/expert-module.png\";\r\n                    found = true;\r\n                } else if (isParent(node, \"Architect Path\")) {\r\n                    node.rawNode[\"icon\"] = \"Trainings/architect-module.png\";\r\n                    found = true;\r\n                }\r\n                if (found) {\r\n                    node.rawNode[\"icon.dm_props\"] = {\r\n                        \"width\": 64,\r\n                        \"height\": 64,\r\n                        \"scaleFactor\": (node.level == 2) ? 4.2 : 3.8,\r\n                        \"panelMaxHeight\": 180,\r\n                        \"type\": \"image\",\r\n                        \"visible\": true\r\n                    } ;\r\n                }\r\n            } else if ((!node.children) && node.rawNode) {\r\n                var found = false;\r\n                if (node.rawNode['type'] == 'video') {\r\n                    node.rawNode[\"icon\"] = \"Trainings/video.png\";\r\n                    node.rawNode[\"icon.dm_props\"] = {\r\n                        \"width\": 180,\r\n                        \"height\": 180,\r\n                        \"scaleFactor\": 6.5,\r\n                        \"panelMaxHeight\": 180,\r\n                        \"type\": \"image\",\r\n                        \"visible\": true\r\n                    } ;\r\n                    //node.rawNode[\"image\"] = \"Trainings/KMap-Thumbnails/\" + ((node.rawNode.copyOf) ? node.rawNode.copyOf : node.rawNode.uid) + \"-thumbnail.png\";\r\n                    node.rawNode[\"image\"] = \"Trainings/KMap-Thumbnails/\" + 'uid1' + \"-thumbnail.png\";\r\n                    node.rawNode[\"image.dm_props\"] = {\r\n                        \"width\": 170,\r\n                        \"height\": 157,\r\n                        \"panelMaxHeight\": 157,\r\n                        \"type\": \"image\",\r\n                        \"visible\": true\r\n                    } ;\r\n                } else if (node.rawNode['type'] == 'quizz') {\r\n                    node.rawNode[\"icon\"] = \"Trainings/brain-icon.png\";\r\n                    node.rawNode[\"icon.dm_props\"] = {\r\n                        \"width\": 208,\r\n                        \"height\": 180,\r\n                        \"scaleFactor\": 6.5,\r\n                        \"panelMaxHeight\": 180,\r\n                        \"type\": \"image\",\r\n                        \"visible\": true\r\n                    } ;\r\n                }\r\n            }\r\n        }\r\n    }; return doit() ;"
+        }, {
+            "name": "nbOfItems",
+            "execAfterChildrenVisit": true,
+            "value": "var doit = function () {\r\n        var output = 0;\r\n        if (node) {\r\n            output = 1;\r\n            if (node.children && (node.children.length > 0)) {\r\n                output = 0;\r\n                node.children.forEach(function(child) {\r\n                    if (child.rawNode) {\r\n                        output += child.rawNode.nbOfItems;\r\n                    }\r\n                });\r\n            }\r\n        }\r\n        return output;\r\n    }; return doit() ;"
+        }, {
+            "name": "nbOfVideos",
+            "execAfterChildrenVisit": true,
+            "value": "var doit = function (typeName, type) {\r\n        var output = 0;\r\n        if (node) {\r\n            if (node.children && (node.children.length > 0)) {\r\n                output = 0;\r\n                node.children.forEach(function(child) {\r\n                    if (child.rawNode && child.rawNode['nbOf' + typeName]) {\r\n                        output += child.rawNode['nbOf' + typeName];\r\n                    }\r\n                });\r\n            } else if (node.rawNode && node.rawNode['type'] && (node.rawNode['type'].trim() == type)) {\r\n                output = 1;\r\n            }\r\n        }\r\n        return output;\r\n    }; return doit('Videos', 'video') ;"
+        }, {
+            "name": "nbOfQuizzes",
+            "execAfterChildrenVisit": true,
+            "value": "var doit = function (typeName, type) {\r\n        var output = 0;\r\n        if (node) {\r\n            if (node.children && (node.children.length > 0)) {\r\n                output = 0;\r\n                node.children.forEach(function(child) {\r\n                    if (child.rawNode && child.rawNode['nbOf' + typeName]) {\r\n                        output += child.rawNode['nbOf' + typeName];\r\n                    }\r\n                });\r\n            } else if (node.rawNode && node.rawNode['type'] && (node.rawNode['type'].trim() == type)) {\r\n                output = 1;\r\n            }\r\n        }\r\n        return output;\r\n    }; return doit('Quizzes', 'quizz') ;"
+        }, {
+            "name": "connectTo",
+            "execAfterChildrenVisit": true,
+            "value": "var doit = function () {\r\n        var setConnect = function(searchedUid, labelPath) {\r\n            var color = 'E1852F';\r\n            var name;\r\n            if (labelPath) {\r\n                name = labelPath.trim();\r\n                if (name == 'Awareness Path') color = '96C238';\r\n                else if (name == 'Expert Path') color = 'AB2D2A';\r\n            }\r\n            nodes.getAll().forEach(function(n) {\r\n                if (n.rawNode.uid == searchedUid) {\r\n                    node.rawNode.connectedTo.push({\r\n                        'nodePath': dm_Tools.getNodePath(n, null, true, null, null, null, true), //dm_Tools.getNodeUrl(n, true, 'noDatamapNameInURL', true),\r\n                        'color': color,\r\n                        'name': name\r\n                    });\r\n                    //console.log(dm_Tools.getNodeUrl(node, true, 'noDatamapNameInURL', true)) ;\r\n                    //console.log('    connect to : '+n.name+'       '+dm_Tools.getNodeUrl(n, true, 'noDatamapNameInURL', true));\r\n                }\r\n            });\r\n        }\r\n        if (node) {\r\n            node.rawNode.connectedTo = [];\r\n            if (node.rawNode.Next1) setConnect(node.rawNode.Next1, node.rawNode.labelPath1);\r\n            if (node.rawNode.Next2) setConnect(node.rawNode.Next2, node.rawNode.labelPath2);\r\n            if (node.rawNode.Next3) setConnect(node.rawNode.Next3, node.rawNode.labelPath3);\r\n            if (node.rawNode.Next4) setConnect(node.rawNode.Next4, node.rawNode.labelPath4);\r\n            if (node.rawNode.Next5) setConnect(node.rawNode.Next5, node.rawNode.labelPath5);\r\n            if (node.rawNode.Next6) setConnect(node.rawNode.Next6, node.rawNode.labelPath6);\r\n            if (node.rawNode.Next7) setConnect(node.rawNode.Next7, node.rawNode.labelPath7);\r\n            if (node.rawNode.Next8) setConnect(node.rawNode.Next8, node.rawNode.labelPath8);\r\n            if (node.rawNode.Next9) setConnect(node.rawNode.Next9, node.rawNode.labelPath9);\r\n        }\r\n    }; return doit() ;"
+        }, {
+            "name": "connectFrom",
+            "execAfterChildrenVisit": true,
+            "value": "var doit = function () {\r\n        var setConnect = function(searchedUid, labelPath) {\r\n            var color = 'E1852F';\r\n            var name;\r\n            if (labelPath) {\r\n                name = labelPath.trim();\r\n                if (name == 'Awareness Path') color = '96C238';\r\n                else if (name == 'Expert Path') color = 'AB2D2A';\r\n            }\r\n            nodes.getAll().forEach(function(n) {\r\n                if (n.rawNode.uid == searchedUid) {\r\n                    node.rawNode.connectedFrom.push({\r\n                        'nodePath': dm_Tools.getNodePath(n, null, true, null, null, null, true), //dm_Tools.getNodeUrl(n, true, 'noDatamapNameInURL', true),\r\n                        'color': color,\r\n                        'name': name\r\n                    });\r\n                    //console.log('connect from : '+n.name+'       '+dm_Tools.getNodeUrl(n, true, 'noDatamapNameInURL', true));\r\n                }\r\n            });\r\n        }\r\n        if (node) {\r\n            node.rawNode.connectedFrom = [];\r\n            if (node.rawNode.Prev1) setConnect(node.rawNode.Prev1, node.rawNode.labelPath1);\r\n            if (node.rawNode.Prev2) setConnect(node.rawNode.Prev2, node.rawNode.labelPath2);\r\n            if (node.rawNode.Prev3) setConnect(node.rawNode.Prev3, node.rawNode.labelPath3);\r\n            if (node.rawNode.Prev4) setConnect(node.rawNode.Prev4, node.rawNode.labelPath4);\r\n            if (node.rawNode.Prev5) setConnect(node.rawNode.Prev5, node.rawNode.labelPath5);\r\n            if (node.rawNode.Prev6) setConnect(node.rawNode.Prev6, node.rawNode.labelPath6);\r\n            if (node.rawNode.Prev7) setConnect(node.rawNode.Prev7, node.rawNode.labelPath7);\r\n            if (node.rawNode.Prev8) setConnect(node.rawNode.Prev8, node.rawNode.labelPath8);\r\n            if (node.rawNode.Prev9) setConnect(node.rawNode.Prev9, node.rawNode.labelPath9);\r\n        }\r\n    }; return doit() ;"
+        }, {
+            "name": "rootExtractBtnVideo",
+            "execAfterChildrenVisit": true,
+            "value": "var doit = function (type) {\r\n        if (!node.parent) {\r\n            var extract = function(type) {\r\n                var pathsList = [];\r\n                nodes.forEach(function(n) {\r\n                    if (n && !n.children && n.rawNode && n.rawNode.type && (n.rawNode.type.trim() == type)) {\r\n                        pathsList.push(dm_Tools.getNodeUrl(n, true));\r\n                    }\r\n                });\r\n                var str = '';\r\n                /*\r\n                while(pathsList.length > 0) {\r\n                    path = pathsList.pop() ;\r\n                    if(str != '') str += '\\n' ;\r\n                    str += encodeURI(path).replace(/%7C/g, '|') ;\r\n                }\r\n                */\r\n                pathsList.forEach(function(path) {\r\n                    str = encodeURI(path).replace(/%7C/g, '|') + ((str == '') ? '' : '\\n') + str;\r\n                });\r\n                dm_Tools.saveFile(str, \"Trainings_list_of_\" + type + \".txt\", \"application/txt, text/plain\", \"x-user-defined\");\r\n            }\r\n            var btnName = 'extract_' + type;\r\n            node.rawNode[btnName] = \"Extract \" + type;\r\n            node.rawNode[btnName + '.image'] = \"Trainings/load all.png\";\r\n            node.rawNode[btnName + '.type'] = \"action\";\r\n            node.rawNode[btnName + '.edit'] = false;\r\n            node.rawNode[btnName + '.visible'] = true;\r\n            node.rawNode[btnName + '.class'] = 'btn-success';\r\n            node.rawNode[btnName + '.content.exec'] = 'var doit = ' + extract + '; doit(\"' + type + '\") ;';\r\n        }\r\n    }; return doit('video') ;"
+        }, {
+            "name": "rootExtractBtnQuizz",
+            "execAfterChildrenVisit": true,
+            "value": "var doit = function (type) {\r\n        if (!node.parent) {\r\n            var extract = function(type) {\r\n                var pathsList = [];\r\n                nodes.forEach(function(n) {\r\n                    if (n && !n.children && n.rawNode && n.rawNode.type && (n.rawNode.type.trim() == type)) {\r\n                        pathsList.push(dm_Tools.getNodeUrl(n, true));\r\n                    }\r\n                });\r\n                var str = '';\r\n                /*\r\n                while(pathsList.length > 0) {\r\n                    path = pathsList.pop() ;\r\n                    if(str != '') str += '\\n' ;\r\n                    str += encodeURI(path).replace(/%7C/g, '|') ;\r\n                }\r\n                */\r\n                pathsList.forEach(function(path) {\r\n                    str = encodeURI(path).replace(/%7C/g, '|') + ((str == '') ? '' : '\\n') + str;\r\n                });\r\n                dm_Tools.saveFile(str, \"Trainings_list_of_\" + type + \".txt\", \"application/txt, text/plain\", \"x-user-defined\");\r\n            }\r\n            var btnName = 'extract_' + type;\r\n            node.rawNode[btnName] = \"Extract \" + type;\r\n            node.rawNode[btnName + '.image'] = \"Trainings/load all.png\";\r\n            node.rawNode[btnName + '.type'] = \"action\";\r\n            node.rawNode[btnName + '.edit'] = false;\r\n            node.rawNode[btnName + '.visible'] = true;\r\n            node.rawNode[btnName + '.class'] = 'btn-success';\r\n            node.rawNode[btnName + '.content.exec'] = 'var doit = ' + extract + '; doit(\"' + type + '\") ;';\r\n        }\r\n    }; return doit('quizz') ;"
+        }, {
+            "name": "nextPrevPaths",
+            "execAfterChildrenVisit": true,
+            "value": "var doit = function () {\r\n        if (node && !node.children) {\r\n            var path, keyPath;\r\n            var getNodeFromUid = function(searchedUid) {\r\n                var output;\r\n                nodes.getAll().forEach(function(n) {\r\n                    if (!output && n && n.rawNode && (n.rawNode.uid == searchedUid)) {\r\n                        output = n;\r\n                    }\r\n                });\r\n                return output;\r\n            }\r\n            var getNameOfNextOrPrev = function(node) {\r\n                var output = '';\r\n                if (node.rawNode) {\r\n                    output = (node.rawNode['item'] && (node.rawNode['item'] != '') && (node.rawNode['item'] != 'Quizz') && (node.rawNode['item'] != 'Video')) ? node.rawNode['item'] :\r\n                        ((node.rawNode['sub-chapter']) ? node.rawNode['sub-chapter'] :\r\n                        ((node.rawNode['chapter']) ? node.rawNode['chapter'] :\r\n                            ((node.rawNode['sub category']) ? node.rawNode['sub category'] :\r\n                                ((node.rawNode['category']) ? node.rawNode['category'] :\r\n                                    ((node.rawNode['training']) ? node.rawNode['training'] : '')))));\r\n                }\r\n                return output;\r\n            }\r\n            for (var i = 1; i < 20; i++) {\r\n                keyPath = 'path' + i;\r\n                path = node.rawNode['labelPath' + i];\r\n                if (path) {\r\n                    node.rawNode[keyPath] = \"<div style='font-family:Arial; font-size:11pt; line-height: 140%; text-align:left;'><u><b>\" + path + \" :</b></u></div>\";\r\n                    node.rawNode[keyPath + '.type'] = \"rich text\";\r\n                    node.rawNode[keyPath + '.edit'] = false;\r\n                    node.rawNode[keyPath + '.visible'] = true;\r\n                }\r\n                var makeBtnNextOrPrev = function(nextOrPrevStr) {\r\n                    var nextOrPrev = node.rawNode[nextOrPrevStr + i];\r\n                    if (nextOrPrev) {\r\n                        var targetUID = nextOrPrev;\r\n                        nextOrPrev = getNodeFromUid(nextOrPrev);\r\n                        if (nextOrPrev) {\r\n                            var key = keyPath + '_btn' + nextOrPrevStr;\r\n                            node.rawNode[key] = nextOrPrevStr + \" : \" + getNameOfNextOrPrev(nextOrPrev);\r\n                            if (nextOrPrev.rawNode && nextOrPrev.rawNode.type) {\r\n                                if (nextOrPrev.rawNode.type.trim() == 'video') {\r\n                                    node.rawNode[key + '.image'] = \"Trainings/video.png\";\r\n                                } else if (nextOrPrev.rawNode.type.trim() == 'quizz') {\r\n                                    node.rawNode[key + '.image'] = \"Trainings/quiz.png\";\r\n                                }\r\n                            }\r\n                            node.rawNode[key + '.type'] = 'action';\r\n                            node.rawNode[key + '.edit'] = false;\r\n                            node.rawNode[key + '.visible'] = true;\r\n                            node.rawNode[key + '.class'] = 'btn-info';\r\n                            node.rawNode[key + '.content.type'] = \"goto\";\r\n                            node.rawNode[key + '.content.target'] = dm_Tools.getNodePath(nextOrPrev, null, true);\r\n                        }\r\n                    }\r\n                }\r\n                makeBtnNextOrPrev('Next');\r\n                makeBtnNextOrPrev('Prev');\r\n            }\r\n        }\r\n    }; return doit() ;"
+        }, {
+            "name": "description",
+            "execAfterChildrenVisit": true,
+            "value": "var doit = function () {\r\n        var output;\r\n        if (node && node.rawNode && node.rawNode.description) {\r\n            output = node.rawNode.description = \"<br/><div style='font-family:Arial; line-height: 140%; text-align:center; font-size:11pt;'>\" + node.rawNode.description + \"</div><br/>\";\r\n            node.rawNode['description.type'] = \"rich text\";\r\n            node.rawNode['description.edit'] = false;\r\n            node.rawNode['description.visible'] = true;\r\n        }\r\n        return output;\r\n    }; return doit() ;"
+        }, {
+            "name": "additional_references",
+            "execAfterChildrenVisit": true,
+            "value": "var doit = function () {\r\n        var output;\r\n        if (node && node.rawNode && node.rawNode['additional_references']) {\r\n            output = node.rawNode['additional_references'] = \"<br/><div style='font-family:Arial; line-height: 140%; text-align:left; font-size:10pt;'>Additional references :<br/><a href='\" +\r\n                node.rawNode['additional_references'] + \"'>\" + node.rawNode['additional_references'] + \"</a></div><br/>\";\r\n            node.rawNode['additional_references.type'] = \"rich text\";\r\n            node.rawNode['additional_references.edit'] = false;\r\n            node.rawNode['additional_references.visible'] = true;\r\n        }\r\n        return output;\r\n    }; return doit() ;"
+        }, {
+            "name": "makeDepthBtn",
+            "execAfterChildrenVisit": true,
+            "value": "var doit = function () {\r\n        if (!node.parent) {\r\n            var changeBtnNameAccordingToDepth = function() {\r\n                var set2depth = 2;\r\n                var localConfig = dm_Tools.getConfig(node);\r\n                if (localConfig)\r\n                    if (localConfig.depth == 2) set2depth = 1;\r\n                    else set2depth = 2;\r\n                var label = 'Set depth to ' + set2depth;\r\n                node.rawNode['depthBtn'] = label;\r\n                d3.selectAll('#attribute_actionContainer_depthBtn').selectAll('#actionButtonText').html(label);\r\n            }\r\n            var changeDepth = function() {\r\n                var set2depth = 2;\r\n                var localConfig = dm_Tools.getConfig(node);\r\n                if (localConfig)\r\n                    if (localConfig.depth == 2) set2depth = 1;\r\n                    else set2depth = 2;\r\n                localConfig.depth = set2depth;\r\n\r\n                if (localConfig)\r\n                    if (localConfig.depth == 2) set2depth = 1;\r\n                    else set2depth = 2;\r\n                var label = 'Set depth to ' + set2depth;\r\n                node.rawNode['depthBtn'] = label;\r\n                d3.selectAll('#attribute_actionContainer_depthBtn').selectAll('#actionButtonText').html(label);\r\n\r\n                dm_UI.autoResize();\r\n            }\r\n\r\n            var btnName = 'depthBtn';\r\n            var localConfig = dm_Tools.getConfig(node);\r\n            if (localConfig)\r\n                if (localConfig.depth == 2) set2depth = 1;\r\n                else set2depth = 2;\r\n            var label = 'Set depth to ' + set2depth;\r\n            node.rawNode[btnName] = label; //\"Choose depth\" ;\r\n            node.rawNode[btnName + '.image'] = \"Trainings/customize.png\";\r\n            node.rawNode[btnName + '.type'] = \"action\";\r\n            node.rawNode[btnName + '.edit'] = false;\r\n            node.rawNode[btnName + '.visible'] = true;\r\n            node.rawNode[btnName + '.class'] = 'btn-info';\r\n            node.rawNode[btnName + '.exec.before'] = 'var doit = ' + changeBtnNameAccordingToDepth + '; doit() ;';\r\n            node.rawNode[btnName + '.content.exec'] = 'var doit = ' + changeDepth + '; doit() ;';\r\n        }\r\n    }; return doit() ;"
+        }, {
+            "name": "makeDisplayTransversalConnectionsBtn",
+            "execAfterChildrenVisit": true,
+            "value": "var doit = function () {\r\n        if (!node.parent) {\r\n            var changeBtnName = function() {\r\n                var localConfig = dm_Tools.getConfig(node);\r\n                var label = 'Hide transversal links';\r\n                if (localConfig && (localConfig.displayTransversalConnections == false)) label = 'Show transversal links';\r\n                else label = 'Hide transversal links';\r\n                node.rawNode['transversalConnectionsBtn'] = label;\r\n                d3.selectAll('#attribute_actionContainer_transversalConnectionsBtn').selectAll('#actionButtonText').html(label);\r\n            }\r\n            var hideOrDisplayConnections = function() {\r\n                var localConfig = dm_Tools.getConfig(node);\r\n                if (node.rawNode['transversalConnectionsBtn'].indexOf('Show') >= 0) {\r\n                    localConfig.displayTransversalConnections = true;\r\n                } else if (node.rawNode['transversalConnectionsBtn'].indexOf('Hide') >= 0) {\r\n                    localConfig.displayTransversalConnections = false;\r\n                }\r\n\r\n                var label = 'Hide transversal links';\r\n                if (localConfig && (localConfig.displayTransversalConnections == false)) label = 'Show transversal links';\r\n                else label = 'Hide transversal links';\r\n                node.rawNode['transversalConnectionsBtn'] = label;\r\n                d3.selectAll('#attribute_actionContainer_transversalConnectionsBtn').selectAll('#actionButtonText').html(label);\r\n\r\n                dm_UI.autoResize();\r\n            }\r\n\r\n            var btnName = 'transversalConnectionsBtn';\r\n            var label = 'Hide transversal links';\r\n            /*\r\n            if(localConfig && (localConfig.displayTransversalConnections == false)) label = 'Show transversal links' ; else label = 'Hide transversal links' ;\r\n            node.rawNode['transversalConnectionsBtn'] = label ;\r\n            d3.selectAll('#attribute_actionContainer_transversalConnectionsBtn').selectAll('#actionButtonText').html(label) ;\r\n            */\r\n            var localConfig = dm_Tools.getConfig(node);\r\n            if (localConfig && (localConfig.displayTransversalConnections == false)) label = 'Show transversal links';\r\n            else label = 'Hide transversal links';\r\n            node.rawNode[btnName] = label;\r\n            node.rawNode[btnName + '.image'] = \"Trainings/customize.png\";\r\n            node.rawNode[btnName + '.type'] = \"action\";\r\n            node.rawNode[btnName + '.edit'] = false;\r\n            node.rawNode[btnName + '.visible'] = true;\r\n            node.rawNode[btnName + '.class'] = 'btn-info';\r\n            node.rawNode[btnName + '.exec.before'] = 'var doit = ' + changeBtnName + '; doit() ;';\r\n            node.rawNode[btnName + '.content.exec'] = 'var doit = ' + hideOrDisplayConnections + '; doit() ;';\r\n        }\r\n    }; return doit() ;"
+        }, {
+            "name": "levelsOfTrainings",
+            "execAfterChildrenVisit": true,
+            "value": "var doit = function (propKey, columnName) {\r\n    var output;\r\n    if (node && node.children) {\r\n        var i = node.children.length - 1 ;\r\n        var n ;\r\n        var lname ;\r\n        for(; i>=0; i--) {\r\n            n = node.children[i] ;\r\n            if(n && n.rawNode) {\r\n                if (n.rawNode[propKey]) {\r\n                    if (!output) output = {};\r\n                    for (lname in n.rawNode[propKey]) {\r\n                        if(lname != '__dm_uniqueId') {\r\n                            var nodesWithSameLevel = n.rawNode[propKey][lname];\r\n                            if (nodesWithSameLevel) {\r\n                                if (!output[lname]) output[lname] = [];\r\n                                var j = nodesWithSameLevel.length - 1 ;\r\n                                var nv ;\r\n                                for(; j>=0; j--) {\r\n                                    nv = nodesWithSameLevel[j] ;\r\n                                    output[lname].push(nv.dm_uniqueId);\r\n                                }\r\n                            }\r\n                        }\r\n                    }\r\n                } else if (!n.children && n.rawNode[columnName]) {\r\n                    lname = n.rawNode[columnName];\r\n                    if (!output) output = {};\r\n                    if (!output[lname]) output[lname] = [];\r\n                    output[lname].push(n.dm_uniqueId);\r\n                }\r\n            }\r\n        }\r\n    }\r\n    return output;\r\n};\r\nreturn doit('levelsOfTrainings', 'level of expertise') ;"
+        }, {
+            "name": "trainingsPerAuthors",
+            "execAfterChildrenVisit": true,
+            "value": "var doit = function (propKey, columnName) {\r\n    var output;\r\n    if (node && node.children) {\r\n        var i = node.children.length - 1 ;\r\n        var n ;\r\n        var lname ;\r\n        for(; i>=0; i--) {\r\n            n = node.children[i] ;\r\n            if(n && n.rawNode) {\r\n                if (n.rawNode[propKey]) {\r\n                    if (!output) output = {};\r\n                    for (lname in n.rawNode[propKey]) {\r\n                        if(lname != '__dm_uniqueId') {\r\n                            var nodesWithSameLevel = n.rawNode[propKey][lname];\r\n                            if (nodesWithSameLevel) {\r\n                                if (!output[lname]) output[lname] = [];\r\n                                var j = nodesWithSameLevel.length - 1 ;\r\n                                var nv ;\r\n                                for(; j>=0; j--) {\r\n                                    nv = nodesWithSameLevel[j] ;\r\n                                    output[lname].push(nv.dm_uniqueId);\r\n                                }\r\n                            }\r\n                        }\r\n                    }\r\n                } else if (!n.children && n.rawNode[columnName]) {\r\n                    lname = n.rawNode[columnName];\r\n                    if (!output) output = {};\r\n                    if (!output[lname]) output[lname] = [];\r\n                    output[lname].push(n.dm_uniqueId);\r\n                }\r\n            }\r\n        }\r\n    }\r\n    return output;\r\n};\r\nreturn doit('trainingsPerAuthors', 'authors') ;"
+        }, {
+            "name": "nbOfChallenges",
+            "execAfterChildrenVisit": true,
+            "value": "var doit = function () {\r\n        var output;\r\n        if (node && node.rawNode) {\r\n            if (node.children) {\r\n                node.children.forEach(function(child) {\r\n                    if (child && child.rawNode && child.rawNode.nbOfChallenges) {\r\n                        if (!output) output = 0;\r\n                        output += child.rawNode.nbOfChallenges;\r\n                    }\r\n                });\r\n            } else {\r\n                if (node.rawNode.type) {\r\n                    if ((node.rawNode.type.trim() == 'video') || (node.rawNode.type.trim() == 'quizz')) output = 1;\r\n                }\r\n            }\r\n        }\r\n        return output;\r\n    }; return doit() ;"
+        }],
+        "displayProps": [{
+            "name": "root",
+            "children": [{
+                "name": "duration",
+                "label": "Total duration",
+                "edit": false
+            }, {
+                "name": "durationPie",
+                "type": "graph",
+                "graph": "pie",
+                "doTransition": true,
+                "input": "var doit = function () {\r\n        var output;\r\n        if (node && node.children) {\r\n            node.children.forEach(function(child) {\r\n                if (child && (child.level == node.level + 1) &&\r\n                    child.rawNode && (child.rawNode['duration'])) {\r\n                    if (!output) output = [];\r\n                    var elt = {};\r\n                    elt.name = child.name;\r\n                    elt.valueStr = child.rawNode['duration'];\r\n                    elt.value = dm_Tools.parseDuration(elt.valueStr);\r\n                    output.push(elt);\r\n                }\r\n            });\r\n        }\r\n        return output;\r\n    } ; return doit() ;",
+                "label": "Durations per training path"
+            }, {
+                "name": "nbOfVideos",
+                "label": "Number of videos",
+                "edit": false,
+                "dontDisplayNull": true
+            }, {
+                "name": "nbOfVideosPie",
+                "type": "graph",
+                "graph": "pie",
+                "doTransition": true,
+                "input": "var doit = function (type) {\r\n        var output;\r\n        if (node && node.children) {\r\n            node.children.forEach(function(child) {\r\n                if (child && (child.level == node.level + 1) &&\r\n                    child.rawNode && (child.rawNode['nbOf' + type] > 0)) {\r\n                    if (!output) output = [];\r\n                    var elt = {};\r\n                    elt.name = child.name;\r\n                    elt.value = child.rawNode['nbOf' + type];\r\n                    output.push(elt);\r\n                }\r\n            });\r\n        }\r\n        return output;\r\n    } ; return doit('Videos') ;",
+                "label": "Videos per training path"
+            }, {
+                "name": "nbOfQuizzes",
+                "label": "Number of quizzes",
+                "edit": false,
+                "dontDisplayNull": true
+            }, {
+                "name": "nbOfQuizzesPie",
+                "type": "graph",
+                "graph": "pie",
+                "doTransition": true,
+                "input": "var doit = function (type) {\r\n        var output;\r\n        if (node && node.children) {\r\n            node.children.forEach(function(child) {\r\n                if (child && (child.level == node.level + 1) &&\r\n                    child.rawNode && (child.rawNode['nbOf' + type] > 0)) {\r\n                    if (!output) output = [];\r\n                    var elt = {};\r\n                    elt.name = child.name;\r\n                    elt.value = child.rawNode['nbOf' + type];\r\n                    output.push(elt);\r\n                }\r\n            });\r\n        }\r\n        return output;\r\n    } ; return doit('Quizzes') ;",
+                "label": "Quizzes per training path"
+            }, {
+                "name": "durationSubLvlPie",
+                "type": "graph",
+                "graph": "pie",
+                "doTransition": true,
+                "input": "var doit = function () {\r\n        var output;\r\n        var pieIt = function(node) {\r\n            if (!output) output = [];\r\n            var elt = {};\r\n            elt.name = node.name;\r\n            elt.valueStr = node.rawNode['duration'];\r\n            elt.value = dm_Tools.parseDuration(elt.valueStr);\r\n            output.push(elt);\r\n        }\r\n        if (node && node.children) {\r\n            node.children.forEach(function(child) {\r\n                if (child && (child.level == node.level + 1) && child.children) {\r\n                    child.children.forEach(function(subChild) {\r\n                        if (subChild && (subChild.level == node.level + 2) &&\r\n                            subChild.rawNode && (subChild.rawNode['duration'])) {\r\n                            pieIt(subChild);\r\n                        }\r\n                    });\r\n                } else if (child && (child.level == node.level + 2) &&\r\n                    child.rawNode && (child.rawNode['duration'])) {\r\n                    pieIt(child);\r\n                }\r\n            });\r\n        }\r\n        return output;\r\n    } ; return doit() ;",
+                "label": "Durations per category"
+            }, {
+                "name": "nbOfVideosSubLvlPie",
+                "type": "graph",
+                "graph": "pie",
+                "doTransition": true,
+                "input": "var doit = function (type) {\r\n        var output;\r\n        var pieIt = function(node) {\r\n            if (!output) output = [];\r\n            var elt = {};\r\n            elt.name = node.name;\r\n            elt.value = node.rawNode['nbOf' + type];\r\n            output.push(elt);\r\n        }\r\n        if (node && node.children) {\r\n            node.children.forEach(function(child) {\r\n                if (child && (child.level == node.level + 1) && child.children) {\r\n                    child.children.forEach(function(subChild) {\r\n                        if (subChild && (subChild.level == node.level + 2) &&\r\n                            subChild.rawNode && (subChild.rawNode['nbOf' + type] > 0)) {\r\n                            pieIt(subChild);\r\n                        }\r\n                    });\r\n                } else if (child && (child.level == node.level + 2) &&\r\n                    child.rawNode && (child.rawNode['nbOf' + type] > 0)) {\r\n                    pieIt(child);\r\n                }\r\n            });\r\n        }\r\n        return output;\r\n    } ; return doit('Videos') ;",
+                "label": "Videos per category"
+            }, {
+                "name": "nbOfQuizzesSubLvlPie",
+                "type": "graph",
+                "graph": "pie",
+                "doTransition": true,
+                "input": "var doit = function (type) {\r\n        var output;\r\n        var pieIt = function(node) {\r\n            if (!output) output = [];\r\n            var elt = {};\r\n            elt.name = node.name;\r\n            elt.value = node.rawNode['nbOf' + type];\r\n            output.push(elt);\r\n        }\r\n        if (node && node.children) {\r\n            node.children.forEach(function(child) {\r\n                if (child && (child.level == node.level + 1) && child.children) {\r\n                    child.children.forEach(function(subChild) {\r\n                        if (subChild && (subChild.level == node.level + 2) &&\r\n                            subChild.rawNode && (subChild.rawNode['nbOf' + type] > 0)) {\r\n                            pieIt(subChild);\r\n                        }\r\n                    });\r\n                } else if (child && (child.level == node.level + 2) &&\r\n                    child.rawNode && (child.rawNode['nbOf' + type] > 0)) {\r\n                    pieIt(child);\r\n                }\r\n            });\r\n        }\r\n        return output;\r\n    } ; return doit('Quizzes') ;",
+                "label": "Quizzes per category"
+            }, {
+                "name": "nbPerLevelsPie",
+                "type": "graph",
+                "graph": "pie",
+                "doTransition": true,
+                "input": "var doit = function (propKey) {\r\n        var output;\r\n        if (node && node.rawNode && node.rawNode[propKey]) {\r\n            if (!output) output = [];\r\n            for (var cat in node.rawNode[propKey]) {\r\n                if(cat != '__dm_uniqueId') {\r\n                    var value = node.rawNode[propKey][cat];\r\n                    var elt = {};\r\n                    elt.name = cat;\r\n                    elt.value = ((value) ? value.length : 0);\r\n                    output.push(elt);\r\n                }\r\n            }\r\n        }\r\n        return output;\r\n    } ; return doit('levelsOfTrainings') ;",
+                "label": "Trainings per levels"
+            }, {
+                "name": "nbPerAuthors",
+                "type": "graph",
+                "graph": "pie",
+                "doTransition": true,
+                "input": "var doit = function (propKey) {\r\n        var output;\r\n        if (node && node.rawNode && node.rawNode[propKey]) {\r\n            if (!output) output = [];\r\n            for (var cat in node.rawNode[propKey]) {\r\n                if(cat != '__dm_uniqueId') {\r\n                    var value = node.rawNode[propKey][cat];\r\n                    var elt = {};\r\n                    elt.name = cat;\r\n                    elt.value = ((value) ? value.length : 0);\r\n                    output.push(elt);\r\n                }\r\n            }\r\n        }\r\n        return output;\r\n    } ; return doit('trainingsPerAuthors') ;",
+                "label": "Trainings per authors"
+            }]
+        }, {
+            "name": "training",
+            "children": [{
+                "name": "duration",
+                "label": "Total duration",
+                "edit": false
+            }, {
+                "name": "durationPie",
+                "type": "graph",
+                "graph": "pie",
+                "doTransition": true,
+                "input": "var doit = function () {\r\n        var output;\r\n        if (node && node.children) {\r\n            node.children.forEach(function(child) {\r\n                if (child && (child.level == node.level + 1) &&\r\n                    child.rawNode && (child.rawNode['duration'])) {\r\n                    if (!output) output = [];\r\n                    var elt = {};\r\n                    elt.name = child.name;\r\n                    elt.valueStr = child.rawNode['duration'];\r\n                    elt.value = dm_Tools.parseDuration(elt.valueStr);\r\n                    output.push(elt);\r\n                }\r\n            });\r\n        }\r\n        return output;\r\n    } ; return doit() ;",
+                "label": "Durations per category"
+            }, {
+                "name": "nbOfVideos",
+                "label": "Number of videos",
+                "edit": false,
+                "dontDisplayNull": true
+            }, {
+                "name": "nbOfVideosPie",
+                "type": "graph",
+                "graph": "pie",
+                "doTransition": true,
+                "input": "var doit = function (type) {\r\n        var output;\r\n        if (node && node.children) {\r\n            node.children.forEach(function(child) {\r\n                if (child && (child.level == node.level + 1) &&\r\n                    child.rawNode && (child.rawNode['nbOf' + type] > 0)) {\r\n                    if (!output) output = [];\r\n                    var elt = {};\r\n                    elt.name = child.name;\r\n                    elt.value = child.rawNode['nbOf' + type];\r\n                    output.push(elt);\r\n                }\r\n            });\r\n        }\r\n        return output;\r\n    } ; return doit('Videos') ;",
+                "label": "Videos per category"
+            }, {
+                "name": "nbOfQuizzes",
+                "label": "Number of quizzes",
+                "edit": false,
+                "dontDisplayNull": true
+            }, {
+                "name": "nbOfQuizzesPie",
+                "type": "graph",
+                "graph": "pie",
+                "doTransition": true,
+                "input": "var doit = function (type) {\r\n        var output;\r\n        if (node && node.children) {\r\n            node.children.forEach(function(child) {\r\n                if (child && (child.level == node.level + 1) &&\r\n                    child.rawNode && (child.rawNode['nbOf' + type] > 0)) {\r\n                    if (!output) output = [];\r\n                    var elt = {};\r\n                    elt.name = child.name;\r\n                    elt.value = child.rawNode['nbOf' + type];\r\n                    output.push(elt);\r\n                }\r\n            });\r\n        }\r\n        return output;\r\n    } ; return doit('Quizzes') ;",
+                "label": "Quizzes per category"
+            }, {
+                "name": "durationSubLvlPie",
+                "type": "graph",
+                "graph": "pie",
+                "doTransition": true,
+                "input": "var doit = function () {\r\n        var output;\r\n        var pieIt = function(node) {\r\n            if (!output) output = [];\r\n            var elt = {};\r\n            elt.name = node.name;\r\n            elt.valueStr = node.rawNode['duration'];\r\n            elt.value = dm_Tools.parseDuration(elt.valueStr);\r\n            output.push(elt);\r\n        }\r\n        if (node && node.children) {\r\n            node.children.forEach(function(child) {\r\n                if (child && (child.level == node.level + 1) && child.children) {\r\n                    child.children.forEach(function(subChild) {\r\n                        if (subChild && (subChild.level == node.level + 2) &&\r\n                            subChild.rawNode && (subChild.rawNode['duration'])) {\r\n                            pieIt(subChild);\r\n                        }\r\n                    });\r\n                } else if (child && (child.level == node.level + 2) &&\r\n                    child.rawNode && (child.rawNode['duration'])) {\r\n                    pieIt(child);\r\n                }\r\n            });\r\n        }\r\n        return output;\r\n    } ; return doit() ;",
+                "label": "Durations per topic"
+            }, {
+                "name": "nbOfVideosSubLvlPie",
+                "type": "graph",
+                "graph": "pie",
+                "doTransition": true,
+                "input": "var doit = function (type) {\r\n        var output;\r\n        var pieIt = function(node) {\r\n            if (!output) output = [];\r\n            var elt = {};\r\n            elt.name = node.name;\r\n            elt.value = node.rawNode['nbOf' + type];\r\n            output.push(elt);\r\n        }\r\n        if (node && node.children) {\r\n            node.children.forEach(function(child) {\r\n                if (child && (child.level == node.level + 1) && child.children) {\r\n                    child.children.forEach(function(subChild) {\r\n                        if (subChild && (subChild.level == node.level + 2) &&\r\n                            subChild.rawNode && (subChild.rawNode['nbOf' + type] > 0)) {\r\n                            pieIt(subChild);\r\n                        }\r\n                    });\r\n                } else if (child && (child.level == node.level + 2) &&\r\n                    child.rawNode && (child.rawNode['nbOf' + type] > 0)) {\r\n                    pieIt(child);\r\n                }\r\n            });\r\n        }\r\n        return output;\r\n    } ; return doit('Videos') ;",
+                "label": "Videos per topic"
+            }, {
+                "name": "nbOfQuizzesSubLvlPie",
+                "type": "graph",
+                "graph": "pie",
+                "doTransition": true,
+                "input": "var doit = function (type) {\r\n        var output;\r\n        var pieIt = function(node) {\r\n            if (!output) output = [];\r\n            var elt = {};\r\n            elt.name = node.name;\r\n            elt.value = node.rawNode['nbOf' + type];\r\n            output.push(elt);\r\n        }\r\n        if (node && node.children) {\r\n            node.children.forEach(function(child) {\r\n                if (child && (child.level == node.level + 1) && child.children) {\r\n                    child.children.forEach(function(subChild) {\r\n                        if (subChild && (subChild.level == node.level + 2) &&\r\n                            subChild.rawNode && (subChild.rawNode['nbOf' + type] > 0)) {\r\n                            pieIt(subChild);\r\n                        }\r\n                    });\r\n                } else if (child && (child.level == node.level + 2) &&\r\n                    child.rawNode && (child.rawNode['nbOf' + type] > 0)) {\r\n                    pieIt(child);\r\n                }\r\n            });\r\n        }\r\n        return output;\r\n    } ; return doit('Quizzes') ;",
+                "label": "Quizzes per topic"
+            }, {
+                "name": "nbPerLevelsPie",
+                "type": "graph",
+                "graph": "pie",
+                "doTransition": true,
+                "input": "var doit = function (propKey) {\r\n        var output;\r\n        if (node && node.rawNode && node.rawNode[propKey]) {\r\n            if (!output) output = [];\r\n            for (var cat in node.rawNode[propKey]) {\r\n                if(cat != '__dm_uniqueId') {\r\n                    var value = node.rawNode[propKey][cat];\r\n                    var elt = {};\r\n                    elt.name = cat;\r\n                    elt.value = ((value) ? value.length : 0);\r\n                    output.push(elt);\r\n                }\r\n            }\r\n        }\r\n        return output;\r\n    } ; return doit('levelsOfTrainings') ;",
+                "label": "Trainings per levels"
+            }, {
+                "name": "nbPerAuthors",
+                "type": "graph",
+                "graph": "pie",
+                "doTransition": true,
+                "input": "var doit = function (propKey) {\r\n        var output;\r\n        if (node && node.rawNode && node.rawNode[propKey]) {\r\n            if (!output) output = [];\r\n            for (var cat in node.rawNode[propKey]) {\r\n                if(cat != '__dm_uniqueId') {\r\n                    var value = node.rawNode[propKey][cat];\r\n                    var elt = {};\r\n                    elt.name = cat;\r\n                    elt.value = ((value) ? value.length : 0);\r\n                    output.push(elt);\r\n                }\r\n            }\r\n        }\r\n        return output;\r\n    } ; return doit('trainingsPerAuthors') ;",
+                "label": "Trainings per authors"
+            }]
+        }, {
+            "name": "category",
+            "children": [{
+                "name": "duration",
+                "label": "Total duration",
+                "edit": false
+            }, {
+                "name": "durationPie",
+                "type": "graph",
+                "graph": "pie",
+                "doTransition": true,
+                "input": "var doit = function () {\r\n        var output;\r\n        if (node && node.children) {\r\n            node.children.forEach(function(child) {\r\n                if (child && (child.level == node.level + 1) &&\r\n                    child.rawNode && (child.rawNode['duration'])) {\r\n                    if (!output) output = [];\r\n                    var elt = {};\r\n                    elt.name = child.name;\r\n                    elt.valueStr = child.rawNode['duration'];\r\n                    elt.value = dm_Tools.parseDuration(elt.valueStr);\r\n                    output.push(elt);\r\n                }\r\n            });\r\n        }\r\n        return output;\r\n    } ; return doit() ;",
+                "label": "Durations per topic"
+            }, {
+                "name": "nbOfVideos",
+                "label": "Number of videos",
+                "edit": false,
+                "dontDisplayNull": true
+            }, {
+                "name": "nbOfVideosPie",
+                "type": "graph",
+                "graph": "pie",
+                "doTransition": true,
+                "input": "var doit = function (type) {\r\n        var output;\r\n        if (node && node.children) {\r\n            node.children.forEach(function(child) {\r\n                if (child && (child.level == node.level + 1) &&\r\n                    child.rawNode && (child.rawNode['nbOf' + type] > 0)) {\r\n                    if (!output) output = [];\r\n                    var elt = {};\r\n                    elt.name = child.name;\r\n                    elt.value = child.rawNode['nbOf' + type];\r\n                    output.push(elt);\r\n                }\r\n            });\r\n        }\r\n        return output;\r\n    } ; return doit('Videos') ;",
+                "label": "Videos per topic"
+            }, {
+                "name": "nbOfQuizzes",
+                "label": "Number of quizzes",
+                "edit": false,
+                "dontDisplayNull": true
+            }, {
+                "name": "nbOfQuizzesPie",
+                "type": "graph",
+                "graph": "pie",
+                "doTransition": true,
+                "input": "var doit = function (type) {\r\n        var output;\r\n        if (node && node.children) {\r\n            node.children.forEach(function(child) {\r\n                if (child && (child.level == node.level + 1) &&\r\n                    child.rawNode && (child.rawNode['nbOf' + type] > 0)) {\r\n                    if (!output) output = [];\r\n                    var elt = {};\r\n                    elt.name = child.name;\r\n                    elt.value = child.rawNode['nbOf' + type];\r\n                    output.push(elt);\r\n                }\r\n            });\r\n        }\r\n        return output;\r\n    } ; return doit('Quizzes') ;",
+                "label": "Quizzes per topic"
+            }, {
+                "name": "durationSubLvlPie",
+                "type": "graph",
+                "graph": "pie",
+                "doTransition": true,
+                "input": "var doit = function () {\r\n        var output;\r\n        var pieIt = function(node) {\r\n            if (!output) output = [];\r\n            var elt = {};\r\n            elt.name = node.name;\r\n            elt.valueStr = node.rawNode['duration'];\r\n            elt.value = dm_Tools.parseDuration(elt.valueStr);\r\n            output.push(elt);\r\n        }\r\n        if (node && node.children) {\r\n            node.children.forEach(function(child) {\r\n                if (child && (child.level == node.level + 1) && child.children) {\r\n                    child.children.forEach(function(subChild) {\r\n                        if (subChild && (subChild.level == node.level + 2) &&\r\n                            subChild.rawNode && (subChild.rawNode['duration'])) {\r\n                            pieIt(subChild);\r\n                        }\r\n                    });\r\n                } else if (child && (child.level == node.level + 2) &&\r\n                    child.rawNode && (child.rawNode['duration'])) {\r\n                    pieIt(child);\r\n                }\r\n            });\r\n        }\r\n        return output;\r\n    } ; return doit() ;",
+                "label": "Durations per chapter"
+            }, {
+                "name": "nbOfVideosSubLvlPie",
+                "type": "graph",
+                "graph": "pie",
+                "doTransition": true,
+                "input": "var doit = function (type) {\r\n        var output;\r\n        var pieIt = function(node) {\r\n            if (!output) output = [];\r\n            var elt = {};\r\n            elt.name = node.name;\r\n            elt.value = node.rawNode['nbOf' + type];\r\n            output.push(elt);\r\n        }\r\n        if (node && node.children) {\r\n            node.children.forEach(function(child) {\r\n                if (child && (child.level == node.level + 1) && child.children) {\r\n                    child.children.forEach(function(subChild) {\r\n                        if (subChild && (subChild.level == node.level + 2) &&\r\n                            subChild.rawNode && (subChild.rawNode['nbOf' + type] > 0)) {\r\n                            pieIt(subChild);\r\n                        }\r\n                    });\r\n                } else if (child && (child.level == node.level + 2) &&\r\n                    child.rawNode && (child.rawNode['nbOf' + type] > 0)) {\r\n                    pieIt(child);\r\n                }\r\n            });\r\n        }\r\n        return output;\r\n    } ; return doit('Videos') ;",
+                "label": "Videos per chapter"
+            }, {
+                "name": "nbOfQuizzesSubLvlPie",
+                "type": "graph",
+                "graph": "pie",
+                "doTransition": true,
+                "input": "var doit = function (type) {\r\n        var output;\r\n        var pieIt = function(node) {\r\n            if (!output) output = [];\r\n            var elt = {};\r\n            elt.name = node.name;\r\n            elt.value = node.rawNode['nbOf' + type];\r\n            output.push(elt);\r\n        }\r\n        if (node && node.children) {\r\n            node.children.forEach(function(child) {\r\n                if (child && (child.level == node.level + 1) && child.children) {\r\n                    child.children.forEach(function(subChild) {\r\n                        if (subChild && (subChild.level == node.level + 2) &&\r\n                            subChild.rawNode && (subChild.rawNode['nbOf' + type] > 0)) {\r\n                            pieIt(subChild);\r\n                        }\r\n                    });\r\n                } else if (child && (child.level == node.level + 2) &&\r\n                    child.rawNode && (child.rawNode['nbOf' + type] > 0)) {\r\n                    pieIt(child);\r\n                }\r\n            });\r\n        }\r\n        return output;\r\n    } ; return doit('Quizzes') ;",
+                "label": "Quizzes per chapter"
+            }, {
+                "name": "nbPerLevelsPie",
+                "type": "graph",
+                "graph": "pie",
+                "doTransition": true,
+                "input": "var doit = function (propKey) {\r\n        var output;\r\n        if (node && node.rawNode && node.rawNode[propKey]) {\r\n            if (!output) output = [];\r\n            for (var cat in node.rawNode[propKey]) {\r\n                if(cat != '__dm_uniqueId') {\r\n                    var value = node.rawNode[propKey][cat];\r\n                    var elt = {};\r\n                    elt.name = cat;\r\n                    elt.value = ((value) ? value.length : 0);\r\n                    output.push(elt);\r\n                }\r\n            }\r\n        }\r\n        return output;\r\n    } ; return doit('levelsOfTrainings') ;",
+                "label": "Trainings per levels"
+            }, {
+                "name": "nbPerAuthors",
+                "type": "graph",
+                "graph": "pie",
+                "doTransition": true,
+                "input": "var doit = function (propKey) {\r\n        var output;\r\n        if (node && node.rawNode && node.rawNode[propKey]) {\r\n            if (!output) output = [];\r\n            for (var cat in node.rawNode[propKey]) {\r\n                if(cat != '__dm_uniqueId') {\r\n                    var value = node.rawNode[propKey][cat];\r\n                    var elt = {};\r\n                    elt.name = cat;\r\n                    elt.value = ((value) ? value.length : 0);\r\n                    output.push(elt);\r\n                }\r\n            }\r\n        }\r\n        return output;\r\n    } ; return doit('trainingsPerAuthors') ;",
+                "label": "Trainings per authors"
+            }]
+        }, {
+            "name": "topic",
+            "children": [{
+                "name": "duration",
+                "label": "Total duration",
+                "edit": false
+            }, {
+                "name": "durationPie",
+                "type": "graph",
+                "graph": "pie",
+                "doTransition": true,
+                "input": "var doit = function () {\r\n        var output;\r\n        if (node && node.children) {\r\n            node.children.forEach(function(child) {\r\n                if (child && (child.level == node.level + 1) &&\r\n                    child.rawNode && (child.rawNode['duration'])) {\r\n                    if (!output) output = [];\r\n                    var elt = {};\r\n                    elt.name = child.name;\r\n                    elt.valueStr = child.rawNode['duration'];\r\n                    elt.value = dm_Tools.parseDuration(elt.valueStr);\r\n                    output.push(elt);\r\n                }\r\n            });\r\n        }\r\n        return output;\r\n    } ; return doit() ;",
+                "label": "Durations per chapter"
+            }, {
+                "name": "nbOfVideos",
+                "label": "Number of videos",
+                "edit": false,
+                "dontDisplayNull": true
+            }, {
+                "name": "nbOfVideosPie",
+                "type": "graph",
+                "graph": "pie",
+                "doTransition": true,
+                "input": "var doit = function (type) {\r\n        var output;\r\n        if (node && node.children) {\r\n            node.children.forEach(function(child) {\r\n                if (child && (child.level == node.level + 1) &&\r\n                    child.rawNode && (child.rawNode['nbOf' + type] > 0)) {\r\n                    if (!output) output = [];\r\n                    var elt = {};\r\n                    elt.name = child.name;\r\n                    elt.value = child.rawNode['nbOf' + type];\r\n                    output.push(elt);\r\n                }\r\n            });\r\n        }\r\n        return output;\r\n    } ; return doit('Videos') ;",
+                "label": "Videos per chapter"
+            }, {
+                "name": "nbOfQuizzes",
+                "label": "Number of quizzes",
+                "edit": false,
+                "dontDisplayNull": true
+            }, {
+                "name": "nbOfQuizzesPie",
+                "type": "graph",
+                "graph": "pie",
+                "doTransition": true,
+                "input": "var doit = function (type) {\r\n        var output;\r\n        if (node && node.children) {\r\n            node.children.forEach(function(child) {\r\n                if (child && (child.level == node.level + 1) &&\r\n                    child.rawNode && (child.rawNode['nbOf' + type] > 0)) {\r\n                    if (!output) output = [];\r\n                    var elt = {};\r\n                    elt.name = child.name;\r\n                    elt.value = child.rawNode['nbOf' + type];\r\n                    output.push(elt);\r\n                }\r\n            });\r\n        }\r\n        return output;\r\n    } ; return doit('Quizzes') ;",
+                "label": "Quizzes per chapter"
+            }, {
+                "name": "durationSubLvlPie",
+                "type": "graph",
+                "graph": "pie",
+                "doTransition": true,
+                "input": "var doit = function () {\r\n        var output;\r\n        var pieIt = function(node) {\r\n            if (!output) output = [];\r\n            var elt = {};\r\n            elt.name = node.name;\r\n            elt.valueStr = node.rawNode['duration'];\r\n            elt.value = dm_Tools.parseDuration(elt.valueStr);\r\n            output.push(elt);\r\n        }\r\n        if (node && node.children) {\r\n            node.children.forEach(function(child) {\r\n                if (child && (child.level == node.level + 1) && child.children) {\r\n                    child.children.forEach(function(subChild) {\r\n                        if (subChild && (subChild.level == node.level + 2) &&\r\n                            subChild.rawNode && (subChild.rawNode['duration'])) {\r\n                            pieIt(subChild);\r\n                        }\r\n                    });\r\n                } else if (child && (child.level == node.level + 2) &&\r\n                    child.rawNode && (child.rawNode['duration'])) {\r\n                    pieIt(child);\r\n                }\r\n            });\r\n        }\r\n        return output;\r\n    } ; return doit() ;",
+                "label": "Durations per sub-chapter"
+            }, {
+                "name": "nbOfVideosSubLvlPie",
+                "type": "graph",
+                "graph": "pie",
+                "doTransition": true,
+                "input": "var doit = function (type) {\r\n        var output;\r\n        var pieIt = function(node) {\r\n            if (!output) output = [];\r\n            var elt = {};\r\n            elt.name = node.name;\r\n            elt.value = node.rawNode['nbOf' + type];\r\n            output.push(elt);\r\n        }\r\n        if (node && node.children) {\r\n            node.children.forEach(function(child) {\r\n                if (child && (child.level == node.level + 1) && child.children) {\r\n                    child.children.forEach(function(subChild) {\r\n                        if (subChild && (subChild.level == node.level + 2) &&\r\n                            subChild.rawNode && (subChild.rawNode['nbOf' + type] > 0)) {\r\n                            pieIt(subChild);\r\n                        }\r\n                    });\r\n                } else if (child && (child.level == node.level + 2) &&\r\n                    child.rawNode && (child.rawNode['nbOf' + type] > 0)) {\r\n                    pieIt(child);\r\n                }\r\n            });\r\n        }\r\n        return output;\r\n    } ; return doit('Videos') ;",
+                "label": "Videos per sub-chapter"
+            }, {
+                "name": "nbOfQuizzesSubLvlPie",
+                "type": "graph",
+                "graph": "pie",
+                "doTransition": true,
+                "input": "var doit = function (type) {\r\n        var output;\r\n        var pieIt = function(node) {\r\n            if (!output) output = [];\r\n            var elt = {};\r\n            elt.name = node.name;\r\n            elt.value = node.rawNode['nbOf' + type];\r\n            output.push(elt);\r\n        }\r\n        if (node && node.children) {\r\n            node.children.forEach(function(child) {\r\n                if (child && (child.level == node.level + 1) && child.children) {\r\n                    child.children.forEach(function(subChild) {\r\n                        if (subChild && (subChild.level == node.level + 2) &&\r\n                            subChild.rawNode && (subChild.rawNode['nbOf' + type] > 0)) {\r\n                            pieIt(subChild);\r\n                        }\r\n                    });\r\n                } else if (child && (child.level == node.level + 2) &&\r\n                    child.rawNode && (child.rawNode['nbOf' + type] > 0)) {\r\n                    pieIt(child);\r\n                }\r\n            });\r\n        }\r\n        return output;\r\n    } ; return doit('Quizzes') ;",
+                "label": "Quizzes per sub-chapter"
+            }, {
+                "name": "nbPerLevelsPie",
+                "type": "graph",
+                "graph": "pie",
+                "doTransition": true,
+                "input": "var doit = function (propKey) {\r\n        var output;\r\n        if (node && node.rawNode && node.rawNode[propKey]) {\r\n            if (!output) output = [];\r\n            for (var cat in node.rawNode[propKey]) {\r\n                if(cat != '__dm_uniqueId') {\r\n                    var value = node.rawNode[propKey][cat];\r\n                    var elt = {};\r\n                    elt.name = cat;\r\n                    elt.value = ((value) ? value.length : 0);\r\n                    output.push(elt);\r\n                }\r\n            }\r\n        }\r\n        return output;\r\n    } ; return doit('levelsOfTrainings') ;",
+                "label": "Trainings per levels"
+            }, {
+                "name": "nbPerAuthors",
+                "type": "graph",
+                "graph": "pie",
+                "doTransition": true,
+                "input": "var doit = function (propKey) {\r\n        var output;\r\n        if (node && node.rawNode && node.rawNode[propKey]) {\r\n            if (!output) output = [];\r\n            for (var cat in node.rawNode[propKey]) {\r\n                if(cat != '__dm_uniqueId') {\r\n                    var value = node.rawNode[propKey][cat];\r\n                    var elt = {};\r\n                    elt.name = cat;\r\n                    elt.value = ((value) ? value.length : 0);\r\n                    output.push(elt);\r\n                }\r\n            }\r\n        }\r\n        return output;\r\n    } ; return doit('trainingsPerAuthors') ;",
+                "label": "Trainings per authors"
+            }]
+        }, {
+            "name": "chapter",
+            "children": [{
+                "name": "duration",
+                "label": "Total duration",
+                "edit": false
+            }, {
+                "name": "durationPie",
+                "type": "graph",
+                "graph": "pie",
+                "doTransition": true,
+                "input": "var doit = function () {\r\n        var output;\r\n        if (node && node.children) {\r\n            node.children.forEach(function(child) {\r\n                if (child && (child.level == node.level + 1) &&\r\n                    child.rawNode && (child.rawNode['duration'])) {\r\n                    if (!output) output = [];\r\n                    var elt = {};\r\n                    elt.name = child.name;\r\n                    elt.valueStr = child.rawNode['duration'];\r\n                    elt.value = dm_Tools.parseDuration(elt.valueStr);\r\n                    output.push(elt);\r\n                }\r\n            });\r\n        }\r\n        return output;\r\n    } ; return doit() ;",
+                "label": "Durations per sub-chapter"
+            }, {
+                "name": "nbOfVideos",
+                "label": "Number of videos",
+                "edit": false,
+                "dontDisplayNull": true
+            }, {
+                "name": "nbOfVideosPie",
+                "type": "graph",
+                "graph": "pie",
+                "doTransition": true,
+                "input": "var doit = function (type) {\r\n        var output;\r\n        if (node && node.children) {\r\n            node.children.forEach(function(child) {\r\n                if (child && (child.level == node.level + 1) &&\r\n                    child.rawNode && (child.rawNode['nbOf' + type] > 0)) {\r\n                    if (!output) output = [];\r\n                    var elt = {};\r\n                    elt.name = child.name;\r\n                    elt.value = child.rawNode['nbOf' + type];\r\n                    output.push(elt);\r\n                }\r\n            });\r\n        }\r\n        return output;\r\n    } ; return doit('Videos') ;",
+                "label": "Videos per sub-chapter"
+            }, {
+                "name": "nbOfQuizzes",
+                "label": "Number of quizzes",
+                "edit": false,
+                "dontDisplayNull": true
+            }, {
+                "name": "nbOfQuizzesPie",
+                "type": "graph",
+                "graph": "pie",
+                "doTransition": true,
+                "input": "var doit = function (type) {\r\n        var output;\r\n        if (node && node.children) {\r\n            node.children.forEach(function(child) {\r\n                if (child && (child.level == node.level + 1) &&\r\n                    child.rawNode && (child.rawNode['nbOf' + type] > 0)) {\r\n                    if (!output) output = [];\r\n                    var elt = {};\r\n                    elt.name = child.name;\r\n                    elt.value = child.rawNode['nbOf' + type];\r\n                    output.push(elt);\r\n                }\r\n            });\r\n        }\r\n        return output;\r\n    } ; return doit('Quizzes') ;",
+                "label": "Quizzes per sub-chapter"
+            }, {
+                "name": "nbPerLevelsPie",
+                "type": "graph",
+                "graph": "pie",
+                "doTransition": true,
+                "input": "var doit = function (propKey) {\r\n        var output;\r\n        if (node && node.rawNode && node.rawNode[propKey]) {\r\n            if (!output) output = [];\r\n            for (var cat in node.rawNode[propKey]) {\r\n                if(cat != '__dm_uniqueId') {\r\n                    var value = node.rawNode[propKey][cat];\r\n                    var elt = {};\r\n                    elt.name = cat;\r\n                    elt.value = ((value) ? value.length : 0);\r\n                    output.push(elt);\r\n                }\r\n            }\r\n        }\r\n        return output;\r\n    } ; return doit('levelsOfTrainings') ;",
+                "label": "Trainings per levels"
+            }, {
+                "name": "nbPerAuthors",
+                "type": "graph",
+                "graph": "pie",
+                "doTransition": true,
+                "input": "var doit = function (propKey) {\r\n        var output;\r\n        if (node && node.rawNode && node.rawNode[propKey]) {\r\n            if (!output) output = [];\r\n            for (var cat in node.rawNode[propKey]) {\r\n                if(cat != '__dm_uniqueId') {\r\n                    var value = node.rawNode[propKey][cat];\r\n                    var elt = {};\r\n                    elt.name = cat;\r\n                    elt.value = ((value) ? value.length : 0);\r\n                    output.push(elt);\r\n                }\r\n            }\r\n        }\r\n        return output;\r\n    } ; return doit('trainingsPerAuthors') ;",
+                "label": "Trainings per authors"
+            }]
+        }, {
+            "name": "sub-chapter",
+            "children": [{
+                "name": "duration",
+                "label": "Total duration",
+                "edit": false
+            }, {
+                "name": "nbOfVideos",
+                "label": "Number of videos",
+                "edit": false,
+                "dontDisplayNull": true
+            }, {
+                "name": "nbOfQuizzes",
+                "label": "Number of quizzes",
+                "edit": false,
+                "dontDisplayNull": true
+            }, {
+                "name": "nbPerLevelsPie",
+                "type": "graph",
+                "graph": "pie",
+                "doTransition": true,
+                "input": "var doit = function (propKey) {\r\n        var output;\r\n        if (node && node.rawNode && node.rawNode[propKey]) {\r\n            if (!output) output = [];\r\n            for (var cat in node.rawNode[propKey]) {\r\n                if(cat != '__dm_uniqueId') {\r\n                    var value = node.rawNode[propKey][cat];\r\n                    var elt = {};\r\n                    elt.name = cat;\r\n                    elt.value = ((value) ? value.length : 0);\r\n                    output.push(elt);\r\n                }\r\n            }\r\n        }\r\n        return output;\r\n    } ; return doit('levelsOfTrainings') ;",
+                "label": "Trainings per levels"
+            }, {
+                "name": "nbPerAuthors",
+                "type": "graph",
+                "graph": "pie",
+                "doTransition": true,
+                "input": "var doit = function (propKey) {\r\n        var output;\r\n        if (node && node.rawNode && node.rawNode[propKey]) {\r\n            if (!output) output = [];\r\n            for (var cat in node.rawNode[propKey]) {\r\n                if(cat != '__dm_uniqueId') {\r\n                    var value = node.rawNode[propKey][cat];\r\n                    var elt = {};\r\n                    elt.name = cat;\r\n                    elt.value = ((value) ? value.length : 0);\r\n                    output.push(elt);\r\n                }\r\n            }\r\n        }\r\n        return output;\r\n    } ; return doit('trainingsPerAuthors') ;",
+                "label": "Trainings per authors"
+            }]
+        }, {
+            "name": "item",
+            "children": [{
+                "name": "actionButton"
+            }, {
+                "name": "description",
+                "label": "Description",
+                "edit": false,
+                "dontDisplayNull": true
+            }, {
+                "name": "level of expertise",
+                "label": "Level of expertise",
+                "edit": false,
+                "dontDisplayNull": true
+            }, {
+                "name": "authors",
+                "label": "Authors",
+                "edit": false,
+                "dontDisplayNull": true
+            }, {
+                "name": "number of views",
+                "label": "Number of views",
+                "edit": false,
+                "dontDisplayNull": true
+            }, {
+                "name": "number of like",
+                "label": "Number of like",
+                "edit": false,
+                "dontDisplayNull": true
+            }, {
+                "name": "additional_references",
+                "label": "Additional references",
+                "edit": false,
+                "dontDisplayNull": true
+            }]
+        }]
+    }
+}

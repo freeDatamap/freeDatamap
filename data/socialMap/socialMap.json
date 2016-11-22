@@ -1,0 +1,300 @@
+{
+    "$schema": "http://www.freedatamap.com/jsonSchema/schema#",
+    "$charset": "UTF-8",
+    "root": {
+        "name": "socialMap",
+        "level": 0,
+        "rawNode": {
+            "icon": "socialMap/socialMapLogo.png",
+            "icon.dm_props": {
+                "order": 1,
+                "type": "image",
+                "visible": true,
+                "width": 180,
+                "height": 180,
+                "scaleFactor": 5.5,
+                "hideFromEdit": true
+            },
+            "backgroundImage": "socialMap/social-network.jpg",
+            "backgroundImage.dm_props": {
+                "order": 6,
+                "label": "Background image",
+                "type": "image",
+                "visible": true,
+                "hideFromEdit": true
+            },
+            "br": "<br/>",
+            "br.dm_props": {
+                "type": "rich text",
+                "visible": true
+            },
+            "email": "",
+            "email.dm_props": {
+                "label": "<div style='font-size:18px; text-shadow: 2px 2px 8px #888888;'><g>Email :</g>&nbsp;&nbsp;</div>",
+                "type": "text",
+                /*"readOnly": true,*/
+                "edit": true
+            },
+            "password": "",
+            "password.dm_props": {
+                "label": "<div style='font-size:18px; text-shadow: 2px 2px 8px #888888; color: #861E23;'><g>Password :</g>&nbsp;&nbsp;</div>",
+                "type": "text",
+                "inputType": "password",
+                "passwordForm": "attributesPanel_form",
+                "edit": true,
+                "onChange": "
+var btnEnable = ((node.rawNode.password != null) && (node.rawNode.password != '')) ;
+dm_Tools.enableOrDisableButton(node, 'enter', btnEnable, 'btn-info') ;
+"
+            },
+            "encryptedPassword": "",
+            "encryptedPassword.dm_props": {
+                "visible": false
+            },
+            "enter": "",
+            "enter.dm_props": {
+                "label": "<div style='font-size:19px; display:inline-block; line-height: 32px;'>Enter</div>",
+                "visible": true,
+                "type": "action",
+                "image": "../../images/enter.png",
+                "class": "disabled btn-info",
+                "content.exec": "
+setTimeout(function() {
+    dm_Tools.validateSearchQueryField(node, 'password') ;
+    var passwordValue = dm_Tools.getDomFieldContent(node, 'password') ;
+    if(passwordValue) node.rawNode.password = '' + passwordValue ;
+    console.log('password = '+passwordValue) ;
+
+    dm_Crypto.login(node.rawNode.password, node.rawNode.email, node.rawNode.lastName, node.rawNode.firstName, 'socialMap') ;
+}, 10) ;
+
+/*dm_IO.askQueryToTheServer('http://localhost:8025/freeDatamap/?get=http://www.linkedin.com/pub/dir/--dm_questionMark--first=' + node.rawNode.firstName + '--dm_and--last=' + node.rawNode.lastName + '&serverDir=socialMap',
+    null, function(resp) {
+        console.log(resp) ;
+        node.children = [] ;
+        var resultNode = JSON.parse(resp) ;
+        var child ;
+        if(resultNode.children) {
+            for(var i=0; i<resultNode.children.length; i++) {
+                child = resultNode.children[i] ;
+                dm_Datamap.nodePaste(node, child) ;
+            }
+        } else {
+            dm_Datamap.nodePaste(node, resultNode.root) ;
+        }
+        setTimeout(function() {
+            dm_Datamap.loadAll() ;
+        }, 0) ;
+    }) ;
+dm_IO.askQueryToTheServer('http://localhost:8025/freeDatamap/?get=https://www.linkedin.com/in/sberger&serverDir=socialMap&id=Stephane%20Berger') ;
+dm_IO.askQueryToTheServer('http://localhost:8025/freeDatamap/?get=https://www.linkedin.com/in/andr%C3%A9-pustel-a81baa1&serverDir=socialMap&id=Andre%20Pustel') ;
+dm_IO.askQueryToTheServer('http://localhost:8025/freeDatamap/?get=https://www.linkedin.com/in/jean-luc-pistoresi-428a699b&serverDir=socialMap&id=Jean-Luc%20Pistoresi') ;
+dm_IO.askQueryToTheServer('http://localhost:8025/freeDatamap/?get=https://www.linkedin.com/in/catofurum&serverDir=socialMap&id=Cato%20Furum') ;
+dm_IO.askQueryToTheServer('http://localhost:8025/freeDatamap/?get=https://www.linkedin.com/in/philipperavix&serverDir=socialMap&id=Philippe%20Ravix') ;
+dm_IO.askQueryToTheServer('http://localhost:8025/freeDatamap/?get=https://www.linkedin.com/in/emmanuel-ranc-13262a65&serverDir=socialMap&id=Emmanuel%20Ranc') ;
+dm_IO.askQueryToTheServer('http://localhost:8025/freeDatamap/?get=https://www.linkedin.com/in/laurent-coussonnet-17901011&serverDir=socialMap&id=Laurent%20Coussonnet') ;
+dm_IO.askQueryToTheServer('http://localhost:8025/freeDatamap/?get=https://www.linkedin.com/in/laurentcoussonnet&serverDir=socialMap&id=laurentcoussonnet') ;
+dm_IO.askQueryToTheServer('http://localhost:8025/freeDatamap/?get=https://www.linkedin.com/in/duvergerp&serverDir=socialMap&id=Patrick%20Duverger') ;
+*/
+",
+                "width": 32,
+                "height": 32
+            },
+            "br2": "<br/>",
+            "br2.dm_props": {
+                "type": "rich text",
+                "visible": true
+            },
+            "firstName": "",
+            "firstName.dm_props": {
+                "label": "<div style='font-size:18px; text-shadow: 2px 2px 8px #888888;'><g><div style='color: green; display:inline-block;'>First</div> name :</g>&nbsp;&nbsp;</div>",
+                "type": "text",
+                "edit": true,
+                "onKeyPressed": "
+var btnEnable = (((node.rawNode.lastName != null) && (node.rawNode.lastName != '')) ||
+                 ((node.rawNode.firstName != null) && (node.rawNode.firstName != ''))) ;
+dm_Tools.enableOrDisableButton(node, 'search', btnEnable, 'btn-success') ;
+"
+            },
+            "lastName": "duverger",
+            "lastName.dm_props": {
+                "label": "<div style='font-size:18px; text-shadow: 2px 2px 8px #888888;'><g><div style='color: blue; display:inline-block;'>Last</div> name :</g>&nbsp;&nbsp;</div>",
+                "type": "text",
+                "edit": true,
+                "onKeyPressed": "
+var btnEnable = (((node.rawNode.lastName != null) && (node.rawNode.lastName != '')) ||
+                 ((node.rawNode.firstName != null) && (node.rawNode.firstName != ''))) ;
+dm_Tools.enableOrDisableButton(node, 'search', btnEnable, 'btn-success') ;
+"
+            },
+            "search": "",
+            "search.dm_props": {
+                "label": "<div style='font-size:19px; display:inline-block; line-height: 32px;'>Search</div>",
+                "visible": true,
+                "type": "action",
+                "image": "../../images/zoom.png",
+                "class": "disabled btn-success",
+                "content.exec": "
+dm_Crypto.startAuthentCom() ;
+"
+            },
+            "executeAtTheEnd": "
+var lastNameValue = dm_Tools.getDomFieldContent(node, 'lastName') ;
+var firstNameValue = dm_Tools.getDomFieldContent(node, 'firstName') ;
+var passwordValue = dm_Tools.getDomFieldContent(node, 'password') ;
+
+if(lastNameValue) node.rawNode.lastName = '' + lastNameValue ;
+if(firstNameValue) node.rawNode.firstName = '' + firstNameValue ;
+if(passwordValue) node.rawNode.password = '' + passwordValue ;
+
+var btnEnable = (((node.rawNode.lastName != null) && (node.rawNode.lastName != '')) ||
+                 ((node.rawNode.firstName != null) && (node.rawNode.firstName != ''))) ;
+dm_Tools.enableOrDisableButton(node, 'search', btnEnable, 'btn-success') ;
+
+var btnEnable = true || ((node.rawNode.password != null) && (node.rawNode.password != '')) ;
+dm_Tools.enableOrDisableButton(node, 'enter', btnEnable, 'btn-info') ;
+",
+            "executeAtTheEnd.dm_props": {
+                "type": "execute",
+                "visible": true,
+                "hideFromEdit": true
+            }
+        },
+        "children": [
+        /*{
+            "name": "somebody",
+            "rawNode": {
+            }
+        },
+        */
+        {
+            "name": "Patrick Duverger 1971/12/10",
+            "rawNode": {
+                "dm_goto": "socialMap/Patrick_Duverger_1971_12_10.json",
+                "dm_goto.dm_props": {
+                    "showWorkInProgress": false,
+                    "hideFromEdit": true
+                },
+                "dm_goto_config": "socialMap/somebody.config.json",
+                "dm_goto_config.dm_props": {
+                    "hideFromEdit": true
+                }
+            }            
+        }/*,
+        {
+            "name": "Patrick Duverger",
+            "rawNode": {
+                "dm_goto": "socialMap/Patrick Duverger.json",
+                "dm_goto.dm_props": {
+                    "showWorkInProgress": false,
+                    "hideFromEdit": true
+                },
+                "dm_goto_config": "socialMap/somebody.config.json",
+                "dm_goto_config.dm_props": {
+                    "hideFromEdit": true
+                }
+            }            
+        },
+        {
+            "name": "Cato Furum",
+            "rawNode": {
+                "dm_goto": "socialMap/Cato Furum.json",
+                "dm_goto.dm_props": {
+                    "showWorkInProgress": false,
+                    "hideFromEdit": true
+                },
+                "dm_goto_config": "socialMap/somebody.config.json",
+                "dm_goto_config.dm_props": {
+                    "hideFromEdit": true
+                }
+            }            
+        },
+        {
+            "name": "Philippe Ravix",
+            "rawNode": {
+                "dm_goto": "socialMap/Philippe Ravix.json",
+                "dm_goto.dm_props": {
+                    "showWorkInProgress": false,
+                    "hideFromEdit": true
+                },
+                "dm_goto_config": "socialMap/somebody.config.json",
+                "dm_goto_config.dm_props": {
+                    "hideFromEdit": true
+                }
+            }            
+        },
+        {
+            "name": "Emmanuel Ranc",
+            "rawNode": {
+                "dm_goto": "socialMap/Emmanuel Ranc.json",
+                "dm_goto.dm_props": {
+                    "showWorkInProgress": false,
+                    "hideFromEdit": true
+                },
+                "dm_goto_config": "socialMap/somebody.config.json",
+                "dm_goto_config.dm_props": {
+                    "hideFromEdit": true
+                }
+            }            
+        },
+        {
+            "name": "Jean-Luc Pistoresi",
+            "rawNode": {
+                "dm_goto": "socialMap/Jean-Luc Pistoresi.json",
+                "dm_goto.dm_props": {
+                    "showWorkInProgress": false,
+                    "hideFromEdit": true
+                },
+                "dm_goto_config": "socialMap/somebody.config.json",
+                "dm_goto_config.dm_props": {
+                    "hideFromEdit": true
+                }
+            }            
+        },
+        {
+            "name": "Andre Pustel",
+            "rawNode": {
+                "dm_goto": "socialMap/Andre Pustel.json",
+                "dm_goto.dm_props": {
+                    "showWorkInProgress": false,
+                    "hideFromEdit": true
+                },
+                "dm_goto_config": "socialMap/somebody.config.json",
+                "dm_goto_config.dm_props": {
+                    "hideFromEdit": true
+                }
+            }            
+        },
+        {
+            "name": "Stephane Berger",
+            "rawNode": {
+                "dm_goto": "socialMap/Stephane Berger.json",
+                "dm_goto.dm_props": {
+                    "showWorkInProgress": false,
+                    "hideFromEdit": true
+                },
+                "dm_goto_config": "socialMap/somebody.config.json",
+                "dm_goto_config.dm_props": {
+                    "hideFromEdit": true
+                }
+            }            
+        },
+        {
+            "name": "Laurent Coussonnet",
+            "rawNode": {
+                "dm_goto": "socialMap/Laurent Coussonnet.json",
+                "dm_goto.dm_props": {
+                    "showWorkInProgress": false,
+                    "hideFromEdit": true
+                },
+                "dm_goto_config": "socialMap/somebody.config.json",
+                "dm_goto_config.dm_props": {
+                    "hideFromEdit": true
+                }
+            }            
+        }
+        */
+        ],
+        "dm_DatamapName": "socialMap/socialMap.json"
+    }
+}

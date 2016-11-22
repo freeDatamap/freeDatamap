@@ -1,0 +1,1249 @@
+{
+	"$schema": "http://www.freedatamap.com/jsonConfigSchema/schema#",
+    "$charset": "UTF-8",
+    "config": {
+        "root": "Finance",
+        "center": "Finance",
+        "maxDepthForExport": 4,
+        "noLeafInReport": true,
+        "txtFontSize": 13,
+        "columns": [2, 4, 6, 8, 10, 12, 14, 34, 32, 18, [30, 36]],
+        "styles": [{
+            "name": "racine",
+            "level": 0,
+            "arrow": true,
+            "arc": false,
+            "rNod": 10,
+            "link": 150,
+            "color": "#9467bd",
+            "attrPaneCol": "#c5b0d5",
+            "backgroundImage": "freeDatamap-www/FreeVector-Stock-Exchange-Vector.jpg"
+        }, {
+            "name": "Entité",
+            "level": 1,
+            "arrow": true,
+            "arc": false,
+            "rNod": 10,
+            "link": 120,
+            "color": "#9467bd",
+            "attrPaneCol": "#c5b0d5",
+            "backgroundImage": "freeDatamap-www/FreeVector-Stock-Exchange-Vector.jpg"
+        }, {
+            "name": "DG",
+            "level": 2,
+            "arrow": true,
+            "arc": false,
+            "rNod": 10,
+            "link": 120,
+            "color": "#ff7f0e",
+            "attrPaneCol": "#ffbb78",
+            "backgroundImage": "freeDatamap-www/FreeVector-Stock-Exchange-Vector.jpg"
+        }, {
+            "name": "DGA",
+            "level": 3,
+            "arrow": true,
+            "arc": false,
+            "rNod": 10,
+            "link": 120,
+            "color": "#ff7f0e",
+            "attrPaneCol": "#ffbb78",
+            "backgroundImage": "freeDatamap-www/FreeVector-Stock-Exchange-Vector.jpg"
+        }, {
+            "name": "Direction",
+            "level": 4,
+            "arrow": true,
+            "arc": false,
+            "rNod": 9,
+            "link": 120,
+            "color": "#d62728",
+            "attrPaneCol": "#ff9896",
+            "backgroundImage": "freeDatamap-www/FreeVector-Stock-Exchange-Vector.jpg"
+        }, {
+            "name": "Service",
+            "level": 5,
+            "arrow": true,
+            "arc": false,
+            "rNod": 9,
+            "link": 120,
+            "color": "#2ca02c",
+            "attrPaneCol": "#98df8a",
+            "backgroundImage": "freeDatamap-www/FreeVector-Stock-Exchange-Vector.jpg"
+        }, {
+            "name": "Unité",
+            "level": 6,
+            "arrow": true,
+            "arc": false,
+            "rNod": 8,
+            "link": 120,
+            "color": "#1f77b4",
+            "attrPaneCol": "#aec7e8",
+            "backgroundImage": "freeDatamap-www/FreeVector-Stock-Exchange-Vector.jpg"
+        }, {
+            "name": "Equipe",
+            "level": 7,
+            "arrow": true,
+            "arc": false,
+            "rNod": 8,
+            "link": 120,
+            "color": "#9467bd",
+            "attrPaneCol": "#c5b0d5",
+            "backgroundImage": "freeDatamap-www/FreeVector-Stock-Exchange-Vector.jpg"
+        }, {
+            "name": "Sens",
+            "level": 8,
+            "arrow": true,
+            "arc": false,
+            "rNod": 7,
+            "link": 120,
+            "color": "#8c564b",
+            "attrPaneCol": "#c49c94",
+            "backgroundImage": "freeDatamap-www/FreeVector-Stock-Exchange-Vector.jpg"
+        }, {
+            "name": "Section",
+            "level": 9,
+            "arrow": true,
+            "arc": false,
+            "rNod": 7,
+            "link": 120,
+            "color": "#e377c2",
+            "attrPaneCol": "#f7b6d2",
+            "backgroundImage": "freeDatamap-www/FreeVector-Stock-Exchange-Vector.jpg"
+        }, {
+            "name": "Chapitre",
+            "level": 10,
+            "arrow": true,
+            "arc": false,
+            "rNod": 6,
+            "link": 120,
+            "color": "#7f7f7f",
+            "attrPaneCol": "#c7c7c7",
+            "backgroundImage": "freeDatamap-www/FreeVector-Stock-Exchange-Vector.jpg"
+        }, {
+            "name": "Opération",
+            "level": 11,
+            "arrow": false,
+            "arc": true,
+            "rNod": 3,
+            "link": 60,
+            "color": "#c7c7c7",
+            "attrPaneCol": "#c7c7c7",
+            "txtCol": "#7f7f7f",
+            "backgroundImage": "freeDatamap-www/FreeVector-Stock-Exchange-Vector.jpg"
+        }],
+        "depth": 2,
+        "setColumns2node": [
+            [],
+            [1, 2],
+            [1, 2, 3, 4],
+            [1, 2, 3, 4, 5, 6],
+            [1, 2, 3, 4, 5, 6, 7, 8],
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 33, 34],
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 33, 34, 31, 32],
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 33, 34, 31, 32, 17, 18], null
+        ],
+        "aggregate": [{
+            "name": "somme",
+            "execAfterChildrenVisit": true,
+            "value": "var getMontant = function (node, propConds, propCondValues, propAggr) {\r\n\t\tvar output = 0;\r\n\t\tvar getMontantInscrip = function(node) {\r\n\t\t\tvar montant = node.rawNode['Montant_inscription'] ;\r\n\t\t\tvar isOK = true ;\r\n\t\t\tif(montant) {\r\n\t\t\t\tfor(var i=0; isOK && (i<propConds.length); i++) {\r\n\t\t\t\t\tisOK = (node.rawNode[propConds[i]] == propCondValues[i]) ;\r\n\t\t\t\t}\r\n\t\t\t\tif(isOK) {\r\n\t\t\t\t\tmontant = parseFloat(('' + montant).replace(/,/g, '.'));\r\n\t\t\t\t} else {\r\n\t\t\t\t\tmontant = 0 ;\r\n\t\t\t\t}\r\n\t\t\t} else {\r\n\t\t\t\tmontant = 0;\r\n\t\t\t}\r\n\t\t\treturn montant ;\r\n\t\t}\r\n\t\tif(node) {\r\n\t\t\t// reset value\r\n\t\t\tnode.rawNode[propAggr] = 0 ;\r\n\r\n\t\t\tif(node.children) {\r\n\t\t\t\tnode.children.forEach(function (child) {\r\n\t\t\t\t\tvar montant = getMontantInscrip(child) ;\r\n\t\t\t\t\tif(!montant) {\r\n\t\t\t\t\t\tmontant = child.rawNode[propAggr] ;\r\n\t\t\t\t\t}\r\n\t\t\t\t\tnode.rawNode[propAggr] += montant ;\r\n\t\t\t\t});\r\n\t\t\t} else {\r\n\t\t\t\tnode.rawNode[propAggr] = getMontantInscrip(node) ;\r\n\t\t\t}\r\n\r\n\t\t\toutput = node.rawNode[propAggr] ;\r\n\t\t}\r\n\t\treturn output;\r\n\t}; var chapitres = [1,2,10,11,12,13,16,20,21,22,23,24,26,27,40,41,42,45,65,66,67,70,73,74,75,76,77,204]; var doit = function (node) {\r\n\t\tvar p, v, somme = 0 ;\r\n\t\tp = 'depenses' ; v = getMontant(node, ['Code_sens'], ['D'], p) ; if(v && (v != 0)) { somme += v ; }\r\n\t\tp = 'recettes' ; v = getMontant(node, ['Code_sens'], ['R'], p) ; if(v && (v != 0)) { somme += v ; }\r\n\t\tp = 'dep_inv' ; v = getMontant(node, ['Code_sens', 'Code_section'], ['D', 'I'], p) ;\r\n\t\tp = 'rec_inv' ; v = getMontant(node, ['Code_sens', 'Code_section'], ['R', 'I'], p) ;\r\n\t\tp = 'dep_fonc' ; v = getMontant(node, ['Code_sens', 'Code_section'], ['D', 'F'], p) ;\r\n\t\tp = 'rec_fonc' ; v = getMontant(node, ['Code_sens', 'Code_section'], ['R', 'F'], p) ;\r\n\t\tvar doChapitre = function(sens1, section1, sens2, section2) {\r\n\t\t\tchapitres.forEach(function(codeChap) {\r\n\t\t\t\tp = sens1 + '_' + section1 + '_chap' + codeChap ;\r\n\t\t\t\tv = getMontant(node, ['Code_sens', 'Code_section', 'Code_chapitre'], [sens2, section2, codeChap], p) ;\r\n\t\t\t}) ;\r\n\t\t}\r\n\t\tdoChapitre('dep', 'inv', 'D', 'I') ;\r\n\t\tdoChapitre('dep', 'fonc', 'D', 'F') ;\r\n\t\tdoChapitre('rec', 'inv', 'R', 'I') ;\r\n\t\tdoChapitre('rec', 'fonc', 'R', 'F') ;\r\n\t\treturn somme ;\r\n\t}; return doit(node) ;"
+        }, {
+            "name": "obfuscate",
+            "execAfterChildrenVisit": false,
+            "value": "var doit = function (obfuscateIt, us, fakeFranceLabs) {\r\n\t\tif(!obfuscateIt) return ;\r\n\r\n\t\tif(!nodes.obfuscateIdxes) nodes.obfuscateIdxes = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] ;\r\n\t\tvar nameIdx = \" \" + ++nodes.obfuscateIdxes[node.level] ;\r\n\t\tif(node.level == 0) {\r\n\t\t\t// flush dm_Tools.trash\r\n\t\t\tdm_Tools.trash = null ;\r\n\t\t\tnodes.obfuscateIdxes = null ;\r\n\t\t}\r\n\t\tif(node.level == 1) {\r\n\t\t\tnode.name = \"Site\" + nameIdx ;\r\n\t\t} else if(node.level == 2) {\r\n\t\t\tnode.name = ((us)?\"Entity\":\"Entité\") + nameIdx ; \r\n\t\t} else if(node.level == 3) {\r\n\t\t\tnode.name = ((us)?\"Department\":\"Département\") + nameIdx ; \r\n\t\t} else if(node.level == 4) {\r\n\t\t\tnode.name = ((us)?\"Business unit\":\"Direction\") + nameIdx ; \r\n\t\t} else if(node.level == 5) {\r\n\t\t\tnode.name = \"Service\" + nameIdx ; \r\n\t\t} else if(node.level == 6) {\r\n\t\t\tnode.name = ((us)?\"Project\":\"Unité\") + nameIdx ; \r\n\t\t} else if(node.level == 7) {\r\n\t\t\tnode.name = ((us)?\"Team\":\"Equipe\") + nameIdx ; \r\n\t\t} else if((node.level == 8) && (us)) { // sens\r\n\t\t\tif(node.name == \"Dépenses\") node.name = \"Spendings\" ;\r\n\t\t\telse if(node.name == \"Recettes\") node.name = \"Incomes\" ;\r\n\t\t} else if((node.level == 9) && (us)) { // section\r\n\t\t\tif(node.name == \"Investissement\") node.name = \"Investment budget\" ;\r\n\t\t\telse if(node.name == \"Fonctionnement\") node.name = \"Operating budget\" ;\r\n\t\t} else if(us && (node.level == 10)) {\r\n\t\t\tnode.name = \"Chapter \" + node.rawNode[\"Code_chapitre\"] ;\r\n\r\n\t\t\t// #pduv HACK FRANCELABS\r\n\t\t\tif(fakeFranceLabs) {\r\n\t\t\t\tvar chapterId = parseInt(node.rawNode[\"Code_chapitre\"]) ;\r\n\t\t\t\tif(chapterId == 67) {\r\n\t\t\t\t\tnode.name = \"Software licences\" ;\r\n\t\t\t\t} else if(chapterId == 12) {\r\n\t\t\t\t\tnode.name = \"Payroll\" ;\r\n\t\t\t\t} else if(chapterId == 42) {\r\n\t\t\t\t\tnode.name = \"Fund transfers\" ;\r\n\t\t\t\t} else if(chapterId == 23) {\r\n\t\t\t\t\tnode.name = \"Fixed capital\" ;\r\n\t\t\t\t} else if(chapterId == 11) {\r\n\t\t\t\t\tnode.name = \"General charges\" ;\r\n\t\t\t\t} else if(chapterId == 66) {\r\n\t\t\t\t\tnode.name = \"Financial charges\" ;\r\n\t\t\t\t} else if(chapterId == 65) {\r\n\t\t\t\t\tnode.name = \"Other charges\" ;\r\n\t\t\t\t} else if(chapterId == 22) {\r\n\t\t\t\t\tnode.name = \"Unexpected spendings\" ;\r\n\t\t\t\t}\r\n\t\t\t}\r\n\r\n\t\t} else if(node.level == 11) {\r\n\t\t\tnode.name = \"Operation\" + nameIdx ;\r\n\t\t\tnode.rawNode[\"Libell__op_ration\"] = node.name ;\r\n\t\t\tnode.rawNode[\"Code_op_ration\"] = nameIdx ;\r\n\r\n\t\t\t// #pduv HACK FRANCELABS\r\n\t\t\tif(fakeFranceLabs) {\r\n\t\t\t\tif(nameIdx == 67) {\r\n\t\t\t\t\tnode.name = \"SAP BO\" ;\r\n\t\t\t\t\tnode.rawNode[\"Montant_inscription\"] = parseFloat(node.rawNode[\"Montant_inscription\"]) * 10 ;\r\n\t\t\t\t}\r\n\t\t\t\tif(nameIdx == 68) {\r\n\t\t\t\t\tnode.name = \"Oracle\" ;\r\n\t\t\t\t}\r\n\t\t\t}\r\n\r\n\t\t}\r\n\t\tvar updateNode = function(node) {\r\n\t\t\tvar parent = node ;\r\n\t\t\twhile(parent) {\r\n\t\t\t\tif(parent.level == 1) {\r\n\t\t\t\t\tnode.rawNode[\"Libell__Ville_ou_CASA\"] = parent.name ;\r\n\t\t\t\t}\r\n\t\t\t\tif(parent.level == 2) {\r\n\t\t\t\t\tnode.rawNode[\"Libell__DGS_ou_CMUN\"] = parent.name ;\r\n\t\t\t\t}\r\n\t\t\t\tif(parent.level == 3) {\r\n\t\t\t\t\tnode.rawNode[\"Libell__DGA\"] = parent.name ;\r\n\t\t\t\t}\r\n\t\t\t\tif(parent.level == 4) {\r\n\t\t\t\t\tnode.rawNode[\"Libell__Direction\"] = parent.name ;\r\n\t\t\t\t}\r\n\t\t\t\tif(parent.level == 5) {\r\n\t\t\t\t\tnode.rawNode[\"Libell__Service\"] = parent.name ;\r\n\t\t\t\t}\r\n\t\t\t\tif(parent.level == 6) {\r\n\t\t\t\t\tnode.rawNode[\"Libell__Unit_\"] = parent.name ;\r\n\t\t\t\t}\r\n\t\t\t\tif(parent.level == 7) {\r\n\t\t\t\t\tnode.rawNode[\"Libell__Equipe\"] = parent.name ;\r\n\t\t\t\t}\r\n\t\t\t\tparent = parent.parent ;\r\n\t\t\t}\r\n\t\t}\r\n\t\tif(us) {\r\n\t\t\tif(node.rawNode[\"Libell___section\"] == \"Investissement\") {\r\n\t\t\t\tnode.rawNode[\"Libell___section\"] = \"Investment budget\" ;\r\n\t\t\t} else if(node.rawNode[\"Libell___section\"] == \"Fonctionnement\") {\r\n\t\t\t\tnode.rawNode[\"Libell___section\"] = \"Operating budget\" ;\r\n\t\t\t} \r\n\t\t\tif(node.rawNode[\"Libell___sens\"] == \"Dépenses\") {\r\n\t\t\t\tnode.rawNode[\"Libell___sens\"] = \"Spendings\" ;\r\n\t\t\t} else if(node.rawNode[\"Libell___sens\"] == \"Recettes\") {\r\n\t\t\t\tnode.rawNode[\"Libell___sens\"] = \"Incomes\" ;\r\n\t\t\t}\r\n\t\t\tnode.rawNode[\"Libell__chapitre\"] = \"Chapter \" + node.rawNode[\"Code_chapitre\"] ;\r\n\t\t}\r\n\r\n\t\tvar randomAmount = function(previousValue, max) {\r\n\t\t\tvar output = previousValue ;\r\n\t\t\tif(output) {\r\n\t\t\t\ttry {\t\t\t\t\t\r\n\t\t\t\t\toutput = parseFloat(output) ;\r\n\t\t\t\t\tif(output > 0) {\r\n\t\t\t\t\t\tvar isFloat = (\"\"+output).indexOf('.') ;\r\n\t\t\t\t\t\tvar floatPart = dm_Tools.random(2, false, max) ;\r\n\t\t\t\t\t\tif(isFloat) {\r\n\t\t\t\t\t\t\toutput = Math.floor(output) ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t\tvar nbDigits = (\"\"+output).length ;\r\n\t\t\t\t\t\tif(nbDigits <= 3) nbDigits++ ;\r\n\t\t\t\t\t\toutput = dm_Tools.random(nbDigits, false, max) ;\r\n\t\t\t\t\t\tif(isFloat) {\r\n\t\t\t\t\t\t\toutput = parseFloat(\"\" + output + \".\" + floatPart) ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}\r\n\t\t\t\t} catch(error) {}\r\n\t\t\t}\r\n\t\t\treturn output ;\r\n\t\t}\r\n \r\n\t\t// Montant_inscription\tTotal_r_alis____e_n_s\tCO_134D\tConsomm__134D\tCO_140D\tConsomm__140D\tCO_DRH\tConsomm__DRH\r\n\t\t/*\r\n\t\tnode.rawNode[\"Libell__budget\"] = \"Budget \" + dm_Tools.random(2, true) ;\r\n\t\tnode.rawNode[\"Code_budget\"] =  ;\r\n\t\t*/\r\n\r\n\t\tnode.rawNode[\"Libell__budget\"] = \"Budget \" + node.rawNode[\"Code_budget\"] ;\r\n\r\n\t\tnode.rawNode[\"Montant_inscription\"] = randomAmount(node.rawNode[\"Montant_inscription\"]) ;\r\n\t\tnode.rawNode[\"Total_r_alis____e_n_s\"] = randomAmount(node.rawNode[\"Total_r_alis____e_n_s\"], node.rawNode[\"Montant_inscription\"]) ;\r\n\t\tnode.rawNode[\"CO_134D\"] = randomAmount(node.rawNode[\"CO_134D\"]) ;\r\n\t\tnode.rawNode[\"Consomm__134D\"] = randomAmount(node.rawNode[\"Consomm__134D\"], node.rawNode[\"CO_134D\"]) ;\r\n\t\tnode.rawNode[\"CO_140D\"] = randomAmount(node.rawNode[\"CO_140D\"]) ;\r\n\t\tnode.rawNode[\"Consomm__140D\"] = randomAmount(node.rawNode[\"Consomm__140D\"], node.rawNode[\"CO_140D\"]) ;\r\n\t\tnode.rawNode[\"CO_DRH\"] = randomAmount(node.rawNode[\"CO_DRH\"]) ;\r\n\t\tnode.rawNode[\"Consomm__DRH\"] = randomAmount(node.rawNode[\"Consomm__DRH\"], node.rawNode[\"CO_DRH\"]) ;\r\n\r\n\t\tnode.rawNode[\"Code_nature\"] = null ;\r\n\t\tnode.rawNode[\"Libell__nature\"] = null ;\r\n\t\tnode.rawNode[\"Code_fonction\"] = null ;\r\n\t\tnode.rawNode[\"Libell__fonction\"] = null ;\r\n\t\tnode.rawNode[\"Code_sous_fonction\"] = null ;\r\n\t\tnode.rawNode[\"Libell__sous_fonction\"] = null ;\r\n\t\tnode.rawNode[\"Code_sous_rubrique\"] = null ;\r\n\t\tnode.rawNode[\"Libell__sous_rubrique\"] = null ;\r\n\t\tnode.rawNode[\"Code_antenne\"] = null ;\r\n\t\tnode.rawNode[\"Libell__antenne\"] = null ;\r\n\r\n\t\tupdateNode(node) ;\r\n\t} ; doit(true, true, false) ;"
+        }, {
+            "name": "updateNodeName",
+            "execAfterChildrenVisit": true,
+            "value": "var doit = function () {\r\n\t\tvar newName ;\r\n\t\tif(node.children) {\r\n\t\t\tvar totalSpend = node.rawNode[\"depenses\"] ;\r\n\t\t\tvar totalIncomes = node.rawNode[\"recettes\"] ;\r\n\t\t\tif(!isNaN(totalSpend) && (totalSpend > 0)) {\r\n\t\t\t\tif(!newName) newName = node.name + \" (\" ;\r\n\t\t\t\tnewName += \"-\" + dm_Tools.convertNumber(totalSpend, 1, true) ;\r\n\t\t\t}\r\n\t\t\tif(!isNaN(totalIncomes) && (totalIncomes > 0)) {\r\n\t\t\t\tif(!newName) newName = node.name + \" (\" ;\r\n\t\t\t\telse newName += \" \" ;\r\n\t\t\t\tnewName += \"+\" + dm_Tools.convertNumber(totalIncomes, 1, true) ;\r\n\t\t\t}\r\n\t\t} else {\r\n\t\t\tvar amount = node.rawNode[\"Montant_inscription\"] ;\r\n\t\t\tif(!isNaN(amount) && (amount > 0)) {\r\n\t\t\t\tif(!newName) newName = node.name + \" (\" ;\r\n\t\t\t\tnewName += \"\" + dm_Tools.convertNumber(amount, 1, true) ;\r\n\t\t\t}\t\t\t\r\n\t\t}\r\n\t\tif(newName) {\r\n\t\t\tnewName += \")\" ;\r\n\t\t\tnode.rawNode['displayName'] = newName ;\r\n\t\t\t// #pduv 2013_09_15\r\n\t\t\t//dm_Datamap.changeNodeName(node, newName, true) ;\r\n\t\t}\r\n\t}; return doit() ;"
+        }, {
+            "name": "addFranceLabsSearch",
+            "execAfterChildrenVisit": true,
+            "value": "var doit = function (FranceLabsIntegration, us, FranceLabsURL, FranceLabsUI_URL) {\r\n\t\tvar key = ((us)?\"Finance\":\"Finance budget\") ;\r\n\t\tvar FranceLabsExec = function(key, us, FranceLabsURL, FranceLabsUI_URL) {\r\n\r\n\t\t\tvar path = dm_Tools.getNodePath(node, ' ', null, 'originalName', 2) ;\r\n\t\t\tvar searchFor = key + \" \" + node.name ;//path ;\r\n\t\t\tvar searchQuery = FranceLabsURL + searchFor ;\r\n\t\t\t//searchQuery = encodeURI(searchQuery) ;\r\n\t\t\t//console.log(\"------------>\" + searchQuery) ;\r\n\r\n\t\t\tvar nodeSearchOrig = dm_Datamap.getNodeAndDmFromFullPath('dm_rootDatamap|freeDatamap|FranceLabs search|Search by origin')['node'] ;\r\n\t\t\tnodeSearchOrig.rawNode.dm_goto = searchQuery ;\r\n\t\t\tconsole.log(searchQuery) ;\r\n\t\t\tdelete nodeSearchOrig.rawNode.children ;\r\n\t\t\tdelete nodeSearchOrig.rawNode.total ;\r\n\t\t\tdelete nodeSearchOrig.rawNode.displayName ;\r\n\r\n\t\t\tvar nodeSearchType = dm_Datamap.getNodeAndDmFromFullPath('dm_rootDatamap|freeDatamap|FranceLabs search|Search by type')['node'] ;\r\n\t\t\tnodeSearchType.rawNode.dm_goto = searchQuery ;\r\n\t\t\tdelete nodeSearchType.rawNode.children ;\r\n\t\t\tdelete nodeSearchType.rawNode.total ;\r\n\t\t\tdelete nodeSearchType.rawNode.displayName ;\r\n\r\n\t\t\tvar nodeSearchYear = dm_Datamap.getNodeAndDmFromFullPath('dm_rootDatamap|freeDatamap|FranceLabs search|Search by year')['node'] ;\r\n\t\t\tnodeSearchYear.rawNode.dm_goto = searchQuery ;\r\n\t\t\tdelete nodeSearchYear.rawNode.children ;\r\n\t\t\tdelete nodeSearchYear.rawNode.total ;\r\n\t\t\tdelete nodeSearchYear.rawNode.displayName ;\r\n\r\n\t\t\tvar nodeSearch = dm_Datamap.getNodeAndDmFromFullPath('dm_rootDatamap|freeDatamap|FranceLabs search')['node'] ;\r\n\t\t\tvar rootDm = dm_Datamap.getRootDm(nodeSearch) ;\r\n\r\n\t\t\tvar searchText = ((us)?\"Search query\":\"Requête de la recherche\") ;\r\n\t\t\tvar searchLabel = ((us)?\"Query\":\"Requête\") ;\r\n\r\n\t\t\tnodeSearch.rawNode['searchKey'] = \"<div style='font-family:Arial; font-size:11pt; line-height: 140%; text-align:center;'><b>\" + searchText + \" : </b>\" + searchFor + \"</div>\" ;\r\n\t\t\tnodeSearch.rawNode['searchKey.type'] = 'rich text' ;\r\n\t\t\tnodeSearch.rawNode['searchKey.edit'] = 'false' ;\r\n\t\t\tnodeSearch.rawNode['searchKey.visible'] = 'true' ;\r\n\r\n\t\t\t/*\r\n\t\t\tnodeSearch.rawNode['Query'] = key + ' ' + path ;\r\n\t\t\tnodeSearch.rawNode['Query.edit'] = true ;\r\n\t\t\t*/\r\n\r\n\t\t\t// scrap previous datamaps\r\n\t\t\tdelete dm_Datamap.maps[\"Search by origin\"] ;\r\n\t\t\tdelete dm_Datamap.maps[\"Search by type\"] ;\r\n\t\t\tdelete dm_Datamap.maps[\"Search by year\"] ;\r\n\r\n\t\t\tdm_Datamap.loadAll(nodeSearch, rootDm, function() {\r\n\t\t\t\tdm_UI.resetMouseOverSelection(nodeSearch) ;\r\n\t\t\t\tdm_UI.autoResize() ;\r\n\t\t\t}) ;\r\n\t\t} ;\r\n\t\tif(FranceLabsIntegration) {\r\n\t\t\tvar propName = \"FranceLabsSearch\" ;\r\n\t\t\tvar propLabel = \"Search for related files\" ;\r\n\t\t\tnode.rawNode[propName] = propLabel ;\r\n\t\t\tnode.rawNode[propName + \".type\"] = \"action\" ;\r\n\t\t\tnode.rawNode[propName + \".edit\"] = false ;\r\n\t\t\tnode.rawNode[propName + \".visible\"] = true ;\r\n\t\t\tnode.rawNode[propName + \".image\"] = \"freeDatamap-www/FranceLabs.png\" ;\r\n\t\t\tnode.rawNode[propName + \".music\"] = \"music/timgormly_spirit-breath1.mp3\" ;\r\n\t\t\tnode.rawNode[propName + \".class\"] = \"btn-info\" ;\r\n\t\t\tnode.rawNode[propName + \".content.type\"] = \"iframe\" ;\r\n\t\t\tnode.rawNode[propName + \".content.url\"] = \r\n\t\t\t\tFranceLabsUI_URL + key + \" \" + node.name ;//\"dm_Tools.getNodePath(node, ' ', null, 'originalName', 2)\" ;\r\n\t\t\tvar propName = \"freeDatamapFranceLabsSearch\" ;\r\n\t\t\tvar propLabel = \"Navigate through related files&nbsp;&nbsp;&nbsp;<img src='data/images/freeDatamap-www/FranceLabs.png'></img>\" ;\r\n\t\t\tnode.rawNode[propName] = propLabel ;\r\n\t\t\tnode.rawNode[propName + \".type\"] = \"action\" ;\r\n\t\t\tnode.rawNode[propName + \".edit\"] = false ;\r\n\t\t\tnode.rawNode[propName + \".visible\"] = true ;\r\n\t\t\tnode.rawNode[propName + \".image\"] = \"freeDatamap-www/logo_freeDatamap.png\" ;\r\n\t\t\tnode.rawNode[propName + \".music\"] = \"music/juskiddink_high-speed-passby.mp3\" ;\r\n\t\t\tnode.rawNode[propName + \".image.width\"] = 547 ;\r\n\t\t\tnode.rawNode[propName + \".image.height\"] = 300 ;\r\n\t\t\tnode.rawNode[propName + \".image.panelMaxWidth\"] = 48 ;\r\n\t\t\tnode.rawNode[propName + \".image.panelMaxHeight\"] = 26 ;\r\n\t\t\tnode.rawNode[propName + \".class\"] = \"btn-success\" ;\r\n\t\t\tnode.rawNode[propName + \".content.type\"] = \"goto\" ;\r\n\t\t\tnode.rawNode[propName + \".content.exec\"] = \"var doit = \" + FranceLabsExec + \" ; doit('\" + key + \"', \" + true + \", \" +\r\n\t\t\t\t\t\t\t\t\t\t \"'\" + FranceLabsURL + \"', '\" + FranceLabsUI_URL + \"') ;\"\r\n\t\t\tnode.rawNode[propName + \".content.target\"] = 'dm_rootDatamap|freeDatamap|FranceLabs search|Search by origin' ;\r\n\t\t\t\t//\"'http://127.0.0.1:8080/francellio-solr/FileShare/graph?q=' + '\" + key + \"' + ' ' +\" + \"dm_Tools.getNodePath(node, ' ', null, 'originalName', 2)\" ;\r\n\t\t}\r\n\t}; return doit(false, true, 'http://127.0.0.1:8080/francellio-solr/FileShare/graph?q.op=AND&q=', 'http://127.0.0.1:8080/AntibesSearch/search.jsp?searchType=allWords&query=') ;"
+        }],
+        "sort": "depenses",
+        "sortDescendant": true,
+        "displayProps": [{
+            "name": "racine",
+            "children": [{
+                "name": "balancePie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var doit = function (node, us) {\r\n\t\tvar output, elt ;\r\n\t\tvar depenses = node.rawNode['depenses'] ;\r\n\t\tvar recettes = node.rawNode['recettes'] ;\r\n\t\tif((depenses != 0) || (recettes != 0)) {\r\n\t\t\tif (!output) {\r\n\t\t\t\toutput = [];\r\n\t\t\t}\r\n\t\t\telt = {} ; output.push(elt) ; elt.value = depenses ; elt.name = ((us)?'Spendings':'Dépenses') ; elt.unit = 'euros';\r\n\t\t\telt = {} ; output.push(elt) ; elt.value = recettes ; elt.name = ((us)?'Incomes':'Recettes') ; elt.unit = 'euros';\r\n\t\t} ;\r\n\t\treturn output ;\r\n\t}; return doit(node, true) ;",
+                "label": "Spendings / Incomes",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "depensesPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var doit = function (level, spendings) {\r\n\t\tvar output, elt ;\r\n\t\tvar doIt = function(node) {\r\n\t\t\tif(!output) {\r\n\t\t\t\toutput = [] ;\r\n\t\t\t}\r\n\t\t\telt = {} ;\r\n\t\t\toutput.push(elt) ;\r\n\t\t\telt.value = ((spendings)?node.rawNode[\"depenses\"]:node.rawNode[\"recettes\"]) ;\r\n\t\t\telt.name = node.name ;\r\n\t\t\telt.unit = 'euros' ;\r\n\t\t} ;\r\n\t\tvar dive = function(node) {\r\n\t\t\tif(node) {\r\n\t\t\t\tif(node.level == level) {\r\n\t\t\t\t\tdoIt(node) ;\r\n\t\t\t\t} else if((node.level == (level-1)) && (node.children)) {\r\n\t\t\t\t\tnode.children.forEach(function(child) {\r\n\t\t\t\t\t\tif(child.level == level) {\r\n\t\t\t\t\t\t\tdoIt(child) ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}) ;\r\n\t\t\t\t} else if((node.level < (level-1)) && (node.children)) {\r\n\t\t\t\t\tnode.children.forEach(function(child) {\r\n\t\t\t\t\t\tdive(child) ;\r\n\t\t\t\t\t}) ;\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t} ; \r\n\t\tdive(node) ;\r\n\t\treturn output ;\r\n\t}; return doit(3, true) ;",
+                "label": "Spendings / Departments",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "recettesPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var doit = function (level, spendings) {\r\n\t\tvar output, elt ;\r\n\t\tvar doIt = function(node) {\r\n\t\t\tif(!output) {\r\n\t\t\t\toutput = [] ;\r\n\t\t\t}\r\n\t\t\telt = {} ;\r\n\t\t\toutput.push(elt) ;\r\n\t\t\telt.value = ((spendings)?node.rawNode[\"depenses\"]:node.rawNode[\"recettes\"]) ;\r\n\t\t\telt.name = node.name ;\r\n\t\t\telt.unit = 'euros' ;\r\n\t\t} ;\r\n\t\tvar dive = function(node) {\r\n\t\t\tif(node) {\r\n\t\t\t\tif(node.level == level) {\r\n\t\t\t\t\tdoIt(node) ;\r\n\t\t\t\t} else if((node.level == (level-1)) && (node.children)) {\r\n\t\t\t\t\tnode.children.forEach(function(child) {\r\n\t\t\t\t\t\tif(child.level == level) {\r\n\t\t\t\t\t\t\tdoIt(child) ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}) ;\r\n\t\t\t\t} else if((node.level < (level-1)) && (node.children)) {\r\n\t\t\t\t\tnode.children.forEach(function(child) {\r\n\t\t\t\t\t\tdive(child) ;\r\n\t\t\t\t\t}) ;\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t} ; \r\n\t\tdive(node) ;\r\n\t\treturn output ;\r\n\t}; return doit(3) ;",
+                "label": "Incomes / Departments",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "depInvFoncPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var doit = function (node, sens, us) {\r\n\t\tvar output, elt ;\r\n\t\tvar inv = node.rawNode[sens + '_inv'] ;\r\n\t\tvar fonc = node.rawNode[sens + '_fonc'] ;\r\n\t\tif((inv != 0) || (fonc != 0)) {\r\n\t\t\tif (!output) {\r\n\t\t\t\toutput = [];\r\n\t\t\t}\r\n\t\t\telt = {} ; output.push(elt) ; elt.value = inv ; elt.name = ((us)?'Investment budget':'Investissement') ; elt.unit = 'euros';\r\n\t\t\telt = {} ; output.push(elt) ; elt.value = fonc ; elt.name = ((us)?'Operating budget':'Fonctionnement') ; elt.unit = 'euros';\r\n\t\t} ;\r\n\t\treturn output ;\r\n\t}; return doit(node, 'dep', true) ;",
+                "label": "Spendings : sections",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "recInvFoncPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var doit = function (node, sens, us) {\r\n\t\tvar output, elt ;\r\n\t\tvar inv = node.rawNode[sens + '_inv'] ;\r\n\t\tvar fonc = node.rawNode[sens + '_fonc'] ;\r\n\t\tif((inv != 0) || (fonc != 0)) {\r\n\t\t\tif (!output) {\r\n\t\t\t\toutput = [];\r\n\t\t\t}\r\n\t\t\telt = {} ; output.push(elt) ; elt.value = inv ; elt.name = ((us)?'Investment budget':'Investissement') ; elt.unit = 'euros';\r\n\t\t\telt = {} ; output.push(elt) ; elt.value = fonc ; elt.name = ((us)?'Operating budget':'Fonctionnement') ; elt.unit = 'euros';\r\n\t\t} ;\r\n\t\treturn output ;\r\n\t}; return doit(node, 'rec', true) ;",
+                "label": "Incomes : sections",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "depInvChapPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var chapitres = [1,2,10,11,12,13,16,20,21,22,23,24,26,27,40,41,42,45,65,66,67,70,73,74,75,76,77,204]; var doit = function (node, sens, section) {\r\n\t\tvar output, elt, v ;\r\n\t\tchapitres.forEach(function(codeChap) {\t\t\t\t\r\n\t\t\tv = node.rawNode[sens + '_' + section + '_chap' + codeChap] ;\r\n\t\t\tif(v && (v != 0)) {\r\n\t\t\t\tif (!output) {\r\n\t\t\t\t\toutput = [];\r\n\t\t\t\t}\r\n\t\t\t\telt = {} ; output.push(elt) ; elt.value = v ; elt.name = codeChap ; elt.unit = 'euros';\r\n\t\t\t}\r\n\t\t}) ;\r\n\t\treturn output ;\r\n\t}; return doit(node, 'dep', 'inv') ;",
+                "label": "Spendings / Invest / Chapters",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "depFoncChapPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var chapitres = [1,2,10,11,12,13,16,20,21,22,23,24,26,27,40,41,42,45,65,66,67,70,73,74,75,76,77,204]; var doit = function (node, sens, section) {\r\n\t\tvar output, elt, v ;\r\n\t\tchapitres.forEach(function(codeChap) {\t\t\t\t\r\n\t\t\tv = node.rawNode[sens + '_' + section + '_chap' + codeChap] ;\r\n\t\t\tif(v && (v != 0)) {\r\n\t\t\t\tif (!output) {\r\n\t\t\t\t\toutput = [];\r\n\t\t\t\t}\r\n\t\t\t\telt = {} ; output.push(elt) ; elt.value = v ; elt.name = codeChap ; elt.unit = 'euros';\r\n\t\t\t}\r\n\t\t}) ;\r\n\t\treturn output ;\r\n\t}; return doit(node, 'dep', 'fonc') ;",
+                "label": "Spendings / Operating / Chapters",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "recInvChapPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var chapitres = [1,2,10,11,12,13,16,20,21,22,23,24,26,27,40,41,42,45,65,66,67,70,73,74,75,76,77,204]; var doit = function (node, sens, section) {\r\n\t\tvar output, elt, v ;\r\n\t\tchapitres.forEach(function(codeChap) {\t\t\t\t\r\n\t\t\tv = node.rawNode[sens + '_' + section + '_chap' + codeChap] ;\r\n\t\t\tif(v && (v != 0)) {\r\n\t\t\t\tif (!output) {\r\n\t\t\t\t\toutput = [];\r\n\t\t\t\t}\r\n\t\t\t\telt = {} ; output.push(elt) ; elt.value = v ; elt.name = codeChap ; elt.unit = 'euros';\r\n\t\t\t}\r\n\t\t}) ;\r\n\t\treturn output ;\r\n\t}; return doit(node, 'rec', 'inv') ;",
+                "label": "Incomes / Invest / Chapters",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "recFoncChapPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var chapitres = [1,2,10,11,12,13,16,20,21,22,23,24,26,27,40,41,42,45,65,66,67,70,73,74,75,76,77,204]; var doit = function (node, sens, section) {\r\n\t\tvar output, elt, v ;\r\n\t\tchapitres.forEach(function(codeChap) {\t\t\t\t\r\n\t\t\tv = node.rawNode[sens + '_' + section + '_chap' + codeChap] ;\r\n\t\t\tif(v && (v != 0)) {\r\n\t\t\t\tif (!output) {\r\n\t\t\t\t\toutput = [];\r\n\t\t\t\t}\r\n\t\t\t\telt = {} ; output.push(elt) ; elt.value = v ; elt.name = codeChap ; elt.unit = 'euros';\r\n\t\t\t}\r\n\t\t}) ;\r\n\t\treturn output ;\r\n\t}; return doit(node, 'rec', 'fonc') ;",
+                "label": "Incomes / Operating / Chapters",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "nodeZik",
+                "value": "music/robinhood76_00142-moneta-1.mp3",
+                "type": "music",
+                "ifCenter": "true"
+            }]
+        }, {
+            "name": "entité",
+            "children": [{
+                "name": "balancePie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var doit = function (node, us) {\r\n\t\tvar output, elt ;\r\n\t\tvar depenses = node.rawNode['depenses'] ;\r\n\t\tvar recettes = node.rawNode['recettes'] ;\r\n\t\tif((depenses != 0) || (recettes != 0)) {\r\n\t\t\tif (!output) {\r\n\t\t\t\toutput = [];\r\n\t\t\t}\r\n\t\t\telt = {} ; output.push(elt) ; elt.value = depenses ; elt.name = ((us)?'Spendings':'Dépenses') ; elt.unit = 'euros';\r\n\t\t\telt = {} ; output.push(elt) ; elt.value = recettes ; elt.name = ((us)?'Incomes':'Recettes') ; elt.unit = 'euros';\r\n\t\t} ;\r\n\t\treturn output ;\r\n\t}; return doit(node, true) ;",
+                "label": "Spendings / Incomes",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "depensesPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var doit = function (level, spendings) {\r\n\t\tvar output, elt ;\r\n\t\tvar doIt = function(node) {\r\n\t\t\tif(!output) {\r\n\t\t\t\toutput = [] ;\r\n\t\t\t}\r\n\t\t\telt = {} ;\r\n\t\t\toutput.push(elt) ;\r\n\t\t\telt.value = ((spendings)?node.rawNode[\"depenses\"]:node.rawNode[\"recettes\"]) ;\r\n\t\t\telt.name = node.name ;\r\n\t\t\telt.unit = 'euros' ;\r\n\t\t} ;\r\n\t\tvar dive = function(node) {\r\n\t\t\tif(node) {\r\n\t\t\t\tif(node.level == level) {\r\n\t\t\t\t\tdoIt(node) ;\r\n\t\t\t\t} else if((node.level == (level-1)) && (node.children)) {\r\n\t\t\t\t\tnode.children.forEach(function(child) {\r\n\t\t\t\t\t\tif(child.level == level) {\r\n\t\t\t\t\t\t\tdoIt(child) ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}) ;\r\n\t\t\t\t} else if((node.level < (level-1)) && (node.children)) {\r\n\t\t\t\t\tnode.children.forEach(function(child) {\r\n\t\t\t\t\t\tdive(child) ;\r\n\t\t\t\t\t}) ;\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t} ; \r\n\t\tdive(node) ;\r\n\t\treturn output ;\r\n\t}; return doit(3, true) ;",
+                "label": "Spendings / Departments",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "recettesPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var doit = function (level, spendings) {\r\n\t\tvar output, elt ;\r\n\t\tvar doIt = function(node) {\r\n\t\t\tif(!output) {\r\n\t\t\t\toutput = [] ;\r\n\t\t\t}\r\n\t\t\telt = {} ;\r\n\t\t\toutput.push(elt) ;\r\n\t\t\telt.value = ((spendings)?node.rawNode[\"depenses\"]:node.rawNode[\"recettes\"]) ;\r\n\t\t\telt.name = node.name ;\r\n\t\t\telt.unit = 'euros' ;\r\n\t\t} ;\r\n\t\tvar dive = function(node) {\r\n\t\t\tif(node) {\r\n\t\t\t\tif(node.level == level) {\r\n\t\t\t\t\tdoIt(node) ;\r\n\t\t\t\t} else if((node.level == (level-1)) && (node.children)) {\r\n\t\t\t\t\tnode.children.forEach(function(child) {\r\n\t\t\t\t\t\tif(child.level == level) {\r\n\t\t\t\t\t\t\tdoIt(child) ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}) ;\r\n\t\t\t\t} else if((node.level < (level-1)) && (node.children)) {\r\n\t\t\t\t\tnode.children.forEach(function(child) {\r\n\t\t\t\t\t\tdive(child) ;\r\n\t\t\t\t\t}) ;\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t} ; \r\n\t\tdive(node) ;\r\n\t\treturn output ;\r\n\t}; return doit(3) ;",
+                "label": "Incomes / Departments",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "depInvFoncPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var doit = function (node, sens, us) {\r\n\t\tvar output, elt ;\r\n\t\tvar inv = node.rawNode[sens + '_inv'] ;\r\n\t\tvar fonc = node.rawNode[sens + '_fonc'] ;\r\n\t\tif((inv != 0) || (fonc != 0)) {\r\n\t\t\tif (!output) {\r\n\t\t\t\toutput = [];\r\n\t\t\t}\r\n\t\t\telt = {} ; output.push(elt) ; elt.value = inv ; elt.name = ((us)?'Investment budget':'Investissement') ; elt.unit = 'euros';\r\n\t\t\telt = {} ; output.push(elt) ; elt.value = fonc ; elt.name = ((us)?'Operating budget':'Fonctionnement') ; elt.unit = 'euros';\r\n\t\t} ;\r\n\t\treturn output ;\r\n\t}; return doit(node, 'dep', true) ;",
+                "label": "Spendings : sections",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "recInvFoncPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var doit = function (node, sens, us) {\r\n\t\tvar output, elt ;\r\n\t\tvar inv = node.rawNode[sens + '_inv'] ;\r\n\t\tvar fonc = node.rawNode[sens + '_fonc'] ;\r\n\t\tif((inv != 0) || (fonc != 0)) {\r\n\t\t\tif (!output) {\r\n\t\t\t\toutput = [];\r\n\t\t\t}\r\n\t\t\telt = {} ; output.push(elt) ; elt.value = inv ; elt.name = ((us)?'Investment budget':'Investissement') ; elt.unit = 'euros';\r\n\t\t\telt = {} ; output.push(elt) ; elt.value = fonc ; elt.name = ((us)?'Operating budget':'Fonctionnement') ; elt.unit = 'euros';\r\n\t\t} ;\r\n\t\treturn output ;\r\n\t}; return doit(node, 'rec', true) ;",
+                "label": "Incomes : sections",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "depInvChapPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var chapitres = [1,2,10,11,12,13,16,20,21,22,23,24,26,27,40,41,42,45,65,66,67,70,73,74,75,76,77,204]; var doit = function (node, sens, section) {\r\n\t\tvar output, elt, v ;\r\n\t\tchapitres.forEach(function(codeChap) {\t\t\t\t\r\n\t\t\tv = node.rawNode[sens + '_' + section + '_chap' + codeChap] ;\r\n\t\t\tif(v && (v != 0)) {\r\n\t\t\t\tif (!output) {\r\n\t\t\t\t\toutput = [];\r\n\t\t\t\t}\r\n\t\t\t\telt = {} ; output.push(elt) ; elt.value = v ; elt.name = codeChap ; elt.unit = 'euros';\r\n\t\t\t}\r\n\t\t}) ;\r\n\t\treturn output ;\r\n\t}; return doit(node, 'dep', 'inv') ;",
+                "label": "Spendings / Invest / Chapters",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "depFoncChapPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var chapitres = [1,2,10,11,12,13,16,20,21,22,23,24,26,27,40,41,42,45,65,66,67,70,73,74,75,76,77,204]; var doit = function (node, sens, section) {\r\n\t\tvar output, elt, v ;\r\n\t\tchapitres.forEach(function(codeChap) {\t\t\t\t\r\n\t\t\tv = node.rawNode[sens + '_' + section + '_chap' + codeChap] ;\r\n\t\t\tif(v && (v != 0)) {\r\n\t\t\t\tif (!output) {\r\n\t\t\t\t\toutput = [];\r\n\t\t\t\t}\r\n\t\t\t\telt = {} ; output.push(elt) ; elt.value = v ; elt.name = codeChap ; elt.unit = 'euros';\r\n\t\t\t}\r\n\t\t}) ;\r\n\t\treturn output ;\r\n\t}; return doit(node, 'dep', 'fonc') ;",
+                "label": "Spendings / Operating / Chapters",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "recInvChapPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var chapitres = [1,2,10,11,12,13,16,20,21,22,23,24,26,27,40,41,42,45,65,66,67,70,73,74,75,76,77,204]; var doit = function (node, sens, section) {\r\n\t\tvar output, elt, v ;\r\n\t\tchapitres.forEach(function(codeChap) {\t\t\t\t\r\n\t\t\tv = node.rawNode[sens + '_' + section + '_chap' + codeChap] ;\r\n\t\t\tif(v && (v != 0)) {\r\n\t\t\t\tif (!output) {\r\n\t\t\t\t\toutput = [];\r\n\t\t\t\t}\r\n\t\t\t\telt = {} ; output.push(elt) ; elt.value = v ; elt.name = codeChap ; elt.unit = 'euros';\r\n\t\t\t}\r\n\t\t}) ;\r\n\t\treturn output ;\r\n\t}; return doit(node, 'rec', 'inv') ;",
+                "label": "Incomes / Invest / Chapters",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "recFoncChapPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var chapitres = [1,2,10,11,12,13,16,20,21,22,23,24,26,27,40,41,42,45,65,66,67,70,73,74,75,76,77,204]; var doit = function (node, sens, section) {\r\n\t\tvar output, elt, v ;\r\n\t\tchapitres.forEach(function(codeChap) {\t\t\t\t\r\n\t\t\tv = node.rawNode[sens + '_' + section + '_chap' + codeChap] ;\r\n\t\t\tif(v && (v != 0)) {\r\n\t\t\t\tif (!output) {\r\n\t\t\t\t\toutput = [];\r\n\t\t\t\t}\r\n\t\t\t\telt = {} ; output.push(elt) ; elt.value = v ; elt.name = codeChap ; elt.unit = 'euros';\r\n\t\t\t}\r\n\t\t}) ;\r\n\t\treturn output ;\r\n\t}; return doit(node, 'rec', 'fonc') ;",
+                "label": "Incomes / Operating / Chapters",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "nodeZik",
+                "value": "music/robinhood76_00142-moneta-1.mp3",
+                "type": "music",
+                "ifCenter": "true"
+            }]
+        }, {
+            "name": "DG",
+            "children": [{
+                "name": "balancePie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var doit = function (node, us) {\r\n\t\tvar output, elt ;\r\n\t\tvar depenses = node.rawNode['depenses'] ;\r\n\t\tvar recettes = node.rawNode['recettes'] ;\r\n\t\tif((depenses != 0) || (recettes != 0)) {\r\n\t\t\tif (!output) {\r\n\t\t\t\toutput = [];\r\n\t\t\t}\r\n\t\t\telt = {} ; output.push(elt) ; elt.value = depenses ; elt.name = ((us)?'Spendings':'Dépenses') ; elt.unit = 'euros';\r\n\t\t\telt = {} ; output.push(elt) ; elt.value = recettes ; elt.name = ((us)?'Incomes':'Recettes') ; elt.unit = 'euros';\r\n\t\t} ;\r\n\t\treturn output ;\r\n\t}; return doit(node, true) ;",
+                "label": "Spendings / Incomes",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "depensesPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var doit = function (level, spendings) {\r\n\t\tvar output, elt ;\r\n\t\tvar doIt = function(node) {\r\n\t\t\tif(!output) {\r\n\t\t\t\toutput = [] ;\r\n\t\t\t}\r\n\t\t\telt = {} ;\r\n\t\t\toutput.push(elt) ;\r\n\t\t\telt.value = ((spendings)?node.rawNode[\"depenses\"]:node.rawNode[\"recettes\"]) ;\r\n\t\t\telt.name = node.name ;\r\n\t\t\telt.unit = 'euros' ;\r\n\t\t} ;\r\n\t\tvar dive = function(node) {\r\n\t\t\tif(node) {\r\n\t\t\t\tif(node.level == level) {\r\n\t\t\t\t\tdoIt(node) ;\r\n\t\t\t\t} else if((node.level == (level-1)) && (node.children)) {\r\n\t\t\t\t\tnode.children.forEach(function(child) {\r\n\t\t\t\t\t\tif(child.level == level) {\r\n\t\t\t\t\t\t\tdoIt(child) ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}) ;\r\n\t\t\t\t} else if((node.level < (level-1)) && (node.children)) {\r\n\t\t\t\t\tnode.children.forEach(function(child) {\r\n\t\t\t\t\t\tdive(child) ;\r\n\t\t\t\t\t}) ;\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t} ; \r\n\t\tdive(node) ;\r\n\t\treturn output ;\r\n\t}; return doit(3, true) ;",
+                "label": "Spendings / Departments",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "recettesPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var doit = function (level, spendings) {\r\n\t\tvar output, elt ;\r\n\t\tvar doIt = function(node) {\r\n\t\t\tif(!output) {\r\n\t\t\t\toutput = [] ;\r\n\t\t\t}\r\n\t\t\telt = {} ;\r\n\t\t\toutput.push(elt) ;\r\n\t\t\telt.value = ((spendings)?node.rawNode[\"depenses\"]:node.rawNode[\"recettes\"]) ;\r\n\t\t\telt.name = node.name ;\r\n\t\t\telt.unit = 'euros' ;\r\n\t\t} ;\r\n\t\tvar dive = function(node) {\r\n\t\t\tif(node) {\r\n\t\t\t\tif(node.level == level) {\r\n\t\t\t\t\tdoIt(node) ;\r\n\t\t\t\t} else if((node.level == (level-1)) && (node.children)) {\r\n\t\t\t\t\tnode.children.forEach(function(child) {\r\n\t\t\t\t\t\tif(child.level == level) {\r\n\t\t\t\t\t\t\tdoIt(child) ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}) ;\r\n\t\t\t\t} else if((node.level < (level-1)) && (node.children)) {\r\n\t\t\t\t\tnode.children.forEach(function(child) {\r\n\t\t\t\t\t\tdive(child) ;\r\n\t\t\t\t\t}) ;\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t} ; \r\n\t\tdive(node) ;\r\n\t\treturn output ;\r\n\t}; return doit(3) ;",
+                "label": "Incomes / Departments",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "depInvFoncPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var doit = function (node, sens, us) {\r\n\t\tvar output, elt ;\r\n\t\tvar inv = node.rawNode[sens + '_inv'] ;\r\n\t\tvar fonc = node.rawNode[sens + '_fonc'] ;\r\n\t\tif((inv != 0) || (fonc != 0)) {\r\n\t\t\tif (!output) {\r\n\t\t\t\toutput = [];\r\n\t\t\t}\r\n\t\t\telt = {} ; output.push(elt) ; elt.value = inv ; elt.name = ((us)?'Investment budget':'Investissement') ; elt.unit = 'euros';\r\n\t\t\telt = {} ; output.push(elt) ; elt.value = fonc ; elt.name = ((us)?'Operating budget':'Fonctionnement') ; elt.unit = 'euros';\r\n\t\t} ;\r\n\t\treturn output ;\r\n\t}; return doit(node, 'dep', true) ;",
+                "label": "Spendings : sections",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "recInvFoncPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var doit = function (node, sens, us) {\r\n\t\tvar output, elt ;\r\n\t\tvar inv = node.rawNode[sens + '_inv'] ;\r\n\t\tvar fonc = node.rawNode[sens + '_fonc'] ;\r\n\t\tif((inv != 0) || (fonc != 0)) {\r\n\t\t\tif (!output) {\r\n\t\t\t\toutput = [];\r\n\t\t\t}\r\n\t\t\telt = {} ; output.push(elt) ; elt.value = inv ; elt.name = ((us)?'Investment budget':'Investissement') ; elt.unit = 'euros';\r\n\t\t\telt = {} ; output.push(elt) ; elt.value = fonc ; elt.name = ((us)?'Operating budget':'Fonctionnement') ; elt.unit = 'euros';\r\n\t\t} ;\r\n\t\treturn output ;\r\n\t}; return doit(node, 'rec', true) ;",
+                "label": "Incomes : sections",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "depInvChapPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var chapitres = [1,2,10,11,12,13,16,20,21,22,23,24,26,27,40,41,42,45,65,66,67,70,73,74,75,76,77,204]; var doit = function (node, sens, section) {\r\n\t\tvar output, elt, v ;\r\n\t\tchapitres.forEach(function(codeChap) {\t\t\t\t\r\n\t\t\tv = node.rawNode[sens + '_' + section + '_chap' + codeChap] ;\r\n\t\t\tif(v && (v != 0)) {\r\n\t\t\t\tif (!output) {\r\n\t\t\t\t\toutput = [];\r\n\t\t\t\t}\r\n\t\t\t\telt = {} ; output.push(elt) ; elt.value = v ; elt.name = codeChap ; elt.unit = 'euros';\r\n\t\t\t}\r\n\t\t}) ;\r\n\t\treturn output ;\r\n\t}; return doit(node, 'dep', 'inv') ;",
+                "label": "Spendings / Invest / Chapters",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "depFoncChapPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var chapitres = [1,2,10,11,12,13,16,20,21,22,23,24,26,27,40,41,42,45,65,66,67,70,73,74,75,76,77,204]; var doit = function (node, sens, section) {\r\n\t\tvar output, elt, v ;\r\n\t\tchapitres.forEach(function(codeChap) {\t\t\t\t\r\n\t\t\tv = node.rawNode[sens + '_' + section + '_chap' + codeChap] ;\r\n\t\t\tif(v && (v != 0)) {\r\n\t\t\t\tif (!output) {\r\n\t\t\t\t\toutput = [];\r\n\t\t\t\t}\r\n\t\t\t\telt = {} ; output.push(elt) ; elt.value = v ; elt.name = codeChap ; elt.unit = 'euros';\r\n\t\t\t}\r\n\t\t}) ;\r\n\t\treturn output ;\r\n\t}; return doit(node, 'dep', 'fonc') ;",
+                "label": "Spendings / Operating / Chapters",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "recInvChapPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var chapitres = [1,2,10,11,12,13,16,20,21,22,23,24,26,27,40,41,42,45,65,66,67,70,73,74,75,76,77,204]; var doit = function (node, sens, section) {\r\n\t\tvar output, elt, v ;\r\n\t\tchapitres.forEach(function(codeChap) {\t\t\t\t\r\n\t\t\tv = node.rawNode[sens + '_' + section + '_chap' + codeChap] ;\r\n\t\t\tif(v && (v != 0)) {\r\n\t\t\t\tif (!output) {\r\n\t\t\t\t\toutput = [];\r\n\t\t\t\t}\r\n\t\t\t\telt = {} ; output.push(elt) ; elt.value = v ; elt.name = codeChap ; elt.unit = 'euros';\r\n\t\t\t}\r\n\t\t}) ;\r\n\t\treturn output ;\r\n\t}; return doit(node, 'rec', 'inv') ;",
+                "label": "Incomes / Invest / Chapters",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "recFoncChapPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var chapitres = [1,2,10,11,12,13,16,20,21,22,23,24,26,27,40,41,42,45,65,66,67,70,73,74,75,76,77,204]; var doit = function (node, sens, section) {\r\n\t\tvar output, elt, v ;\r\n\t\tchapitres.forEach(function(codeChap) {\t\t\t\t\r\n\t\t\tv = node.rawNode[sens + '_' + section + '_chap' + codeChap] ;\r\n\t\t\tif(v && (v != 0)) {\r\n\t\t\t\tif (!output) {\r\n\t\t\t\t\toutput = [];\r\n\t\t\t\t}\r\n\t\t\t\telt = {} ; output.push(elt) ; elt.value = v ; elt.name = codeChap ; elt.unit = 'euros';\r\n\t\t\t}\r\n\t\t}) ;\r\n\t\treturn output ;\r\n\t}; return doit(node, 'rec', 'fonc') ;",
+                "label": "Incomes / Operating / Chapters",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "nodeZik",
+                "value": "music/robinhood76_00142-moneta-1.mp3",
+                "type": "music",
+                "ifCenter": "true"
+            }]
+        }, {
+            "name": "DGA",
+            "children": [{
+                "name": "balancePie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var doit = function (node, us) {\r\n\t\tvar output, elt ;\r\n\t\tvar depenses = node.rawNode['depenses'] ;\r\n\t\tvar recettes = node.rawNode['recettes'] ;\r\n\t\tif((depenses != 0) || (recettes != 0)) {\r\n\t\t\tif (!output) {\r\n\t\t\t\toutput = [];\r\n\t\t\t}\r\n\t\t\telt = {} ; output.push(elt) ; elt.value = depenses ; elt.name = ((us)?'Spendings':'Dépenses') ; elt.unit = 'euros';\r\n\t\t\telt = {} ; output.push(elt) ; elt.value = recettes ; elt.name = ((us)?'Incomes':'Recettes') ; elt.unit = 'euros';\r\n\t\t} ;\r\n\t\treturn output ;\r\n\t}; return doit(node, true) ;",
+                "label": "Spendings / Incomes",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "depensesPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var doit = function (level, spendings) {\r\n\t\tvar output, elt ;\r\n\t\tvar doIt = function(node) {\r\n\t\t\tif(!output) {\r\n\t\t\t\toutput = [] ;\r\n\t\t\t}\r\n\t\t\telt = {} ;\r\n\t\t\toutput.push(elt) ;\r\n\t\t\telt.value = ((spendings)?node.rawNode[\"depenses\"]:node.rawNode[\"recettes\"]) ;\r\n\t\t\telt.name = node.name ;\r\n\t\t\telt.unit = 'euros' ;\r\n\t\t} ;\r\n\t\tvar dive = function(node) {\r\n\t\t\tif(node) {\r\n\t\t\t\tif(node.level == level) {\r\n\t\t\t\t\tdoIt(node) ;\r\n\t\t\t\t} else if((node.level == (level-1)) && (node.children)) {\r\n\t\t\t\t\tnode.children.forEach(function(child) {\r\n\t\t\t\t\t\tif(child.level == level) {\r\n\t\t\t\t\t\t\tdoIt(child) ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}) ;\r\n\t\t\t\t} else if((node.level < (level-1)) && (node.children)) {\r\n\t\t\t\t\tnode.children.forEach(function(child) {\r\n\t\t\t\t\t\tdive(child) ;\r\n\t\t\t\t\t}) ;\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t} ; \r\n\t\tdive(node) ;\r\n\t\treturn output ;\r\n\t}; return doit(4, true) ;",
+                "label": "Spendings / Business units",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "recettesPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var doit = function (level, spendings) {\r\n\t\tvar output, elt ;\r\n\t\tvar doIt = function(node) {\r\n\t\t\tif(!output) {\r\n\t\t\t\toutput = [] ;\r\n\t\t\t}\r\n\t\t\telt = {} ;\r\n\t\t\toutput.push(elt) ;\r\n\t\t\telt.value = ((spendings)?node.rawNode[\"depenses\"]:node.rawNode[\"recettes\"]) ;\r\n\t\t\telt.name = node.name ;\r\n\t\t\telt.unit = 'euros' ;\r\n\t\t} ;\r\n\t\tvar dive = function(node) {\r\n\t\t\tif(node) {\r\n\t\t\t\tif(node.level == level) {\r\n\t\t\t\t\tdoIt(node) ;\r\n\t\t\t\t} else if((node.level == (level-1)) && (node.children)) {\r\n\t\t\t\t\tnode.children.forEach(function(child) {\r\n\t\t\t\t\t\tif(child.level == level) {\r\n\t\t\t\t\t\t\tdoIt(child) ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}) ;\r\n\t\t\t\t} else if((node.level < (level-1)) && (node.children)) {\r\n\t\t\t\t\tnode.children.forEach(function(child) {\r\n\t\t\t\t\t\tdive(child) ;\r\n\t\t\t\t\t}) ;\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t} ; \r\n\t\tdive(node) ;\r\n\t\treturn output ;\r\n\t}; return doit(4) ;",
+                "label": "Incomes / Business units",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "depInvFoncPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var doit = function (node, sens, us) {\r\n\t\tvar output, elt ;\r\n\t\tvar inv = node.rawNode[sens + '_inv'] ;\r\n\t\tvar fonc = node.rawNode[sens + '_fonc'] ;\r\n\t\tif((inv != 0) || (fonc != 0)) {\r\n\t\t\tif (!output) {\r\n\t\t\t\toutput = [];\r\n\t\t\t}\r\n\t\t\telt = {} ; output.push(elt) ; elt.value = inv ; elt.name = ((us)?'Investment budget':'Investissement') ; elt.unit = 'euros';\r\n\t\t\telt = {} ; output.push(elt) ; elt.value = fonc ; elt.name = ((us)?'Operating budget':'Fonctionnement') ; elt.unit = 'euros';\r\n\t\t} ;\r\n\t\treturn output ;\r\n\t}; return doit(node, 'dep', true) ;",
+                "label": "Spendings : sections",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "recInvFoncPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var doit = function (node, sens, us) {\r\n\t\tvar output, elt ;\r\n\t\tvar inv = node.rawNode[sens + '_inv'] ;\r\n\t\tvar fonc = node.rawNode[sens + '_fonc'] ;\r\n\t\tif((inv != 0) || (fonc != 0)) {\r\n\t\t\tif (!output) {\r\n\t\t\t\toutput = [];\r\n\t\t\t}\r\n\t\t\telt = {} ; output.push(elt) ; elt.value = inv ; elt.name = ((us)?'Investment budget':'Investissement') ; elt.unit = 'euros';\r\n\t\t\telt = {} ; output.push(elt) ; elt.value = fonc ; elt.name = ((us)?'Operating budget':'Fonctionnement') ; elt.unit = 'euros';\r\n\t\t} ;\r\n\t\treturn output ;\r\n\t}; return doit(node, 'rec', true) ;",
+                "label": "Incomes : sections",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "depInvChapPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var chapitres = [1,2,10,11,12,13,16,20,21,22,23,24,26,27,40,41,42,45,65,66,67,70,73,74,75,76,77,204]; var doit = function (node, sens, section) {\r\n\t\tvar output, elt, v ;\r\n\t\tchapitres.forEach(function(codeChap) {\t\t\t\t\r\n\t\t\tv = node.rawNode[sens + '_' + section + '_chap' + codeChap] ;\r\n\t\t\tif(v && (v != 0)) {\r\n\t\t\t\tif (!output) {\r\n\t\t\t\t\toutput = [];\r\n\t\t\t\t}\r\n\t\t\t\telt = {} ; output.push(elt) ; elt.value = v ; elt.name = codeChap ; elt.unit = 'euros';\r\n\t\t\t}\r\n\t\t}) ;\r\n\t\treturn output ;\r\n\t}; return doit(node, 'dep', 'inv') ;",
+                "label": "Spendings / Invest / Chapters",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "depFoncChapPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var chapitres = [1,2,10,11,12,13,16,20,21,22,23,24,26,27,40,41,42,45,65,66,67,70,73,74,75,76,77,204]; var doit = function (node, sens, section) {\r\n\t\tvar output, elt, v ;\r\n\t\tchapitres.forEach(function(codeChap) {\t\t\t\t\r\n\t\t\tv = node.rawNode[sens + '_' + section + '_chap' + codeChap] ;\r\n\t\t\tif(v && (v != 0)) {\r\n\t\t\t\tif (!output) {\r\n\t\t\t\t\toutput = [];\r\n\t\t\t\t}\r\n\t\t\t\telt = {} ; output.push(elt) ; elt.value = v ; elt.name = codeChap ; elt.unit = 'euros';\r\n\t\t\t}\r\n\t\t}) ;\r\n\t\treturn output ;\r\n\t}; return doit(node, 'dep', 'fonc') ;",
+                "label": "Spendings / Operating / Chapters",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "recInvChapPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var chapitres = [1,2,10,11,12,13,16,20,21,22,23,24,26,27,40,41,42,45,65,66,67,70,73,74,75,76,77,204]; var doit = function (node, sens, section) {\r\n\t\tvar output, elt, v ;\r\n\t\tchapitres.forEach(function(codeChap) {\t\t\t\t\r\n\t\t\tv = node.rawNode[sens + '_' + section + '_chap' + codeChap] ;\r\n\t\t\tif(v && (v != 0)) {\r\n\t\t\t\tif (!output) {\r\n\t\t\t\t\toutput = [];\r\n\t\t\t\t}\r\n\t\t\t\telt = {} ; output.push(elt) ; elt.value = v ; elt.name = codeChap ; elt.unit = 'euros';\r\n\t\t\t}\r\n\t\t}) ;\r\n\t\treturn output ;\r\n\t}; return doit(node, 'rec', 'inv') ;",
+                "label": "Incomes / Invest / Chapters",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "recFoncChapPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var chapitres = [1,2,10,11,12,13,16,20,21,22,23,24,26,27,40,41,42,45,65,66,67,70,73,74,75,76,77,204]; var doit = function (node, sens, section) {\r\n\t\tvar output, elt, v ;\r\n\t\tchapitres.forEach(function(codeChap) {\t\t\t\t\r\n\t\t\tv = node.rawNode[sens + '_' + section + '_chap' + codeChap] ;\r\n\t\t\tif(v && (v != 0)) {\r\n\t\t\t\tif (!output) {\r\n\t\t\t\t\toutput = [];\r\n\t\t\t\t}\r\n\t\t\t\telt = {} ; output.push(elt) ; elt.value = v ; elt.name = codeChap ; elt.unit = 'euros';\r\n\t\t\t}\r\n\t\t}) ;\r\n\t\treturn output ;\r\n\t}; return doit(node, 'rec', 'fonc') ;",
+                "label": "Incomes / Operating / Chapters",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "nodeZik",
+                "value": "music/robinhood76_00142-moneta-1.mp3",
+                "type": "music",
+                "ifCenter": "true"
+            }]
+        }, {
+            "name": "Direction",
+            "children": [{
+                "name": "balancePie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var doit = function (node, us) {\r\n\t\tvar output, elt ;\r\n\t\tvar depenses = node.rawNode['depenses'] ;\r\n\t\tvar recettes = node.rawNode['recettes'] ;\r\n\t\tif((depenses != 0) || (recettes != 0)) {\r\n\t\t\tif (!output) {\r\n\t\t\t\toutput = [];\r\n\t\t\t}\r\n\t\t\telt = {} ; output.push(elt) ; elt.value = depenses ; elt.name = ((us)?'Spendings':'Dépenses') ; elt.unit = 'euros';\r\n\t\t\telt = {} ; output.push(elt) ; elt.value = recettes ; elt.name = ((us)?'Incomes':'Recettes') ; elt.unit = 'euros';\r\n\t\t} ;\r\n\t\treturn output ;\r\n\t}; return doit(node, true) ;",
+                "label": "Spendings / Incomes",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "depensesPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var doit = function (level, spendings) {\r\n\t\tvar output, elt ;\r\n\t\tvar doIt = function(node) {\r\n\t\t\tif(!output) {\r\n\t\t\t\toutput = [] ;\r\n\t\t\t}\r\n\t\t\telt = {} ;\r\n\t\t\toutput.push(elt) ;\r\n\t\t\telt.value = ((spendings)?node.rawNode[\"depenses\"]:node.rawNode[\"recettes\"]) ;\r\n\t\t\telt.name = node.name ;\r\n\t\t\telt.unit = 'euros' ;\r\n\t\t} ;\r\n\t\tvar dive = function(node) {\r\n\t\t\tif(node) {\r\n\t\t\t\tif(node.level == level) {\r\n\t\t\t\t\tdoIt(node) ;\r\n\t\t\t\t} else if((node.level == (level-1)) && (node.children)) {\r\n\t\t\t\t\tnode.children.forEach(function(child) {\r\n\t\t\t\t\t\tif(child.level == level) {\r\n\t\t\t\t\t\t\tdoIt(child) ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}) ;\r\n\t\t\t\t} else if((node.level < (level-1)) && (node.children)) {\r\n\t\t\t\t\tnode.children.forEach(function(child) {\r\n\t\t\t\t\t\tdive(child) ;\r\n\t\t\t\t\t}) ;\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t} ; \r\n\t\tdive(node) ;\r\n\t\treturn output ;\r\n\t}; return doit(5, true) ;",
+                "label": "Spendings / Services",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "recettesPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var doit = function (level, spendings) {\r\n\t\tvar output, elt ;\r\n\t\tvar doIt = function(node) {\r\n\t\t\tif(!output) {\r\n\t\t\t\toutput = [] ;\r\n\t\t\t}\r\n\t\t\telt = {} ;\r\n\t\t\toutput.push(elt) ;\r\n\t\t\telt.value = ((spendings)?node.rawNode[\"depenses\"]:node.rawNode[\"recettes\"]) ;\r\n\t\t\telt.name = node.name ;\r\n\t\t\telt.unit = 'euros' ;\r\n\t\t} ;\r\n\t\tvar dive = function(node) {\r\n\t\t\tif(node) {\r\n\t\t\t\tif(node.level == level) {\r\n\t\t\t\t\tdoIt(node) ;\r\n\t\t\t\t} else if((node.level == (level-1)) && (node.children)) {\r\n\t\t\t\t\tnode.children.forEach(function(child) {\r\n\t\t\t\t\t\tif(child.level == level) {\r\n\t\t\t\t\t\t\tdoIt(child) ;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}) ;\r\n\t\t\t\t} else if((node.level < (level-1)) && (node.children)) {\r\n\t\t\t\t\tnode.children.forEach(function(child) {\r\n\t\t\t\t\t\tdive(child) ;\r\n\t\t\t\t\t}) ;\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t} ; \r\n\t\tdive(node) ;\r\n\t\treturn output ;\r\n\t}; return doit(5) ;",
+                "label": "Incomes / Services",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "depInvFoncPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var doit = function (node, sens, us) {\r\n\t\tvar output, elt ;\r\n\t\tvar inv = node.rawNode[sens + '_inv'] ;\r\n\t\tvar fonc = node.rawNode[sens + '_fonc'] ;\r\n\t\tif((inv != 0) || (fonc != 0)) {\r\n\t\t\tif (!output) {\r\n\t\t\t\toutput = [];\r\n\t\t\t}\r\n\t\t\telt = {} ; output.push(elt) ; elt.value = inv ; elt.name = ((us)?'Investment budget':'Investissement') ; elt.unit = 'euros';\r\n\t\t\telt = {} ; output.push(elt) ; elt.value = fonc ; elt.name = ((us)?'Operating budget':'Fonctionnement') ; elt.unit = 'euros';\r\n\t\t} ;\r\n\t\treturn output ;\r\n\t}; return doit(node, 'dep', true) ;",
+                "label": "Spendings : sections",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "recInvFoncPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var doit = function (node, sens, us) {\r\n\t\tvar output, elt ;\r\n\t\tvar inv = node.rawNode[sens + '_inv'] ;\r\n\t\tvar fonc = node.rawNode[sens + '_fonc'] ;\r\n\t\tif((inv != 0) || (fonc != 0)) {\r\n\t\t\tif (!output) {\r\n\t\t\t\toutput = [];\r\n\t\t\t}\r\n\t\t\telt = {} ; output.push(elt) ; elt.value = inv ; elt.name = ((us)?'Investment budget':'Investissement') ; elt.unit = 'euros';\r\n\t\t\telt = {} ; output.push(elt) ; elt.value = fonc ; elt.name = ((us)?'Operating budget':'Fonctionnement') ; elt.unit = 'euros';\r\n\t\t} ;\r\n\t\treturn output ;\r\n\t}; return doit(node, 'rec', true) ;",
+                "label": "Incomes : sections",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "depInvChapPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var chapitres = [1,2,10,11,12,13,16,20,21,22,23,24,26,27,40,41,42,45,65,66,67,70,73,74,75,76,77,204]; var doit = function (node, sens, section) {\r\n\t\tvar output, elt, v ;\r\n\t\tchapitres.forEach(function(codeChap) {\t\t\t\t\r\n\t\t\tv = node.rawNode[sens + '_' + section + '_chap' + codeChap] ;\r\n\t\t\tif(v && (v != 0)) {\r\n\t\t\t\tif (!output) {\r\n\t\t\t\t\toutput = [];\r\n\t\t\t\t}\r\n\t\t\t\telt = {} ; output.push(elt) ; elt.value = v ; elt.name = codeChap ; elt.unit = 'euros';\r\n\t\t\t}\r\n\t\t}) ;\r\n\t\treturn output ;\r\n\t}; return doit(node, 'dep', 'inv') ;",
+                "label": "Spendings / Invest / Chapters",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "depFoncChapPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var chapitres = [1,2,10,11,12,13,16,20,21,22,23,24,26,27,40,41,42,45,65,66,67,70,73,74,75,76,77,204]; var doit = function (node, sens, section) {\r\n\t\tvar output, elt, v ;\r\n\t\tchapitres.forEach(function(codeChap) {\t\t\t\t\r\n\t\t\tv = node.rawNode[sens + '_' + section + '_chap' + codeChap] ;\r\n\t\t\tif(v && (v != 0)) {\r\n\t\t\t\tif (!output) {\r\n\t\t\t\t\toutput = [];\r\n\t\t\t\t}\r\n\t\t\t\telt = {} ; output.push(elt) ; elt.value = v ; elt.name = codeChap ; elt.unit = 'euros';\r\n\t\t\t}\r\n\t\t}) ;\r\n\t\treturn output ;\r\n\t}; return doit(node, 'dep', 'fonc') ;",
+                "label": "Spendings / Operating / Chapters",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "recInvChapPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var chapitres = [1,2,10,11,12,13,16,20,21,22,23,24,26,27,40,41,42,45,65,66,67,70,73,74,75,76,77,204]; var doit = function (node, sens, section) {\r\n\t\tvar output, elt, v ;\r\n\t\tchapitres.forEach(function(codeChap) {\t\t\t\t\r\n\t\t\tv = node.rawNode[sens + '_' + section + '_chap' + codeChap] ;\r\n\t\t\tif(v && (v != 0)) {\r\n\t\t\t\tif (!output) {\r\n\t\t\t\t\toutput = [];\r\n\t\t\t\t}\r\n\t\t\t\telt = {} ; output.push(elt) ; elt.value = v ; elt.name = codeChap ; elt.unit = 'euros';\r\n\t\t\t}\r\n\t\t}) ;\r\n\t\treturn output ;\r\n\t}; return doit(node, 'rec', 'inv') ;",
+                "label": "Incomes / Invest / Chapters",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "recFoncChapPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var chapitres = [1,2,10,11,12,13,16,20,21,22,23,24,26,27,40,41,42,45,65,66,67,70,73,74,75,76,77,204]; var doit = function (node, sens, section) {\r\n\t\tvar output, elt, v ;\r\n\t\tchapitres.forEach(function(codeChap) {\t\t\t\t\r\n\t\t\tv = node.rawNode[sens + '_' + section + '_chap' + codeChap] ;\r\n\t\t\tif(v && (v != 0)) {\r\n\t\t\t\tif (!output) {\r\n\t\t\t\t\toutput = [];\r\n\t\t\t\t}\r\n\t\t\t\telt = {} ; output.push(elt) ; elt.value = v ; elt.name = codeChap ; elt.unit = 'euros';\r\n\t\t\t}\r\n\t\t}) ;\r\n\t\treturn output ;\r\n\t}; return doit(node, 'rec', 'fonc') ;",
+                "label": "Incomes / Operating / Chapters",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "Libell__DGA",
+                "label": "Department"
+            }, {
+                "name": "nodeZik",
+                "value": "music/robinhood76_00142-moneta-1.mp3",
+                "type": "music",
+                "ifCenter": "true"
+            }]
+        }, {
+            "name": "service",
+            "children": [{
+                "name": "balancePie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var doit = function (node, us) {\r\n\t\tvar output, elt ;\r\n\t\tvar depenses = node.rawNode['depenses'] ;\r\n\t\tvar recettes = node.rawNode['recettes'] ;\r\n\t\tif((depenses != 0) || (recettes != 0)) {\r\n\t\t\tif (!output) {\r\n\t\t\t\toutput = [];\r\n\t\t\t}\r\n\t\t\telt = {} ; output.push(elt) ; elt.value = depenses ; elt.name = ((us)?'Spendings':'Dépenses') ; elt.unit = 'euros';\r\n\t\t\telt = {} ; output.push(elt) ; elt.value = recettes ; elt.name = ((us)?'Incomes':'Recettes') ; elt.unit = 'euros';\r\n\t\t} ;\r\n\t\treturn output ;\r\n\t}; return doit(node, true) ;",
+                "label": "Spendings / Incomes",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "depInvFoncPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var doit = function (node, sens, us) {\r\n\t\tvar output, elt ;\r\n\t\tvar inv = node.rawNode[sens + '_inv'] ;\r\n\t\tvar fonc = node.rawNode[sens + '_fonc'] ;\r\n\t\tif((inv != 0) || (fonc != 0)) {\r\n\t\t\tif (!output) {\r\n\t\t\t\toutput = [];\r\n\t\t\t}\r\n\t\t\telt = {} ; output.push(elt) ; elt.value = inv ; elt.name = ((us)?'Investment budget':'Investissement') ; elt.unit = 'euros';\r\n\t\t\telt = {} ; output.push(elt) ; elt.value = fonc ; elt.name = ((us)?'Operating budget':'Fonctionnement') ; elt.unit = 'euros';\r\n\t\t} ;\r\n\t\treturn output ;\r\n\t}; return doit(node, 'dep', true) ;",
+                "label": "Spendings : sections",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "recInvFoncPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var doit = function (node, sens, us) {\r\n\t\tvar output, elt ;\r\n\t\tvar inv = node.rawNode[sens + '_inv'] ;\r\n\t\tvar fonc = node.rawNode[sens + '_fonc'] ;\r\n\t\tif((inv != 0) || (fonc != 0)) {\r\n\t\t\tif (!output) {\r\n\t\t\t\toutput = [];\r\n\t\t\t}\r\n\t\t\telt = {} ; output.push(elt) ; elt.value = inv ; elt.name = ((us)?'Investment budget':'Investissement') ; elt.unit = 'euros';\r\n\t\t\telt = {} ; output.push(elt) ; elt.value = fonc ; elt.name = ((us)?'Operating budget':'Fonctionnement') ; elt.unit = 'euros';\r\n\t\t} ;\r\n\t\treturn output ;\r\n\t}; return doit(node, 'rec', true) ;",
+                "label": "Incomes : sections",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "depInvChapPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var chapitres = [1,2,10,11,12,13,16,20,21,22,23,24,26,27,40,41,42,45,65,66,67,70,73,74,75,76,77,204]; var doit = function (node, sens, section) {\r\n\t\tvar output, elt, v ;\r\n\t\tchapitres.forEach(function(codeChap) {\t\t\t\t\r\n\t\t\tv = node.rawNode[sens + '_' + section + '_chap' + codeChap] ;\r\n\t\t\tif(v && (v != 0)) {\r\n\t\t\t\tif (!output) {\r\n\t\t\t\t\toutput = [];\r\n\t\t\t\t}\r\n\t\t\t\telt = {} ; output.push(elt) ; elt.value = v ; elt.name = codeChap ; elt.unit = 'euros';\r\n\t\t\t}\r\n\t\t}) ;\r\n\t\treturn output ;\r\n\t}; return doit(node, 'dep', 'inv') ;",
+                "label": "Spendings / Invest / Chapters",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "depFoncChapPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var chapitres = [1,2,10,11,12,13,16,20,21,22,23,24,26,27,40,41,42,45,65,66,67,70,73,74,75,76,77,204]; var doit = function (node, sens, section) {\r\n\t\tvar output, elt, v ;\r\n\t\tchapitres.forEach(function(codeChap) {\t\t\t\t\r\n\t\t\tv = node.rawNode[sens + '_' + section + '_chap' + codeChap] ;\r\n\t\t\tif(v && (v != 0)) {\r\n\t\t\t\tif (!output) {\r\n\t\t\t\t\toutput = [];\r\n\t\t\t\t}\r\n\t\t\t\telt = {} ; output.push(elt) ; elt.value = v ; elt.name = codeChap ; elt.unit = 'euros';\r\n\t\t\t}\r\n\t\t}) ;\r\n\t\treturn output ;\r\n\t}; return doit(node, 'dep', 'fonc') ;",
+                "label": "Spendings / Operating / Chapters",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "recInvChapPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var chapitres = [1,2,10,11,12,13,16,20,21,22,23,24,26,27,40,41,42,45,65,66,67,70,73,74,75,76,77,204]; var doit = function (node, sens, section) {\r\n\t\tvar output, elt, v ;\r\n\t\tchapitres.forEach(function(codeChap) {\t\t\t\t\r\n\t\t\tv = node.rawNode[sens + '_' + section + '_chap' + codeChap] ;\r\n\t\t\tif(v && (v != 0)) {\r\n\t\t\t\tif (!output) {\r\n\t\t\t\t\toutput = [];\r\n\t\t\t\t}\r\n\t\t\t\telt = {} ; output.push(elt) ; elt.value = v ; elt.name = codeChap ; elt.unit = 'euros';\r\n\t\t\t}\r\n\t\t}) ;\r\n\t\treturn output ;\r\n\t}; return doit(node, 'rec', 'inv') ;",
+                "label": "Incomes / Invest / Chapters",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "recFoncChapPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var chapitres = [1,2,10,11,12,13,16,20,21,22,23,24,26,27,40,41,42,45,65,66,67,70,73,74,75,76,77,204]; var doit = function (node, sens, section) {\r\n\t\tvar output, elt, v ;\r\n\t\tchapitres.forEach(function(codeChap) {\t\t\t\t\r\n\t\t\tv = node.rawNode[sens + '_' + section + '_chap' + codeChap] ;\r\n\t\t\tif(v && (v != 0)) {\r\n\t\t\t\tif (!output) {\r\n\t\t\t\t\toutput = [];\r\n\t\t\t\t}\r\n\t\t\t\telt = {} ; output.push(elt) ; elt.value = v ; elt.name = codeChap ; elt.unit = 'euros';\r\n\t\t\t}\r\n\t\t}) ;\r\n\t\treturn output ;\r\n\t}; return doit(node, 'rec', 'fonc') ;",
+                "label": "Incomes / Operating / Chapters",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "Libell__DGA",
+                "label": "Department"
+            }, {
+                "name": "Libell__Direction",
+                "label": "Business unit"
+            }, {
+                "name": "nodeZik",
+                "value": "music/robinhood76_00142-moneta-1.mp3",
+                "type": "music",
+                "ifCenter": "true"
+            }]
+        }, {
+            "name": "unité",
+            "children": [{
+                "name": "balancePie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var doit = function (node, us) {\r\n\t\tvar output, elt ;\r\n\t\tvar depenses = node.rawNode['depenses'] ;\r\n\t\tvar recettes = node.rawNode['recettes'] ;\r\n\t\tif((depenses != 0) || (recettes != 0)) {\r\n\t\t\tif (!output) {\r\n\t\t\t\toutput = [];\r\n\t\t\t}\r\n\t\t\telt = {} ; output.push(elt) ; elt.value = depenses ; elt.name = ((us)?'Spendings':'Dépenses') ; elt.unit = 'euros';\r\n\t\t\telt = {} ; output.push(elt) ; elt.value = recettes ; elt.name = ((us)?'Incomes':'Recettes') ; elt.unit = 'euros';\r\n\t\t} ;\r\n\t\treturn output ;\r\n\t}; return doit(node, true) ;",
+                "label": "Spendings / Incomes",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "depInvFoncPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var doit = function (node, sens, us) {\r\n\t\tvar output, elt ;\r\n\t\tvar inv = node.rawNode[sens + '_inv'] ;\r\n\t\tvar fonc = node.rawNode[sens + '_fonc'] ;\r\n\t\tif((inv != 0) || (fonc != 0)) {\r\n\t\t\tif (!output) {\r\n\t\t\t\toutput = [];\r\n\t\t\t}\r\n\t\t\telt = {} ; output.push(elt) ; elt.value = inv ; elt.name = ((us)?'Investment budget':'Investissement') ; elt.unit = 'euros';\r\n\t\t\telt = {} ; output.push(elt) ; elt.value = fonc ; elt.name = ((us)?'Operating budget':'Fonctionnement') ; elt.unit = 'euros';\r\n\t\t} ;\r\n\t\treturn output ;\r\n\t}; return doit(node, 'dep', true) ;",
+                "label": "Spendings : sections",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "recInvFoncPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var doit = function (node, sens, us) {\r\n\t\tvar output, elt ;\r\n\t\tvar inv = node.rawNode[sens + '_inv'] ;\r\n\t\tvar fonc = node.rawNode[sens + '_fonc'] ;\r\n\t\tif((inv != 0) || (fonc != 0)) {\r\n\t\t\tif (!output) {\r\n\t\t\t\toutput = [];\r\n\t\t\t}\r\n\t\t\telt = {} ; output.push(elt) ; elt.value = inv ; elt.name = ((us)?'Investment budget':'Investissement') ; elt.unit = 'euros';\r\n\t\t\telt = {} ; output.push(elt) ; elt.value = fonc ; elt.name = ((us)?'Operating budget':'Fonctionnement') ; elt.unit = 'euros';\r\n\t\t} ;\r\n\t\treturn output ;\r\n\t}; return doit(node, 'rec', true) ;",
+                "label": "Incomes : sections",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "depInvChapPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var chapitres = [1,2,10,11,12,13,16,20,21,22,23,24,26,27,40,41,42,45,65,66,67,70,73,74,75,76,77,204]; var doit = function (node, sens, section) {\r\n\t\tvar output, elt, v ;\r\n\t\tchapitres.forEach(function(codeChap) {\t\t\t\t\r\n\t\t\tv = node.rawNode[sens + '_' + section + '_chap' + codeChap] ;\r\n\t\t\tif(v && (v != 0)) {\r\n\t\t\t\tif (!output) {\r\n\t\t\t\t\toutput = [];\r\n\t\t\t\t}\r\n\t\t\t\telt = {} ; output.push(elt) ; elt.value = v ; elt.name = codeChap ; elt.unit = 'euros';\r\n\t\t\t}\r\n\t\t}) ;\r\n\t\treturn output ;\r\n\t}; return doit(node, 'dep', 'inv') ;",
+                "label": "Spendings / Invest / Chapters",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "depFoncChapPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var chapitres = [1,2,10,11,12,13,16,20,21,22,23,24,26,27,40,41,42,45,65,66,67,70,73,74,75,76,77,204]; var doit = function (node, sens, section) {\r\n\t\tvar output, elt, v ;\r\n\t\tchapitres.forEach(function(codeChap) {\t\t\t\t\r\n\t\t\tv = node.rawNode[sens + '_' + section + '_chap' + codeChap] ;\r\n\t\t\tif(v && (v != 0)) {\r\n\t\t\t\tif (!output) {\r\n\t\t\t\t\toutput = [];\r\n\t\t\t\t}\r\n\t\t\t\telt = {} ; output.push(elt) ; elt.value = v ; elt.name = codeChap ; elt.unit = 'euros';\r\n\t\t\t}\r\n\t\t}) ;\r\n\t\treturn output ;\r\n\t}; return doit(node, 'dep', 'fonc') ;",
+                "label": "Spendings / Operating / Chapters",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "recInvChapPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var chapitres = [1,2,10,11,12,13,16,20,21,22,23,24,26,27,40,41,42,45,65,66,67,70,73,74,75,76,77,204]; var doit = function (node, sens, section) {\r\n\t\tvar output, elt, v ;\r\n\t\tchapitres.forEach(function(codeChap) {\t\t\t\t\r\n\t\t\tv = node.rawNode[sens + '_' + section + '_chap' + codeChap] ;\r\n\t\t\tif(v && (v != 0)) {\r\n\t\t\t\tif (!output) {\r\n\t\t\t\t\toutput = [];\r\n\t\t\t\t}\r\n\t\t\t\telt = {} ; output.push(elt) ; elt.value = v ; elt.name = codeChap ; elt.unit = 'euros';\r\n\t\t\t}\r\n\t\t}) ;\r\n\t\treturn output ;\r\n\t}; return doit(node, 'rec', 'inv') ;",
+                "label": "Incomes / Invest / Chapters",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "recFoncChapPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var chapitres = [1,2,10,11,12,13,16,20,21,22,23,24,26,27,40,41,42,45,65,66,67,70,73,74,75,76,77,204]; var doit = function (node, sens, section) {\r\n\t\tvar output, elt, v ;\r\n\t\tchapitres.forEach(function(codeChap) {\t\t\t\t\r\n\t\t\tv = node.rawNode[sens + '_' + section + '_chap' + codeChap] ;\r\n\t\t\tif(v && (v != 0)) {\r\n\t\t\t\tif (!output) {\r\n\t\t\t\t\toutput = [];\r\n\t\t\t\t}\r\n\t\t\t\telt = {} ; output.push(elt) ; elt.value = v ; elt.name = codeChap ; elt.unit = 'euros';\r\n\t\t\t}\r\n\t\t}) ;\r\n\t\treturn output ;\r\n\t}; return doit(node, 'rec', 'fonc') ;",
+                "label": "Incomes / Operating / Chapters",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "Libell__DGA",
+                "label": "Department"
+            }, {
+                "name": "Libell__Direction",
+                "label": "Business unit"
+            }, {
+                "name": "Libell__Service",
+                "label": "Service"
+            }, {
+                "name": "nodeZik",
+                "value": "music/robinhood76_00142-moneta-1.mp3",
+                "type": "music",
+                "ifCenter": "true"
+            }]
+        }, {
+            "name": "Equipe",
+            "children": [{
+                "name": "balancePie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var doit = function (node, us) {\r\n\t\tvar output, elt ;\r\n\t\tvar depenses = node.rawNode['depenses'] ;\r\n\t\tvar recettes = node.rawNode['recettes'] ;\r\n\t\tif((depenses != 0) || (recettes != 0)) {\r\n\t\t\tif (!output) {\r\n\t\t\t\toutput = [];\r\n\t\t\t}\r\n\t\t\telt = {} ; output.push(elt) ; elt.value = depenses ; elt.name = ((us)?'Spendings':'Dépenses') ; elt.unit = 'euros';\r\n\t\t\telt = {} ; output.push(elt) ; elt.value = recettes ; elt.name = ((us)?'Incomes':'Recettes') ; elt.unit = 'euros';\r\n\t\t} ;\r\n\t\treturn output ;\r\n\t}; return doit(node, true) ;",
+                "label": "Spendings / Incomes",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "depInvFoncPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var doit = function (node, sens, us) {\r\n\t\tvar output, elt ;\r\n\t\tvar inv = node.rawNode[sens + '_inv'] ;\r\n\t\tvar fonc = node.rawNode[sens + '_fonc'] ;\r\n\t\tif((inv != 0) || (fonc != 0)) {\r\n\t\t\tif (!output) {\r\n\t\t\t\toutput = [];\r\n\t\t\t}\r\n\t\t\telt = {} ; output.push(elt) ; elt.value = inv ; elt.name = ((us)?'Investment budget':'Investissement') ; elt.unit = 'euros';\r\n\t\t\telt = {} ; output.push(elt) ; elt.value = fonc ; elt.name = ((us)?'Operating budget':'Fonctionnement') ; elt.unit = 'euros';\r\n\t\t} ;\r\n\t\treturn output ;\r\n\t}; return doit(node, 'dep', true) ;",
+                "label": "Spendings : sections",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "recInvFoncPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var doit = function (node, sens, us) {\r\n\t\tvar output, elt ;\r\n\t\tvar inv = node.rawNode[sens + '_inv'] ;\r\n\t\tvar fonc = node.rawNode[sens + '_fonc'] ;\r\n\t\tif((inv != 0) || (fonc != 0)) {\r\n\t\t\tif (!output) {\r\n\t\t\t\toutput = [];\r\n\t\t\t}\r\n\t\t\telt = {} ; output.push(elt) ; elt.value = inv ; elt.name = ((us)?'Investment budget':'Investissement') ; elt.unit = 'euros';\r\n\t\t\telt = {} ; output.push(elt) ; elt.value = fonc ; elt.name = ((us)?'Operating budget':'Fonctionnement') ; elt.unit = 'euros';\r\n\t\t} ;\r\n\t\treturn output ;\r\n\t}; return doit(node, 'rec', true) ;",
+                "label": "Incomes : sections",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "depInvChapPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var chapitres = [1,2,10,11,12,13,16,20,21,22,23,24,26,27,40,41,42,45,65,66,67,70,73,74,75,76,77,204]; var doit = function (node, sens, section) {\r\n\t\tvar output, elt, v ;\r\n\t\tchapitres.forEach(function(codeChap) {\t\t\t\t\r\n\t\t\tv = node.rawNode[sens + '_' + section + '_chap' + codeChap] ;\r\n\t\t\tif(v && (v != 0)) {\r\n\t\t\t\tif (!output) {\r\n\t\t\t\t\toutput = [];\r\n\t\t\t\t}\r\n\t\t\t\telt = {} ; output.push(elt) ; elt.value = v ; elt.name = codeChap ; elt.unit = 'euros';\r\n\t\t\t}\r\n\t\t}) ;\r\n\t\treturn output ;\r\n\t}; return doit(node, 'dep', 'inv') ;",
+                "label": "Spendings / Invest / Chapters",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "depFoncChapPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var chapitres = [1,2,10,11,12,13,16,20,21,22,23,24,26,27,40,41,42,45,65,66,67,70,73,74,75,76,77,204]; var doit = function (node, sens, section) {\r\n\t\tvar output, elt, v ;\r\n\t\tchapitres.forEach(function(codeChap) {\t\t\t\t\r\n\t\t\tv = node.rawNode[sens + '_' + section + '_chap' + codeChap] ;\r\n\t\t\tif(v && (v != 0)) {\r\n\t\t\t\tif (!output) {\r\n\t\t\t\t\toutput = [];\r\n\t\t\t\t}\r\n\t\t\t\telt = {} ; output.push(elt) ; elt.value = v ; elt.name = codeChap ; elt.unit = 'euros';\r\n\t\t\t}\r\n\t\t}) ;\r\n\t\treturn output ;\r\n\t}; return doit(node, 'dep', 'fonc') ;",
+                "label": "Spendings / Operating / Chapters",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "recInvChapPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var chapitres = [1,2,10,11,12,13,16,20,21,22,23,24,26,27,40,41,42,45,65,66,67,70,73,74,75,76,77,204]; var doit = function (node, sens, section) {\r\n\t\tvar output, elt, v ;\r\n\t\tchapitres.forEach(function(codeChap) {\t\t\t\t\r\n\t\t\tv = node.rawNode[sens + '_' + section + '_chap' + codeChap] ;\r\n\t\t\tif(v && (v != 0)) {\r\n\t\t\t\tif (!output) {\r\n\t\t\t\t\toutput = [];\r\n\t\t\t\t}\r\n\t\t\t\telt = {} ; output.push(elt) ; elt.value = v ; elt.name = codeChap ; elt.unit = 'euros';\r\n\t\t\t}\r\n\t\t}) ;\r\n\t\treturn output ;\r\n\t}; return doit(node, 'rec', 'inv') ;",
+                "label": "Incomes / Invest / Chapters",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "recFoncChapPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var chapitres = [1,2,10,11,12,13,16,20,21,22,23,24,26,27,40,41,42,45,65,66,67,70,73,74,75,76,77,204]; var doit = function (node, sens, section) {\r\n\t\tvar output, elt, v ;\r\n\t\tchapitres.forEach(function(codeChap) {\t\t\t\t\r\n\t\t\tv = node.rawNode[sens + '_' + section + '_chap' + codeChap] ;\r\n\t\t\tif(v && (v != 0)) {\r\n\t\t\t\tif (!output) {\r\n\t\t\t\t\toutput = [];\r\n\t\t\t\t}\r\n\t\t\t\telt = {} ; output.push(elt) ; elt.value = v ; elt.name = codeChap ; elt.unit = 'euros';\r\n\t\t\t}\r\n\t\t}) ;\r\n\t\treturn output ;\r\n\t}; return doit(node, 'rec', 'fonc') ;",
+                "label": "Incomes / Operating / Chapters",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "Libell__DGA",
+                "label": "Department"
+            }, {
+                "name": "Libell__Direction",
+                "label": "Business unit"
+            }, {
+                "name": "Libell__Service",
+                "label": "Service"
+            }, {
+                "name": "Libell__Unit_",
+                "label": "Project"
+            }, {
+                "name": "nodeZik",
+                "value": "music/robinhood76_00142-moneta-1.mp3",
+                "type": "music",
+                "ifCenter": "true"
+            }]
+        }, {
+            "name": "Sens",
+            "children": [{
+                "name": "balancePie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var doit = function (node, us) {\r\n\t\tvar output, elt ;\r\n\t\tvar depenses = node.rawNode['depenses'] ;\r\n\t\tvar recettes = node.rawNode['recettes'] ;\r\n\t\tif((depenses != 0) || (recettes != 0)) {\r\n\t\t\tif (!output) {\r\n\t\t\t\toutput = [];\r\n\t\t\t}\r\n\t\t\telt = {} ; output.push(elt) ; elt.value = depenses ; elt.name = ((us)?'Spendings':'Dépenses') ; elt.unit = 'euros';\r\n\t\t\telt = {} ; output.push(elt) ; elt.value = recettes ; elt.name = ((us)?'Incomes':'Recettes') ; elt.unit = 'euros';\r\n\t\t} ;\r\n\t\treturn output ;\r\n\t}; return doit(node, true) ;",
+                "label": "Spendings / Incomes",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "depInvFoncPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var doit = function (node, sens, us) {\r\n\t\tvar output, elt ;\r\n\t\tvar inv = node.rawNode[sens + '_inv'] ;\r\n\t\tvar fonc = node.rawNode[sens + '_fonc'] ;\r\n\t\tif((inv != 0) || (fonc != 0)) {\r\n\t\t\tif (!output) {\r\n\t\t\t\toutput = [];\r\n\t\t\t}\r\n\t\t\telt = {} ; output.push(elt) ; elt.value = inv ; elt.name = ((us)?'Investment budget':'Investissement') ; elt.unit = 'euros';\r\n\t\t\telt = {} ; output.push(elt) ; elt.value = fonc ; elt.name = ((us)?'Operating budget':'Fonctionnement') ; elt.unit = 'euros';\r\n\t\t} ;\r\n\t\treturn output ;\r\n\t}; return doit(node, 'dep', true) ;",
+                "label": "Spendings : sections",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "recInvFoncPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var doit = function (node, sens, us) {\r\n\t\tvar output, elt ;\r\n\t\tvar inv = node.rawNode[sens + '_inv'] ;\r\n\t\tvar fonc = node.rawNode[sens + '_fonc'] ;\r\n\t\tif((inv != 0) || (fonc != 0)) {\r\n\t\t\tif (!output) {\r\n\t\t\t\toutput = [];\r\n\t\t\t}\r\n\t\t\telt = {} ; output.push(elt) ; elt.value = inv ; elt.name = ((us)?'Investment budget':'Investissement') ; elt.unit = 'euros';\r\n\t\t\telt = {} ; output.push(elt) ; elt.value = fonc ; elt.name = ((us)?'Operating budget':'Fonctionnement') ; elt.unit = 'euros';\r\n\t\t} ;\r\n\t\treturn output ;\r\n\t}; return doit(node, 'rec', true) ;",
+                "label": "Incomes : sections",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "depInvChapPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var chapitres = [1,2,10,11,12,13,16,20,21,22,23,24,26,27,40,41,42,45,65,66,67,70,73,74,75,76,77,204]; var doit = function (node, sens, section) {\r\n\t\tvar output, elt, v ;\r\n\t\tchapitres.forEach(function(codeChap) {\t\t\t\t\r\n\t\t\tv = node.rawNode[sens + '_' + section + '_chap' + codeChap] ;\r\n\t\t\tif(v && (v != 0)) {\r\n\t\t\t\tif (!output) {\r\n\t\t\t\t\toutput = [];\r\n\t\t\t\t}\r\n\t\t\t\telt = {} ; output.push(elt) ; elt.value = v ; elt.name = codeChap ; elt.unit = 'euros';\r\n\t\t\t}\r\n\t\t}) ;\r\n\t\treturn output ;\r\n\t}; return doit(node, 'dep', 'inv') ;",
+                "label": "Spendings / Invest / Chapters",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "depFoncChapPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var chapitres = [1,2,10,11,12,13,16,20,21,22,23,24,26,27,40,41,42,45,65,66,67,70,73,74,75,76,77,204]; var doit = function (node, sens, section) {\r\n\t\tvar output, elt, v ;\r\n\t\tchapitres.forEach(function(codeChap) {\t\t\t\t\r\n\t\t\tv = node.rawNode[sens + '_' + section + '_chap' + codeChap] ;\r\n\t\t\tif(v && (v != 0)) {\r\n\t\t\t\tif (!output) {\r\n\t\t\t\t\toutput = [];\r\n\t\t\t\t}\r\n\t\t\t\telt = {} ; output.push(elt) ; elt.value = v ; elt.name = codeChap ; elt.unit = 'euros';\r\n\t\t\t}\r\n\t\t}) ;\r\n\t\treturn output ;\r\n\t}; return doit(node, 'dep', 'fonc') ;",
+                "label": "Spendings / Operating / Chapters",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "recInvChapPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var chapitres = [1,2,10,11,12,13,16,20,21,22,23,24,26,27,40,41,42,45,65,66,67,70,73,74,75,76,77,204]; var doit = function (node, sens, section) {\r\n\t\tvar output, elt, v ;\r\n\t\tchapitres.forEach(function(codeChap) {\t\t\t\t\r\n\t\t\tv = node.rawNode[sens + '_' + section + '_chap' + codeChap] ;\r\n\t\t\tif(v && (v != 0)) {\r\n\t\t\t\tif (!output) {\r\n\t\t\t\t\toutput = [];\r\n\t\t\t\t}\r\n\t\t\t\telt = {} ; output.push(elt) ; elt.value = v ; elt.name = codeChap ; elt.unit = 'euros';\r\n\t\t\t}\r\n\t\t}) ;\r\n\t\treturn output ;\r\n\t}; return doit(node, 'rec', 'inv') ;",
+                "label": "Incomes / Invest / Chapters",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "recFoncChapPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var chapitres = [1,2,10,11,12,13,16,20,21,22,23,24,26,27,40,41,42,45,65,66,67,70,73,74,75,76,77,204]; var doit = function (node, sens, section) {\r\n\t\tvar output, elt, v ;\r\n\t\tchapitres.forEach(function(codeChap) {\t\t\t\t\r\n\t\t\tv = node.rawNode[sens + '_' + section + '_chap' + codeChap] ;\r\n\t\t\tif(v && (v != 0)) {\r\n\t\t\t\tif (!output) {\r\n\t\t\t\t\toutput = [];\r\n\t\t\t\t}\r\n\t\t\t\telt = {} ; output.push(elt) ; elt.value = v ; elt.name = codeChap ; elt.unit = 'euros';\r\n\t\t\t}\r\n\t\t}) ;\r\n\t\treturn output ;\r\n\t}; return doit(node, 'rec', 'fonc') ;",
+                "label": "Incomes / Operating / Chapters",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "Libell__Ville_ou_CASA",
+                "label": "Site"
+            }, {
+                "name": "Libell__DGS_ou_CMUN",
+                "label": "Entity"
+            }, {
+                "name": "Libell__DGA",
+                "label": "Department"
+            }, {
+                "name": "Libell__Direction",
+                "label": "Business unit"
+            }, {
+                "name": "Libell__Service",
+                "label": "Service"
+            }, {
+                "name": "Libell__Unit_",
+                "label": "Project"
+            }, {
+                "name": "Libell__Equipe",
+                "label": "Team"
+            }, {
+                "name": "Libell___sens",
+                "label": "Direction"
+            }, {
+                "name": "Code_sens",
+                "label": "Direction id"
+            }, {
+                "name": "nodeZik",
+                "value": "music/robinhood76_00142-moneta-1.mp3",
+                "type": "music",
+                "ifCenter": "true"
+            }]
+        }, {
+            "name": "Section",
+            "children": [{
+                "name": "depInvFoncPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var doit = function (node, sens, us) {\r\n\t\tvar output, elt ;\r\n\t\tvar inv = node.rawNode[sens + '_inv'] ;\r\n\t\tvar fonc = node.rawNode[sens + '_fonc'] ;\r\n\t\tif((inv != 0) || (fonc != 0)) {\r\n\t\t\tif (!output) {\r\n\t\t\t\toutput = [];\r\n\t\t\t}\r\n\t\t\telt = {} ; output.push(elt) ; elt.value = inv ; elt.name = ((us)?'Investment budget':'Investissement') ; elt.unit = 'euros';\r\n\t\t\telt = {} ; output.push(elt) ; elt.value = fonc ; elt.name = ((us)?'Operating budget':'Fonctionnement') ; elt.unit = 'euros';\r\n\t\t} ;\r\n\t\treturn output ;\r\n\t}; return doit(node, 'dep', true) ;",
+                "label": "Spendings : sections",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "recInvFoncPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var doit = function (node, sens, us) {\r\n\t\tvar output, elt ;\r\n\t\tvar inv = node.rawNode[sens + '_inv'] ;\r\n\t\tvar fonc = node.rawNode[sens + '_fonc'] ;\r\n\t\tif((inv != 0) || (fonc != 0)) {\r\n\t\t\tif (!output) {\r\n\t\t\t\toutput = [];\r\n\t\t\t}\r\n\t\t\telt = {} ; output.push(elt) ; elt.value = inv ; elt.name = ((us)?'Investment budget':'Investissement') ; elt.unit = 'euros';\r\n\t\t\telt = {} ; output.push(elt) ; elt.value = fonc ; elt.name = ((us)?'Operating budget':'Fonctionnement') ; elt.unit = 'euros';\r\n\t\t} ;\r\n\t\treturn output ;\r\n\t}; return doit(node, 'rec', true) ;",
+                "label": "Incomes : sections",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "depInvChapPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var chapitres = [1,2,10,11,12,13,16,20,21,22,23,24,26,27,40,41,42,45,65,66,67,70,73,74,75,76,77,204]; var doit = function (node, sens, section) {\r\n\t\tvar output, elt, v ;\r\n\t\tchapitres.forEach(function(codeChap) {\t\t\t\t\r\n\t\t\tv = node.rawNode[sens + '_' + section + '_chap' + codeChap] ;\r\n\t\t\tif(v && (v != 0)) {\r\n\t\t\t\tif (!output) {\r\n\t\t\t\t\toutput = [];\r\n\t\t\t\t}\r\n\t\t\t\telt = {} ; output.push(elt) ; elt.value = v ; elt.name = codeChap ; elt.unit = 'euros';\r\n\t\t\t}\r\n\t\t}) ;\r\n\t\treturn output ;\r\n\t}; return doit(node, 'dep', 'inv') ;",
+                "label": "Spendings / Invest / Chapters",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "depFoncChapPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var chapitres = [1,2,10,11,12,13,16,20,21,22,23,24,26,27,40,41,42,45,65,66,67,70,73,74,75,76,77,204]; var doit = function (node, sens, section) {\r\n\t\tvar output, elt, v ;\r\n\t\tchapitres.forEach(function(codeChap) {\t\t\t\t\r\n\t\t\tv = node.rawNode[sens + '_' + section + '_chap' + codeChap] ;\r\n\t\t\tif(v && (v != 0)) {\r\n\t\t\t\tif (!output) {\r\n\t\t\t\t\toutput = [];\r\n\t\t\t\t}\r\n\t\t\t\telt = {} ; output.push(elt) ; elt.value = v ; elt.name = codeChap ; elt.unit = 'euros';\r\n\t\t\t}\r\n\t\t}) ;\r\n\t\treturn output ;\r\n\t}; return doit(node, 'dep', 'fonc') ;",
+                "label": "Spendings / Operating / Chapters",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "recInvChapPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var chapitres = [1,2,10,11,12,13,16,20,21,22,23,24,26,27,40,41,42,45,65,66,67,70,73,74,75,76,77,204]; var doit = function (node, sens, section) {\r\n\t\tvar output, elt, v ;\r\n\t\tchapitres.forEach(function(codeChap) {\t\t\t\t\r\n\t\t\tv = node.rawNode[sens + '_' + section + '_chap' + codeChap] ;\r\n\t\t\tif(v && (v != 0)) {\r\n\t\t\t\tif (!output) {\r\n\t\t\t\t\toutput = [];\r\n\t\t\t\t}\r\n\t\t\t\telt = {} ; output.push(elt) ; elt.value = v ; elt.name = codeChap ; elt.unit = 'euros';\r\n\t\t\t}\r\n\t\t}) ;\r\n\t\treturn output ;\r\n\t}; return doit(node, 'rec', 'inv') ;",
+                "label": "Incomes / Invest / Chapters",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "recFoncChapPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var chapitres = [1,2,10,11,12,13,16,20,21,22,23,24,26,27,40,41,42,45,65,66,67,70,73,74,75,76,77,204]; var doit = function (node, sens, section) {\r\n\t\tvar output, elt, v ;\r\n\t\tchapitres.forEach(function(codeChap) {\t\t\t\t\r\n\t\t\tv = node.rawNode[sens + '_' + section + '_chap' + codeChap] ;\r\n\t\t\tif(v && (v != 0)) {\r\n\t\t\t\tif (!output) {\r\n\t\t\t\t\toutput = [];\r\n\t\t\t\t}\r\n\t\t\t\telt = {} ; output.push(elt) ; elt.value = v ; elt.name = codeChap ; elt.unit = 'euros';\r\n\t\t\t}\r\n\t\t}) ;\r\n\t\treturn output ;\r\n\t}; return doit(node, 'rec', 'fonc') ;",
+                "label": "Incomes / Operating / Chapters",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "operationsPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var doit = function (node, sens) {\r\n\t\tvar output, elt, v ;\r\n\t\tvar findLeaves = function(node) {\r\n\t\t\tif(!node.children && (node.rawNode['Code_sens'] == sens)) {\r\n\t\t\t\tv = node.rawNode['Montant_inscription'] ;\r\n\t\t\t\tif(v) {\r\n\t\t\t\t\tif(v > 0) {\r\n\t\t\t\t\t\tv = parseFloat(('' + v).replace(/,/g, '.')) ;\t\t\t\t\t\t\r\n\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\toutput = [];\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t\telt = {} ; output.push(elt) ; elt.value = v ; elt.name = node.rawNode['Libell__op_ration'] ; elt.unit = 'euros';\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t} else if(node.children) {\r\n\t\t\t\tnode.children.forEach(findLeaves) ;\r\n\t\t\t}\r\n\t\t}\r\n\t\tfindLeaves(node) ;\r\n\t\treturn output ;\r\n\t}; return doit(node, 'D') ;",
+                "label": "Spendings / Operations",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "operationsPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var doit = function (node, sens) {\r\n\t\tvar output, elt, v ;\r\n\t\tvar findLeaves = function(node) {\r\n\t\t\tif(!node.children && (node.rawNode['Code_sens'] == sens)) {\r\n\t\t\t\tv = node.rawNode['Montant_inscription'] ;\r\n\t\t\t\tif(v) {\r\n\t\t\t\t\tif(v > 0) {\r\n\t\t\t\t\t\tv = parseFloat(('' + v).replace(/,/g, '.')) ;\t\t\t\t\t\t\r\n\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\toutput = [];\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t\telt = {} ; output.push(elt) ; elt.value = v ; elt.name = node.rawNode['Libell__op_ration'] ; elt.unit = 'euros';\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t} else if(node.children) {\r\n\t\t\t\tnode.children.forEach(findLeaves) ;\r\n\t\t\t}\r\n\t\t}\r\n\t\tfindLeaves(node) ;\r\n\t\treturn output ;\r\n\t}; return doit(node, 'I') ;",
+                "label": "Incomes / Operations",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "Libell__Ville_ou_CASA",
+                "label": "Site"
+            }, {
+                "name": "Libell__DGS_ou_CMUN",
+                "label": "Entity"
+            }, {
+                "name": "Libell__DGA",
+                "label": "Department"
+            }, {
+                "name": "Libell__Direction",
+                "label": "Business unit"
+            }, {
+                "name": "Libell__Service",
+                "label": "Service"
+            }, {
+                "name": "Libell__Unit_",
+                "label": "Project"
+            }, {
+                "name": "Libell__Equipe",
+                "label": "Team"
+            }, {
+                "name": "Libell___sens",
+                "label": "Direction"
+            }, {
+                "name": "Code_sens",
+                "label": "Direction id"
+            }, {
+                "name": "Libell___section",
+                "label": "Section"
+            }, {
+                "name": "Code_section",
+                "label": "Section id"
+            }, {
+                "name": "nodeZik",
+                "value": "music/robinhood76_00142-moneta-1.mp3",
+                "type": "music",
+                "ifCenter": "true"
+            }]
+        }, {
+            "name": "Chapitre",
+            "children": [{
+                "name": "depInvChapPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var chapitres = [1,2,10,11,12,13,16,20,21,22,23,24,26,27,40,41,42,45,65,66,67,70,73,74,75,76,77,204]; var doit = function (node, sens, section) {\r\n\t\tvar output, elt, v ;\r\n\t\tchapitres.forEach(function(codeChap) {\t\t\t\t\r\n\t\t\tv = node.rawNode[sens + '_' + section + '_chap' + codeChap] ;\r\n\t\t\tif(v && (v != 0)) {\r\n\t\t\t\tif (!output) {\r\n\t\t\t\t\toutput = [];\r\n\t\t\t\t}\r\n\t\t\t\telt = {} ; output.push(elt) ; elt.value = v ; elt.name = codeChap ; elt.unit = 'euros';\r\n\t\t\t}\r\n\t\t}) ;\r\n\t\treturn output ;\r\n\t}; return doit(node, 'dep', 'inv') ;",
+                "label": "Spendings / Invest / Chapters",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "depFoncChapPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var chapitres = [1,2,10,11,12,13,16,20,21,22,23,24,26,27,40,41,42,45,65,66,67,70,73,74,75,76,77,204]; var doit = function (node, sens, section) {\r\n\t\tvar output, elt, v ;\r\n\t\tchapitres.forEach(function(codeChap) {\t\t\t\t\r\n\t\t\tv = node.rawNode[sens + '_' + section + '_chap' + codeChap] ;\r\n\t\t\tif(v && (v != 0)) {\r\n\t\t\t\tif (!output) {\r\n\t\t\t\t\toutput = [];\r\n\t\t\t\t}\r\n\t\t\t\telt = {} ; output.push(elt) ; elt.value = v ; elt.name = codeChap ; elt.unit = 'euros';\r\n\t\t\t}\r\n\t\t}) ;\r\n\t\treturn output ;\r\n\t}; return doit(node, 'dep', 'fonc') ;",
+                "label": "Spendings / Operating / Chapters",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "recInvChapPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var chapitres = [1,2,10,11,12,13,16,20,21,22,23,24,26,27,40,41,42,45,65,66,67,70,73,74,75,76,77,204]; var doit = function (node, sens, section) {\r\n\t\tvar output, elt, v ;\r\n\t\tchapitres.forEach(function(codeChap) {\t\t\t\t\r\n\t\t\tv = node.rawNode[sens + '_' + section + '_chap' + codeChap] ;\r\n\t\t\tif(v && (v != 0)) {\r\n\t\t\t\tif (!output) {\r\n\t\t\t\t\toutput = [];\r\n\t\t\t\t}\r\n\t\t\t\telt = {} ; output.push(elt) ; elt.value = v ; elt.name = codeChap ; elt.unit = 'euros';\r\n\t\t\t}\r\n\t\t}) ;\r\n\t\treturn output ;\r\n\t}; return doit(node, 'rec', 'inv') ;",
+                "label": "Incomes / Invest / Chapters",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "recFoncChapPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var chapitres = [1,2,10,11,12,13,16,20,21,22,23,24,26,27,40,41,42,45,65,66,67,70,73,74,75,76,77,204]; var doit = function (node, sens, section) {\r\n\t\tvar output, elt, v ;\r\n\t\tchapitres.forEach(function(codeChap) {\t\t\t\t\r\n\t\t\tv = node.rawNode[sens + '_' + section + '_chap' + codeChap] ;\r\n\t\t\tif(v && (v != 0)) {\r\n\t\t\t\tif (!output) {\r\n\t\t\t\t\toutput = [];\r\n\t\t\t\t}\r\n\t\t\t\telt = {} ; output.push(elt) ; elt.value = v ; elt.name = codeChap ; elt.unit = 'euros';\r\n\t\t\t}\r\n\t\t}) ;\r\n\t\treturn output ;\r\n\t}; return doit(node, 'rec', 'fonc') ;",
+                "label": "Incomes / Operating / Chapters",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "operationsPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var doit = function (node, sens) {\r\n\t\tvar output, elt, v ;\r\n\t\tvar findLeaves = function(node) {\r\n\t\t\tif(!node.children && (node.rawNode['Code_sens'] == sens)) {\r\n\t\t\t\tv = node.rawNode['Montant_inscription'] ;\r\n\t\t\t\tif(v) {\r\n\t\t\t\t\tif(v > 0) {\r\n\t\t\t\t\t\tv = parseFloat(('' + v).replace(/,/g, '.')) ;\t\t\t\t\t\t\r\n\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\toutput = [];\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t\telt = {} ; output.push(elt) ; elt.value = v ; elt.name = node.rawNode['Libell__op_ration'] ; elt.unit = 'euros';\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t} else if(node.children) {\r\n\t\t\t\tnode.children.forEach(findLeaves) ;\r\n\t\t\t}\r\n\t\t}\r\n\t\tfindLeaves(node) ;\r\n\t\treturn output ;\r\n\t}; return doit(node, 'D') ;",
+                "label": "Spendings / Operations",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "operationsPie",
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var doit = function (node, sens) {\r\n\t\tvar output, elt, v ;\r\n\t\tvar findLeaves = function(node) {\r\n\t\t\tif(!node.children && (node.rawNode['Code_sens'] == sens)) {\r\n\t\t\t\tv = node.rawNode['Montant_inscription'] ;\r\n\t\t\t\tif(v) {\r\n\t\t\t\t\tif(v > 0) {\r\n\t\t\t\t\t\tv = parseFloat(('' + v).replace(/,/g, '.')) ;\t\t\t\t\t\t\r\n\t\t\t\t\t\tif (!output) {\r\n\t\t\t\t\t\t\toutput = [];\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t\telt = {} ; output.push(elt) ; elt.value = v ; elt.name = node.rawNode['Libell__op_ration'] ; elt.unit = 'euros';\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t} else if(node.children) {\r\n\t\t\t\tnode.children.forEach(findLeaves) ;\r\n\t\t\t}\r\n\t\t}\r\n\t\tfindLeaves(node) ;\r\n\t\treturn output ;\r\n\t}; return doit(node, 'I') ;",
+                "label": "Incomes / Operations",
+                "textInPie": false,
+                "namesInPie": false
+            }, {
+                "name": "Libell__Ville_ou_CASA",
+                "label": "Site"
+            }, {
+                "name": "Libell__DGS_ou_CMUN",
+                "label": "Entity"
+            }, {
+                "name": "Libell__DGA",
+                "label": "Department"
+            }, {
+                "name": "Libell__Direction",
+                "label": "Business unit"
+            }, {
+                "name": "Libell__Service",
+                "label": "Service"
+            }, {
+                "name": "Libell__Unit_",
+                "label": "Project"
+            }, {
+                "name": "Libell__Equipe",
+                "label": "Team"
+            }, {
+                "name": "Libell___sens",
+                "label": "Direction"
+            }, {
+                "name": "Code_sens",
+                "label": "Direction id"
+            }, {
+                "name": "Libell___section",
+                "label": "Section"
+            }, {
+                "name": "Code_section",
+                "label": "Section id"
+            }, {
+                "name": "Libell__chapitre",
+                "label": "Chapter"
+            }, {
+                "name": "Code_chapitre",
+                "label": "Chapter id"
+            }, {
+                "name": "nodeZik",
+                "value": "music/robinhood76_00142-moneta-1.mp3",
+                "type": "music",
+                "ifCenter": "true"
+            }]
+        }, {
+            "name": "Opération",
+            "children": [{
+                "name": "Libell__Ville_ou_CASA",
+                "label": "Site"
+            }, {
+                "name": "Libell__DGS_ou_CMUN",
+                "label": "Entity"
+            }, {
+                "name": "Libell__DGA",
+                "label": "Department"
+            }, {
+                "name": "Libell__Direction",
+                "label": "Business unit"
+            }, {
+                "name": "Libell__Service",
+                "label": "Service"
+            }, {
+                "name": "Libell__Unit_",
+                "label": "Project"
+            }, {
+                "name": "Libell__Equipe",
+                "label": "Team"
+            }, {
+                "name": "Code_budget",
+                "label": "Budget code"
+            }, {
+                "name": "Libell__budget",
+                "label": "Budget"
+            }, {
+                "name": "Libell___sens",
+                "label": "Direction"
+            }, {
+                "name": "Code_sens",
+                "label": "Direction id"
+            }, {
+                "name": "Libell___section",
+                "label": "Section"
+            }, {
+                "name": "Code_section",
+                "label": "Section id"
+            }, {
+                "name": "Libell__chapitre",
+                "label": "Chapter"
+            }, {
+                "name": "Code_chapitre",
+                "label": "Chapter id"
+            }, {
+                "name": "Code_op_ration",
+                "label": "Operation id"
+            }, {
+                "name": "Libell__op_ration",
+                "label": "Operation"
+            }, {
+                "name": "Montant_inscription",
+                "label": "Accounting entry"
+            }, {
+                "name": "Total_r_alis____e_n_s",
+                "label": "Total spent"
+            }, {
+                "name": "Service_destinataire",
+                "label": "Profitable service"
+            }, {
+                "name": "CO_134D",
+                "label": "Supplies indirect fund"
+            }, {
+                "name": "Consomm__134D",
+                "label": "Supplies indirect fund spent"
+            }, {
+                "name": "CO_140D",
+                "label": "Buildings maintenance fund"
+            }, {
+                "name": "Consomm__140D",
+                "label": "Buildings maintenance fund spent"
+            }, {
+                "name": "CO_DRH",
+                "label": "Payroll"
+            }, {
+                "name": "Consomm__DRH",
+                "label": "Payroll spent"
+            }]
+        }]
+    }
+}

@@ -1,0 +1,313 @@
+{
+    "$schema": "http://www.freedatamap.com/jsonConfigSchema/schema#",
+    "$charset": "UTF-8",
+    "config": {
+        "name": "commissions.config",
+        "root": null,
+        "txtFontSize": 13,
+        "displayColumnsAsAttributes": false,
+        "center": null,
+        "depth": 2,
+        "sort": "items",
+        "sortDescendant": true,
+        "dm_DatamapName": "Commissions",
+        "csvSepIsSemicolon": true,
+        "dm_sourceFile": "TV/commissions.csv",
+        "$schema": "http://www.freedatamap.com/jsonConfigSchema/schema#",
+        "icon": "../../config/images/config/config_root.png",
+        "possibleProperties": null,
+        "maxNbOfColumns2tree": 10,
+        "displayTransversalConnections": true,
+        "displayArrowsOfTransversalConnections": true,
+        "retintIcons": false,
+        "aggregate": [{
+            "name": "items",
+            "array index": 0,
+            "value": "var output = 1, child ;
+if(node.children && (node.children.length > 0)) {
+    var i = node.children.length - 1 ;
+    output = 0 ;
+    for(; i>=0; i--) {
+        child = node.children[i] ;
+        if(!child.rawNode[propName]) {
+            console.log('----- WARNING ! during items aggregation ITEMS VALUE ERROR ----------->' + dm_Tools.getNodePath(child), ' items = ' + child.rawNode[propName]) ;
+        }
+        output += node.children[i].rawNode[propName] ;
+    }
+    if(output > 1) {
+        if(!node.rawNode[propName + '.dm_props']) node.rawNode[propName + '.dm_props'] = {} ;
+        //node.rawNode[propName + '.dm_props'].visible = true ;
+    }
+} else {
+    if(!node.rawNode[propName + '.dm_props']) node.rawNode[propName + '.dm_props'] = {} ;
+    node.rawNode[propName + '.dm_props'].visible = false ;
+    node.rawNode[propName + '.dm_props'].edit = false ;
+}
+if(!output) {
+    console.log('----- WARNING ! during items aggregation ITEMS VALUE ERROR ----------->' + dm_Tools.getNodePath(node), ' items = ' + output) ;
+}
+return output ;",
+            "funcDropdown": "count leaves",
+            "execAfterChildrenVisit": true,
+            "onlyLeaves": true,
+            "label": "Items",
+            "type": "text",
+            "source": "aggregation",
+            "children": [{
+                "name": "dm_props",
+                "array index": 0,
+                "dontExport": true,
+                "hideFromEdit": true
+            }]
+        }, {
+            "name": "itemsPie",
+            "array index": 1,
+            "value": "var output, elt;
+if(node.children && (node.children.length > 0) && !node.dm_isReducedNode) {
+    var levelMin = dm_Tools.getDepth(node) ;
+    var colName ;
+    var doIt = function(node) {
+        if (!output) {
+            output = [] ;
+        }
+        elt = {} ;
+        output.push(elt) ;
+        elt.value = node.rawNode['items'] ;
+        elt.name = node.name ; //dm_Tools.getNodePath(node, '', true, null, levelMin+1) ;
+        elt.unit = 'item(s)' ;
+    };
+    var parentLevel = dm_Tools.getDepth(node) ;
+    var depth = 1 ;
+    var dive = function(node) {
+        if (node) {
+            var nodeLevel = dm_Tools.getDepth(node) ;
+            if (nodeLevel == parentLevel + depth) {
+                doIt(node);
+
+                if(!colName) {
+                    var configNode = dm_Tools.getConfig(node) ;
+                    if(configNode && configNode.columns && (configNode.columns.length >= nodeLevel)) {
+                        var col = configNode.columns[nodeLevel-1] ;
+                        if(col) colName = col.name ;
+                    }
+                }
+            } else if ((dm_Tools.getDepth(node) < parentLevel + depth) && (node.children)) {
+                node.children.forEach(function(child) {
+                    dive(child);
+                });
+            }
+        }
+    } ;
+    dive(node);
+    if(!node.rawNode['itemsPie.dm_props']) node.rawNode['itemsPie.dm_props'] = {} ;
+    node.rawNode['itemsPie.dm_props'].label = colName ;
+    //node.rawNode['itemsPie.dm_props'].visible = true ;
+} else {
+    if(!node.rawNode['itemsPie.dm_props']) node.rawNode['itemsPie.dm_props'] = {}
+    node.rawNode['itemsPie.dm_props'].visible = false ;
+    node.rawNode['itemsPie.dm_props'].edit = false ;
+}
+return output ;",
+            "execAfterChildrenVisit": true,
+            "children": [{
+                "name": "dm_props",
+                "array index": 1,
+                "dontExport": true,
+                "hideFromEdit": true
+            }]
+        }, {
+            "name": "treeSunburst",
+            "array index": 2,
+            "value": "null",
+            "execAfterChildrenVisit": true,
+            "children": [{
+                "name": "dm_props",
+                "array index": 2,
+                "dontExport": true,
+                "hideFromEdit": true
+            }]
+        }],
+        "columnNames": ["communautés thématiques", "représentant", "entreprise", "titre", "trombi", "en résumé", "en chiffres", "participants cumulés", "icon communautés", "", "", "", "", "", "", "", "", ""],
+        "columns": [{
+            "name": "communautés thématiques",
+            "array index": 0,
+            "columnIndex": 0
+        }, {
+            "name": "représentant",
+            "array index": 1,
+            "columnIndex": 1
+        }],
+        "displayProps": [{
+            "name": "root",
+            "edit": false,
+            "visible": false,
+            "children": [{
+                "name": "treeSunburst",
+                "array index": 2,
+                "label": "Commissions",
+                "type": "graph",
+                "graphModel": "sunburstChart",
+                "maxLength": 12,
+                "edit": false,
+                "visible": true,
+                "order": 45,
+                "dontExport": true,
+                "stopLegendAtLevel": 1,
+                "keepAfterGoto": true
+            }, {
+                "name": "animateursCloud",
+                "value": "
+var output = [] ;
+var children = dm_Tools.getNonReducedChildren(node, 2, true) ;
+while(children.length > 0) output.push(children.pop().name) ;
+output ;
+",
+                "order": 30,
+                "type": "cloud",
+                "visible": true,
+                "sizeFactor": 40,
+                "heightPercent": "50%",
+                "angleFactor": 8,
+                "colorPalette": "dm_Tools.modifiedCategory20b() ;",
+                "hideFromEdit": true,
+                "dontExport": true,
+                "displayEvenIfNull": true
+            }]
+        }, {
+            "name": "level 1",
+            "edit": false,
+            "visible": false,
+            "children": [{
+                "name": "icon",
+                "imageName": "TV/icones/TV_logo.png",
+                "dontExport": true,
+                "visible": false
+            }, {
+                "name": "icon communautés",
+                "type": "image",
+                "visible": true
+            }, {
+                "name": "en chiffres",
+                "order": 30,
+                "type": "rich text",
+                "pre": "<div class=\"dm_border dm_info\" style=\"font-size: 18px; line-height: 22px;\"><b>",
+                "post": "</b></div>"
+            }, {
+                "name": "en résumé",
+                "order": 35,
+                "type": "rich text",
+                "pre": "<div class=\"dm_success\" style=\"font-size: 16px; line-height: 22px; text-align: justify;\">",
+                "value": "value.replace(/\\n/g, '<br/>') ;",
+                "post": "</div>"
+            }, {
+                "name": "participants cumulés",
+                "order": 40,
+                "type": "text"
+            }]
+        }, {
+            "name": "leaf",
+            "edit": false,
+            "visible": false,
+            "children": [{
+                "name": "icon",
+                "type": "image",
+                "visible": true
+            }, {
+                "name": "entreprise",
+                "order": 30,
+                "type": "rich text",
+                "pre": "<div class=\"dm_success\" style=\"font-size: 16px; line-height: 22px;\">",
+                "value": "value.replace(/\\n/g, '<br/>') ;",
+                "post": "</div>"
+            }, {
+                "name": "titre",
+                "order": 35,
+                "type": "rich text",
+                "pre": "<div class=\"dm_border dm_info\" style=\"font-size: 18px; line-height: 22px;\"><b>",
+                "post": "</b></div>"
+            }, {
+                "name": "treeSunburst",
+                "array index": 2,
+                "label": "Items",
+                "type": "graph",
+                "graphModel": "sunburstChart",
+                "maxLength": 12,
+                "edit": false,
+                "visible": true,
+                "order": 45,
+                "dontExport": true,
+                "keepAfterGoto": true
+            }]
+        }],
+        "specifics": [{
+            "name": "$dm_root|*",
+            "icon": "TV/icones/TV_logo.png"            
+        }, {
+            "name": "$dm_leaf",
+            "icon.dm_props": {
+                "borderRadius": 10
+            }
+        }],
+        "styles": [{
+            "name": "root",
+            "array index": 0,
+            "level": 0,
+            "arrow": true,
+            "arc": false,
+            "rNod": 10,
+            "link": 180,
+            "color": "#00668E",
+            /*"drawUnderlyingRawValuesCharts": false,*/
+            "icon.dm_props": {
+                "type": "image",
+                "visible": true,
+                "scaleFactor": 6,
+                "width": 200,
+                "height": 200,
+                "textX": 3
+            },
+            "txtFontSize": 16,
+            "backgroundImage": "TV/images/Sophia.jpg",
+            "backgroundImage.dm_props": {
+                "opacity": 0.2
+            },
+            "mapOpacity": 0.5
+        }, {
+            "name": "level 1",
+            "array index": 1,
+            "level": 1,
+            "arrow": true,
+            "arc": false,
+            "rNod": 10,
+            "link": 170,
+            "color": "#842B5B",
+            "icon.dm_props": {
+                "type": "image",
+                "visible": false,
+                "scaleFactor": 6,
+                "width": 200,
+                "height": 200,
+                "textX": -10
+            },
+            /*"drawUnderlyingRawValuesCharts": false,*/
+            "mapOpacity": 0.35
+        }, {
+            "name": "leaf",
+            "icon.dm_props": {
+                "textX": 12
+            },
+            "level": 2,
+            "arrow": false,
+            "arc": true,
+            "rNod": 4,
+            "link": 130,
+            "txtFontSize": 12,
+            "color": "#c7c7c7",
+            "txtCol": "#666666",
+            "rotatingTargetColor": "#F28A35",
+            "mapOpacity": 0.65
+        }],
+        "setColumns2node": {},
+        "maxDepthForExport": 2
+    }
+}

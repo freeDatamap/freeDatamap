@@ -1,0 +1,718 @@
+{
+    "$schema": "http://www.freedatamap.com/jsonConfigSchema/schema#",
+    "$charset": "UTF-8",
+    "config": {
+        "root": null,
+        "txtFontSize": 13,
+        "displayColumnsAsAttributes": true,
+        "styles": [{
+            "name": "root",
+            "level": 0,
+            "arrow": true,
+            "arc": false,
+            "rNod": 10,
+            "link": 150,
+            "color": "#1f77b4",
+            "attrPaneCol": "#aec7e8",
+            "txtFontSize": 14,
+            "backgroundImage": "../../images/empty.jpg",
+            "backgroundImage.dm_props": {
+                "name": "backgroundImage",
+                "visible": true,
+                "label": "backgroundImage",
+                "type": "image",
+                "edit": false
+            }
+        }, {
+            "name": "level 1",
+            "level": 1,
+            "arrow": true,
+            "arc": false,
+            "rNod": 10,
+            "link": 130,
+            "txtFontSize": 13,
+            "color": "#1f77b4",
+            "attrPaneCol": "#aec7e8"
+        }, {
+            "name": "level 2",
+            "level": 2,
+            "arrow": true,
+            "arc": false,
+            "rNod": 9,
+            "link": 130,
+            "txtFontSize": 12,
+            "color": "#ff7f0e",
+            "attrPaneCol": "#ffbb78"
+        }, {
+            "name": "level 3",
+            "level": 3,
+            "arrow": true,
+            "arc": false,
+            "rNod": 9,
+            "link": 130,
+            "txtFontSize": 12,
+            "color": "#2ca02c",
+            "attrPaneCol": "#98df8a"
+        }, {
+            "name": "level 4",
+            "level": 4,
+            "arrow": true,
+            "arc": false,
+            "rNod": 8,
+            "link": 130,
+            "txtFontSize": 12,
+            "color": "#d62728",
+            "attrPaneCol": "#ff9896"
+        }, {
+            "name": "level 5",
+            "level": 5,
+            "arrow": true,
+            "arc": false,
+            "rNod": 8,
+            "link": 130,
+            "txtFontSize": 12,
+            "color": "#9467bd",
+            "attrPaneCol": "#c5b0d5"
+        }, {
+            "name": "level 6",
+            "level": 6,
+            "arrow": true,
+            "arc": false,
+            "rNod": 7,
+            "link": 130,
+            "txtFontSize": 11,
+            "color": "#e377c2",
+            "attrPaneCol": "#f7b6d2"
+        }, {
+            "name": "level 7",
+            "level": 7,
+            "arrow": true,
+            "arc": false,
+            "rNod": 7,
+            "link": 130,
+            "txtFontSize": 11,
+            "color": "#bcbd22",
+            "attrPaneCol": "#dbdb8d"
+        }, {
+            "name": "level 8",
+            "level": 8,
+            "arrow": true,
+            "arc": false,
+            "rNod": 6,
+            "link": 130,
+            "txtFontSize": 11,
+            "color": "#17becf",
+            "attrPaneCol": "#9edae5"
+        }, {
+            "name": "level 9",
+            "level": 9,
+            "arrow": true,
+            "arc": false,
+            "rNod": 6,
+            "link": 130,
+            "txtFontSize": 11,
+            "color": "#6b6ecf",
+            "attrPaneCol": "#9c9ede"
+        }, {
+            "name": "level 10",
+            "level": 10,
+            "arrow": true,
+            "arc": false,
+            "rNod": 5,
+            "link": 130,
+            "txtFontSize": 11,
+            "color": "#1f77b4",
+            "attrPaneCol": "#aec7e8"
+        }, {
+            "name": "level 11",
+            "level": 11,
+            "arrow": true,
+            "arc": false,
+            "rNod": 5,
+            "link": 130,
+            "txtFontSize": 11,
+            "color": "#ff7f0e",
+            "attrPaneCol": "#ffbb78"
+        }, {
+            "name": "level 12",
+            "level": 12,
+            "arrow": true,
+            "arc": false,
+            "rNod": 5,
+            "link": 130,
+            "txtFontSize": 11,
+            "color": "#2ca02c",
+            "attrPaneCol": "#98df8a"
+        }, {
+            "name": "level 13",
+            "level": 13,
+            "arrow": true,
+            "arc": false,
+            "rNod": 5,
+            "link": 130,
+            "txtFontSize": 11,
+            "color": "#d62728",
+            "attrPaneCol": "#ff9896"
+        }, {
+            "name": "level 14",
+            "level": 14,
+            "arrow": true,
+            "arc": false,
+            "rNod": 5,
+            "link": 130,
+            "color": "#9467bd",
+            "attrPaneCol": "#c5b0d5"
+        }, {
+            "name": "level 15",
+            "level": 15,
+            "arrow": true,
+            "arc": false,
+            "rNod": 4,
+            "link": 130,
+            "txtFontSize": 11,
+            "color": "#e377c2",
+            "attrPaneCol": "#f7b6d2"
+        }, {
+            "name": "level 16",
+            "level": 16,
+            "arrow": true,
+            "arc": false,
+            "rNod": 4,
+            "link": 130,
+            "txtFontSize": 11,
+            "color": "#bcbd22",
+            "attrPaneCol": "#dbdb8d"
+        }, {
+            "name": "level 17",
+            "level": 17,
+            "arrow": true,
+            "arc": false,
+            "rNod": 4,
+            "link": 130,
+            "txtFontSize": 11,
+            "color": "#17becf",
+            "attrPaneCol": "#9edae5"
+        }, {
+            "name": "level 18",
+            "level": 18,
+            "arrow": true,
+            "arc": false,
+            "rNod": 4,
+            "link": 130,
+            "txtFontSize": 11,
+            "color": "#6b6ecf",
+            "attrPaneCol": "#9c9ede"
+        }, {
+            "name": "leaf",
+            "level": 19,
+            "arrow": false,
+            "arc": true,
+            "rNod": 3,
+            "link": 90,
+            "txtFontSize": 10,
+            "color": "#c7c7c7",
+            "attrPaneCol": "#c7c7c7",
+            "txtCol": "#7f7f7f"
+        }],
+        "center": null,
+        "depth": 1,
+        "setColumns2node": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+        "sort": "linear",
+        "sortDescendant": true,
+        "columns": [],
+        "aggregate": [{
+            "name": "items",
+            "value": "var output = 1 ;
+if(node.children) {
+    var i = node.children.length - 1 ;
+    output = 0 ;
+    for(; i>=0; i--) {
+        output += node.children[i].rawNode[propName] ;
+    }
+}
+return output ;",
+            "funcDropdown": "count leaves",
+            "execAfterChildrenVisit": true,
+            "onlyLeaves": true
+        }, {
+            "name": "dm_geoMapCoordsMinMax",
+            "value": "var output  ;
+if(!node.children) {
+    output = dm_Tools.geoMapGetMinMax(node.rawNode['dm_geometry_coords'], null, true, node.rawNode['dm_geometry_type']) ;
+    if(!output) {
+        console.log('WARNING: coordinates problem while calculating min/max of ' + node.name) ;
+    }
+}
+if(node.children) {
+    var minMax ;
+    for(var i=0; i<node.children.length; i++) {
+        minMax = dm_Tools.geoMapGetMinMax(node.children[i].rawNode[propName], output, null, 'min max') ;
+        if(!minMax) {
+            console.log('WARNING: coordinates problem while calculating min/max of ' + node.name) ;
+        } else {
+            output = minMax ;            
+        }
+    }
+}
+//console.log('node name '+node.name+' min/max '+JSON.stringify(output)) ;
+return output ;",
+            "propertyName": "dm_geometry_coords",
+            "funcDropdown": "sum property",
+            "execAfterChildrenVisit": true,
+            "onlyLeaves": true
+        }, {
+            "name": "dm_geoMapRelativeBaryCenter",
+            "value": "return dm_Tools.geoMapRelativeBaryCenter(node, 'items') ;",
+            "propertyName": "dm_geometry_relative_barycenter_on_nb_items",
+            "execAfterChildrenVisit": true,
+            "onlyLeaves": true
+        }, {
+            "name": "dm_geoMapAggregatedGeoJson",
+            "value": "return dm_Tools.geoMapAggregateGeometry(node, propName) ;",
+            "propertyName": "dm_geometry_coords",
+            "funcDropdown": "sum property",
+            "execAfterChildrenVisit": true,
+            "onlyLeaves": true
+        }, {
+            "name": "linear",
+            "value": "var output  ;
+if(!true || !node.children) {
+    output = dm_Tools.geoMapCalculateLinear(node.rawNode.dm_geometry_coords, true) ;
+}
+if(node.children) {
+    for(var i=0; i<node.children.length; i++) {
+        if(!output) output = 0 ;
+        output += parseFloat(node.children[i].rawNode[propName] || 0) ;
+    }
+}
+return output ;",
+            "propertyName": "dm_geometry_coords",
+            "funcDropdown": "sum property",
+            "execAfterChildrenVisit": true,
+            "onlyLeaves": true
+        }, {
+            "name": "dm_geoMapDisplayStreetView",
+            "value": "var output  ;
+if(!true || !node.children) {
+    var point = dm_Tools.geoMapGetClosest2center(node) ;
+    output = {'lat': point[1], 'lng': point[0]} ;
+}
+return output;",
+            "propertyName": "dm_geometry_coords",
+            "funcDropdown": "sum property",
+            "execAfterChildrenVisit": true,
+            "onlyLeaves": true
+        }],
+        "columnNames": [],
+        "privateFunctions": {
+            "itemsPie": "var output, elt;
+var levelMin = dm_Tools.getDepth(node) ;
+var doIt = function(node) {
+    if (!output) {
+        output = [] ;
+    }
+    elt = {} ;
+    output.push(elt) ;
+    elt.value = node.rawNode['items'] ;
+    elt.name = dm_Tools.getNodePath(node, '', true, null, levelMin+1) ;
+    elt.unit = 'item(s)' ;
+};
+var parentLevel = dm_Tools.getDepth(node) ;
+var depth = 1 ;
+var dive = function(node) {
+    if (node) {
+        if (dm_Tools.getDepth(node) == parentLevel + depth) {
+            doIt(node);
+        } else if ((dm_Tools.getDepth(node) < parentLevel + depth) && (node.children)) {
+            node.children.forEach(function(child) {
+                dive(child);
+            });
+        }
+    }
+} ;
+dive(node);
+output ;",
+            "linearPie": "var output, elt;
+var levelMin = dm_Tools.getDepth(node) ;
+var doIt = function(node) {
+    if (!output) {
+        output = [] ;
+    }
+    elt = {} ;
+    output.push(elt) ;
+    elt.value = node.rawNode['linear'] ;
+    elt.name = dm_Tools.getNodePath(node, '', true, null, levelMin+1) ;
+    elt.unit = 'meter(s)' ;
+};
+var parentLevel = dm_Tools.getDepth(node) ;
+var depth = 1 ;
+var dive = function(node) {
+    if (node) {
+        if (dm_Tools.getDepth(node) == parentLevel + depth) {
+            doIt(node);
+        } else if ((dm_Tools.getDepth(node) < parentLevel + depth) && (node.children)) {
+            node.children.forEach(function(child) {
+                dive(child);
+            });
+        }
+    }
+} ;
+dive(node);
+output ;
+"
+        },
+        "displayProps": [{
+            "name": "root",
+            "children": [{
+                "name": "items"
+            }, {
+                "name": "itemsPie"
+            }, {
+                "name": "linear"
+            }, {
+                "name": "linearPie"
+            }],
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "level 1",
+            "children": [{
+                "name": "items"
+            }, {
+                "name": "itemsPie"
+            }, {
+                "name": "linear"
+            }, {
+                "name": "linearPie"
+            }],
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "level 2",
+            "children": [{
+                "name": "items"
+            }, {
+                "name": "itemsPie"
+            }, {
+                "name": "linear"
+            }, {
+                "name": "linearPie"
+            }],
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "level 3",
+            "children": [{
+                "name": "items"
+            }, {
+                "name": "itemsPie"
+            }, {
+                "name": "linear"
+            }, {
+                "name": "linearPie"
+            }],
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "level 4",
+            "children": [{
+                "name": "items"
+            }, {
+                "name": "itemsPie"
+            }, {
+                "name": "linear"
+            }, {
+                "name": "linearPie"
+            }],
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "level 5",
+            "children": [{
+                "name": "items"
+            }, {
+                "name": "itemsPie"
+            }, {
+                "name": "linear"
+            }, {
+                "name": "linearPie"
+            }],
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "level 6",
+            "children": [{
+                "name": "items"
+            }, {
+                "name": "itemsPie"
+            }, {
+                "name": "linear"
+            }, {
+                "name": "linearPie"
+            }],
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "level 7",
+            "children": [{
+                "name": "items"
+            }, {
+                "name": "itemsPie"
+            }, {
+                "name": "linear"
+            }, {
+                "name": "linearPie"
+            }],
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "level 8",
+            "children": [{
+                "name": "items"
+            }, {
+                "name": "itemsPie"
+            }, {
+                "name": "linear"
+            }, {
+                "name": "linearPie"
+            }],
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "level 9",
+            "children": [{
+                "name": "items"
+            }, {
+                "name": "itemsPie"
+            }, {
+                "name": "linear"
+            }, {
+                "name": "linearPie"
+            }],
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "level 10",
+            "children": [{
+                "name": "items"
+            }, {
+                "name": "itemsPie"
+            }, {
+                "name": "linear"
+            }, {
+                "name": "linearPie"
+            }],
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "level 11",
+            "children": [{
+                "name": "items"
+            }, {
+                "name": "itemsPie"
+            }, {
+                "name": "linear"
+            }, {
+                "name": "linearPie"
+            }],
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "level 12",
+            "children": [{
+                "name": "items"
+            }, {
+                "name": "itemsPie"
+            }, {
+                "name": "linear"
+            }, {
+                "name": "linearPie"
+            }],
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "level 13",
+            "children": [{
+                "name": "items"
+            }, {
+                "name": "itemsPie"
+            }, {
+                "name": "linear"
+            }, {
+                "name": "linearPie"
+            }],
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "level 14",
+            "children": [{
+                "name": "items"
+            }, {
+                "name": "itemsPie"
+            }, {
+                "name": "linear"
+            }, {
+                "name": "linearPie"
+            }],
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "level 15",
+            "children": [{
+                "name": "items"
+            }, {
+                "name": "itemsPie"
+            }, {
+                "name": "linear"
+            }, {
+                "name": "linearPie"
+            }],
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "level 16",
+            "children": [{
+                "name": "items"
+            }, {
+                "name": "itemsPie"
+            }, {
+                "name": "linear"
+            }, {
+                "name": "linearPie"
+            }],
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "level 17",
+            "children": [{
+                "name": "items"
+            }, {
+                "name": "itemsPie"
+            }, {
+                "name": "linear"
+            }, {
+                "name": "linearPie"
+            }],
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "level 18",
+            "children": [{
+                "name": "items"
+            }, {
+                "name": "itemsPie"
+            }, {
+                "name": "linear"
+            }, {
+                "name": "linearPie"
+            }],
+            "edit": false,
+            "visible": false
+        }, {
+            "name": "leaf",
+            "children": [{
+                "name": "items",
+                "visible": false
+            }, {
+                "name": "itemsPie",
+                "visible": false
+            }, {
+                "name": "linear"
+            }, {
+                "name": "linearPie",
+                "visible": false
+            }],
+            "edit": false,
+            "visible": true
+        }],
+        "displayArrowsOfTransversalConnections": false,
+        "sort1": "items",
+        "multicolorBrothers": true,
+        "specifics": [{
+            "name": "$dm_all",
+            "rawNode": {
+                "items.dm_props": {
+                    "label": "Items",
+                    "type": "text",
+                    "edit": false,
+                    "visible": true
+                },
+                "itemsPie.dm_props": {
+                    "label": "Items",
+                    "type": "graph",
+                    "edit": false,
+                    "visible": true,
+                    "graph": "pie",
+                    "doTransition": true,
+                    "predefinedGraphDropdown": "pie based on property",
+                    "graphProperty1": "items",
+                    "graphUnit1": "item(s)",
+                    "graphDepth": 1,
+                    "textInPie": false,
+                    "input": "var config = dm_Tools.getConfig(node) ;
+var code = config.privateFunctions.itemsPie ;
+return eval(code) ;
+"
+                },
+                "linear.dm_props": {
+                    "label": "Linear",
+                    "type": "text",
+                    "edit": false,
+                    "visible": true
+                },
+                "linearPie.dm_props": {
+                    "label": "Linear",
+                    "type": "graph",
+                    "edit": false,
+                    "visible": true,
+                    "graph": "pie",
+                    "doTransition": true,
+                    "predefinedGraphDropdown": "pie based on property",
+                    "graphProperty1": "linear",
+                    "graphUnit1": "meter(s)",
+                    "graphDepth": 1,
+                    "textInPie": false,
+                    "input": "var config = dm_Tools.getConfig(node) ;
+var code = config.privateFunctions.linearPie ;
+return eval(code) ;
+"
+                },
+                "dm_geoMapDisplayStreetView.dm_props": {
+                    "order": 0,
+                    "type": "streetView",
+                    "edit": false,
+                    "visible": true,
+                    "dontExport": true
+                },
+                "dm_geometry_type.dm_props": {
+                    "label": "geometry",
+                    "edit": false,
+                    "visible": false,
+                    "dontExport": true
+                },
+                "dm_geometry_coords.dm_props": {
+                    "label": "geometry coords",
+                    "edit": false,
+                    "visible": false,
+                    "dontExport": true
+                },
+                "dm_geoMapCoordsMinMax.dm_props": {
+                    "edit": false,
+                    "visible": false,
+                    "dontExport": true
+                },
+                "dm_geoMapAggregatedGeoJson.dm_props": {
+                    "edit": false,
+                    "visible": false,
+                    "dontExport": true
+                },
+                "dm_geoMapRelativeBaryCenter.dm_props": {
+                    "edit": false,
+                    "visible": false,
+                    "dontExport": true
+                }
+            }
+        }],
+        "maxDepthForExport": 19
+    }
+}

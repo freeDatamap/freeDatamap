@@ -1,0 +1,17 @@
+{
+    "$schema": "http://www.freedatamap.com/jsonSchema/schema#",
+    "$charset": "UTF-8",
+    "root": {
+        "name": "somebody",
+        "level": 0,
+        "rawNode": {
+            "backgroundImage": "socialMap/social-network.jpg",
+            "backgroundImage.dm_props": {
+                "type": "image",
+                "visible": true,
+                "dontExport": true
+            }
+        },
+        "dm_DatamapName": "socialMap/somebody.json"
+    }
+}

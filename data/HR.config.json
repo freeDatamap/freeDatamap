@@ -1,0 +1,2591 @@
+{
+    "$schema": "http://www.freedatamap.com/jsonConfigSchema/schema#",
+    "$charset": "UTF-8",
+    "config": {
+        "name": "HR.config",
+        "root": "HR",
+        "center": "HR",
+        "noLeafInReport": false,
+        "depth": 2,
+        "sort": "nbAgents",
+        "txtFontSize": 13,
+        "sortDescendant": true,
+        "maxDepthForExport": 9,
+        "dm_DatamapName": "HR.csv",
+        "$schema": "http://www.freedatamap.com/jsonConfigSchema/schema#",
+        "csvSepIsSemicolon": true,
+        "dm_sourceFile": "HR.config.json",
+        "icon": "../../config/images/config/config_root.png",
+        "maxNbOfColumns2tree": 10,
+        "displayTransversalConnections": true,
+        "displayArrowsOfTransversalConnections": true,
+        "aggregate": [{
+            "name": "nbAgents",
+            "array index": 0,
+            "execAfterChildrenVisit": true,
+            "value": "var doit = function () {\r
+            var output = 1;\r
+            if (node && node.children) {\r
+                output = 0;\r
+                node.children.forEach(function(child) {\r
+                    output += child.rawNode.nbAgents;\r
+                });\r
+            }\r
+            return output;\r
+        } ; return doit() ;",
+            "label": "Number of people",
+            "visible": true,
+            "type": "text",
+            "source": "aggregation"
+        }, {
+            "name": "codeFinance",
+            "array index": 1,
+            "execAfterChildrenVisit": true,
+            "value": "var doit = function () {
+            var codeVilleOuCASA = 'Code_Ville_ou_CASA',
+                codeDGSouCmun = 'Code_DGS_ou_CMUN',
+                codeDGA = 'Code_DGA',
+                codeDirection = 'Code_Direction',
+                codeService = 'Code_Service',
+                codeUnite = 'Code_Unit_',
+                codeEquipe = 'Code_Equipe';
+            var output, entite = node.rawNode[codeVilleOuCASA],
+                dg = node.rawNode[codeDGSouCmun],
+                dga = node.rawNode[codeDGA],
+                dir = node.rawNode[codeDirection],
+                serv = node.rawNode[codeService],
+                unite = node.rawNode[codeUnite],
+                equipe = node.rawNode[codeEquipe];
+            if (entite) {
+                output = '' + entite;
+                if (dg) {
+                    output += ' . ' + dg;
+                    if (dga) {
+                        output += ' . ' + dga;
+                        if (dir) {
+                            output += ' . ' + dir;
+                            if (serv) {
+                                output += ' . ' + serv;
+                                if (unite) {
+                                    output += ' . ' + unite;
+                                    if (equipe) {
+                                        output += ' . ' + equipe;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            return output;
+        } ; return doit() ;",
+            "label": "codeFinance",
+            "type": "text",
+            "source": "aggregation"
+        }, {
+            "name": "nbCatA",
+            "array index": 2,
+            "execAfterChildrenVisit": true,
+            "value": "var doit = function (cat) {
+            var codeCategorieColumnName = \"Code_cat_gorie\";
+            var output = (node.rawNode[codeCategorieColumnName] == cat) ? 1 : 0;
+            if (node && node.children) {
+                output = 0;
+                node.children.forEach(function(child) {
+                    output += child.rawNode['nbCat' + cat];
+                });
+            }
+            return output;
+        } ; return doit('A') ;",
+            "label": "Category A",
+            "visible": true,
+            "type": "text",
+            "source": "aggregation"
+        }, {
+            "name": "nbCatB",
+            "array index": 3,
+            "execAfterChildrenVisit": true,
+            "value": "var doit = function (cat) {
+            var codeCategorieColumnName = \"Code_cat_gorie\";
+            var output = (node.rawNode[codeCategorieColumnName] == cat) ? 1 : 0;
+            if (node && node.children) {
+                output = 0;
+                node.children.forEach(function(child) {
+                    output += child.rawNode['nbCat' + cat];
+                });
+            }
+            return output;
+        } ; return doit('B') ;",
+            "label": "Category B",
+            "visible": true,
+            "type": "text",
+            "source": "aggregation"
+        }, {
+            "name": "nbCatC",
+            "array index": 4,
+            "execAfterChildrenVisit": true,
+            "value": "var doit = function (cat) {\r
+            var codeCategorieColumnName = \"Code_cat_gorie\";\r
+            var output = (node.rawNode[codeCategorieColumnName] == cat) ? 1 : 0;\r
+            if (node && node.children) {\r
+                output = 0;\r
+                node.children.forEach(function(child) {\r
+                    output += child.rawNode['nbCat' + cat];\r
+                });\r
+            }\r
+            return output;\r
+        } ; return doit('C') ;",
+            "label": "Category C",
+            "visible": true,
+            "type": "text",
+            "source": "aggregation"
+        }, {
+            "name": "nbDGA",
+            "array index": 5,
+            "execAfterChildrenVisit": true,
+            "value": "var doit = function (level, org) {\r
+            var output;\r
+            if (node) {\r
+                if (node.level == level) {\r
+                    output = 1;\r
+                } else if ((node.level < level) && node.children) {\r
+                    output = 0;\r
+                    node.children.forEach(function(child) {\r
+                        if (child.rawNode['nb' + org]) {\r
+                            output += child.rawNode['nb' + org];\r
+                        }\r
+                    });\r
+                }\r
+            }\r
+            return output;\r
+        } ; return doit(3, 'DGA') ;",
+            "label": "Number of Departments",
+            "visible": true,
+            "type": "text",
+            "source": "aggregation"
+        }, {
+            "name": "nbDir",
+            "array index": 6,
+            "execAfterChildrenVisit": true,
+            "value": "var doit = function (level, org) {
+            var output;
+            if (node) {
+                if (node.level == level) {
+                    output = 1;
+                } else if ((node.level < level) && node.children) {
+                    output = 0;
+                    node.children.forEach(function(child) {
+                        if (child.rawNode['nb' + org]) {
+                            output += child.rawNode['nb' + org];
+                        }
+                    });
+                }
+            }
+            return output;
+        } ; return doit(4, 'Dir') ;",
+            "label": "Number of Business units",
+            "visible": true,
+            "type": "text",
+            "source": "aggregation"
+        }, {
+            "name": "nbServ",
+            "array index": 7,
+            "execAfterChildrenVisit": true,
+            "value": "var doit = function (level, org) {
+            var output;
+            if (node) {
+                if (node.level == level) {
+                    output = 1;
+                } else if ((node.level < level) && node.children) {
+                    output = 0;
+                    node.children.forEach(function(child) {
+                        if (child.rawNode['nb' + org]) {
+                            output += child.rawNode['nb' + org];
+                        }
+                    });
+                }
+            }
+            return output;
+        } ; return doit(5, 'Serv') ;",
+            "label": "Number of Services",
+            "visible": true,
+            "type": "text",
+            "source": "aggregation"
+        }, {
+            "name": "nbUnites",
+            "array index": 8,
+            "execAfterChildrenVisit": true,
+            "value": "var doit = function (level, org) {
+            var output;
+            if (node) {
+                if (node.level == level) {
+                    output = 1;
+                } else if ((node.level < level) && node.children) {
+                    output = 0;
+                    node.children.forEach(function(child) {
+                        if (child.rawNode['nb' + org]) {
+                            output += child.rawNode['nb' + org];
+                        }
+                    });
+                }
+            }
+            return output;
+        } ; return doit(6, 'Unites') ;",
+            "label": "Number of projects",
+            "visible": true,
+            "type": "text",
+            "source": "aggregation"
+        }, {
+            "name": "nbEquipes",
+            "array index": 9,
+            "execAfterChildrenVisit": true,
+            "value": "var doit = function (level, org) {
+            var output;
+            if (node) {
+                if (node.level == level) {
+                    output = 1;
+                } else if ((node.level < level) && node.children) {
+                    output = 0;
+                    node.children.forEach(function(child) {
+                        if (child.rawNode['nb' + org]) {
+                            output += child.rawNode['nb' + org];
+                        }
+                    });
+                }
+            }
+            return output;
+        } ; return doit(7, 'Equipes') ;",
+            "label": "Number of teams",
+            "visible": true,
+            "type": "text",
+            "source": "aggregation"
+        }, {
+            "name": "nbAgParEntite",
+            "array index": 10,
+            "execAfterChildrenVisit": true,
+            "value": "var doit = function (level, prop) {
+            var dive = function(node) {
+                    var totalNbAgents = 0;
+                    if (node && node.children) {
+                        node.children.forEach(function(child) {
+                            if (child.level == level) {
+                                totalNbAgents += child.rawNode.nbAgents;
+                            } else if (child.level < level) {
+                                totalNbAgents += dive(child);
+                            }
+                        });
+                    }
+                    return totalNbAgents;
+                },
+                totalNbAgents = dive(node),
+                output;
+            if (node.rawNode['nb' + prop] && (node.rawNode['nb' + prop] != 0)) {
+                output = totalNbAgents / node.rawNode['nb' + prop];
+            }
+            return output;
+        } ; return doit(1, 'Entite') ;",
+            "label": "nbAgParEntite",
+            "type": "text",
+            "source": "aggregation"
+        }, {
+            "name": "nbAgParDG",
+            "array index": 11,
+            "execAfterChildrenVisit": true,
+            "value": "var doit = function (level, prop) {
+            var dive = function(node) {
+                    var totalNbAgents = 0;
+                    if (node && node.children) {
+                        node.children.forEach(function(child) {
+                            if (child.level == level) {
+                                totalNbAgents += child.rawNode.nbAgents;
+                            } else if (child.level < level) {
+                                totalNbAgents += dive(child);
+                            }
+                        });
+                    }
+                    return totalNbAgents;
+                },
+                totalNbAgents = dive(node),
+                output;
+            if (node.rawNode['nb' + prop] && (node.rawNode['nb' + prop] != 0)) {
+                output = totalNbAgents / node.rawNode['nb' + prop];
+            }
+            return output;
+        } ; return doit(2, 'DG') ;",
+            "label": "nbAgParDG",
+            "type": "text",
+            "source": "aggregation"
+        }, {
+            "name": "nbAgParDGA",
+            "array index": 12,
+            "execAfterChildrenVisit": true,
+            "value": "var doit = function (level, prop) {
+            var dive = function(node) {
+                    var totalNbAgents = 0;
+                    if (node && node.children) {
+                        node.children.forEach(function(child) {
+                            if (child.level == level) {
+                                totalNbAgents += child.rawNode.nbAgents;
+                            } else if (child.level < level) {
+                                totalNbAgents += dive(child);
+                            }
+                        });
+                    }
+                    return totalNbAgents;
+                },
+                totalNbAgents = dive(node),
+                output;
+            if (node.rawNode['nb' + prop] && (node.rawNode['nb' + prop] != 0)) {
+                output = totalNbAgents / node.rawNode['nb' + prop];
+            }
+            return output;
+        } ; return doit(3, 'DGA') ;",
+            "label": "People per Department",
+            "visible": true,
+            "type": "text",
+            "source": "aggregation"
+        }, {
+            "name": "nbAgParDir",
+            "array index": 13,
+            "execAfterChildrenVisit": true,
+            "value": "var doit = function (level, prop) {
+            var dive = function(node) {
+                    var totalNbAgents = 0;
+                    if (node && node.children) {
+                        node.children.forEach(function(child) {
+                            if (child.level == level) {
+                                totalNbAgents += child.rawNode.nbAgents;
+                            } else if (child.level < level) {
+                                totalNbAgents += dive(child);
+                            }
+                        });
+                    }
+                    return totalNbAgents;
+                },
+                totalNbAgents = dive(node),
+                output;
+            if (node.rawNode['nb' + prop] && (node.rawNode['nb' + prop] != 0)) {
+                output = totalNbAgents / node.rawNode['nb' + prop];
+            }
+            return output;
+        } ; return doit(4, 'Dir') ;",
+            "label": "People per Business unit",
+            "visible": true,
+            "type": "text",
+            "source": "aggregation"
+        }, {
+            "name": "nbAgParServ",
+            "array index": 14,
+            "execAfterChildrenVisit": true,
+            "value": "var doit = function (level, prop) {
+            var dive = function(node) {
+                    var totalNbAgents = 0;
+                    if (node && node.children) {
+                        node.children.forEach(function(child) {
+                            if (child.level == level) {
+                                totalNbAgents += child.rawNode.nbAgents;
+                            } else if (child.level < level) {
+                                totalNbAgents += dive(child);
+                            }
+                        });
+                    }
+                    return totalNbAgents;
+                },
+                totalNbAgents = dive(node),
+                output;
+            if (node.rawNode['nb' + prop] && (node.rawNode['nb' + prop] != 0)) {
+                output = totalNbAgents / node.rawNode['nb' + prop];
+            }
+            return output;
+        } ; return doit(5, 'Serv') ;",
+            "label": "People per Service",
+            "visible": true,
+            "type": "text",
+            "source": "aggregation"
+        }, {
+            "name": "nbAgParUnite",
+            "array index": 15,
+            "execAfterChildrenVisit": true,
+            "value": "var doit = function (level, prop) {
+            var dive = function(node) {
+                    var totalNbAgents = 0;
+                    if (node && node.children) {
+                        node.children.forEach(function(child) {
+                            if (child.level == level) {
+                                totalNbAgents += child.rawNode.nbAgents;
+                            } else if (child.level < level) {
+                                totalNbAgents += dive(child);
+                            }
+                        });
+                    }
+                    return totalNbAgents;
+                },
+                totalNbAgents = dive(node),
+                output;
+            if (node.rawNode['nb' + prop] && (node.rawNode['nb' + prop] != 0)) {
+                output = totalNbAgents / node.rawNode['nb' + prop];
+            }
+            return output;
+        } ; return doit(6, 'Unites') ;",
+            "label": "People per Project",
+            "visible": true,
+            "type": "text",
+            "source": "aggregation"
+        }, {
+            "name": "nbAgParEquipe",
+            "array index": 16,
+            "execAfterChildrenVisit": true,
+            "value": "var doit = function (level, prop) {
+            var dive = function(node) {
+                    var totalNbAgents = 0;
+                    if (node && node.children) {
+                        node.children.forEach(function(child) {
+                            if (child.level == level) {
+                                totalNbAgents += child.rawNode.nbAgents;
+                            } else if (child.level < level) {
+                                totalNbAgents += dive(child);
+                            }
+                        });
+                    }
+                    return totalNbAgents;
+                },
+                totalNbAgents = dive(node),
+                output;
+            if (node.rawNode['nb' + prop] && (node.rawNode['nb' + prop] != 0)) {
+                output = totalNbAgents / node.rawNode['nb' + prop];
+            }
+            return output;
+        } ; return doit(7, 'Equipes') ;",
+            "label": "People per Team",
+            "visible": true,
+            "type": "text",
+            "source": "aggregation"
+        }, {
+            "name": "updateNodeName",
+            "array index": 17,
+            "execAfterChildrenVisit": true,
+            "value": "var doit = function () {\r
+            if (node.children) {\r
+                var total = node.rawNode[\"nbAgents\"];\r
+                var newName = node.name + ((total) ? \" (\" + total + \")\" : \"\");\r
+                node.rawNode['displayName'] = newName;\r
+            }\r
+        }; return doit() ;",
+            "label": "updateNodeName",
+            "type": "text",
+            "source": "aggregation"
+        }, {
+            "name": "obfuscate",
+            "array index": 18,
+            "execAfterChildrenVisit": false,
+            "value": "var doit = function (obfuscateIt, us) {
+            if (!obfuscateIt) return;
+
+            if (!nodes.obfuscateIdxes) nodes.obfuscateIdxes = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+            if (node.level > 0) {
+                node.name = \" \" + ++nodes.obfuscateIdxes[node.level];
+            } else {
+                // flush dm_Tools.trash
+                dm_Tools.trash = null;
+                nodes.obfuscateIdxes = null;
+            }
+            if (node.level == 1) {
+                node.name = \"Site\" + node.name;
+            } else if (node.level == 2) {
+                node.name = ((us) ? \"Entity\" : \"Entité\") + node.name;
+            } else if (node.level == 3) {
+                node.name = ((us) ? \"Department\" : \"Département\") + node.name;
+            } else if (node.level == 4) {
+                node.name = ((us) ? \"Business unit\" : \"Direction\") + node.name;
+            } else if (node.level == 5) {
+                node.name = \"Service\" + node.name;
+            } else if (node.level == 6) {
+                node.name = ((us) ? \"Project\" : \"Unité\") + node.name;
+            } else if (node.level == 7) {
+                node.name = ((us) ? \"Team\" : \"Equipe\") + node.name;
+            } else if (node.level == 8) {
+                node.name = \"Agent\" + node.name;
+                node.rawNode[\"Nom\"] = ((us) ? \"LastName \" : \"Nom \") + nodes.obfuscateIdxes[node.level];
+                node.rawNode[\"Pr_nom\"] = ((us) ? \"FirstName \" : \"Prénom \") + nodes.obfuscateIdxes[node.level];
+                node.rawNode[\"Login\"] = ((us) ? \"FullName\" : \"NomPrenom\") + nodes.obfuscateIdxes[node.level];
+                node.rawNode[\"Mail\"] = node.rawNode[\"Login\"] + \"@myCompany.com\";
+                if (node.rawNode[\"Mobile\"] && (node.rawNode[\"Mobile\"] != \"\")) {
+                    node.rawNode[\"Mobile\"] = dm_Tools.distinct(function() {
+                        return \"06.\" + dm_Tools.random(2, true) + \".\" + dm_Tools.random(2, true) + \".\" +
+                            dm_Tools.random(2, true) + \".\" + dm_Tools.random(2, true);
+                    }, \"telMobile\");
+                }
+                if (node.rawNode[\"T_l_phone\"]) {
+                    node.rawNode[\"T_l_phone\"] = dm_Tools.distinct(function() {
+                        return dm_Tools.random(4, true);
+                    }, \"telFixe\");
+                }
+                node.rawNode[\"Matricule\"] = dm_Tools.distinct(function() {
+                    return dm_Tools.random(5);
+                }, \"matricule\");
+                if (us) {
+                    var grade = node.rawNode[\"Libell__long_grade\"];
+                    if (grade) {
+                        if (grade.indexOf(\"Adjoint\") == 0) {
+                            node.rawNode[\"Libell__long_grade\"] = \"Operator\";
+                        } else if (grade.indexOf(\"Ingénieur en chef\") == 0) {
+                            node.rawNode[\"Libell__long_grade\"] = \"Chief engineer\";
+                        } else if (grade.indexOf(\"Ingénieur\") == 0) {
+                            node.rawNode[\"Libell__long_grade\"] = \"Engineer\";
+                        } else if (grade.indexOf(\"Technicien\") == 0) {
+                            node.rawNode[\"Libell__long_grade\"] = \"Technician\";
+                        } else if (grade.indexOf(\"Administrateur\") == 0) {
+                            node.rawNode[\"Libell__long_grade\"] = \"Administrator\";
+                        } else if (grade.indexOf(\"Directeur\") == 0) {
+                            node.rawNode[\"Libell__long_grade\"] = \"Director\";
+                        } else {
+                            node.rawNode[\"Libell__long_grade\"] = dm_Tools.distinct(function() {
+                                return \"Rank \" + dm_Tools.random(4);
+                            }, grade);
+                        }
+                    }
+                    var codePoste = node.rawNode[\"D_nomination_du_poste\"];
+                    if (codePoste) {
+                        node.rawNode[\"D_nomination_du_poste\"] = dm_Tools.distinct(function() {
+                            return \"Code \" + dm_Tools.random(5);
+                        }, codePoste);
+                    }
+                    node.rawNode[\"Libelle_fonction\"] = null;
+                    node.rawNode[\"Code_statut\"] = null;
+                }
+            }
+            var updateNode = function(node) {
+                var parent = node;
+                while (parent) {
+                    if (parent.level == 1) {
+                        node.rawNode[\"Libell__Ville_ou_CASA\"] = parent.name;
+                    }
+                    if (parent.level == 2) {
+                        node.rawNode[\"Libell__DGS_ou_CMUN\"] = parent.name;
+                    }
+                    if (parent.level == 3) {
+                        node.rawNode[\"Libell__DGA\"] = parent.name;
+                    }
+                    if (parent.level == 4) {
+                        node.rawNode[\"Libell__Direction\"] = parent.name;
+                    }
+                    if (parent.level == 5) {
+                        node.rawNode[\"Libell__Service\"] = parent.name;
+                    }
+                    if (parent.level == 6) {
+                        node.rawNode[\"Libell__Unit_\"] = parent.name;
+                    }
+                    if (parent.level == 7) {
+                        node.rawNode[\"Libell__Equipe\"] = parent.name;
+                    }
+                    parent = parent.parent;
+                }
+            }
+            updateNode(node);
+        } ; doit(true, true) ;",
+            "label": "obfuscate",
+            "type": "text",
+            "source": "aggregation"
+        }, {
+            "name": "addFranceLabsSearch",
+            "array index": 19,
+            "execAfterChildrenVisit": true,
+            "value": "var doit = function (FranceLabsIntegration, us, FranceLabsURL, FranceLabsUI_URL) {
+            var key = ((us) ? \"HR\" : \"DRH\");
+            var FranceLabsExec = function(key, us, FranceLabsURL, FranceLabsUI_URL) {
+
+                var path = dm_Tools.getNodePath(node, ' ', null, 'originalName', 2);
+                var searchFor = key + \" \" + node.name; //path ;
+                var searchQuery = FranceLabsURL + searchFor;
+                //searchQuery = encodeURI(searchQuery) ;
+                //console.log(\"------------>\" + searchQuery) ;
+
+                var nodeSearchOrig = dm_Datamap.getNodeAndDmFromFullPath('dm_rootDatamap|freeDatamap|FranceLabs search|Search by origin')['node'];
+                nodeSearchOrig.rawNode.dm_goto = searchQuery;
+                console.log(searchQuery);
+                delete nodeSearchOrig.rawNode.children;
+                delete nodeSearchOrig.rawNode.total;
+                delete nodeSearchOrig.rawNode.displayName;
+
+                var nodeSearchType = dm_Datamap.getNodeAndDmFromFullPath('dm_rootDatamap|freeDatamap|FranceLabs search|Search by type')['node'];
+                nodeSearchType.rawNode.dm_goto = searchQuery;
+                delete nodeSearchType.rawNode.children;
+                delete nodeSearchType.rawNode.total;
+                delete nodeSearchType.rawNode.displayName;
+
+                var nodeSearchYear = dm_Datamap.getNodeAndDmFromFullPath('dm_rootDatamap|freeDatamap|FranceLabs search|Search by year')['node'];
+                nodeSearchYear.rawNode.dm_goto = searchQuery;
+                delete nodeSearchYear.rawNode.children;
+                delete nodeSearchYear.rawNode.total;
+                delete nodeSearchYear.rawNode.displayName;
+
+                var nodeSearch = dm_Datamap.getNodeAndDmFromFullPath('dm_rootDatamap|freeDatamap|FranceLabs search')['node'];
+                var rootDm = dm_Datamap.getRootDm(nodeSearch);
+
+                var searchText = ((us) ? \"Search query\" : \"Requête de la recherche\");
+                var searchLabel = ((us) ? \"Query\" : \"Requête\");
+
+                nodeSearch.rawNode['searchKey'] = \"<div style='font-family:Arial; font-size:11pt; line-height: 140%; text-align:center;'><b>\" +
+                                                searchText + \" : </b>\" + searchFor + \"</div>\";
+                nodeSearch.rawNode['searchKey.type'] = 'rich text';
+                nodeSearch.rawNode['searchKey.edit'] = 'false';
+                nodeSearch.rawNode['searchKey.visible'] = 'true';
+
+                
+
+                // scrap previous datamaps
+                delete dm_Datamap.maps[\"Search by origin\"];
+                delete dm_Datamap.maps[\"Search by type\"];
+                delete dm_Datamap.maps[\"Search by year\"];
+
+                dm_Datamap.loadAll(nodeSearch, rootDm, function() {
+                    dm_UI.resetMouseOverSelection(nodeSearch);
+                    dm_UI.autoResize();
+                });
+            };
+            if (FranceLabsIntegration) {
+                var propName = \"FranceLabsSearch\";
+                var propLabel = \"Search for related files\";
+                node.rawNode[propName] = propLabel;
+                node.rawNode[propName + \".type\"] = \"action\";
+                node.rawNode[propName + \".edit\"] = false;
+                node.rawNode[propName + \".visible\"] = true;
+                node.rawNode[propName + \".image\"] = \"freeDatamap-www/FranceLabs.png\";
+                node.rawNode[propName + \".class\"] = \"btn-info\";
+                node.rawNode[propName + \".content.type\"] = \"iframe\";
+                node.rawNode[propName + \".content.url\"] =
+                    FranceLabsUI_URL + key + \" \" + node.name; //\"dm_Tools.getNodePath(node, ' ', null, 'originalName', 2)\" ;
+                var propName = \"freeDatamapFranceLabsSearch\";
+                var propLabel = \"Navigate through related files   <img src='data/images/freeDatamap-www/FranceLabs.png'></img>\";
+                node.rawNode[propName] = propLabel;
+                node.rawNode[propName + \".type\"] = \"action\";
+                node.rawNode[propName + \".edit\"] = false;
+                node.rawNode[propName + \".visible\"] = true;
+                node.rawNode[propName + \".image\"] = \"freeDatamap-www/logo_freeDatamap.png\";
+                node.rawNode[propName + \".image.width\"] = 547;
+                node.rawNode[propName + \".image.height\"] = 300;
+                node.rawNode[propName + \".image.panelMaxWidth\"] = 48;
+                node.rawNode[propName + \".image.panelMaxHeight\"] = 26;
+                node.rawNode[propName + \".class\"] = \"btn-success\";
+                node.rawNode[propName + \".content.type\"] = \"goto\";
+                node.rawNode[propName + \".content.exec\"] = \"var doit = \" + FranceLabsExec + \" ; doit('\" + key + \"', \" + true + \", \" +
+                    \"'\" + FranceLabsURL + \"', '\" + FranceLabsUI_URL + \"') ;\"
+                node.rawNode[propName + \".content.target\"] = 'dm_rootDatamap|freeDatamap|FranceLabs search|Search by origin';
+                //\"'http://127.0.0.1:8080/francellio-solr/FileShare/graph?q=' + '\" + key + \"' + ' ' +\" + \"dm_Tools.getNodePath(node, ' ', null, 'originalName', 2)\" ;
+            }
+        }; return doit(false, true, 'http://127.0.0.1:8080/francellio-solr/FileShare/graph?q.op=AND&q=',
+                'http://127.0.0.1:8080/AntibesSearch/search.jsp?searchType=allWords&query=') ;",
+            "label": "addFranceLabsSearch",
+            "type": "text",
+            "source": "aggregation"
+        }],
+        "columnNames": ["Nom", "Pr_nom", "Code_Ville_ou_CASA", "Libell__Ville_ou_CASA", "Code_DGS_ou_CMUN", "Libell__DGS_ou_CMUN", "Code_DGA", "Libell__DGA", "Code_Direction", "Libell__Direction", "Code_Service", "Libell__Service", "Code_Unit_", "Libell__Unit_", "Code_Equipe", "Libell__Equipe", "Libelle_fonction", "Libell__long_grade", "Mail", "Matricule", "Sexe", "Code_cat_gorie", "Code_grade", "Code_position", "Code_statut", "D_nomination_du_poste", "T_l_phone", "Mobile", "Login"],
+        "columns": [{
+            "name": 3,
+            "array index": 0
+        }, {
+            "name": 5,
+            "array index": 1
+        }, {
+            "name": 7,
+            "array index": 2
+        }, {
+            "name": 9,
+            "array index": 3
+        }, {
+            "name": 11,
+            "array index": 4
+        }, {
+            "name": 13,
+            "array index": 5
+        }, {
+            "name": 15,
+            "array index": 6
+        }, {
+            "array index": 7,
+            "children": [{
+                "name": 1,
+                "array index": 0
+            }, {
+                "name": 0,
+                "array index": 1
+            }]
+        }],
+        "displayProps": [{
+            "name": "racine",
+            "children": [{
+                "name": "nbDGA",
+                "array index": 0,
+                "label": "Number of Departments",
+                "edit": false
+            }, {
+                "name": "nbDir",
+                "array index": 1,
+                "label": "Number of Business units",
+                "edit": false
+            }, {
+                "name": "nbServ",
+                "array index": 2,
+                "label": "Number of Services",
+                "edit": false
+            }, {
+                "name": "nbUnites",
+                "array index": 3,
+                "label": "Number of projects",
+                "edit": false
+            }, {
+                "name": "nbEquipes",
+                "array index": 4,
+                "label": "Number of teams",
+                "edit": false
+            }, {
+                "name": "nbAgents",
+                "array index": 5,
+                "label": "Number of people",
+                "edit": false
+            }, {
+                "name": "nbAgParEntitePie",
+                "array index": 6,
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var doit = function (level) {
+            var output, elt;
+            var doIt = function(node) {
+                if (!output) {
+                    output = [];
+                }
+                elt = {};
+                output.push(elt);
+                elt.value = node.rawNode.nbAgents;
+                elt.name = node.name;
+                elt.unit = 'agent(s)';
+            };
+            var dive = function(node) {
+                if (node) {
+                    if (node.level == level) {
+                        doIt(node);
+                    } else if ((node.level == (level - 1)) && (node.children)) {
+                        node.children.forEach(function(child) {
+                            if (child.level == level) {
+                                doIt(child);
+                            }
+                        });
+                    } else if ((node.level < (level - 1)) && (node.children)) {
+                        node.children.forEach(function(child) {
+                            dive(child);
+                        });
+                    }
+                }
+            };
+            dive(node);
+            return output;
+        } ; return doit(1) ;",
+                "visible": true
+            }, {
+                "name": "nbAgParDGA",
+                "array index": 7,
+                "label": "People per Department",
+                "edit": false
+            }, {
+                "name": "nbAgParDGAPie",
+                "array index": 8,
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var doit = function (level) {
+            var output, elt;
+            var doIt = function(node) {
+                if (!output) {
+                    output = [];
+                }
+                elt = {};
+                output.push(elt);
+                elt.value = node.rawNode.nbAgents;
+                elt.name = node.name;
+                elt.unit = 'agent(s)';
+            };
+            var dive = function(node) {
+                if (node) {
+                    if (node.level == level) {
+                        doIt(node);
+                    } else if ((node.level == (level - 1)) && (node.children)) {
+                        node.children.forEach(function(child) {
+                            if (child.level == level) {
+                                doIt(child);
+                            }
+                        });
+                    } else if ((node.level < (level - 1)) && (node.children)) {
+                        node.children.forEach(function(child) {
+                            dive(child);
+                        });
+                    }
+                }
+            };
+            dive(node);
+            return output;
+        } ; return doit(3) ;",
+                "visible": true
+            }, {
+                "name": "nbAgParDir",
+                "array index": 9,
+                "label": "People per Business unit",
+                "edit": false
+            }, {
+                "name": "nbAgParDirPie",
+                "array index": 10,
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var doit = function (level) {
+            var output, elt;
+            var doIt = function(node) {
+                if (!output) {
+                    output = [];
+                }
+                elt = {};
+                output.push(elt);
+                elt.value = node.rawNode.nbAgents;
+                elt.name = node.name;
+                elt.unit = 'agent(s)';
+            };
+            var dive = function(node) {
+                if (node) {
+                    if (node.level == level) {
+                        doIt(node);
+                    } else if ((node.level == (level - 1)) && (node.children)) {
+                        node.children.forEach(function(child) {
+                            if (child.level == level) {
+                                doIt(child);
+                            }
+                        });
+                    } else if ((node.level < (level - 1)) && (node.children)) {
+                        node.children.forEach(function(child) {
+                            dive(child);
+                        });
+                    }
+                }
+            };
+            dive(node);
+            return output;
+        } ; return doit(4) ;",
+                "visible": true
+            }, {
+                "name": "nbAgParServ",
+                "array index": 11,
+                "label": "People per Service",
+                "edit": false
+            }, {
+                "name": "nbAgParUnite",
+                "array index": 12,
+                "label": "People per Project",
+                "edit": false
+            }, {
+                "name": "nbAgParEquipe",
+                "array index": 13,
+                "label": "People per Team",
+                "edit": false
+            }, {
+                "name": "nbCatA",
+                "array index": 14,
+                "label": "Category A",
+                "edit": false
+            }, {
+                "name": "nbCatB",
+                "array index": 15,
+                "label": "Category B",
+                "edit": false
+            }, {
+                "name": "nbCatC",
+                "array index": 16,
+                "label": "Category C",
+                "edit": false
+            }, {
+                "name": "nbAgParCatPie",
+                "array index": 17,
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var doit = function () {
+            var output;
+            if (node && node.children) {
+                output = [{
+                    \"value\": node.rawNode.nbCatA,
+                    \"name\": 'A',
+                    unit: 'agent(s)'
+                }, {
+                    \"value\": node.rawNode.nbCatB,
+                    \"name\": 'B',
+                    unit: 'agent(s)'
+                }, {
+                    \"value\": node.rawNode.nbCatC,
+                    \"name\": 'C',
+                    unit: 'agent(s)'
+                }];
+            }
+            return output;
+        } ; return doit() ;",
+                "visible": true
+            }, {
+                "name": "nodeZik",
+                "array index": 18,
+                "value": "music/ultranova105_shard.mp3",
+                "type": "music",
+                "ifCenter": "true",
+                "visible": true,
+                "editable": true
+            }]
+        }, {
+            "name": "entité",
+            "children": [{
+                "name": "nbDGA",
+                "array index": 0,
+                "label": "Number of Departments",
+                "edit": false
+            }, {
+                "name": "nbDir",
+                "array index": 1,
+                "label": "Number of Business units",
+                "edit": false
+            }, {
+                "name": "nbServ",
+                "array index": 2,
+                "label": "Number of Services",
+                "edit": false
+            }, {
+                "name": "nbUnites",
+                "array index": 3,
+                "label": "Number of projects",
+                "edit": false
+            }, {
+                "name": "nbEquipes",
+                "array index": 4,
+                "label": "Number of teams",
+                "edit": false
+            }, {
+                "name": "nbAgents",
+                "array index": 5,
+                "label": "Number of people",
+                "edit": false
+            }, {
+                "name": "nbAgParEntitePie",
+                "array index": 6,
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var doit = function (level) {\r
+            //var delay = dm_Tools.getDelay() ; if(delay > 20) console.log('nbAgParXPie '+delay) ;\r
+            //return \"var output, elt, doIt = function(node) { if(!output) { output = [] ; } elt = {} ; output.push(elt) ; elt.value = node.rawNode.nbAgents ; elt.name = node.name ; elt.unit = 'agent(s)' ; }, dive = function(node) { if(node) { if(node.level == \" + level + \") { doIt(node) ; } else if((node.level == \" + (level-1) + \") && (node.children)) { node.children.forEach(function(child) { if(child.level == \" + level + \") { doIt(child) ; } }) ; } else if((node.level < \" + (level-1) + \") && (node.children)) { node.children.forEach(function(child) { dive(child) ; }) ; } } } ; dive(node) ; return output ;\" ;\r
+            var output, elt;\r
+            var doIt = function(node) {\r
+                if (!output) {\r
+                    output = [];\r
+                }\r
+                elt = {};\r
+                output.push(elt);\r
+                elt.value = node.rawNode.nbAgents;\r
+                elt.name = node.name;\r
+                elt.unit = 'agent(s)';\r
+            };\r
+            var dive = function(node) {\r
+                if (node) {\r
+                    if (node.level == level) {\r
+                        doIt(node);\r
+                    } else if ((node.level == (level - 1)) && (node.children)) {\r
+                        node.children.forEach(function(child) {\r
+                            if (child.level == level) {\r
+                                doIt(child);\r
+                            }\r
+                        });\r
+                    } else if ((node.level < (level - 1)) && (node.children)) {\r
+                        node.children.forEach(function(child) {\r
+                            dive(child);\r
+                        });\r
+                    }\r
+                }\r
+            };\r
+            dive(node);\r
+            return output;\r
+        } ; return doit(1) ;"
+            }, {
+                "name": "nbAgParDGA",
+                "array index": 7,
+                "label": "People per Department",
+                "edit": false
+            }, {
+                "name": "nbAgParDGAPie",
+                "array index": 8,
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var doit = function (level) {\r
+            //var delay = dm_Tools.getDelay() ; if(delay > 20) console.log('nbAgParXPie '+delay) ;\r
+            //return \"var output, elt, doIt = function(node) { if(!output) { output = [] ; } elt = {} ; output.push(elt) ; elt.value = node.rawNode.nbAgents ; elt.name = node.name ; elt.unit = 'agent(s)' ; }, dive = function(node) { if(node) { if(node.level == \" + level + \") { doIt(node) ; } else if((node.level == \" + (level-1) + \") && (node.children)) { node.children.forEach(function(child) { if(child.level == \" + level + \") { doIt(child) ; } }) ; } else if((node.level < \" + (level-1) + \") && (node.children)) { node.children.forEach(function(child) { dive(child) ; }) ; } } } ; dive(node) ; return output ;\" ;\r
+            var output, elt;\r
+            var doIt = function(node) {\r
+                if (!output) {\r
+                    output = [];\r
+                }\r
+                elt = {};\r
+                output.push(elt);\r
+                elt.value = node.rawNode.nbAgents;\r
+                elt.name = node.name;\r
+                elt.unit = 'agent(s)';\r
+            };\r
+            var dive = function(node) {\r
+                if (node) {\r
+                    if (node.level == level) {\r
+                        doIt(node);\r
+                    } else if ((node.level == (level - 1)) && (node.children)) {\r
+                        node.children.forEach(function(child) {\r
+                            if (child.level == level) {\r
+                                doIt(child);\r
+                            }\r
+                        });\r
+                    } else if ((node.level < (level - 1)) && (node.children)) {\r
+                        node.children.forEach(function(child) {\r
+                            dive(child);\r
+                        });\r
+                    }\r
+                }\r
+            };\r
+            dive(node);\r
+            return output;\r
+        } ; return doit(3) ;"
+            }, {
+                "name": "nbAgParDir",
+                "array index": 9,
+                "label": "People per Business unit",
+                "edit": false
+            }, {
+                "name": "nbAgParDirPie",
+                "array index": 10,
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var doit = function (level) {\r
+            //var delay = dm_Tools.getDelay() ; if(delay > 20) console.log('nbAgParXPie '+delay) ;\r
+            //return \"var output, elt, doIt = function(node) { if(!output) { output = [] ; } elt = {} ; output.push(elt) ; elt.value = node.rawNode.nbAgents ; elt.name = node.name ; elt.unit = 'agent(s)' ; }, dive = function(node) { if(node) { if(node.level == \" + level + \") { doIt(node) ; } else if((node.level == \" + (level-1) + \") && (node.children)) { node.children.forEach(function(child) { if(child.level == \" + level + \") { doIt(child) ; } }) ; } else if((node.level < \" + (level-1) + \") && (node.children)) { node.children.forEach(function(child) { dive(child) ; }) ; } } } ; dive(node) ; return output ;\" ;\r
+            var output, elt;\r
+            var doIt = function(node) {\r
+                if (!output) {\r
+                    output = [];\r
+                }\r
+                elt = {};\r
+                output.push(elt);\r
+                elt.value = node.rawNode.nbAgents;\r
+                elt.name = node.name;\r
+                elt.unit = 'agent(s)';\r
+            };\r
+            var dive = function(node) {\r
+                if (node) {\r
+                    if (node.level == level) {\r
+                        doIt(node);\r
+                    } else if ((node.level == (level - 1)) && (node.children)) {\r
+                        node.children.forEach(function(child) {\r
+                            if (child.level == level) {\r
+                                doIt(child);\r
+                            }\r
+                        });\r
+                    } else if ((node.level < (level - 1)) && (node.children)) {\r
+                        node.children.forEach(function(child) {\r
+                            dive(child);\r
+                        });\r
+                    }\r
+                }\r
+            };\r
+            dive(node);\r
+            return output;\r
+        } ; return doit(4) ;"
+            }, {
+                "name": "nbAgParServ",
+                "array index": 11,
+                "label": "People per Service",
+                "edit": false
+            }, {
+                "name": "nbAgParUnite",
+                "array index": 12,
+                "label": "People per Project",
+                "edit": false
+            }, {
+                "name": "nbAgParEquipe",
+                "array index": 13,
+                "label": "People per Team",
+                "edit": false
+            }, {
+                "name": "nbCatA",
+                "array index": 14,
+                "label": "Category A",
+                "edit": false
+            }, {
+                "name": "nbCatB",
+                "array index": 15,
+                "label": "Category B",
+                "edit": false
+            }, {
+                "name": "nbCatC",
+                "array index": 16,
+                "label": "Category C",
+                "edit": false
+            }, {
+                "name": "nbAgParCatPie",
+                "array index": 17,
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var doit = function () {\r
+            //var delay = dm_Tools.getDelay() ; if(delay > 20) console.log('nbAgParCatPie '+delay) ;\r
+            //return \"var output ; if(node && node.children) { output = [ {\"value\": node.rawNode.nbCatA, \"name\": 'A', unit: 'agent(s)'}, {\"value\": node.rawNode.nbCatB, \"name\": 'B', unit: 'agent(s)'}, {\"value\": node.rawNode.nbCatC, \"name\": 'C', unit: 'agent(s)'} ] ; } return output ;\" ;\r
+            var output;\r
+            if (node && node.children) {\r
+                output = [{\r
+                    \"value\": node.rawNode.nbCatA,\r
+                    \"name\": 'A',\r
+                    unit: 'agent(s)'\r
+                }, {\r
+                    \"value\": node.rawNode.nbCatB,\r
+                    \"name\": 'B',\r
+                    unit: 'agent(s)'\r
+                }, {\r
+                    \"value\": node.rawNode.nbCatC,\r
+                    \"name\": 'C',\r
+                    unit: 'agent(s)'\r
+                }];\r
+            }\r
+            return output;\r
+        } ; return doit() ;"
+            }, {
+                "name": "nodeZik",
+                "array index": 18,
+                "value": "music/ultranova105_shard.mp3",
+                "type": "music",
+                "ifCenter": "true",
+                "editable": true
+            }]
+        }, {
+            "name": "DG",
+            "children": [{
+                "name": "nbDGA",
+                "array index": 0,
+                "label": "Number of Departments",
+                "edit": false
+            }, {
+                "name": "nbDir",
+                "array index": 1,
+                "label": "Number of Business units",
+                "edit": false
+            }, {
+                "name": "nbServ",
+                "array index": 2,
+                "label": "Number of Services",
+                "edit": false
+            }, {
+                "name": "nbUnites",
+                "array index": 3,
+                "label": "Number of projects",
+                "edit": false
+            }, {
+                "name": "nbEquipes",
+                "array index": 4,
+                "label": "Number of teams",
+                "edit": false
+            }, {
+                "name": "nbAgents",
+                "array index": 5,
+                "label": "Number of people",
+                "edit": false
+            }, {
+                "name": "nbAgParDGA",
+                "array index": 6,
+                "label": "People per Department",
+                "edit": false
+            }, {
+                "name": "nbAgParDGAPie",
+                "array index": 7,
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var doit = function (level) {\r
+            //var delay = dm_Tools.getDelay() ; if(delay > 20) console.log('nbAgParXPie '+delay) ;\r
+            //return \"var output, elt, doIt = function(node) { if(!output) { output = [] ; } elt = {} ; output.push(elt) ; elt.value = node.rawNode.nbAgents ; elt.name = node.name ; elt.unit = 'agent(s)' ; }, dive = function(node) { if(node) { if(node.level == \" + level + \") { doIt(node) ; } else if((node.level == \" + (level-1) + \") && (node.children)) { node.children.forEach(function(child) { if(child.level == \" + level + \") { doIt(child) ; } }) ; } else if((node.level < \" + (level-1) + \") && (node.children)) { node.children.forEach(function(child) { dive(child) ; }) ; } } } ; dive(node) ; return output ;\" ;\r
+            var output, elt;\r
+            var doIt = function(node) {\r
+                if (!output) {\r
+                    output = [];\r
+                }\r
+                elt = {};\r
+                output.push(elt);\r
+                elt.value = node.rawNode.nbAgents;\r
+                elt.name = node.name;\r
+                elt.unit = 'agent(s)';\r
+            };\r
+            var dive = function(node) {\r
+                if (node) {\r
+                    if (node.level == level) {\r
+                        doIt(node);\r
+                    } else if ((node.level == (level - 1)) && (node.children)) {\r
+                        node.children.forEach(function(child) {\r
+                            if (child.level == level) {\r
+                                doIt(child);\r
+                            }\r
+                        });\r
+                    } else if ((node.level < (level - 1)) && (node.children)) {\r
+                        node.children.forEach(function(child) {\r
+                            dive(child);\r
+                        });\r
+                    }\r
+                }\r
+            };\r
+            dive(node);\r
+            return output;\r
+        } ; return doit(3) ;"
+            }, {
+                "name": "nbAgParDir",
+                "array index": 8,
+                "label": "People per Business unit",
+                "edit": false
+            }, {
+                "name": "nbAgParDirPie",
+                "array index": 9,
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var doit = function (level) {\r
+            //var delay = dm_Tools.getDelay() ; if(delay > 20) console.log('nbAgParXPie '+delay) ;\r
+            //return \"var output, elt, doIt = function(node) { if(!output) { output = [] ; } elt = {} ; output.push(elt) ; elt.value = node.rawNode.nbAgents ; elt.name = node.name ; elt.unit = 'agent(s)' ; }, dive = function(node) { if(node) { if(node.level == \" + level + \") { doIt(node) ; } else if((node.level == \" + (level-1) + \") && (node.children)) { node.children.forEach(function(child) { if(child.level == \" + level + \") { doIt(child) ; } }) ; } else if((node.level < \" + (level-1) + \") && (node.children)) { node.children.forEach(function(child) { dive(child) ; }) ; } } } ; dive(node) ; return output ;\" ;\r
+            var output, elt;\r
+            var doIt = function(node) {\r
+                if (!output) {\r
+                    output = [];\r
+                }\r
+                elt = {};\r
+                output.push(elt);\r
+                elt.value = node.rawNode.nbAgents;\r
+                elt.name = node.name;\r
+                elt.unit = 'agent(s)';\r
+            };\r
+            var dive = function(node) {\r
+                if (node) {\r
+                    if (node.level == level) {\r
+                        doIt(node);\r
+                    } else if ((node.level == (level - 1)) && (node.children)) {\r
+                        node.children.forEach(function(child) {\r
+                            if (child.level == level) {\r
+                                doIt(child);\r
+                            }\r
+                        });\r
+                    } else if ((node.level < (level - 1)) && (node.children)) {\r
+                        node.children.forEach(function(child) {\r
+                            dive(child);\r
+                        });\r
+                    }\r
+                }\r
+            };\r
+            dive(node);\r
+            return output;\r
+        } ; return doit(4) ;"
+            }, {
+                "name": "nbAgParServ",
+                "array index": 10,
+                "label": "People per Service",
+                "edit": false
+            }, {
+                "name": "nbAgParUnite",
+                "array index": 11,
+                "label": "People per Project",
+                "edit": false
+            }, {
+                "name": "nbAgParEquipe",
+                "array index": 12,
+                "label": "People per Team",
+                "edit": false
+            }, {
+                "name": "nbCatA",
+                "array index": 13,
+                "label": "Category A",
+                "edit": false
+            }, {
+                "name": "nbCatB",
+                "array index": 14,
+                "label": "Category B",
+                "edit": false
+            }, {
+                "name": "nbCatC",
+                "array index": 15,
+                "label": "Category C",
+                "edit": false
+            }, {
+                "name": "nbAgParCatPie",
+                "array index": 16,
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var doit = function () {\r
+            //var delay = dm_Tools.getDelay() ; if(delay > 20) console.log('nbAgParCatPie '+delay) ;\r
+            //return \"var output ; if(node && node.children) { output = [ {\"value\": node.rawNode.nbCatA, \"name\": 'A', unit: 'agent(s)'}, {\"value\": node.rawNode.nbCatB, \"name\": 'B', unit: 'agent(s)'}, {\"value\": node.rawNode.nbCatC, \"name\": 'C', unit: 'agent(s)'} ] ; } return output ;\" ;\r
+            var output;\r
+            if (node && node.children) {\r
+                output = [{\r
+                    \"value\": node.rawNode.nbCatA,\r
+                    \"name\": 'A',\r
+                    unit: 'agent(s)'\r
+                }, {\r
+                    \"value\": node.rawNode.nbCatB,\r
+                    \"name\": 'B',\r
+                    unit: 'agent(s)'\r
+                }, {\r
+                    \"value\": node.rawNode.nbCatC,\r
+                    \"name\": 'C',\r
+                    unit: 'agent(s)'\r
+                }];\r
+            }\r
+            return output;\r
+        } ; return doit() ;"
+            }, {
+                "name": "nodeZik",
+                "array index": 17,
+                "value": "music/ultranova105_shard.mp3",
+                "type": "music",
+                "ifCenter": "true",
+                "editable": true
+            }]
+        }, {
+            "name": "DGA",
+            "children": [{
+                "name": "Libell__DGA",
+                "array index": 0,
+                "label": "Department"
+            }, {
+                "name": "nbDir",
+                "array index": 1,
+                "label": "Number of Business units",
+                "edit": false
+            }, {
+                "name": "nbServ",
+                "array index": 2,
+                "label": "Number of Services",
+                "edit": false
+            }, {
+                "name": "nbUnites",
+                "array index": 3,
+                "label": "Number of projects",
+                "edit": false
+            }, {
+                "name": "nbEquipes",
+                "array index": 4,
+                "label": "Number of teams",
+                "edit": false
+            }, {
+                "name": "nbAgents",
+                "array index": 5,
+                "label": "Number of people",
+                "edit": false
+            }, {
+                "name": "nbAgParDir",
+                "array index": 6,
+                "label": "People per Business unit",
+                "edit": false
+            }, {
+                "name": "nbAgParDirPie",
+                "array index": 7,
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var doit = function (level) {\r
+            //var delay = dm_Tools.getDelay() ; if(delay > 20) console.log('nbAgParXPie '+delay) ;\r
+            //return \"var output, elt, doIt = function(node) { if(!output) { output = [] ; } elt = {} ; output.push(elt) ; elt.value = node.rawNode.nbAgents ; elt.name = node.name ; elt.unit = 'agent(s)' ; }, dive = function(node) { if(node) { if(node.level == \" + level + \") { doIt(node) ; } else if((node.level == \" + (level-1) + \") && (node.children)) { node.children.forEach(function(child) { if(child.level == \" + level + \") { doIt(child) ; } }) ; } else if((node.level < \" + (level-1) + \") && (node.children)) { node.children.forEach(function(child) { dive(child) ; }) ; } } } ; dive(node) ; return output ;\" ;\r
+            var output, elt;\r
+            var doIt = function(node) {\r
+                if (!output) {\r
+                    output = [];\r
+                }\r
+                elt = {};\r
+                output.push(elt);\r
+                elt.value = node.rawNode.nbAgents;\r
+                elt.name = node.name;\r
+                elt.unit = 'agent(s)';\r
+            };\r
+            var dive = function(node) {\r
+                if (node) {\r
+                    if (node.level == level) {\r
+                        doIt(node);\r
+                    } else if ((node.level == (level - 1)) && (node.children)) {\r
+                        node.children.forEach(function(child) {\r
+                            if (child.level == level) {\r
+                                doIt(child);\r
+                            }\r
+                        });\r
+                    } else if ((node.level < (level - 1)) && (node.children)) {\r
+                        node.children.forEach(function(child) {\r
+                            dive(child);\r
+                        });\r
+                    }\r
+                }\r
+            };\r
+            dive(node);\r
+            return output;\r
+        } ; return doit(4) ;"
+            }, {
+                "name": "nbAgParServ",
+                "array index": 8,
+                "label": "People per Service",
+                "edit": false
+            }, {
+                "name": "nbAgParServPie",
+                "array index": 9,
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var doit = function (level) {\r
+            //var delay = dm_Tools.getDelay() ; if(delay > 20) console.log('nbAgParXPie '+delay) ;\r
+            //return \"var output, elt, doIt = function(node) { if(!output) { output = [] ; } elt = {} ; output.push(elt) ; elt.value = node.rawNode.nbAgents ; elt.name = node.name ; elt.unit = 'agent(s)' ; }, dive = function(node) { if(node) { if(node.level == \" + level + \") { doIt(node) ; } else if((node.level == \" + (level-1) + \") && (node.children)) { node.children.forEach(function(child) { if(child.level == \" + level + \") { doIt(child) ; } }) ; } else if((node.level < \" + (level-1) + \") && (node.children)) { node.children.forEach(function(child) { dive(child) ; }) ; } } } ; dive(node) ; return output ;\" ;\r
+            var output, elt;\r
+            var doIt = function(node) {\r
+                if (!output) {\r
+                    output = [];\r
+                }\r
+                elt = {};\r
+                output.push(elt);\r
+                elt.value = node.rawNode.nbAgents;\r
+                elt.name = node.name;\r
+                elt.unit = 'agent(s)';\r
+            };\r
+            var dive = function(node) {\r
+                if (node) {\r
+                    if (node.level == level) {\r
+                        doIt(node);\r
+                    } else if ((node.level == (level - 1)) && (node.children)) {\r
+                        node.children.forEach(function(child) {\r
+                            if (child.level == level) {\r
+                                doIt(child);\r
+                            }\r
+                        });\r
+                    } else if ((node.level < (level - 1)) && (node.children)) {\r
+                        node.children.forEach(function(child) {\r
+                            dive(child);\r
+                        });\r
+                    }\r
+                }\r
+            };\r
+            dive(node);\r
+            return output;\r
+        } ; return doit(5) ;"
+            }, {
+                "name": "nbAgParUnite",
+                "array index": 10,
+                "label": "People per Project",
+                "edit": false
+            }, {
+                "name": "nbAgParEquipe",
+                "array index": 11,
+                "label": "People per Team",
+                "edit": false
+            }, {
+                "name": "nbCatA",
+                "array index": 12,
+                "label": "Category A",
+                "edit": false
+            }, {
+                "name": "nbCatB",
+                "array index": 13,
+                "label": "Category B",
+                "edit": false
+            }, {
+                "name": "nbCatC",
+                "array index": 14,
+                "label": "Category C",
+                "edit": false
+            }, {
+                "name": "nbAgParCatPie",
+                "array index": 15,
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var doit = function () {\r
+            //var delay = dm_Tools.getDelay() ; if(delay > 20) console.log('nbAgParCatPie '+delay) ;\r
+            //return \"var output ; if(node && node.children) { output = [ {\"value\": node.rawNode.nbCatA, \"name\": 'A', unit: 'agent(s)'}, {\"value\": node.rawNode.nbCatB, \"name\": 'B', unit: 'agent(s)'}, {\"value\": node.rawNode.nbCatC, \"name\": 'C', unit: 'agent(s)'} ] ; } return output ;\" ;\r
+            var output;\r
+            if (node && node.children) {\r
+                output = [{\r
+                    \"value\": node.rawNode.nbCatA,\r
+                    \"name\": 'A',\r
+                    unit: 'agent(s)'\r
+                }, {\r
+                    \"value\": node.rawNode.nbCatB,\r
+                    \"name\": 'B',\r
+                    unit: 'agent(s)'\r
+                }, {\r
+                    \"value\": node.rawNode.nbCatC,\r
+                    \"name\": 'C',\r
+                    unit: 'agent(s)'\r
+                }];\r
+            }\r
+            return output;\r
+        } ; return doit() ;"
+            }, {
+                "name": "codeFinance",
+                "array index": 16,
+                "label": "Financial code",
+                "edit": false
+            }, {
+                "name": "nodeZik",
+                "array index": 17,
+                "value": "music/ultranova105_shard.mp3",
+                "type": "music",
+                "ifCenter": "true",
+                "editable": true
+            }]
+        }, {
+            "name": "Direction",
+            "children": [{
+                "name": "Libell__DGA",
+                "array index": 0,
+                "label": "Department"
+            }, {
+                "name": "Libell__Direction",
+                "array index": 1,
+                "label": "Business unit"
+            }, {
+                "name": "nbServ",
+                "array index": 2,
+                "label": "Number of Services",
+                "edit": false
+            }, {
+                "name": "nbUnites",
+                "array index": 3,
+                "label": "Number of projects",
+                "edit": false
+            }, {
+                "name": "nbEquipes",
+                "array index": 4,
+                "label": "Number of teams",
+                "edit": false
+            }, {
+                "name": "nbAgents",
+                "array index": 5,
+                "label": "Number of people",
+                "edit": false
+            }, {
+                "name": "nbAgParServ",
+                "array index": 6,
+                "label": "People per Service",
+                "edit": false
+            }, {
+                "name": "nbAgParServPie",
+                "array index": 7,
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var doit = function (level) {\r
+            //var delay = dm_Tools.getDelay() ; if(delay > 20) console.log('nbAgParXPie '+delay) ;\r
+            //return \"var output, elt, doIt = function(node) { if(!output) { output = [] ; } elt = {} ; output.push(elt) ; elt.value = node.rawNode.nbAgents ; elt.name = node.name ; elt.unit = 'agent(s)' ; }, dive = function(node) { if(node) { if(node.level == \" + level + \") { doIt(node) ; } else if((node.level == \" + (level-1) + \") && (node.children)) { node.children.forEach(function(child) { if(child.level == \" + level + \") { doIt(child) ; } }) ; } else if((node.level < \" + (level-1) + \") && (node.children)) { node.children.forEach(function(child) { dive(child) ; }) ; } } } ; dive(node) ; return output ;\" ;\r
+            var output, elt;\r
+            var doIt = function(node) {\r
+                if (!output) {\r
+                    output = [];\r
+                }\r
+                elt = {};\r
+                output.push(elt);\r
+                elt.value = node.rawNode.nbAgents;\r
+                elt.name = node.name;\r
+                elt.unit = 'agent(s)';\r
+            };\r
+            var dive = function(node) {\r
+                if (node) {\r
+                    if (node.level == level) {\r
+                        doIt(node);\r
+                    } else if ((node.level == (level - 1)) && (node.children)) {\r
+                        node.children.forEach(function(child) {\r
+                            if (child.level == level) {\r
+                                doIt(child);\r
+                            }\r
+                        });\r
+                    } else if ((node.level < (level - 1)) && (node.children)) {\r
+                        node.children.forEach(function(child) {\r
+                            dive(child);\r
+                        });\r
+                    }\r
+                }\r
+            };\r
+            dive(node);\r
+            return output;\r
+        } ; return doit(5) ;"
+            }, {
+                "name": "nbAgParUnite",
+                "array index": 8,
+                "label": "People per Project",
+                "edit": false
+            }, {
+                "name": "nbAgParUnitePie",
+                "array index": 9,
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var doit = function (level) {\r
+            //var delay = dm_Tools.getDelay() ; if(delay > 20) console.log('nbAgParXPie '+delay) ;\r
+            //return \"var output, elt, doIt = function(node) { if(!output) { output = [] ; } elt = {} ; output.push(elt) ; elt.value = node.rawNode.nbAgents ; elt.name = node.name ; elt.unit = 'agent(s)' ; }, dive = function(node) { if(node) { if(node.level == \" + level + \") { doIt(node) ; } else if((node.level == \" + (level-1) + \") && (node.children)) { node.children.forEach(function(child) { if(child.level == \" + level + \") { doIt(child) ; } }) ; } else if((node.level < \" + (level-1) + \") && (node.children)) { node.children.forEach(function(child) { dive(child) ; }) ; } } } ; dive(node) ; return output ;\" ;\r
+            var output, elt;\r
+            var doIt = function(node) {\r
+                if (!output) {\r
+                    output = [];\r
+                }\r
+                elt = {};\r
+                output.push(elt);\r
+                elt.value = node.rawNode.nbAgents;\r
+                elt.name = node.name;\r
+                elt.unit = 'agent(s)';\r
+            };\r
+            var dive = function(node) {\r
+                if (node) {\r
+                    if (node.level == level) {\r
+                        doIt(node);\r
+                    } else if ((node.level == (level - 1)) && (node.children)) {\r
+                        node.children.forEach(function(child) {\r
+                            if (child.level == level) {\r
+                                doIt(child);\r
+                            }\r
+                        });\r
+                    } else if ((node.level < (level - 1)) && (node.children)) {\r
+                        node.children.forEach(function(child) {\r
+                            dive(child);\r
+                        });\r
+                    }\r
+                }\r
+            };\r
+            dive(node);\r
+            return output;\r
+        } ; return doit(6) ;"
+            }, {
+                "name": "nbAgParEquipe",
+                "array index": 10,
+                "label": "People per Team",
+                "edit": false
+            }, {
+                "name": "nbCatA",
+                "array index": 11,
+                "label": "Category A",
+                "edit": false
+            }, {
+                "name": "nbCatB",
+                "array index": 12,
+                "label": "Category B",
+                "edit": false
+            }, {
+                "name": "nbCatC",
+                "array index": 13,
+                "label": "Category C",
+                "edit": false
+            }, {
+                "name": "nbAgParCatPie",
+                "array index": 14,
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var doit = function () {\r
+            //var delay = dm_Tools.getDelay() ; if(delay > 20) console.log('nbAgParCatPie '+delay) ;\r
+            //return \"var output ; if(node && node.children) { output = [ {\"value\": node.rawNode.nbCatA, \"name\": 'A', unit: 'agent(s)'}, {\"value\": node.rawNode.nbCatB, \"name\": 'B', unit: 'agent(s)'}, {\"value\": node.rawNode.nbCatC, \"name\": 'C', unit: 'agent(s)'} ] ; } return output ;\" ;\r
+            var output;\r
+            if (node && node.children) {\r
+                output = [{\r
+                    \"value\": node.rawNode.nbCatA,\r
+                    \"name\": 'A',\r
+                    unit: 'agent(s)'\r
+                }, {\r
+                    \"value\": node.rawNode.nbCatB,\r
+                    \"name\": 'B',\r
+                    unit: 'agent(s)'\r
+                }, {\r
+                    \"value\": node.rawNode.nbCatC,\r
+                    \"name\": 'C',\r
+                    unit: 'agent(s)'\r
+                }];\r
+            }\r
+            return output;\r
+        } ; return doit() ;"
+            }, {
+                "name": "codeFinance",
+                "array index": 15,
+                "label": "Financial code",
+                "edit": false
+            }, {
+                "name": "nodeZik",
+                "array index": 16,
+                "value": "music/ultranova105_shard.mp3",
+                "type": "music",
+                "ifCenter": "true",
+                "editable": true
+            }]
+        }, {
+            "name": "service",
+            "children": [{
+                "name": "Libell__DGA",
+                "array index": 0,
+                "label": "Department"
+            }, {
+                "name": "Libell__Direction",
+                "array index": 1,
+                "label": "Business unit"
+            }, {
+                "name": "Libell__Service",
+                "array index": 2,
+                "label": "Service"
+            }, {
+                "name": "nbUnites",
+                "array index": 3,
+                "label": "Number of projects",
+                "edit": false
+            }, {
+                "name": "nbEquipes",
+                "array index": 4,
+                "label": "Number of teams",
+                "edit": false
+            }, {
+                "name": "nbAgents",
+                "array index": 5,
+                "label": "Number of people",
+                "edit": false
+            }, {
+                "name": "nbAgParUnite",
+                "array index": 6,
+                "label": "People per Project",
+                "edit": false
+            }, {
+                "name": "nbAgParUnitePie",
+                "array index": 7,
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var doit = function (level) {\r
+            //var delay = dm_Tools.getDelay() ; if(delay > 20) console.log('nbAgParXPie '+delay) ;\r
+            //return \"var output, elt, doIt = function(node) { if(!output) { output = [] ; } elt = {} ; output.push(elt) ; elt.value = node.rawNode.nbAgents ; elt.name = node.name ; elt.unit = 'agent(s)' ; }, dive = function(node) { if(node) { if(node.level == \" + level + \") { doIt(node) ; } else if((node.level == \" + (level-1) + \") && (node.children)) { node.children.forEach(function(child) { if(child.level == \" + level + \") { doIt(child) ; } }) ; } else if((node.level < \" + (level-1) + \") && (node.children)) { node.children.forEach(function(child) { dive(child) ; }) ; } } } ; dive(node) ; return output ;\" ;\r
+            var output, elt;\r
+            var doIt = function(node) {\r
+                if (!output) {\r
+                    output = [];\r
+                }\r
+                elt = {};\r
+                output.push(elt);\r
+                elt.value = node.rawNode.nbAgents;\r
+                elt.name = node.name;\r
+                elt.unit = 'agent(s)';\r
+            };\r
+            var dive = function(node) {\r
+                if (node) {\r
+                    if (node.level == level) {\r
+                        doIt(node);\r
+                    } else if ((node.level == (level - 1)) && (node.children)) {\r
+                        node.children.forEach(function(child) {\r
+                            if (child.level == level) {\r
+                                doIt(child);\r
+                            }\r
+                        });\r
+                    } else if ((node.level < (level - 1)) && (node.children)) {\r
+                        node.children.forEach(function(child) {\r
+                            dive(child);\r
+                        });\r
+                    }\r
+                }\r
+            };\r
+            dive(node);\r
+            return output;\r
+        } ; return doit(6) ;"
+            }, {
+                "name": "nbAgParEquipe",
+                "array index": 8,
+                "label": "People per Team",
+                "edit": false
+            }, {
+                "name": "nbAgParEquipePie",
+                "array index": 9,
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var doit = function (level) {\r
+            //var delay = dm_Tools.getDelay() ; if(delay > 20) console.log('nbAgParXPie '+delay) ;\r
+            //return \"var output, elt, doIt = function(node) { if(!output) { output = [] ; } elt = {} ; output.push(elt) ; elt.value = node.rawNode.nbAgents ; elt.name = node.name ; elt.unit = 'agent(s)' ; }, dive = function(node) { if(node) { if(node.level == \" + level + \") { doIt(node) ; } else if((node.level == \" + (level-1) + \") && (node.children)) { node.children.forEach(function(child) { if(child.level == \" + level + \") { doIt(child) ; } }) ; } else if((node.level < \" + (level-1) + \") && (node.children)) { node.children.forEach(function(child) { dive(child) ; }) ; } } } ; dive(node) ; return output ;\" ;\r
+            var output, elt;\r
+            var doIt = function(node) {\r
+                if (!output) {\r
+                    output = [];\r
+                }\r
+                elt = {};\r
+                output.push(elt);\r
+                elt.value = node.rawNode.nbAgents;\r
+                elt.name = node.name;\r
+                elt.unit = 'agent(s)';\r
+            };\r
+            var dive = function(node) {\r
+                if (node) {\r
+                    if (node.level == level) {\r
+                        doIt(node);\r
+                    } else if ((node.level == (level - 1)) && (node.children)) {\r
+                        node.children.forEach(function(child) {\r
+                            if (child.level == level) {\r
+                                doIt(child);\r
+                            }\r
+                        });\r
+                    } else if ((node.level < (level - 1)) && (node.children)) {\r
+                        node.children.forEach(function(child) {\r
+                            dive(child);\r
+                        });\r
+                    }\r
+                }\r
+            };\r
+            dive(node);\r
+            return output;\r
+        } ; return doit(7) ;"
+            }, {
+                "name": "nbCatA",
+                "array index": 10,
+                "label": "Category A",
+                "edit": false
+            }, {
+                "name": "nbCatB",
+                "array index": 11,
+                "label": "Category B",
+                "edit": false
+            }, {
+                "name": "nbCatC",
+                "array index": 12,
+                "label": "Category C",
+                "edit": false
+            }, {
+                "name": "nbAgParCatPie",
+                "array index": 13,
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var doit = function () {\r
+            //var delay = dm_Tools.getDelay() ; if(delay > 20) console.log('nbAgParCatPie '+delay) ;\r
+            //return \"var output ; if(node && node.children) { output = [ {\"value\": node.rawNode.nbCatA, \"name\": 'A', unit: 'agent(s)'}, {\"value\": node.rawNode.nbCatB, \"name\": 'B', unit: 'agent(s)'}, {\"value\": node.rawNode.nbCatC, \"name\": 'C', unit: 'agent(s)'} ] ; } return output ;\" ;\r
+            var output;\r
+            if (node && node.children) {\r
+                output = [{\r
+                    \"value\": node.rawNode.nbCatA,\r
+                    \"name\": 'A',\r
+                    unit: 'agent(s)'\r
+                }, {\r
+                    \"value\": node.rawNode.nbCatB,\r
+                    \"name\": 'B',\r
+                    unit: 'agent(s)'\r
+                }, {\r
+                    \"value\": node.rawNode.nbCatC,\r
+                    \"name\": 'C',\r
+                    unit: 'agent(s)'\r
+                }];\r
+            }\r
+            return output;\r
+        } ; return doit() ;"
+            }, {
+                "name": "codeFinance",
+                "array index": 14,
+                "label": "Financial code",
+                "edit": false
+            }, {
+                "name": "nodeZik",
+                "array index": 15,
+                "value": "music/ultranova105_shard.mp3",
+                "type": "music",
+                "ifCenter": "true",
+                "editable": true
+            }]
+        }, {
+            "name": "unité",
+            "children": [{
+                "name": "Libell__DGA",
+                "array index": 0,
+                "label": "Department"
+            }, {
+                "name": "Libell__Direction",
+                "array index": 1,
+                "label": "Business unit"
+            }, {
+                "name": "Libell__Service",
+                "array index": 2,
+                "label": "Service"
+            }, {
+                "name": "Libell__Unit_",
+                "array index": 3,
+                "label": "Project"
+            }, {
+                "name": "nbEquipes",
+                "array index": 4,
+                "label": "Number of teams",
+                "edit": false
+            }, {
+                "name": "nbAgents",
+                "array index": 5,
+                "label": "Number of people",
+                "edit": false
+            }, {
+                "name": "nbAgParEquipe",
+                "array index": 6,
+                "label": "People per Team",
+                "edit": false
+            }, {
+                "name": "nbAgParEquipePie",
+                "array index": 7,
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var doit = function (level) {\r
+            //var delay = dm_Tools.getDelay() ; if(delay > 20) console.log('nbAgParXPie '+delay) ;\r
+            //return \"var output, elt, doIt = function(node) { if(!output) { output = [] ; } elt = {} ; output.push(elt) ; elt.value = node.rawNode.nbAgents ; elt.name = node.name ; elt.unit = 'agent(s)' ; }, dive = function(node) { if(node) { if(node.level == \" + level + \") { doIt(node) ; } else if((node.level == \" + (level-1) + \") && (node.children)) { node.children.forEach(function(child) { if(child.level == \" + level + \") { doIt(child) ; } }) ; } else if((node.level < \" + (level-1) + \") && (node.children)) { node.children.forEach(function(child) { dive(child) ; }) ; } } } ; dive(node) ; return output ;\" ;\r
+            var output, elt;\r
+            var doIt = function(node) {\r
+                if (!output) {\r
+                    output = [];\r
+                }\r
+                elt = {};\r
+                output.push(elt);\r
+                elt.value = node.rawNode.nbAgents;\r
+                elt.name = node.name;\r
+                elt.unit = 'agent(s)';\r
+            };\r
+            var dive = function(node) {\r
+                if (node) {\r
+                    if (node.level == level) {\r
+                        doIt(node);\r
+                    } else if ((node.level == (level - 1)) && (node.children)) {\r
+                        node.children.forEach(function(child) {\r
+                            if (child.level == level) {\r
+                                doIt(child);\r
+                            }\r
+                        });\r
+                    } else if ((node.level < (level - 1)) && (node.children)) {\r
+                        node.children.forEach(function(child) {\r
+                            dive(child);\r
+                        });\r
+                    }\r
+                }\r
+            };\r
+            dive(node);\r
+            return output;\r
+        } ; return doit(7) ;"
+            }, {
+                "name": "nbCatA",
+                "array index": 8,
+                "label": "Category A",
+                "edit": false
+            }, {
+                "name": "nbCatB",
+                "array index": 9,
+                "label": "Category B",
+                "edit": false
+            }, {
+                "name": "nbCatC",
+                "array index": 10,
+                "label": "Category C",
+                "edit": false
+            }, {
+                "name": "nbAgParCatPie",
+                "array index": 11,
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var doit = function () {\r
+            //var delay = dm_Tools.getDelay() ; if(delay > 20) console.log('nbAgParCatPie '+delay) ;\r
+            //return \"var output ; if(node && node.children) { output = [ {\"value\": node.rawNode.nbCatA, \"name\": 'A', unit: 'agent(s)'}, {\"value\": node.rawNode.nbCatB, \"name\": 'B', unit: 'agent(s)'}, {\"value\": node.rawNode.nbCatC, \"name\": 'C', unit: 'agent(s)'} ] ; } return output ;\" ;\r
+            var output;\r
+            if (node && node.children) {\r
+                output = [{\r
+                    \"value\": node.rawNode.nbCatA,\r
+                    \"name\": 'A',\r
+                    unit: 'agent(s)'\r
+                }, {\r
+                    \"value\": node.rawNode.nbCatB,\r
+                    \"name\": 'B',\r
+                    unit: 'agent(s)'\r
+                }, {\r
+                    \"value\": node.rawNode.nbCatC,\r
+                    \"name\": 'C',\r
+                    unit: 'agent(s)'\r
+                }];\r
+            }\r
+            return output;\r
+        } ; return doit() ;"
+            }, {
+                "name": "codeFinance",
+                "array index": 12,
+                "label": "Financial code",
+                "edit": false
+            }, {
+                "name": "nodeZik",
+                "array index": 13,
+                "value": "music/ultranova105_shard.mp3",
+                "type": "music",
+                "ifCenter": "true",
+                "editable": true
+            }]
+        }, {
+            "name": "Equipe",
+            "children": [{
+                "name": "Libell__DGA",
+                "array index": 0,
+                "label": "Department"
+            }, {
+                "name": "Libell__Direction",
+                "array index": 1,
+                "label": "Business unit"
+            }, {
+                "name": "Libell__Service",
+                "array index": 2,
+                "label": "Service"
+            }, {
+                "name": "Libell__Unit_",
+                "array index": 3,
+                "label": "Project"
+            }, {
+                "name": "Libell__Equipe",
+                "array index": 4,
+                "label": "Team"
+            }, {
+                "name": "nbAgents",
+                "array index": 5,
+                "label": "Number of people",
+                "edit": false
+            }, {
+                "name": "nbCatA",
+                "array index": 6,
+                "label": "Category A",
+                "edit": false
+            }, {
+                "name": "nbCatB",
+                "array index": 7,
+                "label": "Category B",
+                "edit": false
+            }, {
+                "name": "nbCatC",
+                "array index": 8,
+                "label": "Category C",
+                "edit": false
+            }, {
+                "name": "nbAgParCatPie",
+                "array index": 9,
+                "graph": "pie",
+                "type": "graph",
+                "doTransition": true,
+                "input": "var doit = function () {\r
+            //var delay = dm_Tools.getDelay() ; if(delay > 20) console.log('nbAgParCatPie '+delay) ;\r
+            //return \"var output ; if(node && node.children) { output = [ {\"value\": node.rawNode.nbCatA, \"name\": 'A', unit: 'agent(s)'}, {\"value\": node.rawNode.nbCatB, \"name\": 'B', unit: 'agent(s)'}, {\"value\": node.rawNode.nbCatC, \"name\": 'C', unit: 'agent(s)'} ] ; } return output ;\" ;\r
+            var output;\r
+            if (node && node.children) {\r
+                output = [{\r
+                    \"value\": node.rawNode.nbCatA,\r
+                    \"name\": 'A',\r
+                    unit: 'agent(s)'\r
+                }, {\r
+                    \"value\": node.rawNode.nbCatB,\r
+                    \"name\": 'B',\r
+                    unit: 'agent(s)'\r
+                }, {\r
+                    \"value\": node.rawNode.nbCatC,\r
+                    \"name\": 'C',\r
+                    unit: 'agent(s)'\r
+                }];\r
+            }\r
+            return output;\r
+        } ; return doit() ;"
+            }, {
+                "name": "codeFinance",
+                "array index": 10,
+                "label": "Financial code",
+                "edit": false
+            }, {
+                "name": "nodeZik",
+                "array index": 11,
+                "value": "music/ultranova105_shard.mp3",
+                "type": "music",
+                "ifCenter": "true",
+                "editable": true
+            }]
+        }, {
+            "name": "Agent",
+            "children": [{
+                "name": "Nom",
+                "array index": 0,
+                "label": "LastName"
+            }, {
+                "name": "Pr_nom",
+                "array index": 1,
+                "label": "FirstName"
+            }, {
+                "name": "Libell__Ville_ou_CASA",
+                "array index": 2,
+                "label": "Site"
+            }, {
+                "name": "Libell__DGA",
+                "array index": 3,
+                "label": "Department"
+            }, {
+                "name": "Libell__Direction",
+                "array index": 4,
+                "label": "Business unit"
+            }, {
+                "name": "Libell__Service",
+                "array index": 5,
+                "label": "Service"
+            }, {
+                "name": "Libell__Unit_",
+                "array index": 6,
+                "label": "Project"
+            }, {
+                "name": "Libell__Equipe",
+                "array index": 7,
+                "label": "Team"
+            }, {
+                "name": "D_nomination_du_poste",
+                "array index": 8,
+                "label": "Mission code"
+            }, {
+                "name": "Code_cat_gorie",
+                "array index": 9,
+                "label": "Category"
+            }, {
+                "name": "Libelle_fonction",
+                "array index": 10,
+                "label": "Position"
+            }, {
+                "name": "Libell__long_grade",
+                "array index": 11,
+                "label": "Rank"
+            }, {
+                "name": "T_l_phone",
+                "array index": 12,
+                "label": "Phone"
+            }, {
+                "name": "Mobile",
+                "array index": 13,
+                "label": "Mobile phone"
+            }, {
+                "name": "Mail",
+                "array index": 14,
+                "label": "Mail"
+            }, {
+                "name": "Login",
+                "array index": 15,
+                "label": "Login"
+            }, {
+                "name": "Sexe",
+                "array index": 16,
+                "label": "Sexe"
+            }, {
+                "name": "Matricule",
+                "array index": 17,
+                "label": "Identifier"
+            }]
+        }],
+        "setColumns2node": [{
+            "array index": 0
+        }, {
+            "array index": 1,
+            "children": [{
+                "name": 2,
+                "array index": 0
+            }, {
+                "name": 3,
+                "array index": 1
+            }]
+        }, {
+            "array index": 2,
+            "children": [{
+                "name": 2,
+                "array index": 0
+            }, {
+                "name": 3,
+                "array index": 1
+            }, {
+                "name": 4,
+                "array index": 2
+            }, {
+                "name": 5,
+                "array index": 3
+            }]
+        }, {
+            "array index": 3,
+            "children": [{
+                "name": 2,
+                "array index": 0
+            }, {
+                "name": 3,
+                "array index": 1
+            }, {
+                "name": 4,
+                "array index": 2
+            }, {
+                "name": 5,
+                "array index": 3
+            }, {
+                "name": 6,
+                "array index": 4
+            }, {
+                "name": 7,
+                "array index": 5
+            }]
+        }, {
+            "array index": 4,
+            "children": [{
+                "name": 2,
+                "array index": 0
+            }, {
+                "name": 3,
+                "array index": 1
+            }, {
+                "name": 4,
+                "array index": 2
+            }, {
+                "name": 5,
+                "array index": 3
+            }, {
+                "name": 6,
+                "array index": 4
+            }, {
+                "name": 7,
+                "array index": 5
+            }, {
+                "name": 8,
+                "array index": 6
+            }, {
+                "name": 9,
+                "array index": 7
+            }]
+        }, {
+            "array index": 5,
+            "children": [{
+                "name": 2,
+                "array index": 0
+            }, {
+                "name": 3,
+                "array index": 1
+            }, {
+                "name": 4,
+                "array index": 2
+            }, {
+                "name": 5,
+                "array index": 3
+            }, {
+                "name": 6,
+                "array index": 4
+            }, {
+                "name": 7,
+                "array index": 5
+            }, {
+                "name": 8,
+                "array index": 6
+            }, {
+                "name": 9,
+                "array index": 7
+            }, {
+                "name": 10,
+                "array index": 8
+            }, {
+                "name": 11,
+                "array index": 9
+            }]
+        }, {
+            "array index": 6,
+            "children": [{
+                "name": 2,
+                "array index": 0
+            }, {
+                "name": 3,
+                "array index": 1
+            }, {
+                "name": 4,
+                "array index": 2
+            }, {
+                "name": 5,
+                "array index": 3
+            }, {
+                "name": 6,
+                "array index": 4
+            }, {
+                "name": 7,
+                "array index": 5
+            }, {
+                "name": 8,
+                "array index": 6
+            }, {
+                "name": 9,
+                "array index": 7
+            }, {
+                "name": 10,
+                "array index": 8
+            }, {
+                "name": 11,
+                "array index": 9
+            }, {
+                "name": 12,
+                "array index": 10
+            }, {
+                "name": 13,
+                "array index": 11
+            }]
+        }, {
+            "array index": 7,
+            "children": [{
+                "name": 2,
+                "array index": 0
+            }, {
+                "name": 3,
+                "array index": 1
+            }, {
+                "name": 4,
+                "array index": 2
+            }, {
+                "name": 5,
+                "array index": 3
+            }, {
+                "name": 6,
+                "array index": 4
+            }, {
+                "name": 7,
+                "array index": 5
+            }, {
+                "name": 8,
+                "array index": 6
+            }, {
+                "name": 9,
+                "array index": 7
+            }, {
+                "name": 10,
+                "array index": 8
+            }, {
+                "name": 11,
+                "array index": 9
+            }, {
+                "name": 12,
+                "array index": 10
+            }, {
+                "name": 13,
+                "array index": 11
+            }, {
+                "name": 14,
+                "array index": 12
+            }, {
+                "name": 15,
+                "array index": 13
+            }]
+        }],
+        "styles": [{
+            "name": "racine",
+            "array index": 0,
+            "level": 0,
+            "arrow": true,
+            "arc": false,
+            "rNod": 10,
+            "link": 150,
+            "color": "#9467bd",
+            "attrPaneCol": "#c5b0d5",
+            "backgroundImage": "freeDatamap-www/ressources-humaines.jpg",
+            "backgroundImage.dm_props": {
+                "name": "backgroundImage",
+                "label": "backgroundImage",
+                "visible": true,
+                "type": "image",
+                "imageName": "freeDatamap-www/ressources-humaines.jpg",
+                "width": 452,
+                "height": 401,
+                "panelMaxHeight": 401,
+                "scaleFactor": 1,
+                "dontExport": true,
+                "order": 11
+            }
+        }, {
+            "name": "Entité",
+            "array index": 1,
+            "level": 1,
+            "arrow": true,
+            "arc": false,
+            "rNod": 10,
+            "link": 120,
+            "icon": "freeDatamap-www/org.png",
+            "icon.dm_props": {
+                "width": 300,
+                "height": 300,
+                "scaleFactor": 4.5,
+                "panelMaxHeight": 180,
+                "visible": true,
+                "type": "image",
+                "name": "icon",
+                "imageName": "freeDatamap-www/org.png",
+                "tintedSrc": "data:image/png;base64,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",
+                "editable": false,
+                "edit": false
+            },
+            "color": "#9467bd",
+            "attrPaneCol": "#c5b0d5",
+            "backgroundImage": "freeDatamap-www/ressources-humaines.jpg",
+            "backgroundImage.dm_props": {
+                "visible": true,
+                "order": 11,
+                "type": "image",
+                "name": "backgroundImage",
+                "dontExport": true,
+                "imageName": "freeDatamap-www/ressources-humaines.jpg"
+            }
+        }, {
+            "name": "DG",
+            "array index": 2,
+            "level": 2,
+            "arrow": true,
+            "arc": false,
+            "rNod": 10,
+            "link": 120,
+            "color": "#ff7f0e",
+            "attrPaneCol": "#ffbb78",
+            "backgroundImage": "freeDatamap-www/ressources-humaines.jpg",
+            "backgroundImage.dm_props": {
+                "visible": true,
+                "order": 11,
+                "type": "image",
+                "name": "backgroundImage",
+                "dontExport": true,
+                "imageName": "freeDatamap-www/ressources-humaines.jpg"
+            }
+        }, {
+            "name": "DGA",
+            "array index": 3,
+            "level": 3,
+            "arrow": true,
+            "arc": false,
+            "rNod": 10,
+            "icon": "freeDatamap-www/TeamIcon.png",
+            "icon.dm_props": {
+                "width": 500,
+                "height": 280,
+                "scaleFactor": 4.5,
+                "panelMaxHeight": 180,
+                "visible": true,
+                "type": "image",
+                "name": "icon",
+                "imageName": "freeDatamap-www/TeamIcon.png",
+                "tintedSrc": "data:image/png;base64,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",
+                "editable": false,
+                "edit": false
+            },
+            "link": 120,
+            "color": "#ff7f0e",
+            "attrPaneCol": "#ffbb78",
+            "backgroundImage": "freeDatamap-www/ressources-humaines.jpg",
+            "backgroundImage.dm_props": {
+                "visible": true,
+                "order": 11,
+                "type": "image",
+                "name": "backgroundImage",
+                "dontExport": true,
+                "imageName": "freeDatamap-www/ressources-humaines.jpg"
+            }
+        }, {
+            "name": "Direction",
+            "array index": 4,
+            "level": 4,
+            "arrow": true,
+            "arc": false,
+            "rNod": 8,
+            "link": 120,
+            "color": "#d62728",
+            "attrPaneCol": "#ff9896",
+            "backgroundImage": "freeDatamap-www/ressources-humaines.jpg",
+            "backgroundImage.dm_props": {
+                "visible": true,
+                "order": 11,
+                "type": "image",
+                "name": "backgroundImage",
+                "dontExport": true,
+                "imageName": "freeDatamap-www/ressources-humaines.jpg"
+            }
+        }, {
+            "name": "Service",
+            "array index": 5,
+            "level": 5,
+            "arrow": true,
+            "arc": false,
+            "rNod": 6,
+            "link": 120,
+            "color": "#2ca02c",
+            "attrPaneCol": "#98df8a",
+            "backgroundImage": "freeDatamap-www/ressources-humaines.jpg",
+            "backgroundImage.dm_props": {
+                "visible": true,
+                "order": 11,
+                "type": "image",
+                "name": "backgroundImage",
+                "dontExport": true,
+                "imageName": "freeDatamap-www/ressources-humaines.jpg"
+            }
+        }, {
+            "name": "Unité",
+            "array index": 6,
+            "level": 6,
+            "arrow": true,
+            "arc": false,
+            "rNod": 5,
+            "link": 120,
+            "color": "#1f77b4",
+            "attrPaneCol": "#aec7e8",
+            "backgroundImage": "freeDatamap-www/ressources-humaines.jpg",
+            "backgroundImage.dm_props": {
+                "visible": true,
+                "order": 11,
+                "type": "image",
+                "name": "backgroundImage",
+                "dontExport": true,
+                "imageName": "freeDatamap-www/ressources-humaines.jpg"
+            }
+        }, {
+            "name": "Equipe",
+            "array index": 7,
+            "level": 7,
+            "arrow": true,
+            "arc": false,
+            "rNod": 4,
+            "link": 120,
+            "color": "#9467bd",
+            "attrPaneCol": "#c5b0d5",
+            "backgroundImage": "freeDatamap-www/ressources-humaines.jpg",
+            "backgroundImage.dm_props": {
+                "visible": true,
+                "order": 11,
+                "type": "image",
+                "name": "backgroundImage",
+                "dontExport": true,
+                "imageName": "freeDatamap-www/ressources-humaines.jpg"
+            }
+        }, {
+            "name": "Agent",
+            "array index": 8,
+            "level": 8,
+            "arrow": false,
+            "arc": true,
+            "rNod": 3,
+            "link": 60,
+            "icon": "freeDatamap-www/account.png",
+            "icon.dm_props": {
+                "width": 512,
+                "height": 512,
+                "scaleFactor": 10,
+                "panelMaxHeight": 180,
+                "visible": true,
+                "type": "image",
+                "name": "icon",
+                "imageName": "freeDatamap-www/account.png",
+                "tintedSrc": "data:image/png;base64,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",
+                "editable": false,
+                "edit": false
+            },
+            "color": "#c7c7c7",
+            "attrPaneCol": "#c7c7c7",
+            "txtCol": "#7f7f7f",
+            "backgroundImage": "freeDatamap-www/ressources-humaines.jpg",
+            "backgroundImage.dm_props": {
+                "visible": true,
+                "order": 11,
+                "type": "image",
+                "name": "backgroundImage",
+                "dontExport": true,
+                "imageName": "freeDatamap-www/ressources-humaines.jpg"
+            }
+        }]
+    }
+}
